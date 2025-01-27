@@ -1,0 +1,26 @@
+.button {
+	padding: 9px 60px;
+	border-radius: 28px;
+	font-family: var(--second-family);
+	color: rgb(246, 248, 249);
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
+
+	&.solid {
+		background: linear-gradient(
+			179.08deg,
+			rgb(0, 131, 121) 10.265%,
+			rgb(154, 242, 236) 130.731%
+		);
+	}
+
+	&.outline {
+		border: 1px solid var(--white);
+	}
+}

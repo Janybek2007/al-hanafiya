@@ -1,0 +1,78 @@
+.hero {
+	height: 830px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	&::before {
+		content: '';
+		background: linear-gradient(
+			74.85deg,
+			rgba(24, 14, 1, 0.8) 24.616%,
+			rgba(26, 13, 3, 0.64) 54.002%,
+			rgba(27, 19, 12, 0.45) 60.587%,
+			rgba(27, 19, 13, 0.24) 84.521%,
+			rgba(48, 32, 20, 0.08) 111.625%
+		);
+		position: absolute;
+		width: 1284px;
+		height: 100%;
+		z-index: 10;
+	}
+	.container {
+		position: relative;
+		z-index: 20;
+		padding-top: 135px;
+		* {
+			color: var(--white);
+			text-align: left;
+		}
+		h3,
+		h2 {
+			font-family: var(--second-family);
+		}
+		p {
+			font-family: var(--font5);
+		}
+
+		.content {
+			width: max-content;
+			.title {
+				font-size: 40px;
+				font-weight: 700;
+				line-height: 59px;
+			}
+			.name {
+				font-size: 96px;
+				font-weight: 700;
+				line-height: 142px;
+			}
+			.description {
+				display: flex;
+				align-items: center;
+				hr {
+					width: 4px;
+					height: 84px;
+					margin-right: 8px;
+					background: linear-gradient(
+						180deg,
+						rgb(0, 131, 121) -8.163%,
+						rgb(143, 205, 204) 178.571%
+					);
+				}
+				p {
+					max-width: 841px;
+					font-size: 24px;
+					font-weight: 500;
+					line-height: 29px;
+				}
+			}
+			.actions {
+				padding-left: 27px;
+				display: flex;
+				align-items: center;
+				gap: 88px;
+				margin-top: 95px;
+			}
+		}
+	}
+}
