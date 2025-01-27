@@ -13,7 +13,12 @@
 	box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
 
 	&.solid {
-		background: var(--bg-linear-gradient);
+		&.linearGradient_v1 {
+			background: var(--bg-linear-gradient);
+		}
+		&.linearGradient_v2 {
+			background: linear-gradient(179.08deg, #008277 14.619%, #1e4e4e 144.888%);
+		}
 	}
 
 	&.outline {

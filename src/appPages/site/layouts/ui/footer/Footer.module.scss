@@ -1,0 +1,13 @@
+.footer {
+	background: linear-gradient(
+		179.08deg,
+		rgb(0, 131, 121) 10.864%,
+		rgb(30, 78, 78) 150.441%
+	);
+	.container {
+		padding-top: 92px;
+		* {
+			color: var(--white);
+		}
+	}
+}

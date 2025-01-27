@@ -49,7 +49,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 								src='/icon/location-outline.svg'
 								alt=''
 							/>
-							<div>
+							<div className={styles.col}>
 								<span>{location.name}</span>
 								<span>{location.address}</span>
 							</div>

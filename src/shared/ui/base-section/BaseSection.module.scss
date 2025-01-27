@@ -1,6 +1,10 @@
 .base_section {
-	padding: 100px 0;
+	margin-bottom: 100px;
 	.container {
+		button {
+			margin: 0 auto;
+			width: max-content;
+		}
 		.title {
 			background: var(--text-linear-gradient);
 			-webkit-background-clip: text;
@@ -16,7 +20,7 @@
 			width: max-content;
 		}
 		.content {
-			margin-top: 27px;
+			margin-top: 57px;
 			margin-bottom: 66px;
 		}
 	}
