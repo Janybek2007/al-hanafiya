@@ -1,0 +1,51 @@
+.meeting_card {
+	border-radius: 12px;
+
+	box-shadow: 0px 50px 60px 0px rgba(12, 25, 39, 0.1),
+		0px 16px 20px 0px rgba(12, 25, 39, 0.06),
+		0px 6px 8px 0px rgba(12, 25, 39, 0.05);
+	background: var(--white);
+	border: 1px solid var(--accent);
+	padding: 9px;
+	.card_content {
+		margin-top: 14px;
+		padding: 0 14px;
+		p {
+			color: rgb(37, 44, 50);
+			font-size: 20px;
+			font-weight: 600;
+			line-height: 26px;
+		}
+		.forWomenOnly {
+			display: inline-flex;
+			align-items: center;
+			gap: 5px;
+			span {
+				font-size: 14px;
+				font-weight: 600;
+				line-height: 32px;
+				color: var(--error);
+			}
+		}
+		ul {
+			margin-top: 12px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			li {
+				display: flex;
+				align-items: center;
+				gap: 7px;
+				div {
+					display: flex;
+					flex-direction: column;
+				}
+				span {
+					color: rgb(37, 44, 50);
+					font-size: 14px;
+					font-weight: 400;
+				}
+			}
+		}
+	}
+}
