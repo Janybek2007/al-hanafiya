@@ -13,11 +13,7 @@
 	box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
 
 	&.solid {
-		background: linear-gradient(
-			179.08deg,
-			rgb(0, 131, 121) 10.265%,
-			rgb(154, 242, 236) 130.731%
-		);
+		background: var(--bg-linear-gradient);
 	}
 
 	&.outline {
