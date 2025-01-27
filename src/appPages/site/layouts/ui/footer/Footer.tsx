@@ -1,10 +1,14 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import clsx from 'clsx';
+import { FooterStart } from './ui/footer-start/FooterStart';
+import { FooterEnd } from './ui/footer-end/FooterEnd';
 export const Footer: React.FC = () => {
 	return (
 		<footer className={styles.footer}>
-			<div className={clsx('container', styles.container)}>Footer</div>
+			<div className={styles.container}>
+				<FooterStart />
+				<FooterEnd />
+			</div>
 		</footer>
 	);
 };
