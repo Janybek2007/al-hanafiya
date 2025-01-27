@@ -1,0 +1,16 @@
+.header_nav {
+	display: flex;
+	align-items: center;
+	gap: 66px;
+	.link {
+		padding: 12px 8px;
+		font-family: var(--second-family);
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 100%;
+		letter-spacing: 0%;
+		&.active {
+			text-decoration: underline;
+		}
+	}
+}
