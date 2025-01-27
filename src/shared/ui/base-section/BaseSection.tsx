@@ -11,10 +11,10 @@ const BaseSection: React.FC<BaseSectionProps> = ({
 	className
 }) => {
 	return (
-		<section className={clsx(styles.base_section, className)}>
+		<section className={styles.base_section}>
 			<div className={clsx('container', styles.container)}>
 				<h2 className={styles.title}>{title}</h2>
-				<div className={styles['content']}>{children}</div>
+				<div className={clsx(styles['content'], className)}>{children}</div>
 				{button &&
 					(typeof button == 'string' ? (
 						<Button variant='solid'>{button}</Button>

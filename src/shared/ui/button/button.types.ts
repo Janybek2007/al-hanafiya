@@ -3,4 +3,5 @@ export interface ButtonProps extends React.PropsWithChildren {
 	className?: string;
 	disabled?: boolean;
 	onClick?(e: React.MouseEvent): void;
+	linearGradient?: 'v1' | 'v2';
 }

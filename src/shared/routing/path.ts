@@ -5,7 +5,9 @@ export const paths = {
 	about_the_teacher: '/about',
 	lessons: '/lessons',
 	['q&a']: '/q&a',
-	articles: '/articles'
+	articles: '/articles',
+	contacts: '/contacts',
+	meetings: '/meetings'
 
 	// !Example
 	//   catalog: (params: {}): string => {
@@ -17,4 +19,4 @@ export const paths = {
 
 	// !Example
 	//   to: (id: Id): string => `/film/${id}`,
-}
+};

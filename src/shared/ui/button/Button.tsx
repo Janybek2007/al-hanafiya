@@ -6,11 +6,17 @@ const Button: React.FC<ButtonProps> = ({
 	children,
 	variant = 'solid',
 	className,
+	linearGradient = 'v1',
 	...props
 }) => {
 	return (
 		<button
-			className={clsx(styles.button, styles[variant], className)}
+			className={clsx(
+				styles.button,
+				styles[variant],
+				styles[`linearGradient_${linearGradient}`],
+				className
+			)}
 			{...props}
 		>
 			{children}
