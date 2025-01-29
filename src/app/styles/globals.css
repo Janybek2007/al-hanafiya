@@ -6,132 +6,143 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 * {
-	margin: 0;
-	padding: 0;
-	margin-block: 0;
-	margin-inline: 0;
-	box-sizing: border-box;
-}
-
-
-:root {
-	--font-family: 'Poppins', sans-serif;
-	--second-family: 'Oswald', sans-serif;
-	--third-family: 'Roboto', sans-serif;
-	--font3: 'Lato', sans-serif;
-	--font4: 'Inter', sans-serif;
-	--font5: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  box-sizing: border-box;
 }
 
 :root {
-	--text-linear-gradient: linear-gradient(179.08deg,
-			rgb(0, 131, 121),
-			rgb(30, 78, 78));
-	--bg-linear-gradient: linear-gradient(179.08deg,
-			rgb(0, 131, 121) 10.265%,
-			rgb(154, 242, 236) 130.731%);
+  --font-family: "Poppins", sans-serif;
+  --second-family: "Oswald", sans-serif;
+  --third-family: "Roboto", sans-serif;
+  --font3: "Lato", sans-serif;
+  --font4: "Inter", sans-serif;
+  --font5: "Montserrat", sans-serif;
+}
 
+:root {
+  --text-linear-gradient: linear-gradient(
+    179.08deg,
+    rgb(0, 131, 121),
+    rgb(30, 78, 78)
+  );
+  --bg-linear-gradient: linear-gradient(
+    179.08deg,
+    rgb(0, 131, 121) 10.265%,
+    rgb(154, 242, 236) 130.731%
+  );
 
-	--error: #E84F6D;
-	--h1: #4e4e4e;
-	--white: #fff;
+  --error: #e84f6d;
+  --h1: #4e4e4e;
+  --white: #fff;
 
-	--text: #252c32;
-	--bg: #eaeff5;
+  --text: #252c32;
+  --bg: #eaeff5;
 
-	--accent: #0b534e;
+  --accent: #0b534e;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 figure {
-	display: flex;
+  display: flex;
 }
 
 ul {
-	list-style-type: none;
+  list-style-type: none;
 }
 
 button {
-	background: transparent;
-	cursor: pointer;
-	border: 0;
-	outline: 0;
+  background: transparent;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
 }
 
 label {
-	border: 0;
-	outline: 0;
-	background: transparent;
+  border: 0;
+  outline: 0;
+  background: transparent;
 }
 
-input:not([type='button']),
+input:not([type="button"]),
 textarea,
 select {
-	outline: 0;
-	border: 0;
-	background: transparent;
+  outline: 0;
+  border: 0;
+  background: transparent;
 }
 
 svg {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 hr {
-	border: 0;
+  border: 0;
 }
 
 body {
-	color: rgb(var(--text));
-	background-color: rgb(var(--ui-bg));
-	font-family: var(--font-family);
-	height: 100dvh;
+  color: rgb(var(--text));
+  background-color: rgb(var(--ui-bg));
+  font-family: var(--font-family);
+  height: 100dvh;
 }
 
 ::-webkit-scrollbar {
-	width: 8px;
-	background: transparent;
-	border-radius: 10px;
+  width: 8px;
+  background: transparent;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-color: var(--accent);
+  border-radius: 10px;
+  background-color: var(--accent);
 }
 
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: rgb(var(--text));
-	transition: background-color 5000s ease-in-out 0s;
-	box-shadow: inset 0 0 20px 20px transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgb(var(--text));
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px transparent;
 }
 
 .container {
-	max-width: 1682px;
-	margin: 0 auto;
-}
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: 1400px;
 
+  @media (max-width: 1400px) {
+    max-width: 1200px;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 992px;
+  }
+}
 .main-page_bg {
-	background-image: url('/images/mani-bg.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	padding: 100px 0;
+  background-image: url("/images/mani-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 0;
 }
 
 .flexCenter {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
