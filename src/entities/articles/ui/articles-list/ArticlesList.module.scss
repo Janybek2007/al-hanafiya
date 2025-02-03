@@ -1,5 +1,6 @@
 .articles_list {
-	gap: 31px;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	gap: 21px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
