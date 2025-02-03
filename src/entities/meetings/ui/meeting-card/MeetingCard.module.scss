@@ -1,5 +1,6 @@
 .meeting_card {
 	border-radius: 12px;
+	width: 100%;
 
 	box-shadow: 0px 50px 60px 0px rgba(12, 25, 39, 0.1),
 		0px 16px 20px 0px rgba(12, 25, 39, 0.06),
@@ -7,6 +8,9 @@
 	background: var(--white);
 	border: 1px solid var(--accent);
 	padding: 9px;
+	figure img {
+		width: 100%;
+	}
 	.card_content {
 		margin-top: 14px;
 		padding: 0 14px;
@@ -24,7 +28,6 @@
 				font-size: 14px;
 				font-weight: 600;
 				line-height: 32px;
-				color: var(--error);
 			}
 		}
 		ul {

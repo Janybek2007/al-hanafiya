@@ -1,12 +1,12 @@
 .lessons_content {
 	display: flex;
 	align-items: center;
-	gap: 27px;
+	gap: 12px;
 	.next_lessons {
-		gap: 6px;
+		gap: 12px;
 		display: grid;
 		grid-template-columns: repeat(1, 1fr);
-		min-width: 722px;
+		min-width: 602px;
 		height: max-content;
 	}
 	.lesson {
@@ -26,10 +26,10 @@
 			0px 6px 8px 0px rgba(12, 25, 39, 0.05);
 		position: relative;
 		&.current_lesson {
-			height: 585px;
+			height: 505px;
 		}
 		&:not(.current_lesson) {
-			height: 288px;
+			height: 245px;
 		}
 		.breadcrumb {
 			border-radius: 12px;
@@ -46,16 +46,16 @@
 
 	.pagination {
 		position: absolute;
-		display: flex;
+		display: inline-flex;
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
 		top: calc(50% - 30px);
+		padding: 0 14px;
 		button {
 			border: 1px solid rgb(255, 255, 255);
 			border-radius: 100%;
 			padding: 10px;
-			width: min-content;
 		}
 	}
 	.lesson {
@@ -80,7 +80,7 @@
 		.content {
 			background: rgba(0, 0, 0, 0.6);
 			width: 100%;
-			padding: 10px 90px 8px 90px;
+			padding: 10px 60px 8px 60px;
 			position: relative;
 			* {
 				color: var(--white);
@@ -88,7 +88,7 @@
 			.audio_btn,
 			.video_btn {
 				position: absolute;
-				right: 82px;
+				right: 72px;
 				top: -14.71px;
 				display: flex;
 				align-items: center;
@@ -115,6 +115,7 @@
 					}
 				}
 			}
+
 			.content_title {
 				font-family: var(--second-family);
 				font-size: 32px;
@@ -122,6 +123,7 @@
 				margin-bottom: 9px;
 				line-height: 1;
 			}
+
 			.row_parent {
 				display: flex;
 				align-items: center;
