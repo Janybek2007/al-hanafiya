@@ -8,7 +8,9 @@ export const FooterStart: React.FC = () => {
 	return (
 		<div className={styles.footer_start}>
 			<nav className={styles.nav}>
-				<Link href={paths.about_the_teacher}>Устаз жөнүндө</Link>
+				<Link href={paths.teacherProfile('kalyc-zamanbekov')}>
+					Устаз жөнүндө
+				</Link>
 				<Link href={paths.lessons}>Сабактар</Link>
 				<Link href={paths.meetings}>Жолугушуулар</Link>
 				<Link href={paths.articles}>Статья</Link>
@@ -17,16 +19,36 @@ export const FooterStart: React.FC = () => {
 			<hr className={styles.divider} />
 			<div className={styles['social_links']}>
 				<a href='#'>
-					<Image width={20} height={19} src='/icon/social_links/facebooks.svg' alt='Facebook Icon' />
+					<Image
+						width={20}
+						height={19}
+						src='/icon/social_links/facebooks.svg'
+						alt='Facebook Icon'
+					/>
 				</a>
 				<a href='#'>
-					<Image width={20} height={19} src='/icon/social_links/instagram.svg' alt='Instagram Icon' />
+					<Image
+						width={20}
+						height={19}
+						src='/icon/social_links/instagram.svg'
+						alt='Instagram Icon'
+					/>
 				</a>
 				<a href='#'>
-					<Image width={20} height={19} src='/icon/social_links/whatsapp.svg' alt='Whatsapp Icon' />
+					<Image
+						width={20}
+						height={19}
+						src='/icon/social_links/whatsapp.svg'
+						alt='Whatsapp Icon'
+					/>
 				</a>
 				<a href='#'>
-					<Image width={20} height={19} src='/icon/social_links/telegram.svg' alt='Telegram Icon' />
+					<Image
+						width={20}
+						height={19}
+						src='/icon/social_links/telegram.svg'
+						alt='Telegram Icon'
+					/>
 				</a>
 			</div>
 		</div>
