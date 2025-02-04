@@ -1,11 +1,16 @@
 .qa {
+	margin-bottom: 100px;
+	padding: 0 20px;
 	.container {
-		max-width: 1366px;
+		width: 100%;
 		border: 1px solid rgb(204, 204, 204);
 		border-radius: 28px;
 
 		background: rgb(252, 253, 253);
 		padding: 25px 96px 55px 96px;
+		@media (max-width: 1300px) {
+			padding: 25px 56px 55px 56px;
+		}
 		.title {
 			font-family: var(--second-family);
 			font-size: 48px;
