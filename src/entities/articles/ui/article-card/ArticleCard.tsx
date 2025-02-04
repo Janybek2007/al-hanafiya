@@ -14,7 +14,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 	return (
 		<div className={styles.article_card}>
 			<figure>
-				<Image width={516} height={310} src={image_src} alt='Article Image' />
+				<Image width={406} height={200} src={image_src} alt='Article Image' />
 			</figure>
 			<div className={styles['card_content']}>
 				<h3 className={styles.title}>{title}</h3>
