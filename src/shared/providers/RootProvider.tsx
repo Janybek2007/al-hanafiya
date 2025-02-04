@@ -8,8 +8,10 @@ export const RootProvider: React.FC<React.PropsWithChildren> = ({
 	children
 }) => {
 	return (
-		<Provider store={store}>
-			<SWProvider>{children}</SWProvider>
-		</Provider>
+		<div className='wrapper'>
+			<Provider store={store}>
+				<SWProvider>{children}</SWProvider>
+			</Provider>
+		</div>
 	);
 };

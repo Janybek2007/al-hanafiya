@@ -19,22 +19,26 @@ export const Lessons = () => {
 			>
 				<div className={clsx('flexCenter', styles['breadcrumb'])}>12+</div>
 				<div className={styles['pagination']}>
-					<button className='flexCenter'>
-						<Image
-							width={16}
-							height={16}
-							src='/icon/prev-pagination.svg'
-							alt='Prev-Pagination Icon'
-						/>
-					</button>
-					<button className='flexCenter'>
-						<Image
-							width={16}
-							height={16}
-							src='/icon/next-pagination.svg'
-							alt='Next-Pagination Icon'
-						/>
-					</button>
+					<div>
+						<button className='inlineFlexCenter'>
+							<Image
+								width={16}
+								height={16}
+								src='/icon/prev-pagination.svg'
+								alt='Prev-Pagination Icon'
+							/>
+						</button>
+					</div>
+					<div>
+						<button className='inlineFlexCenter'>
+							<Image
+								width={16}
+								height={16}
+								src='/icon/next-pagination.svg'
+								alt='Next-Pagination Icon'
+							/>
+						</button>
+					</div>
 				</div>
 				<div className={styles['content']}>
 					<button className={styles['audio_btn']}>

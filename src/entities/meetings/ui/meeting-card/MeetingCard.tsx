@@ -14,7 +14,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 	return (
 		<div className={styles.meeting_card}>
 			<figure>
-				<Image width={522} height={367} src={image_src} alt='Meeting Image' />
+				<Image width={402} height={247} src={image_src} alt='Meeting Image' />
 			</figure>
 			<div className={styles['card_content']}>
 				<p>{description}</p>
