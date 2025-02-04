@@ -3,6 +3,7 @@ import { BaseSectionProps } from './base-section.types';
 import clsx from 'clsx';
 import styles from './BaseSection.module.scss';
 import Button from '../button/Button';
+import SectionTitle from '../section-title/SectionTitle';
 
 const BaseSection: React.FC<BaseSectionProps> = ({
 	children,
@@ -13,7 +14,7 @@ const BaseSection: React.FC<BaseSectionProps> = ({
 	return (
 		<section className={styles.base_section}>
 			<div className={clsx('container', styles.container)}>
-				<h2 className={styles.title}>{title}</h2>
+				<SectionTitle title={title} type='flex' />
 				<div className={clsx(styles['content'], className)}>{children}</div>
 				{button &&
 					(typeof button == 'string' ? (

@@ -1,0 +1,40 @@
+.profile_section {
+	margin: 50px 0;
+	.container {
+		* {
+			font-family: var(--philosopher);
+		}
+		.title {
+			margin-bottom: 33px;
+			h1 {
+				font-size: 32px;
+			}
+		}
+
+		.content {
+			border-radius: 12px;
+			position: relative;
+			&::before {
+				border-radius: 12px;
+				content: '';
+				position: absolute;
+				inset: 0;
+				padding: 2px;
+				background: linear-gradient(179.08deg, var(--accent-gradient));
+				mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+				mask-composite: exclude;
+				-webkit-mask: linear-gradient(white 0 0) content-box,
+					linear-gradient(white 0 0);
+				-webkit-mask-composite: xor;
+			}
+			padding: 40px 48px 40px 41px;
+			&.f-true p {
+				text-indent: 0.5em;
+			}
+			p {
+				font-size: 24px;
+				line-height: 1.4;
+			}
+		}
+	}
+}
