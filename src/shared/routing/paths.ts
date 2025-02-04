@@ -2,7 +2,7 @@
 
 export const paths = {
 	home: '/',
-	about_the_teacher: '/about',
+	teacherProfile: (name: string) => `/profile/${name}`,
 	lessons: '/lessons',
 	['q&a']: '/q&a',
 	articles: '/articles',
