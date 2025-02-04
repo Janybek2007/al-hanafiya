@@ -1,6 +1,6 @@
 .base_section {
 	margin-bottom: 100px;
-	@media (max-width:1250px) {
+	@media (max-width: 1250px) {
 		margin-bottom: 70px;
 	}
 	.container {
@@ -9,7 +9,7 @@
 			width: max-content;
 		}
 		.title {
-			background: var(--text-linear-gradient);
+			background: linear-gradient(179.08deg, var(--accent-gradient));
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
 			background-clip: text;

@@ -1,0 +1,15 @@
+.title {
+	display: flex;
+	align-items: center;
+	width: max-content;
+	margin: 0 auto;
+	&.t-col {
+		flex-direction: column;
+	}
+
+	h1 {
+		color: var(--h1);
+		font-size: 48px;
+		line-height: 1;
+	}
+}
