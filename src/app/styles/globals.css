@@ -1,14 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-
-@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
-@import url(https://fonts.googleapis.com/css?family=Lato:100,100italic,300,300italic,regular,italic,700,700italic,900,900italic);
-
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Philosopher:regular,italic,700,700italic);
 
 * {
   margin: 0;
@@ -19,24 +9,18 @@
 }
 
 :root {
-  --font-family: "Poppins", sans-serif;
-  --second-family: "Oswald", sans-serif;
-  --third-family: "Roboto", sans-serif;
-  --font3: "Lato", sans-serif;
-  --font4: "Inter", sans-serif;
-  --font5: "Montserrat", sans-serif;
+  --philosopher: 'Philosopher', sans-serif;
 }
 
 :root {
-  --text-linear-gradient: linear-gradient(179.08deg,
-      rgb(0, 131, 121),
-      rgb(30, 78, 78));
+  --accent-gradient: rgb(0, 131, 121),
+    rgb(30, 78, 78);
   --bg-linear-gradient: linear-gradient(179.08deg,
       rgb(0, 131, 121) 10.265%,
       rgb(154, 242, 236) 130.731%);
 
   --error: #e84f6d;
-  --h1: #4e4e4e;
+  --h1: #252c32;
   --white: #fff;
 
   --text: #252c32;
@@ -90,7 +74,7 @@ hr {
 body {
   color: rgb(var(--text));
   background-color: rgb(var(--ui-bg));
-  font-family: var(--font-family);
+  font-family: var(--philosopher);
   height: 100dvh;
 }
 
@@ -119,7 +103,11 @@ input:-webkit-autofill:active {
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1508px;
+
+  &.nopadding {
+    padding: 0;
+  }
 
   @media (max-width: 1400px) {
     max-width: 1330px;
