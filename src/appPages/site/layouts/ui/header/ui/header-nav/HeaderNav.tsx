@@ -11,11 +11,14 @@ const HeaderNav: React.FC = () => {
 	return (
 		<nav className={styles.header_nav}>
 			{nav_items.map(nav => {
-				const isActive = pathname == nav.to;
+				const href =
+					typeof nav.to === 'function' ? nav.to('kalyc-zamanbekov') : nav.to;
+				const isActive = pathname === href;
+				console.log(typeof href);
 				return (
 					<Link
-						key={nav.to}
-						href={nav.to}
+						key={nav.label}
+						href={href}
 						className={clsx(styles.link, {
 							[styles.active]: isActive
 						})}
