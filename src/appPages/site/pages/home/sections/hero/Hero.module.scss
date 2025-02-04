@@ -27,6 +27,13 @@
 			color: var(--white);
 			text-align: left;
 		}
+		h3,
+		h2 {
+			font-family: var(--second-family);
+		}
+		p {
+			font-family: var(--font5);
+		}
 
 		.content {
 			width: max-content;
@@ -34,26 +41,42 @@
 				font-size: 40px;
 				font-weight: 700;
 				line-height: 59px;
-			}
-			.name {
-				font-size: 96px;
-				font-weight: 700;
-				line-height: 142px;
-			}
-			.description {
-				display: flex;
-				align-items: center;
-				hr {
-					width: 4px;
-					height: 84px;
-					margin-right: 8px;
-					background: var(--bg-linear-gradient);
+
+				@media (max-width: 1400px) {
+					font-size: 36px;
 				}
-				p {
-					max-width: 841px;
-					font-size: 24px;
-					font-weight: 500;
-					line-height: 29px;
+			}
+			.about_ustaz {
+				display: flex;
+				flex-direction: column;
+				.name {
+					font-size: 80px;
+					font-weight: 700;
+					line-height: 142px;
+
+					@media (max-width: 1200px) {
+						font-size: 80px;
+					}
+				}
+				.description {
+					display: flex;
+					align-items: center;
+					hr {
+						width: 4px;
+						height: 84px;
+						margin-right: 8px;
+						background: var(--bg-linear-gradient);
+					}
+					p {
+						max-width: 841px;
+						font-size: 24px;
+						font-weight: 500;
+						line-height: 29px;
+
+						@media (max-width: 1400px) {
+							font-size: 20px;
+						}
+					}
 				}
 			}
 			.actions {
