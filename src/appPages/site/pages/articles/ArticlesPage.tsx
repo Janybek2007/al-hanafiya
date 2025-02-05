@@ -1,5 +1,6 @@
 import Breadcrumb from "$/shared/ui/breadcrumb/Breadcrumb";
 import React from "react";
+import Filtiration from "./sections/filtration/Filtiration";
 
 const ArticlesPage: React.FC = () => {
   return (
@@ -11,6 +12,8 @@ const ArticlesPage: React.FC = () => {
             { label: "Макалалар", href: "#this" },
           ]}
         />
+
+        <Filtiration />
       </section>
     </main>
   );
