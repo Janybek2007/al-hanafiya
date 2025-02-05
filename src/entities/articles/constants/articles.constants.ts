@@ -1,4 +1,12 @@
-export const articles = [
+export const articles: {
+  id: string;
+  date: string;
+  title: string;
+  description: string;
+  views: number;
+  image_src: string;
+  category?: string;
+}[] = [
   {
     id: `article_1`,
     date: "05.01.2025 12:30",

@@ -10,12 +10,14 @@ type ArticleItemProps = {
   type?: "list" | "card";
   variant?: "1" | "2";
   item: (typeof articles)[number];
+  className?: string;
 };
 
 export const ArticleItem: React.FC<ArticleItemProps> = ({
   type = "card",
   item,
   variant = "1",
+  className = "",
 }) => {
   const { date, description, image_src, title, views, category } = item;
   return (
@@ -23,7 +25,8 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
       className={clsx(
         styles.article_card,
         styles[`t-${type}`],
-        styles[`v-${variant}`]
+        styles[`v-${variant}`],
+        className
       )}
     >
       <figure>
@@ -38,7 +41,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
         {category && <div className={styles["badge-category"]}>{category}</div>}
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>
-          {description.split("").slice(0, 100).join("")}...
+          {description}...
           <Link href="#">Читать</Link>
         </p>
         <div className={styles.row}>
