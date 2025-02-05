@@ -6,6 +6,7 @@ const Button: React.FC<ButtonProps> = ({
 	children,
 	variant = 'solid',
 	className,
+	borderColor = 'white',
 	linearGradient = 'v1',
 	...props
 }) => {
@@ -15,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
 				styles.button,
 				styles[variant],
 				styles[`linearGradient_${linearGradient}`],
+				styles[`bs-${borderColor}`],
 				className
 			)}
 			{...props}
