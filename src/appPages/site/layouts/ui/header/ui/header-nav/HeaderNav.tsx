@@ -14,7 +14,6 @@ const HeaderNav: React.FC = () => {
 				const href =
 					typeof nav.to === 'function' ? nav.to('kalyc-zamanbekov') : nav.to;
 				const isActive = pathname === href;
-				console.log(typeof href);
 				return (
 					<Link
 						key={nav.label}

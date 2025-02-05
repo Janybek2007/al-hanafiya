@@ -21,34 +21,40 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 				<ul>
 					{forWomenOnly && (
 						<li className={styles['forWomenOnly']}>
-							<Image
-								width={26}
-								height={29}
-								src='/icon/women-restroom.svg'
-								alt=''
-							/>
+							<figure>
+								<Image
+									width={26}
+									height={29}
+									src='/icon/women-restroom.svg'
+									alt=''
+								/>
+							</figure>
 							<span>Жолугушуу айымдар үчүн</span>
 						</li>
 					)}
 					{date && (
 						<li>
-							<Image
-								width={21}
-								height={25}
-								src='/icon/calendar-broken.svg'
-								alt=''
-							/>
+							<figure>
+								<Image
+									width={21}
+									height={25}
+									src='/icon/calendar-broken.svg'
+									alt=''
+								/>
+							</figure>
 							<span>{date}</span>
 						</li>
 					)}
 					{location.address && (
 						<li>
-							<Image
-								width={21}
-								height={25}
-								src='/icon/location-outline.svg'
-								alt=''
-							/>
+							<figure>
+								<Image
+									width={21}
+									height={25}
+									src='/icon/location-outline.svg'
+									alt=''
+								/>
+							</figure>
 							<div className={styles.col}>
 								<span>{location.name}</span>
 								<span>{location.address}</span>

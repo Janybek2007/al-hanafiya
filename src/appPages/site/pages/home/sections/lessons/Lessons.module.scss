@@ -60,27 +60,27 @@
 	}
 	.lesson {
 		&:not(.current_lesson) .content {
-			padding: 8px 40px 4px 40px;
+			padding: 4px 40px 18px 40px;
 			.content_title {
 				font-size: 20px;
-				margin-bottom: 4px;
+				max-width: 273px;
 			}
-			.row_parent {
-				.row span {
-					font-size: 14px;
-				}
-				span {
-					font-size: 14px;
-				}
+			.row_parent span {
+				font-size: 14px;
 			}
 			[class*='_btn'] {
 				right: 45px;
 			}
 		}
+		.flex {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
 		.content {
 			background: rgba(0, 0, 0, 0.6);
 			width: 100%;
-			padding: 10px 60px 8px 60px;
+			padding: 14px 41px 13px 41px;
 			position: relative;
 			* {
 				color: var(--white);
@@ -119,25 +119,23 @@
 			.content_title {
 				font-family: var(--second-family);
 				font-size: 32px;
-				font-weight: 400;
-				margin-bottom: 9px;
-				line-height: 1;
+				font-weight: 500;
+				line-height: auto;
+				max-width: 400px;
 			}
 
 			.row_parent {
 				display: flex;
 				align-items: center;
-				justify-content: space-between;
-
-				.row {
-					display: flex;
-					align-items: center;
-					gap: 35px;
-					span {
-						font-size: 16px;
-						font-weight: 500;
-						line-height: 32px;
-					}
+				position: absolute;
+				bottom: 4px;
+				right: 40px;
+				gap: 20px;
+				span {
+					font-size: 16px;
+					font-weight: 500;
+					line-height: 32px;
+					text-wrap: nowrap;
 				}
 				.date {
 					font-size: 16px;
