@@ -1,29 +1,32 @@
 export const articles = [
 	{
 		id: `article_1`,
-		date: '5 январь 2025',
+		date: '05.01.2025 12:30',
 		title: '7 ценностей, которые мусульмане должны привить своим детям',
 		description:
 			'Хорошее воспитание детей, находящихся под нашей опекой, — это обязанность, и обучение хорошим манерам занимает в ней центральное место.',
-		views: 15,
-		image_src: '/images/article-image.png'
+		views: 25,
+		image_src: '/images/article-image.png',
+		category: 'Викх'
 	},
 	{
 		id: `article_2`,
-		date: '5 январь 2025',
+		date: '06.01.2025 14:15',
 		title: '7 ценностей, которые мусульмане должны привить своим детям',
 		description:
 			'Хорошее воспитание детей, находящихся под нашей опекой, — это обязанность, и обучение хорошим манерам занимает в ней центральное место.',
-		views: 15,
-		image_src: '/images/article-image.png'
+		views: 40,
+		image_src: '/images/article-image.png',
+		category: 'Викх'
 	},
 	{
 		id: `article_3`,
-		date: '5 январь 2025',
+		date: '07.01.2025 09:45',
 		title: '7 ценностей, которые мусульмане должны привить своим детям',
 		description:
 			'Хорошее воспитание детей, находящихся под нашей опекой, — это обязанность, и обучение хорошим манерам занимает в ней центральное место.',
-		views: 15,
-		image_src: '/images/article-image.png'
+		views: 60,
+		image_src: '/images/article-image.png',
+		category: 'Викх'
 	}
 ];

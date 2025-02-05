@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './ArticlesList.module.scss';
 import { articles } from '../../constants/articles.constants';
-import { ArticleCard } from '../article-card/ArticleCard';
+import { ArticleItem } from '../article-item/ArticleItem';
+import styles from './ArticlesList.module.scss';
 export const ArticlesList: React.FC = () => {
 	return (
 		<div className={styles.articles_list}>
 			{articles.map(art => (
-				<ArticleCard key={art.id} {...art} />
+				<ArticleItem variant='2' type='list' key={art.id} item={art} />
 			))}
 		</div>
 	);
