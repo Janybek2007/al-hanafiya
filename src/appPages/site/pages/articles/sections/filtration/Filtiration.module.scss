@@ -1,0 +1,70 @@
+.filtration {
+  padding: 16px 0;
+
+  .tags_container {
+    position: relative;
+    max-width: 100%;
+
+    .tags_wrapper {
+      overflow-x: auto;
+      margin-bottom: 8px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tags_scroll {
+        display: flex;
+        gap: 20px;
+        padding: 4px 0;
+        width: max-content;
+      }
+    }
+
+    .tag {
+      padding: 10px 22px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      box-sizing: border-box;
+      border: 1px solid rgb(78, 78, 78);
+      border-radius: 8px;
+
+      background: #ffffff;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+
+      &:hover {
+        background: #f5f5f5;
+      }
+
+      &.active {
+        background: #008f76;
+        color: white;
+        border-color: #008f76;
+      }
+    }
+  }
+
+  .progress_line {
+    height: 3px;
+    background: #e5e5e5;
+    position: relative;
+    border-radius: 1px;
+    margin-top: 20px;
+
+    .progress_inner {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      background: #008f76;
+      border-radius: 1px;
+      transition: width 0.15s ease;
+    }
+  }
+}
