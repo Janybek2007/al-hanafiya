@@ -14,7 +14,7 @@ const BaseSection: React.FC<BaseSectionProps> = ({
 	return (
 		<section className={styles.base_section}>
 			<div className={clsx('container', styles.container)}>
-				<SectionTitle title={title} type='flex' />
+				<SectionTitle title={title} type='row' />
 				<div className={clsx(styles['content'], className)}>{children}</div>
 				{button &&
 					(typeof button == 'string' ? (

@@ -6,6 +6,9 @@
 	&.t-col {
 		flex-direction: column;
 	}
+	img {
+		width: max-content;
+	}
 
 	h1 {
 		color: var(--h1);
