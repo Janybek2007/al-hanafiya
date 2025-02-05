@@ -9,7 +9,7 @@ export const HomePage = () => {
 	return (
 		<main>
 			<Hero />
-			<div className='main-page_bg'>
+			<div className='main'>
 				<Meetings />
 				<Lessons />
 				<QuestionAndAnwser />

@@ -3,6 +3,7 @@ import React from 'react';
 import ProfileImages from './sections/profile-images/ProfileImages';
 import ProfileSection from './sections/profile-section/ProfileSection';
 import { profiles } from './constants/profile.constants';
+import ProfielSL from './sections/profile-sl/ProfielSL';
 
 const ProfilePage: React.FC = () => {
 	return (
@@ -29,6 +30,7 @@ const ProfilePage: React.FC = () => {
 				title={profiles['kalyc-zamanbekov'][2].title}
 				content={profiles['kalyc-zamanbekov'][2].content}
 			/>
+			<ProfielSL />
 		</main>
 	);
 };

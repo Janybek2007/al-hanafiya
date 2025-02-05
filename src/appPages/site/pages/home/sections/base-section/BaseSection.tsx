@@ -2,8 +2,8 @@ import React from 'react';
 import { BaseSectionProps } from './base-section.types';
 import clsx from 'clsx';
 import styles from './BaseSection.module.scss';
-import Button from '../button/Button';
-import SectionTitle from '../section-title/SectionTitle';
+import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import Button from '$/shared/ui/button/Button';
 
 const BaseSection: React.FC<BaseSectionProps> = ({
 	children,

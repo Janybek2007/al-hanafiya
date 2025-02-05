@@ -43,11 +43,10 @@ export const profiles = {
 			content: '',
 			social_links: {
 				website: '',
-				email: '',
-				phone: '',
+				whatsapp: '',
 				facebook: '',
 				instagram: '',
-				twitter: ''
+				telegram: ''
 			}
 		}
 	]
