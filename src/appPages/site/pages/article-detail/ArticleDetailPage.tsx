@@ -4,6 +4,7 @@ import styles from './ArticleDetailPage.module.scss';
 import ArticleContent from './sections/article-content/ArticleContent';
 import SimilarArticles from './sections/similar-articles/SimilarArticles';
 import LatestLessons from './sections/latest-lessons/LatestLessons';
+import Filtration from '../articles/sections/filtration/Filtiration';
 const ArticleDetailPage: React.FC = () => {
 	return (
 		<main>
@@ -14,7 +15,7 @@ const ArticleDetailPage: React.FC = () => {
 			</section>
 			<section>
 				<div className='container'>
-					<h1>Filter</h1>
+					<Filtration />
 				</div>
 			</section>
 			<ArticleContent />
