@@ -22,7 +22,7 @@ export const FooterStart: React.FC = () => {
 					<Image
 						width={20}
 						height={19}
-						src='/icon/social_links/facebooks.svg'
+						src='/icon/social_links/facebook.svg'
 						alt='Facebook Icon'
 					/>
 				</a>

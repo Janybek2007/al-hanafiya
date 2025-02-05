@@ -1,5 +1,5 @@
 .meetings_list {
 	gap: 21px;
-	display: flex;
-	align-items: start;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
 }

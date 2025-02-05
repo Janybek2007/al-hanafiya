@@ -1,0 +1,21 @@
+.profilesl_section {
+	.container {
+		display: flex;
+		align-items: center;
+		gap: 18px;
+		.to_contact {
+			font-size: 24px;
+			font-weight: 400;
+			line-height: 44px;
+		}
+		.social_links {
+			display: flex;
+			align-items: center;
+			gap: 30px;
+			a {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+}

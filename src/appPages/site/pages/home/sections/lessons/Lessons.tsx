@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Lessons.module.scss';
-import BaseSection from '$/shared/ui/base-section/BaseSection';
+import BaseSection from '../base-section/BaseSection';
 import clsx from 'clsx';
 import Image from 'next/image';
 
@@ -52,11 +52,11 @@ export const Lessons = () => {
 						</figure>
 						<span>Аудио</span>
 					</button>
-					<div className={styles['content_title']}>
-						Тема: Бухари китебинен сабак. Хадистен окум алы....
-					</div>
-					<div className={styles.row_parent}>
-						<div className={styles['row']}>
+					<div className={styles['flex']}>
+						<div className={styles['content_title']}>
+							Тема: Бухари китебинен сабак. Хадистен окум алы....
+						</div>
+						<div className={styles.row_parent}>
 							<div>
 								<span>Модульдар: </span>
 								<span>5</span>
@@ -65,8 +65,8 @@ export const Lessons = () => {
 								<span>Жалпы саны: </span>
 								<span>20</span>
 							</div>
+							<span className={styles.date}>25.01.2025</span>
 						</div>
-						<span className={styles.date}>25.01.2025</span>
 					</div>
 				</div>
 			</div>
@@ -90,11 +90,11 @@ export const Lessons = () => {
 							</figure>
 							<span>Видео</span>
 						</button>
-						<div className={styles['content_title']}>
-							Тема: Бухари китебинен сабак. Хадистен окум алы....
-						</div>
-						<div className={styles.row_parent}>
-							<div className={styles['row']}>
+						<div className={styles.flex}>
+							<div className={styles['content_title']}>
+								Тема: Бухари китебинен сабак. Хадистен окум алы....
+							</div>
+							<div className={styles.row_parent}>
 								<div>
 									<span>Модульдар: </span>
 									<span>5</span>
@@ -103,8 +103,8 @@ export const Lessons = () => {
 									<span>Жалпы саны: </span>
 									<span>20</span>
 								</div>
+								<span className={styles.date}>25.01.2025</span>
 							</div>
-							<span className={styles.date}>25.01.2025</span>
 						</div>
 					</div>
 				</div>
@@ -127,11 +127,11 @@ export const Lessons = () => {
 							</figure>
 							<span>Видео</span>
 						</button>
-						<div className={styles['content_title']}>
-							Тема: Бухари китебинен сабак. Хадистен окум алы....
-						</div>
-						<div className={styles.row_parent}>
-							<div className={styles['row']}>
+						<div className={styles['flex']}>
+							<div className={styles['content_title']}>
+								Тема: Бухари китебинен сабак. Хадистен окум алы....
+							</div>
+							<div className={styles.row_parent}>
 								<div>
 									<span>Модульдар: </span>
 									<span>5</span>
@@ -140,8 +140,8 @@ export const Lessons = () => {
 									<span>Жалпы саны: </span>
 									<span>20</span>
 								</div>
+								<span className={styles.date}>25.01.2025</span>
 							</div>
-							<span className={styles.date}>25.01.2025</span>
 						</div>
 					</div>
 				</div>
