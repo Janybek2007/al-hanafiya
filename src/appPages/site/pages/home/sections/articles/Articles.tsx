@@ -1,5 +1,5 @@
 import { ArticlesList } from '$/entities/articles';
-import BaseSection from '$/shared/ui/base-section/BaseSection';
+import BaseSection from '../base-section/BaseSection';
 import React from 'react';
 
 export const Articles = () => {

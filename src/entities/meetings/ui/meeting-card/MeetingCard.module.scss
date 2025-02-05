@@ -39,6 +39,10 @@
 				display: flex;
 				align-items: center;
 				gap: 7px;
+				figure {
+					width: 25px;
+					height: 25px;
+				}
 				.col {
 					display: flex;
 					flex-direction: column;
