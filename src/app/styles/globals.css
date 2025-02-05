@@ -10,16 +10,17 @@
 }
 
 :root {
-  --philosopher: 'Philosopher', sans-serif;
-  --poppins: 'Poppins', sans-serif;
+  --philosopher: "Philosopher", sans-serif;
+  --poppins: "Poppins", sans-serif;
 }
 
 :root {
-  --accent-gradient: rgb(0, 131, 121),
-    rgb(30, 78, 78);
-  --bg-linear-gradient: linear-gradient(179.08deg,
-      rgb(0, 131, 121) 10.265%,
-      rgb(154, 242, 236) 130.731%);
+  --accent-gradient: rgb(0, 131, 121), rgb(30, 78, 78);
+  --bg-linear-gradient: linear-gradient(
+    179.08deg,
+    rgb(0, 131, 121) 10.265%,
+    rgb(154, 242, 236) 130.731%
+  );
 
   --error: #e84f6d;
   --h1: #252c32;
@@ -37,6 +38,10 @@ a {
 
 figure {
   display: flex;
+}
+
+img {
+  object-fit: cover;
 }
 
 ul {
@@ -106,7 +111,6 @@ input:-webkit-autofill:active {
   margin: 0 auto;
   max-width: 1508px;
 
-
   @media (max-width: 1400px) {
     max-width: 1330px;
   }
@@ -115,7 +119,6 @@ input:-webkit-autofill:active {
     max-width: 1300px;
   }
 }
-
 
 .flexCenter {
   display: flex;
