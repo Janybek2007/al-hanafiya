@@ -1,5 +1,5 @@
 export interface SectionTitleProps {
 	title: string;
-	type?: 'flex' | 'col';
-	className?: string
+	type?: 'row' | 'col';
+	className?: string;
 }

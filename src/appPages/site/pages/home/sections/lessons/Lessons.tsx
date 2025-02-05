@@ -52,7 +52,7 @@ export const Lessons = () => {
 						</figure>
 						<span>Аудио</span>
 					</button>
-					<div className={styles['flex']}>
+					<div className={styles['row']}>
 						<div className={styles['content_title']}>
 							Тема: Бухари китебинен сабак. Хадистен окум алы....
 						</div>
@@ -127,7 +127,7 @@ export const Lessons = () => {
 							</figure>
 							<span>Видео</span>
 						</button>
-						<div className={styles['flex']}>
+						<div className={styles['row']}>
 							<div className={styles['content_title']}>
 								Тема: Бухари китебинен сабак. Хадистен окум алы....
 							</div>
