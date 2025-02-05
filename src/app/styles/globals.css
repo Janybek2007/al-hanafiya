@@ -121,6 +121,12 @@ input:-webkit-autofill:active {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .inlineFlexCenter {
