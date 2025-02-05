@@ -6,7 +6,7 @@ export const ArticlesList: React.FC = () => {
 	return (
 		<div className={styles.articles_list}>
 			{articles.map(art => (
-				<ArticleItem variant='2' type='list' key={art.id} item={art} />
+				<ArticleItem key={art.id} item={art} />
 			))}
 		</div>
 	);
