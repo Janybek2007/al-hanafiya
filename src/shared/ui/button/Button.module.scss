@@ -2,7 +2,6 @@
 	padding: 9px 60px;
 	border-radius: 28px;
 	font-family: var(--philosopher);
-	color: rgb(246, 248, 249);
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 30px;
@@ -22,6 +21,14 @@
 	}
 
 	&.outline {
-		border: 1px solid var(--white);
+		&.bs-white {
+			border: 1px solid var(--white);
+		}
+		&.bs-gray {
+			border: 1px solid #a2a4a7;
+		}
+		&.bs-black {
+			border: 1px solid #4e4e4e;
+		}
 	}
 }

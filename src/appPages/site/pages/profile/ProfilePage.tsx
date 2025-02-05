@@ -8,7 +8,7 @@ import ProfielSL from './sections/profile-sl/ProfielSL';
 const ProfilePage: React.FC = () => {
 	return (
 		<main>
-			<section className='container nopadding'>
+			<section className='container'>
 				<Breadcrumb
 					items={[
 						{ label: 'Башкы бет', href: '/' },

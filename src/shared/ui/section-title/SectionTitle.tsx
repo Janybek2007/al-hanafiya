@@ -4,7 +4,11 @@ import clsx from 'clsx';
 import { SectionTitleProps } from './section-title.types';
 import Image from 'next/image';
 
-const SectionTitle: React.FC<SectionTitleProps> = ({ title, type = 'col', className }) => {
+const SectionTitle: React.FC<SectionTitleProps> = ({
+	title,
+	type = 'col',
+	className
+}) => {
 	return (
 		<div className={clsx(styles.title, styles[`t-${type}`], className)}>
 			{type === 'col' && (
@@ -18,7 +22,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, type = 'col', classN
 					/>
 				</>
 			)}
-			{type === 'flex' && (
+			{type === 'row' && (
 				<>
 					<Image
 						width={127.44}
