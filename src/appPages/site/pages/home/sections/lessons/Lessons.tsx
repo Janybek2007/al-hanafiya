@@ -1,12 +1,11 @@
-import React from 'react';
-import styles from './Lessons.module.scss';
-import BaseSection from '../base-section/BaseSection';
 import clsx from 'clsx';
 import Image from 'next/image';
+import HomeSectionProps from '../home-section/HomeSection';
+import styles from './Lessons.module.scss';
 
 export const Lessons = () => {
 	return (
-		<BaseSection
+		<HomeSectionProps
 			title='Сабактар'
 			className={styles.lessons_content}
 			button={{ children: 'Баардык сабактар', linearGradient: 'v2' }}
@@ -146,6 +145,6 @@ export const Lessons = () => {
 					</div>
 				</div>
 			</div>
-		</BaseSection>
+		</HomeSectionProps>
 	);
 };

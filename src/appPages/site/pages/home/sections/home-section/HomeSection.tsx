@@ -1,11 +1,11 @@
 import React from 'react';
-import { BaseSectionProps } from './base-section.types';
+import { HomeSectionProps } from './home-section.types';
 import clsx from 'clsx';
-import styles from './BaseSection.module.scss';
+import styles from './HomeSection.module.scss';
 import SectionTitle from '$/shared/ui/section-title/SectionTitle';
 import Button from '$/shared/ui/button/Button';
 
-const BaseSection: React.FC<BaseSectionProps> = ({
+const HomeSection: React.FC<HomeSectionProps> = ({
 	children,
 	title,
 	button,
@@ -27,4 +27,4 @@ const BaseSection: React.FC<BaseSectionProps> = ({
 	);
 };
 
-export default BaseSection;
+export default HomeSection;
