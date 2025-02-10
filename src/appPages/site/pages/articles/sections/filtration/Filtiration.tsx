@@ -34,7 +34,7 @@ const Filtration: React.FC = () => {
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const scrollRef = useRef<HTMLDivElement>(null);
 
-	const handleScroll = () => {
+	const handleScroll = React.useCallback(() => {
 		if (scrollRef.current) {
 			const scrollWidth =
 				scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
@@ -42,7 +42,7 @@ const Filtration: React.FC = () => {
 			const position = (currentScroll / scrollWidth) * 100;
 			setScrollPosition(position);
 		}
-	};
+	}, []);
 
 	useEffect(() => {
 		const scrollElement = scrollRef.current;
@@ -50,7 +50,7 @@ const Filtration: React.FC = () => {
 			scrollElement.addEventListener('scroll', handleScroll);
 			return () => scrollElement.removeEventListener('scroll', handleScroll);
 		}
-	}, []);
+	}, [handleScroll]);
 
 	return (
 		<div className={styles.filtration}>

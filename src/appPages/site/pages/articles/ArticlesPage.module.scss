@@ -9,7 +9,7 @@
 .article_head {
 	margin: 33px 0;
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	gap: 10px;
 }
 
@@ -36,7 +36,7 @@
 .articlesList {
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 33px;
 }
 
 .card_articleList {

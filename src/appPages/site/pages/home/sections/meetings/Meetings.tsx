@@ -1,10 +1,9 @@
 import { MeetingsList } from '$/entities/meetings';
-import React from 'react';
-import BaseSection from '../base-section/BaseSection';
+import HomeSectionProps from '../home-section/HomeSection';
 export const Meetings = () => {
 	return (
-		<BaseSection title='Жолугушуулар'>
+		<HomeSectionProps title='Жолугушуулар'>
 			<MeetingsList />
-		</BaseSection>
+		</HomeSectionProps>
 	);
 };

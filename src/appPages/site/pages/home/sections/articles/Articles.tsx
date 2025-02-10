@@ -1,14 +1,17 @@
 import { ArticlesList } from '$/entities/articles';
-import BaseSection from '../base-section/BaseSection';
-import React from 'react';
+import HomeSectionProps from '../home-section/HomeSection';
 
 export const Articles = () => {
 	return (
-		<BaseSection
-			button={{ children: 'Бардык макалалар', linearGradient: 'v2' }}
+		<HomeSectionProps
+			button={{
+				children: 'Бардык макалалар',
+				linearGradient: 'v2',
+				to: '/articles'
+			}}
 			title='Макалалар'
 		>
 			<ArticlesList />
-		</BaseSection>
+		</HomeSectionProps>
 	);
 };
