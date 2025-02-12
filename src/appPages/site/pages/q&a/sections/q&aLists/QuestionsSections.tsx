@@ -43,7 +43,6 @@ const QuestionsSections = () => {
 
 		checkTextOverflow();
 
-		// Добавляем проверку при изменении размера окна
 		window.addEventListener('resize', checkTextOverflow);
 		return () => window.removeEventListener('resize', checkTextOverflow);
 	}, []);
