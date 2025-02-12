@@ -9,6 +9,7 @@
 .article_head {
   margin: 33px 0;
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 
@@ -25,8 +26,8 @@
     }
   }
   figure img {
-    max-height: 450px;
-    min-height: 440px;
+    max-height: 480px;
+    min-height: 480px;
     object-fit: cover;
     border-radius: 10px;
   }
@@ -35,7 +36,7 @@
 .articlesList {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
 }
 
 .card_articleList {
