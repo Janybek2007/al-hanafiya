@@ -1,0 +1,84 @@
+'use client';
+import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
+import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import React, { useState } from 'react';
+import scss from './QuestionsAnswerPage.module.scss';
+import QuestionsSections from './sections/q&aLists/QuestionsSections';
+import Pagination from '../articles/sections/pagination/Pagination';
+import Image from 'next/image';
+import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
+
+const QuestionsAnswerPage = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [currentPage, setCurrentPage] = useState(1);
+
+	const handlePageChange = (page: number) => {
+		setCurrentPage(page);
+		// API логикасын кошуу керек болсо:
+		// try {
+		//   const response = await fetch(`/api/questions?page=${page}`);
+		//   const data = await response.json();
+		//   // Маалыматтарды иштетүү
+		// } catch (error) {
+		//   console.error('Error fetching data:', error);
+		// }
+	};
+
+	return (
+		<main>
+			<div className='container'>
+				<Breadcrumb
+					items={[
+						{ label: 'Башкы бет', href: '/' },
+						{ label: 'Суроо-жооп', href: '#this' }
+					]}
+				/>
+
+				<SectionTitle className={scss.title} title={'Суроолор'} />
+				<div className={scss.content}>
+					<h2>Суроолорунузга устаз Калыс Заманбеков жооп берет</h2>
+					<div className={scss.ask_box}>
+						<Image
+							src={'/images/Q&Apage/Star2.svg'}
+							alt='Star1'
+							width={50}
+							height={50}
+							className={scss.star_one}
+						/>
+						<Image
+							src={'/images/Q&Apage/Star1.svg'}
+							alt='Star1'
+							width={80}
+							height={80}
+							className={scss.star_two}
+						/>
+						<Image
+							src={'/images/Q&Apage/Star3.svg'}
+							alt='Star1'
+							width={80}
+							height={80}
+							className={scss.star_three}
+						/>
+
+						<h3>Сизде суроо барбы?</h3>
+						<button
+							className={scss.ask_btn}
+							onClick={() => setIsModalOpen(true)}
+						>
+							Суроо берүү
+						</button>
+					</div>
+					<QuestionsSections />
+					<Pagination totalPages={10} onPageChange={handlePageChange} />
+				</div>
+
+				<AskQuestionModal
+					isOpen={isModalOpen}
+					onClose={() => setIsModalOpen(false)}
+				/>
+			</div>
+		</main>
+	);
+};
+
+export default QuestionsAnswerPage;
