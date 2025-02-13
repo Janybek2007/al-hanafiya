@@ -7,11 +7,11 @@ export const nav_items = [
 	},
 	{
 		label: 'Устаз жөнүндө',
-		to: (name: string) => paths.teacherProfile(name)
+		to: paths.teacherProfile
 	},
 	{
 		label: 'Сабактар',
-		to: paths.lessons
+		to: paths.lessons.index
 	},
 	{
 		label: 'Суроо-жооп',

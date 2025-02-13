@@ -1,9 +1,11 @@
 .latest_lessons {
 	margin: 48px 0 78px 0;
+
 	.container {
 		.section_title h1 {
 			font-size: 32px;
 		}
+
 		.lessons {
 			display: flex;
 			align-items: center;
@@ -20,14 +22,17 @@
 				width: 100%;
 
 				box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+
 				figure {
 					position: relative;
+
 					img {
 						width: 100%;
 					}
+
 					.audio_btn {
 						position: absolute;
-						background: linear-gradient(180deg, var(--accent-gradient));
+						background: linear-gradient(180deg, var(--primary-gradient));
 						padding: 4px;
 						border-radius: 4px;
 						bottom: -5%;
@@ -35,24 +40,29 @@
 						fill: white;
 					}
 				}
+
 				.content {
 					padding: 20px 0 10px 12px;
 					max-width: 400px;
+
 					p {
 						font-size: 24px;
 						font-weight: bold;
 						line-height: auto;
 					}
+
 					hr {
 						width: 100%;
 						margin: 14px 0;
 						height: 1px;
 						background-color: var(--h1);
 					}
+
 					.row_parent {
 						display: flex;
 						align-items: center;
 						gap: 45px;
+
 						span {
 							font-size: 14px;
 							font-weight: 500;
@@ -60,6 +70,7 @@
 							text-wrap: nowrap;
 							color: var(--h1);
 						}
+
 						.date {
 							line-height: 19px;
 						}

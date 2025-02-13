@@ -1,0 +1,57 @@
+.module-video {
+	height: min-content;
+	width: 100%;
+
+	figure {
+		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
+		width: 100%;
+		overflow: hidden;
+		border-radius: 12px;
+		max-height: 724px;
+	}
+
+	.content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding-bottom: 21px;
+		padding-top: 11px;
+		border-bottom: 1px solid #4E4E4E;
+
+		.title {
+			font-size: 32px;
+			font-weight: bold;
+			line-height: auto;
+			margin-bottom: 9px;
+		}
+
+		.install {
+			border-radius: 28px;
+			background: #eff3f7;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 4px 17px;
+		}
+
+		.row {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+
+			span {
+				font-family: var(--inter);
+				color: #6E7485;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 22px;
+				letter-spacing: -1%;
+
+				strong {
+					color: var(--text);
+				}
+			}
+		}
+	}
+}

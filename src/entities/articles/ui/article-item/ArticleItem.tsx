@@ -2,10 +2,10 @@ import React from 'react';
 import { articles } from '../../constants/articles.constants';
 import styles from './ArticleItem.module.scss';
 import clsx from 'clsx';
-import { formatDate } from '$/shared/libs/date-formatter';
 import { Svg } from '$/shared/ui/svg/Svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import { formatDate } from '$/shared/utils'
 type ArticleItemProps = {
 	type?: 'list' | 'card';
 	variant?: '1' | '2';

@@ -1,9 +1,11 @@
 .header {
-  background-color: var(--accent);
+  background-color: var(--primary);
   background-image: url("/images/header-background.png");
+
   a {
     color: var(--white);
   }
+
   .container {
     display: flex;
     align-items: center;

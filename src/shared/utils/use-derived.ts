@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from 'react';
 
-const useDerivedState = <T>(
+export const useDerived = <T>(
 	initialState: T | (() => T),
 	dependencies: any[] = []
-): [T, React.Dispatch<React.SetStateAction<T>>] => {
+): T => {
 	const [state, setState] = useState<T>(initialState);
 
 	useEffect(() => {
@@ -17,7 +17,5 @@ const useDerivedState = <T>(
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [...dependencies]);
 
-	return [state, setState];
+	return state
 };
-
-export default useDerivedState;

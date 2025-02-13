@@ -8,10 +8,10 @@ export const FooterStart: React.FC = () => {
 	return (
 		<div className={styles.footer_start}>
 			<nav className={styles.nav}>
-				<Link href={paths.teacherProfile('kalyc-zamanbekov')}>
+				<Link href={paths.teacherProfile}>
 					Устаз жөнүндө
 				</Link>
-				<Link href={paths.lessons}>Сабактар</Link>
+				<Link href={paths.lessons.index}>Сабактар</Link>
 				<Link href={paths.meetings}>Жолугушуулар</Link>
 				<Link href={paths.articles}>Статья</Link>
 				<Link href={paths.contacts}>Контактылар</Link>

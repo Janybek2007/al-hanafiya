@@ -5,7 +5,7 @@ import ProfileSection from './sections/profile-section/ProfileSection';
 import { profiles } from './constants/profile.constants';
 import ProfielSL from './sections/profile-sl/ProfielSL';
 
-const ProfilePage: React.FC = () => {
+export const ProfilePage: React.FC = () => {
 	return (
 		<main>
 			<section className='container'>
@@ -35,4 +35,3 @@ const ProfilePage: React.FC = () => {
 	);
 };
 
-export default ProfilePage;

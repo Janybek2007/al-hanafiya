@@ -1,0 +1,65 @@
+.module-audio {
+	height: min-content;
+	position: relative;
+	overflow: hidden;
+	width: max-content;
+	border-radius: 12px;
+	box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
+
+	figure {
+		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.content {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		align-items: flex-start;
+		flex-direction: column;
+		width: 100%;
+		background-color: white;
+		border-top-left-radius: 12px;
+		padding: 12px 60px 49px 60px;
+		border-top-right-radius: 12px;
+
+		.title {
+			font-size: 32px;
+			font-weight: bold;
+			line-height: auto;
+			margin-bottom: 9px;
+		}
+
+		.install {
+			border-radius: 28px;
+			background: #eff3f7;
+			display: flex;
+			align-items: center;
+			gap: 6px;
+			padding: 4px 17px;
+		}
+
+		.row {
+			display: flex;
+			align-items: center;
+			gap: 24px;
+
+			span {
+				font-family: var(--inter);
+				color: #6E7485;
+				font-size: 14px;
+				font-weight: 500;
+				line-height: 22px;
+				letter-spacing: -1%;
+
+				strong {
+					color: var(--text);
+				}
+			}
+		}
+	}
+}
