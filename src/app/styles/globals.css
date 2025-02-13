@@ -84,7 +84,7 @@ body {
   color: rgb(var(--text));
   background-color: rgb(var(--ui-bg));
   font-family: var(--philosopher);
-  height: 100dvh;
+  height: 100vh;
 }
 
 body::-webkit-scrollbar {
@@ -119,6 +119,10 @@ input:-webkit-autofill:active {
 
   @media (max-width: 1350px) {
     max-width: 1300px;
+  }
+
+  @media (max-width: 1280px) {
+    max-width: 1220px;
   }
 }
 
