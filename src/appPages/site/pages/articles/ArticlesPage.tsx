@@ -17,7 +17,6 @@ export const ArticlesPage: React.FC = () => {
 		setCurrentPage(page);
 		const startIndex = (page - 1) * itemsPerPage;
 		const endIndex = startIndex + itemsPerPage;
-		// Здесь можно добавить логику фильтрации данных
 	};
 
 	return (
