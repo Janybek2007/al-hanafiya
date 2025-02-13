@@ -1,4 +1,4 @@
-import ProfilePage from '$/appPages/site/pages/profile/ProfilePage';
+import { ProfilePage } from '$/appPages/site';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

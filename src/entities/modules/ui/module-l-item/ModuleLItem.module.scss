@@ -1,0 +1,106 @@
+.module_l_item {
+	background: #FFFFFF;
+	border: 1px solid #EAEFF5;
+	box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
+	border-radius: 12px;
+
+	a {
+		color: var(--text);
+		width: max-content;
+	}
+
+	.title {
+		font-size: 24px;
+		font-weight: 500;
+		line-height: 22px;
+	}
+
+	.desc,
+	.time {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 22px;
+	}
+
+	.checked,
+	.unchecked {
+		width: 24px;
+		height: 24px;
+		border-radius: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.unchecked {
+			border: 1px solid #564FFD;
+
+			svg {
+				color: #564FFD;
+				width: 12px;
+				height: 12px;
+				margin-left: 1px;
+			}
+		}
+
+		&.checked {
+			background: #23BD33;
+
+			svg {
+				color: white;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 11px;
+	}
+
+	.top {
+		padding: 17px 23px;
+	}
+
+	.sub_modules {
+		margin-top: 9px;
+
+		.sub_module {
+			padding: 13px 50px;
+			background: #F8FBFF;
+			border-top: 1px solid #EAEFF5;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transition: all 0.25s;
+			&:hover {
+				background: #e8eef7;
+			}
+
+			.checked,
+			.unchecked {
+				width: 20px;
+				height: 20px;
+
+				&.unchecked svg {
+					width: 10px;
+					height: 10px;
+				}
+			}
+
+			.row {
+				margin: 0;
+			}
+
+			.title {
+				font-size: 18px;
+			}
+
+			.time {
+				letter-spacing: -1%;
+			}
+		}
+	}
+}

@@ -1,9 +1,9 @@
 'use client';
 import * as React from 'react';
 import styles from './ProfileImages.module.scss';
-import useDerivedState from '$/shared/libs/use-derived-state';
 import Image from 'next/image';
 import clsx from 'clsx';
+import { useDerived } from '$/shared/utils';
 
 const ProfileImages: React.FC = () => {
 	const [index, setIndex] = React.useState(0);
@@ -14,7 +14,7 @@ const ProfileImages: React.FC = () => {
 		[]
 	);
 
-	const [{ current, next, prev }] = useDerivedState(
+	const { current, next, prev } = useDerived(
 		() => ({
 			current: images[index],
 			next: images[index + 1] || null,

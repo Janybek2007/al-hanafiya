@@ -1,4 +1,4 @@
-import { HomePage } from '$/appPages/site/pages/home/HomePage';
+import { HomePage } from '$/appPages/site'
 
 const page = () => <HomePage />;
 export default page;

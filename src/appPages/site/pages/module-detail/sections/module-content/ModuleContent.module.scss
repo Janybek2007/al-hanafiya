@@ -1,0 +1,189 @@
+@property --bg-opacity {
+	syntax: '<number>';
+	inherits: false;
+	initial-value: 1;
+}
+
+.content {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 36px;
+	width: 100%;
+
+
+	.right {
+		border-radius: 12px;
+		border: 1px solid #00000010;
+		height: 100%;
+		min-width: 489px;
+		max-width: 489px;
+		max-height: 724px;
+		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
+		overflow-y: scroll;
+
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+
+		.ml {
+			padding: 23px;
+			padding-top: 0;
+
+			.accordion {
+				[class*='accordion-content'] {
+					padding: 0;
+				}
+			}
+
+			.lessons {
+				.lesson {
+					padding: 12px 20px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					color: var(--text);
+
+					.row1 {
+						display: flex;
+						align-items: center;
+						gap: 6px;
+					}
+
+					&.active .row {
+						color: #1D2026;
+						fill: #1D2026;
+						stroke: #1D2026;
+					}
+
+					&:not(.active) .row {
+						color: #A1A5B3;
+						fill: #A1A5B3;
+						stroke: #A1A5B3;
+					}
+
+					.row {
+						display: flex;
+						align-items: center;
+						gap: 6px;
+
+
+						svg {
+							fill: inherit;
+							stroke: inherit;
+						}
+
+						button:nth-child(2) {
+							font-size: 14px;
+							font-weight: 500;
+							line-height: 22px;
+							letter-spacing: -1%;
+						}
+					}
+
+					.row {
+						display: flex;
+						align-items: center;
+						gap: 12px;
+					}
+
+					.title {
+						font-size: 16px;
+						font-weight: 500;
+						line-height: 22px;
+						letter-spacing: -1%;
+					}
+
+					&.active {
+						background: linear-gradient(#00837915 0%, #1E4E4E15 100%) !important;
+
+						.unchecked {
+							border: none;
+						}
+					}
+
+					.checked,
+					.unchecked {
+						width: 18px;
+						height: 18px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						&.unchecked {
+							background: white;
+							border: 1px solid #CED1D9;
+
+							svg {
+								color: #564FFD;
+								width: 12px;
+								height: 12px;
+								margin-left: 1px;
+							}
+						}
+
+						&.checked {
+							background: linear-gradient(var(--tertiary) 0%,
+									var(--primary) 100%);
+
+							svg {
+								color: white;
+								width: 24px;
+								height: 24px;
+							}
+						}
+					}
+
+					&.active {
+						background: linear-gradient(#00837905 0%, #1E4E4E05 100%);
+					}
+				}
+			}
+		}
+
+		.progress {
+			position: sticky;
+			top: 0;
+			margin-bottom: 24px;
+			backdrop-filter: blur(10px);
+			padding: 23px;
+			padding-bottom: 0;
+
+			div {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 2px;
+
+				span {
+					font-size: 16px;
+					line-height: 24px;
+					font-weight: 500;
+
+					&:first-child {
+						font-size: 24px;
+						font-weight: bold;
+						line-height: 32px;
+						letter-spacing: -1%;
+					}
+				}
+			}
+
+			.progress_line {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				height: 3px;
+				background: var(--secondary);
+				border-radius: 100px;
+				transition: all 0.25s;
+			}
+
+			.line {
+				width: 100%;
+				height: 3px;
+				background: #EBEDF0;
+				border-radius: 100px;
+			}
+		}
+	}
+}

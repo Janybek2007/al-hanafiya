@@ -1,4 +1,4 @@
-import ArticleDetailPage from '$/appPages/site/pages/article-detail/ArticleDetailPage';
+import { ArticleDetailPage } from '$/appPages/site'
 import { Metadata } from 'next';
 
 export const metadate: Metadata = {

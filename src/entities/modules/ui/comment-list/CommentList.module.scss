@@ -1,0 +1,9 @@
+.comment_list {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	&.ti-1 {
+		margin-left: 40px;
+	}
+}

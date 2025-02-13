@@ -7,8 +7,8 @@ import HeaderEnd from './ui/header-end/HeaderEnd';
 import { usePathname } from 'next/navigation';
 export const Header: React.FC = () => {
 	const pathname = usePathname();
-	const isHidden = ['/articles/*'].some(pattern =>
-		pathname.startsWith(pattern.replace('*', ''))
+	const isHidden = ['/articles/*', '/lessons/d/*', '/lessons/m/*'].some(
+		pattern => pathname.startsWith(pattern.replace('*', ''))
 	);
 	return (
 		!isHidden && (

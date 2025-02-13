@@ -1,4 +1,4 @@
-import ArticlesPage from "$/appPages/site/pages/articles/ArticlesPage";
+import { ArticlesPage } from '$/appPages/site'
 import { Metadata } from "next";
 import React from "react";
 

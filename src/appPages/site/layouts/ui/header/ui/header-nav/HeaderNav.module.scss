@@ -23,7 +23,7 @@
 
 		&.active {
 			text-decoration: underline;
-			color: #f24822;
+			color: var(--secondary);
 		}
 	}
 }
