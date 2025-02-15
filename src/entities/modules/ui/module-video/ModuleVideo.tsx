@@ -9,13 +9,6 @@ import { Svg } from '$/shared/ui/svg/Svg';
 interface IProps {
 	lesson: IModuleLesson;
 	onDownload(): void;
-	onPlayer?: (states: {
-		isPlaying: boolean;
-		currentTime: number;
-		duration: number;
-		volume: number;
-		isMuted: boolean;
-	}) => void;
 }
 
 export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
@@ -24,7 +17,7 @@ export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
 			<figure>
 				<VideoPlayer
 					options={{
-						sources: [{ src: lesson.video_url, type: 'video/mp4' }]
+						source: { src: lesson.video_url, type: 'video/mp4', id: lesson.id }
 					}}
 				/>
 			</figure>

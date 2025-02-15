@@ -21,7 +21,7 @@ export const ArticlesPage: React.FC = () => {
 
 	return (
 		<main>
-			<div className='container'>
+			<div className={`container ${scss.container}`}>
 				<Breadcrumb
 					items={[
 						{ label: 'Башкы бет', href: '/' },
@@ -94,7 +94,7 @@ export const ArticlesPage: React.FC = () => {
 				</section>
 
 				<section className={scss.pagination_section}>
-					<Pagination totalPages={totalPages} onPageChange={handlePageChange} />
+					<Pagination totalPages={10} onPageChange={handlePageChange} />
 				</section>
 			</div>
 		</main>

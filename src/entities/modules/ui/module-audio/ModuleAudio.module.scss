@@ -8,7 +8,9 @@
 
 	figure {
 		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
-
+		@media (max-width: 1450px) {
+			height: 680px;
+		}
 		img {
 			width: 100%;
 		}
@@ -26,6 +28,9 @@
 		border-top-left-radius: 12px;
 		padding: 12px 60px 49px 60px;
 		border-top-right-radius: 12px;
+		@media (max-width: 1450px) {
+			padding-bottom: 40px;
+		}
 
 		.title {
 			font-size: 32px;
