@@ -5,12 +5,20 @@ import clsx from 'clsx';
 import { Svg } from '$/shared/ui/svg/Svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDate } from '$/shared/utils'
+import { formatDate } from '$/shared/utils';
 type ArticleItemProps = {
 	type?: 'list' | 'card';
 	variant?: '1' | '2';
 	item: (typeof articles)[number];
 	className?: string;
+};
+
+const MAX_LENGTH = 180; 
+
+const truncateText = (text: string, maxLength: number) => {
+	if (text.length <= maxLength) return text;
+	const trimmedText = text.slice(0, maxLength);
+	return trimmedText.slice(0, trimmedText.lastIndexOf(' ')) + '...';
 };
 
 export const ArticleItem: React.FC<ArticleItemProps> = ({
@@ -44,7 +52,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 					)}
 					<h3 className={styles.title}>{title}</h3>
 					<p className={styles.description}>
-						{description}...
+						{truncateText(description, MAX_LENGTH)}...
 						<Link href='#'>Читать</Link>
 					</p>
 				</div>

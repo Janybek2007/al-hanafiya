@@ -1,12 +1,12 @@
 .article_card {
-  border: 1px solid rgb(217, 217, 217);
-  border-radius: 12px;
-  background: var(--white);
-  width: 100%;
+	border: 1px solid rgb(217, 217, 217);
+	border-radius: 12px;
+	background: var(--white);
+	width: 100%;
 
-  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
-  padding: 12px;
-  height: 100%;
+	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.15);
+	padding: 12px;
+	height: 100%;
 
 	.card_content {
 		margin-top: 12px;
@@ -53,9 +53,21 @@
 			border-top: 2px solid rgba(0, 0, 0, 0.2);
 			fill: black;
 
+			@media (max-width: 1450px) {
+				margin-top: 15px;
+			}
+
 			svg {
 				width: 26px;
 				height: 26px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				@media (max-width: 1450px) {
+					height: 22px;
+					width: 22px;
+				}
 			}
 
 			.item {
@@ -68,6 +80,10 @@
 					font-size: 14px;
 					font-weight: 400;
 					line-height: 21px;
+
+					@media (max-width: 1450px) {
+						font-size: 13px;
+					}
 				}
 			}
 		}
@@ -79,11 +95,26 @@
 
 		img {
 			height: 100%;
+			object-fit: contain;
 		}
 	}
 
 	&.v-2 {
 		padding: 4px;
+
+		@media (max-width:1450px) {
+			gap: 0;
+
+			.card_content {
+				.badge-category {
+					font-size: 14.5px;
+				}
+
+				.title {
+					font-size: 20px;
+				}
+			}
+		}
 
 		.badge-category {
 			font-size: 16px;

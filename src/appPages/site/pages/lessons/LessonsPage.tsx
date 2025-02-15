@@ -1,9 +1,11 @@
+'use client'
 import React from 'react';
 import LessonSection from './sections/lesson-section/LessonSection';
 import { example_lessons, LessonList, LessonsFilter } from '$/entities/lessons';
 import styles from './LessonsPage.module.scss';
 import { paths } from '$/shared/routing';
 import clsx from 'clsx';
+import Pagination from '../articles/sections/pagination/Pagination'
 
 const section_label = 'Баардык сабактар';
 export const LessonsPage: React.FC = () => {
@@ -38,6 +40,7 @@ export const LessonsPage: React.FC = () => {
 			>
 				<LessonList lessons={example_lessons} />
 			</LessonSection>
+			<Pagination totalPages={10} onPageChange={() => {}} />
 		</main>
 	);
 };

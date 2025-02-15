@@ -5,10 +5,11 @@ type VideoPlayerOptions = {
 	preload: string;
 	responsive: boolean;
 	fluid: boolean;
-	sources?: {
+	source?: {
 		src?: string;
 		type?: string;
-	}[];
+		id?: string
+	};
 };
 export interface VideoPlayerProps {
 	onReady?: (player: Player) => void;
