@@ -10,7 +10,6 @@
 	margin-bottom: 36px;
 	width: 100%;
 
-
 	.right {
 		border-radius: 12px;
 		border: 1px solid #00000010;
@@ -20,6 +19,11 @@
 		max-height: 724px;
 		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
 		overflow-y: scroll;
+
+		@media (max-width: 1280px) {
+			min-width: 469px;
+			max-width: 469px;
+		}
 
 		&::-webkit-scrollbar {
 			width: 0;
@@ -45,6 +49,11 @@
 			padding: 23px;
 			padding-bottom: 0;
 
+			@media (max-width:1280px) {
+				padding: 18px;
+				padding-bottom: 0;
+			}
+
 			div {
 				display: flex;
 				align-items: center;
@@ -56,11 +65,19 @@
 					line-height: 24px;
 					font-weight: 500;
 
+					@media (max-width: 1280px) {
+						font-size: 15px;
+					}
+
 					&:first-child {
 						font-size: 24px;
 						font-weight: bold;
 						line-height: 32px;
 						letter-spacing: -1%;
+
+						@media (max-width: 1280px) {
+							font-size: 20px;
+						}
 					}
 				}
 			}

@@ -38,7 +38,7 @@ export const ModuleItem: React.FC<IProps> = ({
 						key={l.id}
 					>
 						<div className={styles['row1']}>
-							{l.id === '-l10' ? (
+							{l.id === 'l1' ? (
 								<div className={styles.checked}>
 									<IoIosCheckmark />
 								</div>

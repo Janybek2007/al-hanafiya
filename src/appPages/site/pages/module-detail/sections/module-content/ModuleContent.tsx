@@ -5,7 +5,6 @@ import {
 	ModuleItem,
 	ModuleVideo
 } from '$/entities/modules';
-import { useAppSelector } from '$/shared/redux/hooks';
 import Accordion from '$/shared/ui/accordion/Accordion';
 import { AccordionItem } from '$/shared/ui/accordion/accordion.types';
 import { text$, useDerived } from '$/shared/utils';
@@ -44,8 +43,6 @@ const ModuleContent: React.FC<IProps> = ({
 			};
 		});
 	}, [modules]);
-	const selector = useAppSelector(s => s);
-	console.log(selector);
 	return (
 		activeLesson && (
 			<div className={styles.content}>
