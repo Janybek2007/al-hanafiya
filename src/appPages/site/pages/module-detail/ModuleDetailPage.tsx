@@ -1,7 +1,9 @@
+import React from 'react';
+import clsx from 'clsx';
 import { example_modules } from '$/entities/modules';
 import { BackButton } from '$/shared/ui/back-button/BackButton';
-import React from 'react';
 import ModuleContent from './sections/module-content/ModuleContent';
+import styles from './ModuleDetailPage.module.scss';
 import ModuleComments from './sections/module-comments/ModuleComments';
 
 interface IProps {
@@ -16,12 +18,12 @@ export const ModuleDetailPage: React.FC<IProps> = props => {
 	return (
 		<main>
 			<section className={'back_section'}>
-				<div className='container'>
+				<div className={clsx('container', styles.container)}>
 					<BackButton />
 				</div>
 			</section>
 			{_module && (
-				<div className='container'>
+				<div className={clsx('container', styles.container)}>
 					<ModuleContent
 						modules={modules}
 						lessonId={props.mLessonId}
