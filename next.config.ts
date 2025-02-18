@@ -1,11 +1,17 @@
-import { NextConfig } from 'next'
-import withPWA from 'next-pwa'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { NextConfig } from 'next';
+import withPWA from 'next-pwa';
 
 const nextConfig = withPWA({
 	dest: 'public',
 	disable: process.env.NODE_ENV === 'development',
 	register: true,
 	sw: '/service-worker.js'
-})({} satisfies NextConfig)
+})({
+	devIndicators: {
+		// @ts-expect-error
+		appIsrStatus: false
+	}
+} satisfies NextConfig);
 
-export default nextConfig
+export default nextConfig;

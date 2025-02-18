@@ -1,4 +1,8 @@
 .comment_sender {
+	* {
+		font-family: var(--inter);
+	}
+
 	h4 {
 		font-size: 24px;
 		font-weight: 600;
@@ -6,13 +10,46 @@
 		letter-spacing: -1%;
 		font-family: var(--inter);
 		margin-bottom: 12px;
+
+		@media (max-width: 880px) {
+			font-size: 20px;
+			line-height: 28px;
+			margin-bottom: 10px;
+		}
+
+		@media (max-width: 580px) {
+			font-size: 18px;
+			line-height: 24px;
+		}
+
+		@media (max-width: 400px) {
+			font-size: 16px;
+			line-height: 22px;
+			margin-bottom: 8px;
+		}
 	}
 
 	.sender {
 		display: flex;
 		align-items: center;
 		gap: 10px;
-		height: 48px;
+		margin-top: 10px;
+
+		@media (max-width: 880px) {
+			height: auto;
+			align-items: flex-start;
+			gap: 12px;
+		}
+
+		@media (max-width: 710px) {
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		@media (max-width: 400px) {
+			margin-top: 8px;
+			gap: 4px;
+		}
 
 		button {
 			height: 100%;
@@ -20,29 +57,98 @@
 			padding: 0 24px;
 			background: #FF6636;
 			color: white;
+			height: 48px;
+			font-size: 16px;
+
+			@media (max-width: 990px) {
+				height: 44px;
+			}
+
+			@media (max-width: 580px) {
+				height: 38px;
+				padding: 0 15px;
+				font-size: 14px;
+			}
+
+			@media (max-width: 400px) {
+				height: 36px;
+				padding: 0 12px;
+				font-size: 14px;
+				border-radius: 3px;
+			}
 		}
 
 		.input-field {
 			border-radius: 4px;
 			border: 1px solid #80808035;
-			min-width: 725px;
+			width: 725px;
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 			gap: 12px;
 			padding: 12px 18px;
 
-			label {
-				fill: transparent;
-
-				width: 24px;
-				height: 24px;
+			@media (max-width: 1100px) {
+				width: 500px;
 			}
 
-			input {
+			@media (max-width: 990px) {
+				width: 100%;
+				padding: 10px 16px;
+			}
+
+			@media (max-width: 580px) {
+				width: 100%;
+				padding: 8px 12px;
+			}
+
+			@media (max-width: 400px) {
+				padding: 6px 10px;
+				gap: 8px;
+				border-radius: 3px;
+			}
+
+			label svg {
+				fill: transparent;
+				width: 24px;
+				height: 24px;
+
+				@media (max-width: 580px) {
+					width: 20px;
+					height: 20px;
+				}
+
+				@media (max-width: 400px) {
+					width: 18px;
+					height: 18px;
+				}
+			}
+
+			textarea {
 				font-size: 16px;
 				line-height: 24px;
 				font-weight: 500;
 				width: 100%;
+				max-width: calc(100% - 36px);
+				min-width: calc(100% - 36px);
+				max-height: 280px;
+				min-height: 80px;
+
+				@media (max-width: 880px) {
+					font-size: 15px;
+				}
+
+				@media (max-width: 580px) {
+					font-size: 14px;
+					line-height: 20px;
+				}
+
+				@media (max-width: 400px) {
+					font-size: 13px;
+					line-height: 18px;
+					max-width: calc(100% - 26px);
+					min-width: calc(100% - 26px);
+					max-height: 200px;
+				}
 			}
 		}
 	}

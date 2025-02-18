@@ -10,7 +10,8 @@ const Accordion: React.FC<AccordionProps> = ({
 	className,
 	type = 'single',
 	defaultValue = [],
-	disabled: isDisabled
+	disabled: isDisabled,
+	icon
 }) => {
 	const [activeItems, setActiveItems] = React.useState<string[]>(
 		typeof defaultValue == 'string' ? [defaultValue] : defaultValue
@@ -31,13 +32,14 @@ const Accordion: React.FC<AccordionProps> = ({
 	);
 
 	return (
-		<div className={clsx(styles.accordion, className)}>
+		<div data-accorion-layout className={clsx(styles.accordion, className)}>
 			{items.map(({ value, disabled = isDisabled, ...rest }) => (
 				<AccordionItem
 					isActive={activeItems.includes(value)}
 					toggleItem={() => toggleItem(value)}
 					isLast={items[items.length - 1].value === value}
 					key={value}
+					icon={icon || rest.icon}
 					value={value}
 					disabled={disabled}
 					{...rest}

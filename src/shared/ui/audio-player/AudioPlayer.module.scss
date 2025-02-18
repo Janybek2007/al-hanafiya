@@ -25,6 +25,14 @@
 	span {
 		margin: 0 4px;
 	}
+
+	@media (max-width: 620px) {
+		font-size: 13px;
+	}
+
+	@media (max-width: 400px) {
+		font-size: 11px;
+	}
 }
 
 .install {
@@ -32,6 +40,8 @@
 	display: flex;
 	align-items: center;
 	gap: 6px;
+	fill: transparent;
+	stroke: black;
 }
 
 .icon {
@@ -60,6 +70,14 @@
 	display: flex;
 	align-items: center;
 	gap: 4px;
+
+	@media (max-width: 620px) {
+		gap: 2.5px;
+	}
+
+	@media (max-width: 400px) {
+		gap: 0px;
+	}
 }
 
 .controls {
@@ -96,7 +114,30 @@
 	display: flex;
 	align-items: center;
 	gap: 8px;
+
+	@media (max-width: 620px) {
+		gap: 4px;
+	}
 }
+
+.icon {
+	@media (max-width: 620px) {
+		width: 22px;
+		height: 22px;
+	}
+
+	@media (max-width: 440px) {
+		width: 20px;
+		height: 20px;
+		padding: 1px;
+	}
+
+	@media (max-width: 360px) {
+		width: 16px;
+		height: 16px;
+	}
+}
+
 
 .volumeSlider {
 	width: 80px;
@@ -140,5 +181,116 @@
 		background: var(--tertiary);
 		border-radius: 50%;
 		cursor: pointer;
+	}
+
+	@media (max-width: 1100px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+	@media (max-width: 1000px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 9px;
+			height: 9px;
+		}
+	}
+
+	@media (max-width: 900px) {
+		& {
+			width: 60px;
+		}
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 8px;
+			height: 8px;
+		}
+	}
+
+	@media (max-width: 800px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 7px;
+			height: 7px;
+		}
+	}
+
+	@media (max-width: 700px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 6px;
+			height: 6px;
+		}
+	}
+
+	@media (max-width: 600px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 5px;
+			height: 5px;
+		}
+	}
+
+	@media (max-width: 500px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 4px;
+			height: 4px;
+		}
+	}
+
+	@media (max-width: 400px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 3px;
+			height: 3px;
+		}
+	}
+
+	@media (max-width: 380px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 3px;
+			height: 3px;
+		}
+	}
+
+	@media (max-width: 360px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 1px;
+			height: 1px;
+		}
+	}
+
+	@media (max-width: 340px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 2px;
+			height: 2px;
+		}
+	}
+
+	@media (max-width: 320px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 2px;
+			height: 2px;
+		}
 	}
 }

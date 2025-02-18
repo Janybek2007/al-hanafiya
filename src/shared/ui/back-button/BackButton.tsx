@@ -3,7 +3,7 @@ import styles from './BackButton.module.scss';
 import Button from '$/shared/ui/button/Button';
 import React from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next-nprogress-bar'
+import { useRouter } from 'next-nprogress-bar';
 
 export const BackButton: React.FC = () => {
 	const route = useRouter();

@@ -1,4 +1,4 @@
-export { MainLayout } from './layouts/MainLayout';
+export { SiteLayout } from './layouts/SiteLayout';
 export { HomePage } from './pages/home/HomePage';
 export { ArticleDetailPage } from './pages/article-detail/ArticleDetailPage';
 export { ArticlesPage } from './pages/articles/ArticlesPage';

@@ -10,8 +10,7 @@ export const CommentSender: React.FC = () => {
 					<label htmlFor='comment-i'>
 						<Svg src='/icon/chats-circle.svg' />
 					</label>
-					<input
-						type='text'
+					<textarea
 						name='comment-i'
 						id='comment-i'
 						placeholder='Комментарий жибериңиз'

@@ -14,6 +14,8 @@ export const RootProvider: React.FC<React.PropsWithChildren> = ({
 			<Provider store={store}>
 				<NuqsAdapter>
 					<ProgressBar
+						memo={true}
+						style=''
 						height='4px'
 						color='rgb(0, 131, 121)'
 						options={{ showSpinner: true }}

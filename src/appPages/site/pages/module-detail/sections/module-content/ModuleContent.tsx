@@ -38,8 +38,7 @@ const ModuleContent: React.FC<IProps> = ({
 						activeLesson={activeLesson}
 						href={`${val.lId}-${val.id}`}
 					/>
-				),
-				icon: 'ChevronDown'
+				)
 			};
 		});
 	}, [modules]);
@@ -66,6 +65,7 @@ const ModuleContent: React.FC<IProps> = ({
 					</div>
 					<div className={styles['ml']}>
 						<Accordion
+							icon='ChevronDown'
 							defaultValue={text$.toSlug(module.title)}
 							className={styles.accordion}
 							items={accodionItems}

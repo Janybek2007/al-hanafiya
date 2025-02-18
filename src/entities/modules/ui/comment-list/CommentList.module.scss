@@ -3,7 +3,23 @@
 	flex-direction: column;
 	gap: 20px;
 
+	@media (max-width: 880px) {
+		gap: 16px;
+	}
+
+	@media (max-width: 580px) {
+		gap: 14px;
+	}
+
 	&.ti-1 {
 		margin-left: 40px;
+
+		@media (max-width: 880px) {
+			margin-left: 30px;
+		}
+
+		@media (max-width: 580px) {
+			margin-left: 20px;
+		}
 	}
 }

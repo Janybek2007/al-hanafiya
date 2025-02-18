@@ -6,6 +6,7 @@
 	height: 100%;
 	width: 100%;
 	color: var(--text);
+
 	.content {
 		padding: 11px;
 
@@ -42,10 +43,51 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
+			fill: transparent;
+			margin-top: auto;
+			height: 100%;
 		}
 
 		[class*='flexCenter'] {
 			gap: 4px;
+		}
+	}
+
+	@media (max-width: 1024px) {
+		min-width: 253px;
+
+		figure img {
+			height: 187px;
+		}
+	}
+
+	@media (max-width: 930px) {
+		figure img {
+			height: 157px;
+		}
+
+		.content {
+			padding: 9px;
+
+			h4 {
+				font-size: 16px;
+				line-height: 20px;
+			}
+
+			.progress {
+				margin: 8px 0;
+			}
+
+			.row {
+				svg {
+					width: 18px;
+					height: 18px;
+				}
+
+				span {
+					font-size: 14px;
+				}
+			}
 		}
 	}
 }

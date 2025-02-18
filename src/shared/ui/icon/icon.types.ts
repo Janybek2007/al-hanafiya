@@ -1,5 +1,5 @@
 export type IconKeysOrProps = IconKeys | IconProps;
-type IconKeys = keyof typeof import('lucide-react');
+export type IconKeys = keyof typeof import('lucide-react');
 
 type IconLProps = import('lucide-react').LucideProps;
 export type IconProps = {
