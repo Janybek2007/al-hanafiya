@@ -34,6 +34,30 @@
   --secondary: rgba(255, 149, 0, var(--bg-opacity, 1));
 }
 
+:root {
+  --container-max-width: 1408px;
+
+  @media (max-width: 1450px) {
+    --container-max-width: 1330px;
+  }
+
+  @media (max-width: 1350px) {
+    --container-max-width: 1240px;
+  }
+
+  @media (max-width: 1280px) {
+    --container-max-width: 90%;
+  }
+
+  @media (max-width: 1024px) {
+    --container-max-width: 95%;
+  }
+
+  @media (max-width: 440px) {
+    --container-max-width: 97%;
+  }
+}
+
 a {
   text-decoration: none;
 }
@@ -71,11 +95,6 @@ select {
   background: transparent;
 }
 
-svg {
-  margin: 0;
-  padding: 0;
-}
-
 hr {
   border: 0;
 }
@@ -111,19 +130,7 @@ input:-webkit-autofill:active {
 .container {
   width: 100%;
   margin: 0 auto;
-  max-width: 1408px;
-
-  @media (max-width: 1450px) and (min-width: 1350px) {
-    max-width: 1330px;
-  }
-
-  @media (max-width: 1350px) and (min-width: 1280px) {
-    max-width: 1240px;
-  }
-
-  @media (max-width: 1280px) {
-    max-width: 1100px;
-  }
+  max-width: var(--container-max-width);
 }
 
 .flexCenter {
@@ -142,6 +149,14 @@ input:-webkit-autofill:active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+svg {
+  display: flex;
+  align-items: center;
+  align-items: center;
+  fill: inherit;
+  stroke: inherit;
 }
 
 .main {
@@ -163,6 +178,10 @@ input:-webkit-autofill:active {
 
   @media (max-width: 1280px) {
     padding-top: 55px;
+  }
+
+  @media (max-width: 800px) {
+    padding-top: 28px;
   }
 }
 

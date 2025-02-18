@@ -1,8 +1,8 @@
-import { MainLayout } from '$/appPages/site'
+import { SiteLayout } from '$/appPages/site';
 import React from 'react';
 
 const layout: React.FC<React.PropsWithChildren> = ({ children }) => {
-	return <MainLayout>{children}</MainLayout>;
+	return <SiteLayout>{children}</SiteLayout>;
 };
 
 export default layout;

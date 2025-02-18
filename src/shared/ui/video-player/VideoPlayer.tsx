@@ -26,7 +26,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 	);
 	const videoRef = React.useRef<HTMLDivElement>(null);
 	const playerRef = React.useRef<Player>(null);
-	wwwww
+	const [isPlaying, setIsPlaying] = useQueryState(
+		'playing',
+		parseAsBoolean.withDefault(false)
+	);
 
 	React.useEffect(() => {
 		if (!playerRef.current && videoRef.current) {

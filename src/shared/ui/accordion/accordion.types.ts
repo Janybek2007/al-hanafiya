@@ -6,6 +6,7 @@ export interface AccordionProps {
 	className?: string;
 	items: AccordionItem[];
 	disabled?: boolean;
+	icon?: IconKeysOrProps
 	defaultValue?: string | string[];
 }
 

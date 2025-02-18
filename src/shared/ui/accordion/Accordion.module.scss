@@ -59,9 +59,35 @@
 			cursor: not-allowed;
 		}
 	}
+
+	@media (max-width: 1080px) {
+		.row {
+			gap: 6px;
+
+			span:not(.label) {
+				font-size: 18px;
+			}
+
+			.label {
+				font-size: 14px;
+			}
+		}
+
+		.accordion-content {
+			padding: 12px;
+		}
+
+		.accordion-header {
+			padding: 10px;
+		}
+	}
 }
 
 .accordion {
 	min-width: 400px;
 	max-width: 100%;
+
+	@media (max-width: 1080px) {
+		min-width: 100%;
+	}
 }

@@ -5,12 +5,20 @@
 		gap: 12px;
 		font-family: var(--inter);
 
+		@media (max-width: 580px) {
+			gap: 10px;
+		}
 
 		figure {
 			width: 32px;
 			height: 32px;
 			border-radius: 100px;
 			overflow: hidden;
+
+			@media (max-width: 580px) {
+				width: 28px;
+				height: 28px;
+			}
 
 			.placeholder {
 				background: var(--secondary);
@@ -27,11 +35,21 @@
 			gap: 8px;
 			margin-bottom: 12px;
 
+			@media (max-width: 580px) {
+				flex-wrap: wrap;
+				margin-bottom: 8px;
+			}
+
 			h5 {
 				font-size: 14px;
 				font-weight: 400;
 				line-height: 20px;
 				letter-spacing: -1%;
+
+				@media (max-width: 580px) {
+					font-size: 13px;
+					line-height: 18px;
+				}
 			}
 
 			.dot {
@@ -45,6 +63,10 @@
 				color: #6E7485;
 				font-size: 12px;
 				font-weight: 500;
+
+				@media (max-width: 580px) {
+					font-size: 11px;
+				}
 			}
 		}
 
@@ -54,6 +76,12 @@
 			font-weight: 500;
 			line-height: 22px;
 			margin-bottom: 12px;
+
+			@media (max-width: 580px) {
+				font-size: 13px;
+				line-height: 20px;
+				margin-bottom: 10px;
+			}
 		}
 
 		button {
@@ -63,15 +91,29 @@
 			color: #8C94A3;
 			fill: transparent;
 
+			@media (max-width: 580px) {
+				gap: 6px;
+			}
+
 			span {
 				font-size: 14px;
 				font-weight: 400;
 				line-height: 22px;
+
+				@media (max-width: 580px) {
+					font-size: 13px;
+					line-height: 18px;
+				}
 			}
 
 			svg {
 				width: 20px;
 				height: 20px;
+
+				@media (max-width: 580px) {
+					width: 18px;
+					height: 18px;
+				}
 			}
 		}
 	}

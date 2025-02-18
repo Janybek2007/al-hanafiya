@@ -23,6 +23,7 @@ const AccordionItem: React.FC<AccodrionItemProps> = ({
 				[styles.isLast]: isLast,
 				[styles.isActive]: isActive
 			})}
+			data-accordion-item
 		>
 			<Collapsible
 				value={isActive}
@@ -31,13 +32,15 @@ const AccordionItem: React.FC<AccodrionItemProps> = ({
 						className={clsx(styles['accordion-header'], {
 							[styles.disabled]: disabled
 						})}
+						data-accordion-header
 						onClick={() => !disabled && toggleItem(value)}
 					>
 						<div
 							className={clsx(styles['row'], { [styles.disabled]: disabled })}
+							data-accordion-row
 						>
 							{icon && (
-								<span>
+								<span data-accordion-icon>
 									<Icon
 										{...(typeof icon == 'string'
 											? {
@@ -62,14 +65,18 @@ const AccordionItem: React.FC<AccodrionItemProps> = ({
 									/>
 								</span>
 							)}
-							<span className={styles.label}>{label}</span>
+							<span data-accordion-label className={styles.label}>
+								{label}
+							</span>
 						</div>
 
 						{trailingContent}
 					</div>
 				}
 			>
-				<div className={styles['accordion-content']}>{content}</div>
+				<div data-accordion-content className={styles['accordion-content']}>
+					{content}
+				</div>
 			</Collapsible>
 		</div>
 	);
