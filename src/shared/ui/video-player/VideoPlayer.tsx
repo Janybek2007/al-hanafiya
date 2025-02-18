@@ -32,7 +32,11 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 	);
 
 	React.useEffect(() => {
-		if (!playerRef.current && videoRef.current) {
+		if (
+			!playerRef.current &&
+			videoRef.current &&
+			typeof document !== 'undefined'
+		) {
 			const videoElement = document.createElement('video-js');
 			videoElement.classList.add('vjs-big-play-centered');
 			videoRef.current.appendChild(videoElement);

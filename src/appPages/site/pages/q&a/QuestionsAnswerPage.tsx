@@ -1,28 +1,15 @@
 'use client';
 import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
 import SectionTitle from '$/shared/ui/section-title/SectionTitle';
-import React, { useState } from 'react';
-import scss from './QuestionsAnswerPage.module.scss';
-import QuestionsSections from './sections/q&aLists/QuestionsSections';
-import Pagination from '../articles/sections/pagination/Pagination';
 import Image from 'next/image';
+import { useState } from 'react';
+import scss from './QuestionsAnswerPage.module.scss';
 import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
+import QuestionsSections from './sections/q&aLists/QuestionsSections';
+import Pagination from '$/shared/ui/pagination/Pagination';
 
 const QuestionsAnswerPage = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [currentPage, setCurrentPage] = useState(1);
-
-	const handlePageChange = (page: number) => {
-		setCurrentPage(page);
-		// API логикасын кошуу керек болсо:
-		// try {
-		//   const response = await fetch(`/api/questions?page=${page}`);
-		//   const data = await response.json();
-		//   // Маалыматтарды иштетүү
-		// } catch (error) {
-		//   console.error('Error fetching data:', error);
-		// }
-	};
 
 	return (
 		<main>
@@ -69,7 +56,7 @@ const QuestionsAnswerPage = () => {
 						</button>
 					</div>
 					<QuestionsSections />
-					<Pagination totalPages={10} onPageChange={handlePageChange} />
+					<Pagination totalPages={10} />
 				</div>
 
 				<AskQuestionModal

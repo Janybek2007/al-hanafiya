@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Articles } from './sections/articles/Articles';
 import { Hero } from './sections/hero/Hero';
@@ -5,7 +6,7 @@ import { Lessons } from './sections/lessons/Lessons';
 import { Meetings } from './sections/meetings/Meetings';
 import { QuestionAndAnwser } from './sections/q&a/q&a';
 
-export const HomePage: React.FC = () => {
+const HomePage: React.FC = () => {
 	return (
 		<main>
 			<Hero />
@@ -18,3 +19,5 @@ export const HomePage: React.FC = () => {
 		</main>
 	);
 };
+
+export default HomePage;

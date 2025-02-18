@@ -95,4 +95,3 @@ export const useElement = <T extends HTMLElement = HTMLElement>(
 
 	return [elementRef, dimensions];
 };
-

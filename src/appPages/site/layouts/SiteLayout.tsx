@@ -3,7 +3,7 @@ import { Header } from './components/header/Header';
 import { Footer } from './components/footer/Footer';
 import { TabsBar } from './components/tabs-bar/TabsBar';
 
-export const SiteLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const SiteLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
 		<>
 			<TabsBar />
@@ -13,3 +13,5 @@ export const SiteLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
 		</>
 	);
 };
+
+export default SiteLayout;

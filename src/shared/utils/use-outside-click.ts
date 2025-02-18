@@ -13,11 +13,12 @@ export function useOutsideClick(
 				callback();
 			}
 		}
+		if (typeof document === 'undefined') return;
 
 		document.addEventListener('click', handleClick);
 		return () => {
 			document.removeEventListener('click', handleClick);
 		};
 	}, [callback, ref]);
-	return $ref
+	return $ref;
 }

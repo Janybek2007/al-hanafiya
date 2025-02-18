@@ -15,7 +15,7 @@ export const useDerived = <T>(
 			setState(initialState);
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [...dependencies]);
+	}, [...dependencies, initialState]);
 
-	return state
+	return state;
 };

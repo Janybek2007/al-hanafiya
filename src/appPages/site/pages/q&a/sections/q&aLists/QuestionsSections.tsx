@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import scss from './QuestionsSections.module.scss';
 import { questions } from '../../constants';
-import { BiMessageRoundedDetail } from 'react-icons/bi';
 import { BsArrowRight } from 'react-icons/bs';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Image from 'next/image';
@@ -28,6 +27,7 @@ const QuestionsSections = () => {
 	};
 
 	useEffect(() => {
+		if (typeof window === 'undefined') return;
 		const checkTextOverflow = () => {
 			questions.forEach(item => {
 				const textElement = textRefs.current[item.id];
@@ -42,7 +42,6 @@ const QuestionsSections = () => {
 		};
 
 		checkTextOverflow();
-
 		window.addEventListener('resize', checkTextOverflow);
 		return () => window.removeEventListener('resize', checkTextOverflow);
 	}, []);

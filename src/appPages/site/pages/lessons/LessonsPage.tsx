@@ -1,14 +1,14 @@
-'use client'
-import React from 'react';
-import LessonSection from './sections/lesson-section/LessonSection';
+'use client';
 import { example_lessons, LessonList, LessonsFilter } from '$/entities/lessons';
-import styles from './LessonsPage.module.scss';
 import { paths } from '$/shared/routing';
 import clsx from 'clsx';
-import Pagination from '../articles/sections/pagination/Pagination'
+import React from 'react';
+import styles from './LessonsPage.module.scss';
+import LessonSection from './sections/lesson-section/LessonSection';
+import Pagination from '$/shared/ui/pagination/Pagination';
 
 const section_label = 'Баардык сабактар';
-export const LessonsPage: React.FC = () => {
+const LessonsPage: React.FC = () => {
 	return (
 		<main>
 			<LessonsFilter />
@@ -40,7 +40,9 @@ export const LessonsPage: React.FC = () => {
 			>
 				<LessonList lessons={example_lessons} />
 			</LessonSection>
-			<Pagination totalPages={10} onPageChange={() => {}} />
+			<Pagination totalPages={10} />
 		</main>
 	);
 };
+
+export default LessonsPage;
