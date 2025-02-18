@@ -1,24 +1,14 @@
 'use client';
-import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
-import React, { useState } from 'react';
-import Filtiration from './sections/filtration/Filtiration';
-import SectionTitle from '$/shared/ui/section-title/SectionTitle';
-import scss from './ArticlesPage.module.scss';
 import { ArticleItem } from '$/entities/articles';
 import { articles } from '$/entities/articles/constants/articles.constants';
-import Pagination from './sections/pagination/Pagination';
+import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
+import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import React from 'react';
+import scss from './ArticlesPage.module.scss';
+import Filtiration from './sections/filtration/Filtiration';
+import Pagination from '$/shared/ui/pagination/Pagination';
 
-export const ArticlesPage: React.FC = () => {
-	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 10;
-	const totalPages = Math.ceil(articles.length / itemsPerPage);
-
-	const handlePageChange = (page: number) => {
-		setCurrentPage(page);
-		const startIndex = (page - 1) * itemsPerPage;
-		const endIndex = startIndex + itemsPerPage;
-	};
-
+const ArticlesPage: React.FC = () => {
 	return (
 		<main>
 			<div className={`container ${scss.container}`}>
@@ -30,9 +20,7 @@ export const ArticlesPage: React.FC = () => {
 				/>
 
 				<Filtiration />
-
 				<SectionTitle className={scss.title} title={'Бардык макалалар'} />
-
 				<section className={scss.article_head}>
 					<ArticleItem
 						className={scss.card_article}
@@ -94,9 +82,11 @@ export const ArticlesPage: React.FC = () => {
 				</section>
 
 				<section className={scss.pagination_section}>
-					<Pagination totalPages={10} onPageChange={handlePageChange} />
+					<Pagination totalPages={10} />
 				</section>
 			</div>
 		</main>
 	);
 };
+
+export default ArticlesPage;

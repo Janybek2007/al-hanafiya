@@ -1,3 +1,4 @@
+'use client';
 import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
 import React from 'react';
 import ProfileImages from './sections/profile-images/ProfileImages';
@@ -5,7 +6,7 @@ import ProfileSection from './sections/profile-section/ProfileSection';
 import { profiles } from './constants/profile.constants';
 import ProfielSL from './sections/profile-sl/ProfielSL';
 
-export const ProfilePage: React.FC = () => {
+const ProfilePage: React.FC = () => {
 	return (
 		<main>
 			<section className='container'>
@@ -35,3 +36,4 @@ export const ProfilePage: React.FC = () => {
 	);
 };
 
+export default ProfilePage;

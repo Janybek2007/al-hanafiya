@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import ModuleList from './sections/module-list/ModuleList';
 import { example_modules } from '$/entities/modules';
 
-export const LessonDetailPage: React.FC<{ lId?: string }> = ({ lId }) => {
+const LessonDetailPage: React.FC<{ lId?: string }> = ({ lId }) => {
 	const lesson = {
 		detail: example_lessons.find(val => val.id === lId),
 		modules: example_modules.filter(val => val.lId === lId)
@@ -29,3 +29,5 @@ export const LessonDetailPage: React.FC<{ lId?: string }> = ({ lId }) => {
 		</main>
 	);
 };
+
+export default LessonDetailPage;

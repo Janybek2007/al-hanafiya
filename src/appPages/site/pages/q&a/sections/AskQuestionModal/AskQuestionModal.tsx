@@ -57,7 +57,8 @@ const AskQuestionModal: React.FC<AskQuestionModalProps> = ({
 							<ul>
 								<li>Напишите свой вопрос в поле ниже</li>
 								<li>
-									Подключитесь к нашему боту в Telegram нажав команду "/start"
+									Подключитесь к нашему боту в Telegram нажав команду{' '}
+									{'"/start"'}
 									ниже
 								</li>
 								<li>Укажите свой Telegram username или номер телефона</li>

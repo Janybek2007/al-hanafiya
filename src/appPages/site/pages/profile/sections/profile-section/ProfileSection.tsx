@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './ProfileSection.module.scss';
-import clsx from 'clsx'
-import SectionTitle from '$/shared/ui/section-title/SectionTitle'
+import clsx from 'clsx';
+import SectionTitle from '$/shared/ui/section-title/SectionTitle';
 interface IProfileSectionProps {
 	title: string;
 	content: string;

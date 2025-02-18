@@ -1,7 +1,7 @@
 import { ArticleDetailPage } from '$/appPages/site'
 import { Metadata } from 'next';
 
-export const metadate: Metadata = {
+export const metadata: Metadata = {
 	title: 'Имам Ибн аль-Хумам: его жизнь и труды'
 };
 

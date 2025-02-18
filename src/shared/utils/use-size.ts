@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { useState, useEffect } from 'react';
 
 interface Size {
@@ -17,6 +17,7 @@ export const useSize = (element: ElementType = window): Size => {
 	const [size, setSize] = useState<Size>({ width: 0, height: 0 });
 
 	useEffect(() => {
+		if (typeof document === 'undefined') return;
 		let targetElement: HTMLElement | Window | null | undefined = null;
 		if (typeof element === 'string') {
 			targetElement = document.querySelector(element) as HTMLElement;
@@ -42,6 +43,7 @@ export const useSize = (element: ElementType = window): Size => {
 		};
 
 		updateSize();
+		if (typeof window === 'undefined') return;
 		window.addEventListener('resize', updateSize);
 
 		return () => {

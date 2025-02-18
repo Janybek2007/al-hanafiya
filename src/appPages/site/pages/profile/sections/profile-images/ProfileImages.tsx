@@ -23,14 +23,17 @@ const ProfileImages: React.FC = () => {
 		[index, images]
 	);
 
-	const handleIndexChange = (newIndex: number) => {
-		if (newIndex > index) {
-			setDirection('right');
-		} else if (newIndex < index) {
-			setDirection('left');
-		}
-		setIndex(newIndex);
-	};
+	const handleIndexChange = React.useCallback(
+		(newIndex: number) => {
+			if (newIndex > index) {
+				setDirection('right');
+			} else if (newIndex < index) {
+				setDirection('left');
+			}
+			setIndex(newIndex);
+		},
+		[index]
+	);
 
 	return (
 		<div className={styles.profile_images}>

@@ -1,4 +1,4 @@
-import { LessonsPage } from '$/appPages/site'
+import { LessonsPage } from '$/appPages/site';
 
 const page = () => <LessonsPage />;
 

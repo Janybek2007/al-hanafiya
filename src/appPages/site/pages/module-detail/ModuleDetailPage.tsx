@@ -12,7 +12,7 @@ interface IProps {
 	readonly mLessonId: string;
 }
 
-export const ModuleDetailPage: React.FC<IProps> = props => {
+const ModuleDetailPage: React.FC<IProps> = props => {
 	const _module = example_modules.find(val => val.id === props.moduleId);
 	const modules = example_modules.filter(val => val.lId === props.lessonId);
 	return (
@@ -35,3 +35,5 @@ export const ModuleDetailPage: React.FC<IProps> = props => {
 		</main>
 	);
 };
+
+export default ModuleDetailPage;

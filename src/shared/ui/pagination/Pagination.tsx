@@ -1,28 +1,33 @@
 'use client';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import scss from './Pagination.module.scss';
-import { useState } from 'react';
+import React from 'react';
+import { parseAsInteger, useQueryState } from 'nuqs';
 
 interface PaginationProps {
 	totalPages: number;
-	onPageChange: (page: number) => void;
 }
 
-const Pagination = ({ totalPages = 10, onPageChange }: PaginationProps) => {
-	const [currentPage, setCurrentPage] = useState(1);
+const Pagination = ({ totalPages = 10 }: PaginationProps) => {
+	const [currentPage, setCurrentPage] = useQueryState(
+		'page',
+		parseAsInteger.withDefault(1)
+	);
 
-	const handlePageChange = (page: number) => {
-		if (page >= 1 && page <= totalPages) {
-			setCurrentPage(page);
-			onPageChange(page);
-		}
-	};
+	const handlePageChange = React.useCallback(
+		(page: number) => {
+			if (page >= 1 && page <= totalPages) {
+				setCurrentPage(page);
+			}
+		},
+		[setCurrentPage, totalPages]
+	);
 
-	const renderPageNumbers = () => {
+	const renderPageNumbers = React.useCallback(() => {
 		const pages = [];
 		const maxVisiblePages = 5;
 		let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-		let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+		const endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
 		if (endPage - startPage + 1 < maxVisiblePages) {
 			startPage = Math.max(1, endPage - maxVisiblePages + 1);
@@ -40,7 +45,7 @@ const Pagination = ({ totalPages = 10, onPageChange }: PaginationProps) => {
 			);
 		}
 		return pages;
-	};
+	}, [currentPage, handlePageChange, totalPages]);
 
 	return (
 		<div className={scss.pagination}>
