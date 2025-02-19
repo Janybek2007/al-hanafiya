@@ -1,4 +1,4 @@
-import { ArticleDetailPage } from '$/appPages/site'
+import { ArticleDetailPage } from '$/appPages/site';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

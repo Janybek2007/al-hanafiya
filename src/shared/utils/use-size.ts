@@ -13,11 +13,11 @@ type ElementType =
 	| { current?: HTMLElement | null }
 	| string;
 
-export const useSize = (element: ElementType = window): Size => {
+export const useSize = (_element?: ElementType): Size => {
 	const [size, setSize] = useState<Size>({ width: 0, height: 0 });
-
 	useEffect(() => {
-		if (typeof document === 'undefined') return;
+		if (typeof document === 'undefined' || typeof window === undefined) return;
+		const element = _element || window
 		let targetElement: HTMLElement | Window | null | undefined = null;
 		if (typeof element === 'string') {
 			targetElement = document.querySelector(element) as HTMLElement;
@@ -49,7 +49,7 @@ export const useSize = (element: ElementType = window): Size => {
 		return () => {
 			window.removeEventListener('resize', updateSize);
 		};
-	}, [element]);
+	}, [_element]);
 
 	return size;
 };

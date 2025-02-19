@@ -41,6 +41,13 @@
     border: 1px solid var(--white);
     border-radius: 28px;
     width: 329px;
+    background: var(--white);
+    color: rgb(112, 112, 112);
+    font-family: var(--philosopher);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 10px 26px;
 
     @media (max-width: 1400px) {
       width: 280px;
@@ -59,14 +66,6 @@
     @media (max-width: 450px) {
       display: none;
     }
-
-    background: var(--white);
-    color: rgb(112, 112, 112);
-    font-family: var(--philosopher);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 10px 26px;
 
     &::-webkit-search-cancel-button {
       display: none;

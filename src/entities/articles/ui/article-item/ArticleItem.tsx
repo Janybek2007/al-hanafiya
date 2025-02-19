@@ -13,7 +13,7 @@ type ArticleItemProps = {
 	className?: string;
 };
 
-const MAX_LENGTH = 180; 
+const MAX_LENGTH = 180;
 
 const truncateText = (text: string, maxLength: number) => {
 	if (text.length <= maxLength) return text;

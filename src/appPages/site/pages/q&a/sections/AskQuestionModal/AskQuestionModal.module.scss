@@ -55,7 +55,7 @@
 
 .instruction_box {
 	display: flex;
-	align-items: start;
+	align-items: flex-start;
 	gap: 40px;
 	background-color: rgba(239, 248, 248, 0.7);
 	border-radius: 8px;
@@ -235,7 +235,7 @@
 		background: linear-gradient(179.08deg, rgb(0, 131, 121) 14.619%, rgb(30, 78, 78) 144.888%);
 
 		&:hover {
-			background-color: darken(#00776D, 5%);
+			background-color: #00776D55;
 		}
 
 		&:focus {
