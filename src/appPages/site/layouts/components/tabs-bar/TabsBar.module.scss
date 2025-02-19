@@ -4,7 +4,6 @@
 	left: 0;
 	width: 100%;
 	z-index: 1000;
-	padding-bottom: 10px;
 }
 
 .container {
@@ -13,8 +12,7 @@
 	justify-content: space-around;
 	background-color: var(--primary);
 	background-image: url("/images/header-background.png");
-	padding: 8.5px 10px;
-	border-radius: 12px;
+	padding: 8.5px 0;
 }
 
 .link {
@@ -37,7 +35,17 @@
 	}
 
 	&.active {
-		stroke: var(--secondary);
+		&.l * {
+			stroke: var(--secondary);
+			fill: var(--secondary);
+		}
+
+		&.pl * {
+			stroke: var(--secondary);
+		}
+		&:not(.l, .pl) * {
+			fill: var(--secondary);
+		}
 	}
 
 	span {
