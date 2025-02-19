@@ -1,13 +1,53 @@
 .breadcrumb_container {
-	padding-top: 49px;
+	--breadcrumb-padding-top: 49px;
+	--breadcrumb-link-color: #777777;
+	--breadcrumb-last-color: #000;
+	--breadcrumb-span-margin: 0 12px;
+	--breadcrumb-font-size: inherit;
+	padding-top: var(--breadcrumb-padding-top);
+
 	span,
 	a {
-		color: #777777;
+		color: var(--breadcrumb-link-color);
+		font-size: var(--breadcrumb-font-size);
 	}
+
 	.last {
-		color: #000;
+		color: var(--breadcrumb-last-color);
 	}
+
 	span {
-		margin: 0 12px;
+		margin: var(--breadcrumb-span-margin);
+	}
+}
+
+@media (max-width: 1024px) {
+	.breadcrumb_container {
+		--breadcrumb-padding-top: 40px;
+		--breadcrumb-span-margin: 0 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.breadcrumb_container {
+		--breadcrumb-padding-top: 30px;
+		--breadcrumb-span-margin: 0 8px;
+		--breadcrumb-font-size: 14px;
+	}
+}
+
+@media (max-width: 480px) {
+	.breadcrumb_container {
+		--breadcrumb-padding-top: 20px;
+		--breadcrumb-span-margin: 0 6px;
+		--breadcrumb-font-size: 12px;
+	}
+}
+
+@media (max-width: 360px) {
+	.breadcrumb_container {
+		--breadcrumb-padding-top: 15px;
+		--breadcrumb-span-margin: 0 4px;
+		--breadcrumb-font-size: 11px;
 	}
 }
