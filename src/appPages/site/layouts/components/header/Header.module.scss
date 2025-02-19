@@ -14,9 +14,11 @@
 
     @media (max-width: 1024px) {
       max-width: 95%;
+      padding: 14px 0;
     }
+
     @media (max-width: 500px) {
-      padding: 18px 0;
+      padding: 14px 0;
     }
   }
 }

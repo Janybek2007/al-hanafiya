@@ -1,3 +1,13 @@
+:root {
+	--menu-button-display: none;
+	--link-padding: 12px 8px;
+	--link-font-size: 16px;
+	--link-font-weight: 500;
+	--link-line-height: 100%;
+	--active-link-color: var(--secondary);
+	--nav-gap: 66px;
+}
+
 .header_nav {
 	position: relative;
 
@@ -6,42 +16,30 @@
 	}
 
 	.menu_button {
-		display: none;
+		display: var(--menu-button-display);
 		color: white;
 		stroke: white;
 
 		@media (max-width: 1024px) {
-			display: block;
+			--menu-button-display: block;
 		}
-	}
-
-	@media (max-width: 1400px) {
-		gap: 40px;
-	}
-
-	@media (max-width: 1280px) {
-		gap: 30px;
 	}
 
 	nav {
 		display: flex;
 		align-items: center;
-		gap: 66px;
+		gap: var(--nav-gap);
 
-		.link {
-			padding: 12px 8px;
-			font-size: 20px;
-			font-weight: 500;
-			line-height: 100%;
+		@media (max-width: 1400px) {
+			--nav-gap: 40px;
+		}
 
-			@media (max-width: 1280px) {
-				font-size: 18px;
-			}
+		@media (max-width: 1280px) {
+			--nav-gap: 30px;
+		}
 
-			&.active {
-				text-decoration: underline;
-				color: var(--secondary);
-			}
+		@media (max-width: 1240px) {
+			--nav-gap: 60px;
 		}
 
 		@media (max-width: 1024px) {
@@ -54,13 +52,50 @@
 			border-radius: 8px;
 			top: 150%;
 			padding: 15px;
-			
-			.link {
+		}
+
+		@media (max-width: 700px) {
+			padding: 10px;
+		}
+
+		.link {
+			padding: var(--link-padding);
+			font-size: var(--link-font-size);
+			font-weight: var(--link-font-weight);
+			line-height: var(--link-line-height);
+			color: var(--white);
+
+			@media (max-width: 1280px) {
+				--link-font-size: 14px;
+			}
+
+			&.active {
+				text-decoration: underline;
+				color: var(--active-link-color);
+			}
+
+			@media (max-width: 1024px) {
 				width: 100%;
 				padding: 8px 4px;
 				text-wrap: nowrap;
-				color: var(--text);
 			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.header_nav {
+		nav {
+			--nav-gap: 8px;
+			top: 140%;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.header_nav {
+		nav {
+			--nav-gap: 6px;
 		}
 	}
 }
