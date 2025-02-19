@@ -11,7 +11,8 @@ const nextConfig = withPWA({
 	devIndicators: {
 		// @ts-expect-error
 		appIsrStatus: false
-	}
+	},
+	output: "standalone"
 } satisfies NextConfig);
 
 export default nextConfig;

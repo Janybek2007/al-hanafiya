@@ -1,4 +1,3 @@
-'use client';
 import { ArticleItem } from '$/entities/articles';
 import { articles } from '$/entities/articles/constants/articles.constants';
 import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';

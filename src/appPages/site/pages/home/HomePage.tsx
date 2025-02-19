@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import { Articles } from './sections/articles/Articles';
 import { Hero } from './sections/hero/Hero';

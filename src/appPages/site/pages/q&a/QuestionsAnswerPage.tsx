@@ -8,7 +8,7 @@ import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
 import QuestionsSections from './sections/q&aLists/QuestionsSections';
 import Pagination from '$/shared/ui/pagination/Pagination';
 
-const QuestionsAnswerPage = () => {
+const QuestionsAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	return (

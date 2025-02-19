@@ -1,4 +1,3 @@
-'use client';
 import { example_lessons, LessonList, LessonsFilter } from '$/entities/lessons';
 import { paths } from '$/shared/routing';
 import clsx from 'clsx';

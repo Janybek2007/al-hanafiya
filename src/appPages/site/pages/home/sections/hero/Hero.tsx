@@ -7,9 +7,7 @@ export const Hero: React.FC = () => {
 	return (
 		<section
 			className={styles.hero}
-			style={{
-				backgroundImage: "url('/images/hero.png')"
-			}}
+			style={{ backgroundImage: "url('/images/hero.png')" }}
 		>
 			<div className={clsx('container', styles.container)}>
 				<div className={styles['content']}>

@@ -1,4 +1,9 @@
-import { HomePage } from '$/appPages/site'
+import { HomePage } from '$/appPages/site';
+import { Suspense } from 'react'
 
-const page = () => <HomePage />;
+const page = () => (
+	<Suspense>
+		<HomePage />
+	</Suspense>
+);
 export default page;

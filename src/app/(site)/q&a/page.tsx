@@ -1,10 +1,14 @@
-import QuestionsAnswerPage from "$/appPages/site/pages/q&a/QuestionsAnswerPage";
-import { Metadata } from "next";
-import React from "react";
+import { QuestionsAnswerPage } from '$/appPages/site'
+import { Metadata } from 'next';
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
-  title: "Калыс устазга келген",
+	title: 'Калыс устазга келген'
 };
-const page = () => <QuestionsAnswerPage />;
+const page = () => (
+	<Suspense>
+		<QuestionsAnswerPage />
+	</Suspense>
+);
 
 export default page;

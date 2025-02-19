@@ -1,14 +1,14 @@
 'use client';
-import React from 'react';
-import Link from 'next/link';
-import styles from './HeaderNav.module.scss';
-import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 import { nav_items } from '$/appPages/site/layouts/config';
 import Icon from '$/shared/ui/icon/Icon';
-import { useSize } from '$/shared/utils/use-size';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useOutsideClick } from '$/shared/utils';
+import { useSize } from '$/shared/utils/use-size';
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+import styles from './HeaderNav.module.scss';
 
 const HeaderNav: React.FC = () => {
 	const pathname = usePathname();
