@@ -1,4 +1,4 @@
-:root {
+.header_nav {
 	--menu-button-display: none;
 	--link-padding: 12px 8px;
 	--link-font-size: 16px;
@@ -6,9 +6,6 @@
 	--link-line-height: 100%;
 	--active-link-color: var(--secondary);
 	--nav-gap: 66px;
-}
-
-.header_nav {
 	position: relative;
 
 	* {
