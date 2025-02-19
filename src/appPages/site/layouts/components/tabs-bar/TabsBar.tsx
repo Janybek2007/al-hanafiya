@@ -16,14 +16,14 @@ export const TabsBar: React.FC = () => {
 
 	return (
 		<div className={styles.tabs}>
-			<div className={`${styles['container']} container`}>
+			<div className={`${styles['container']}`}>
 				{nav_items.map(nav => {
 					const isActive = pathname === nav.to;
 					return (
 						<Link
 							key={nav.label}
 							href={nav.to}
-							className={clsx(styles.link, {
+							className={clsx(styles.link, styles[nav.className||""], {
 								[styles.active]: isActive
 							})}
 						>

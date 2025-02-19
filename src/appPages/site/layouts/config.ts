@@ -12,6 +12,7 @@ export const nav_items = [
 		icon: '/icon/tabs-bar/user-profile.svg'
 	},
 	{
+		className: 'pl',
 		label: 'Сабактар',
 		to: paths.lessons.index,
 		icon: '/icon/tabs-bar/lessons.svg'
@@ -22,6 +23,7 @@ export const nav_items = [
 		icon: '/icon/tabs-bar/q&a.svg'
 	},
 	{
+		className: 'l',
 		label: 'Макалалар',
 		to: paths.articles,
 		icon: '/icon/tabs-bar/articles.svg'
