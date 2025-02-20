@@ -25,12 +25,8 @@
 		"react-svg": "^16.3.0",
 		"react-transition-group": "^4.4.5",
 		"swiper": "^11.2.4",
-<<<<<<< HEAD
 		"video.js": "^8.21.0",
 		"videojs-youtube": "^3.0.1"
-=======
-		"video.js": "^8.21.0"
->>>>>>> ffe622e01e61fa917b7aed3ab9a8813628d09f79
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
