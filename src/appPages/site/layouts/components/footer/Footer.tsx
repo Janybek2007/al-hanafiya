@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { Suspense } from 'react';
 import styles from './Footer.module.scss';
 import { FooterStart } from './ui/footer-start/FooterStart';
 import { FooterEnd } from './ui/footer-end/FooterEnd';
@@ -15,7 +15,9 @@ export const Footer: React.FC = () => {
 			<footer className={styles.footer}>
 				<div className={styles.container}>
 					<FooterStart />
-					<FooterEnd />
+					<Suspense>
+						<FooterEnd />
+					</Suspense>
 				</div>
 			</footer>
 		)

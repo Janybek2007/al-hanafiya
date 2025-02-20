@@ -23,7 +23,6 @@
 	font-size: 18px;
 	transition: background-color 0.3s ease, transform 0.3s ease;
 	fill: transparent;
-
 	div {
 		display: flex;
 		align-items: center;
@@ -31,7 +30,7 @@
 	}
 
 	&:not(.active) {
-		padding: 5px;
+		padding: 10px;
 	}
 
 	&.active {
@@ -55,7 +54,7 @@
 	}
 
 	& svg {
-		width: 24px;
-		height: 24px;
+		width: 28px;
+		height: 28px;
 	}
 }

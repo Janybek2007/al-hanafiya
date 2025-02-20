@@ -3,6 +3,7 @@ import React from 'react';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
+import 'videojs-youtube';
 import { VideoPlayerProps } from './video-player.types';
 import { useDerived } from '$/shared/utils';
 import clsx from 'clsx';

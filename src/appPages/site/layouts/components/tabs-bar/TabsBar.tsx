@@ -27,7 +27,7 @@ export const TabsBar: React.FC = () => {
 								[styles.active]: isActive
 							})}
 						>
-							<Svg src={nav.icon} width={32} height={32} />
+							<Svg src={nav.icon} />
 							{isActive && (
 								<motion.span
 									animate={{ opacity: 1, scale: 1 }}
