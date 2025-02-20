@@ -28,7 +28,7 @@ export const example_modules: IModule[] = [
 				comments_count: 8,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l3',
@@ -48,7 +48,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l5',
@@ -88,7 +88,7 @@ export const example_modules: IModule[] = [
 				comments_count: 4,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l9',
@@ -118,7 +118,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			}
 		]
 	},
@@ -141,7 +141,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l13',
@@ -171,7 +171,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l16',
@@ -181,7 +181,7 @@ export const example_modules: IModule[] = [
 				comments_count: 9,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l17',
@@ -191,7 +191,7 @@ export const example_modules: IModule[] = [
 				comments_count: 7,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l18',
@@ -211,7 +211,7 @@ export const example_modules: IModule[] = [
 				comments_count: 4,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l20',
@@ -293,7 +293,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l27',
@@ -303,7 +303,7 @@ export const example_modules: IModule[] = [
 				comments_count: 9,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l28',
@@ -333,7 +333,7 @@ export const example_modules: IModule[] = [
 				comments_count: 4,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			}
 		]
 	},
@@ -355,7 +355,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l32',
@@ -375,7 +375,7 @@ export const example_modules: IModule[] = [
 				comments_count: 12,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l34',
@@ -405,7 +405,7 @@ export const example_modules: IModule[] = [
 				comments_count: 7,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l37',
@@ -415,7 +415,7 @@ export const example_modules: IModule[] = [
 				comments_count: 10,
 				image_src: '/images/audio-module-image.png',
 				type: 'audio',
-				audio_url: '/examples/example-audio.m4a'
+				audio_url: '/example-audio.m4a'
 			},
 			{
 				id: 'l38',
