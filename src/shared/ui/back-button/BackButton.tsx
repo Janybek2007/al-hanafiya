@@ -1,18 +1,16 @@
 'use client';
 import styles from './BackButton.module.scss';
-import Button from '$/shared/ui/button/Button';
 import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next-nprogress-bar';
+import clsx from 'clsx';
 
 export const BackButton: React.FC = () => {
 	const route = useRouter();
 	return (
-		<Button
+		<button
 			onClick={() => route.back()}
-			className={styles.back_button}
-			borderColor='gray'
-			variant='outline'
+			className={clsx('flexCenter', styles.back_button)}
 		>
 			<Image
 				width={16}
@@ -21,6 +19,6 @@ export const BackButton: React.FC = () => {
 				alt='ArrowLeft Icon'
 			/>
 			<span>Назад</span>
-		</Button>
+		</button>
 	);
 };
