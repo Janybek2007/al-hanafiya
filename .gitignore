@@ -20,8 +20,6 @@
 # production
 /build
 
-/public/examples
-
 # misc
 .DS_Store
 *.pem

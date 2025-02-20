@@ -17,7 +17,11 @@ export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
 			<figure>
 				<VideoPlayer
 					options={{
-						source: { src: lesson.video_url, type: 'video/mp4', id: lesson.id }
+						source: {
+							src: lesson.video_url,
+							type: 'video/youtube',
+							id: lesson.id
+						}
 					}}
 				/>
 			</figure>

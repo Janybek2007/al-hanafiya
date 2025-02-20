@@ -18,7 +18,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l2',
@@ -38,7 +38,7 @@ export const example_modules: IModule[] = [
 				comments_count: 12,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l4',
@@ -58,7 +58,7 @@ export const example_modules: IModule[] = [
 				comments_count: 9,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l6',
@@ -68,7 +68,7 @@ export const example_modules: IModule[] = [
 				comments_count: 7,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l7',
@@ -78,7 +78,7 @@ export const example_modules: IModule[] = [
 				comments_count: 10,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l8',
@@ -98,7 +98,7 @@ export const example_modules: IModule[] = [
 				comments_count: 11,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l10',
@@ -108,7 +108,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l11',
@@ -151,7 +151,7 @@ export const example_modules: IModule[] = [
 				comments_count: 8,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l14',
@@ -161,7 +161,7 @@ export const example_modules: IModule[] = [
 				comments_count: 12,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l15',
@@ -201,7 +201,7 @@ export const example_modules: IModule[] = [
 				comments_count: 10,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l19',
@@ -221,7 +221,7 @@ export const example_modules: IModule[] = [
 				comments_count: 11,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l21',
@@ -231,7 +231,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l22',
@@ -241,7 +241,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			}
 		]
 	},
@@ -263,7 +263,7 @@ export const example_modules: IModule[] = [
 				comments_count: 5,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l24',
@@ -273,7 +273,7 @@ export const example_modules: IModule[] = [
 				comments_count: 8,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l25',
@@ -283,7 +283,7 @@ export const example_modules: IModule[] = [
 				comments_count: 12,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l26',
@@ -313,7 +313,7 @@ export const example_modules: IModule[] = [
 				comments_count: 7,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l29',
@@ -323,7 +323,7 @@ export const example_modules: IModule[] = [
 				comments_count: 10,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l30',
@@ -365,7 +365,7 @@ export const example_modules: IModule[] = [
 				comments_count: 8,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l33',
@@ -385,7 +385,7 @@ export const example_modules: IModule[] = [
 				comments_count: 6,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l35',
@@ -395,7 +395,7 @@ export const example_modules: IModule[] = [
 				comments_count: 9,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			},
 			{
 				id: 'l36',
@@ -425,7 +425,7 @@ export const example_modules: IModule[] = [
 				comments_count: 4,
 				image_src: '',
 				type: 'video',
-				video_url: '/examples/example-video.mp4'
+				video_url: 'https://youtu.be/P3h-yZZcTa0?si=Lq8UAm5z0mi0-OOm'
 			}
 		]
 	}
