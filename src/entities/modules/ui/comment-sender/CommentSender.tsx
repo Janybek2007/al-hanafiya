@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './CommentSender.module.scss';
 import { Svg } from '$/shared/ui/svg/Svg';
-export const CommentSender: React.FC = () => {
+
+interface IProps {
+	replyId?: string;
+}
+
+export const CommentSender: React.FC<IProps> = ({ replyId }) => {
 	return (
 		<div className={styles.comment_sender}>
-			<h4>Комментарийлер</h4>
+			{!replyId && <h4>Комментарийлер</h4>}
 			<div className={styles['sender']}>
 				<div className={styles['input-field']}>
 					<label htmlFor='comment-i'>

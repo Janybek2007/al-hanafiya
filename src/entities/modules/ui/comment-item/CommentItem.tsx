@@ -1,14 +1,17 @@
-import React from 'react';
+'use client';
 import { IModuleComment } from '../../types';
 import styles from './CommentItem.module.scss';
 import Image from 'next/image';
 import { Svg } from '$/shared/ui/svg/Svg';
 import clsx from 'clsx';
+import { CommentSender } from '../comment-sender/CommentSender';
+import React from 'react'
 interface IProps {
 	cm: IModuleComment;
 }
 
 export const CommentItem: React.FC<IProps> = ({ cm }) => {
+	const [reply, setReply] = React.useState(false);
 	return (
 		<div className={styles['cm']}>
 			<div className={styles['content']}>
@@ -34,12 +37,13 @@ export const CommentItem: React.FC<IProps> = ({ cm }) => {
 						<span className={styles['date']}>1 күн мурда</span>
 					</div>
 					<p className={styles.message}>{cm.message}</p>
-					<button>
+					<button onClick={() => setReply(p => !p)}>
 						<Svg src='/icon/chats-circle.svg' />
 						<span>REPLY</span>
 					</button>
 				</div>
 			</div>
+			{reply && <CommentSender replyId={cm.id} />}
 		</div>
 	);
 };
