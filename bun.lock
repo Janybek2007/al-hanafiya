@@ -21,10 +21,7 @@
         "react-transition-group": "^4.4.5",
         "swiper": "^11.2.4",
         "video.js": "^8.21.0",
-<<<<<<< HEAD
         "videojs-youtube": "^3.0.1",
-=======
->>>>>>> ffe622e01e61fa917b7aed3ab9a8813628d09f79
       },
       "devDependencies": {
         "@eslint/eslintrc": "^3",
