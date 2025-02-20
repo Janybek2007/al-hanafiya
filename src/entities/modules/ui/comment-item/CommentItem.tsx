@@ -1,11 +1,11 @@
 'use client';
-import React from 'react';
 import { IModuleComment } from '../../types';
 import styles from './CommentItem.module.scss';
 import Image from 'next/image';
 import { Svg } from '$/shared/ui/svg/Svg';
 import clsx from 'clsx';
 import { CommentSender } from '../comment-sender/CommentSender';
+import React from 'react'
 interface IProps {
 	cm: IModuleComment;
 }
