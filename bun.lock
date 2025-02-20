@@ -21,7 +21,10 @@
         "react-transition-group": "^4.4.5",
         "swiper": "^11.2.4",
         "video.js": "^8.21.0",
+<<<<<<< HEAD
         "videojs-youtube": "^3.0.1",
+=======
+>>>>>>> ffe622e01e61fa917b7aed3ab9a8813628d09f79
       },
       "devDependencies": {
         "@eslint/eslintrc": "^3",
@@ -1274,8 +1277,11 @@
 
     "videojs-vtt.js": ["videojs-vtt.js@0.15.5", "", { "dependencies": { "global": "^4.3.1" } }, "sha512-yZbBxvA7QMYn15Lr/ZfhhLPrNpI/RmCSCqgIff57GC2gIrV5YfyzLfLyZMj0NnZSAz8syB4N0nHXpZg9MyrMOQ=="],
 
+<<<<<<< HEAD
     "videojs-youtube": ["videojs-youtube@3.0.1", "", { "dependencies": { "video.js": "5.x || 6.x || 7.x || 8.x" } }, "sha512-0gKgag7Zno/dDwIdk+h48ODKDulR4IW62RxGE81PrMwi0OX/wUcKO6m1j+DFYI+7qjtWMZTKnbtQoHGxvUrFQg=="],
 
+=======
+>>>>>>> ffe622e01e61fa917b7aed3ab9a8813628d09f79
     "watchpack": ["watchpack@2.4.0", "", { "dependencies": { "glob-to-regexp": "^0.4.1", "graceful-fs": "^4.1.2" } }, "sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg=="],
 
     "webidl-conversions": ["webidl-conversions@4.0.2", "", {}, "sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg=="],
