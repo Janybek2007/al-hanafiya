@@ -18,7 +18,7 @@ export const BackButton: React.FC = () => {
 				src='/icon/arrow-left.svg'
 				alt='ArrowLeft Icon'
 			/>
-			<span>Назад</span>
+			<span>Артка</span>
 		</button>
 	);
 };

@@ -16,10 +16,11 @@
 # next.js
 /.next/
 /out/
-/public/examples
 
 # production
 /build
+
+/public/examples
 
 # misc
 .DS_Store
