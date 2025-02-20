@@ -1,2 +1,0 @@
-public/examples/example-audio.m4a filter=lfs diff=lfs merge=lfs -text
-public/examples/example-video.mp4 filter=lfs diff=lfs merge=lfs -text
