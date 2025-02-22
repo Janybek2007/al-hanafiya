@@ -1,3 +1,5 @@
+'use client';
+
 import { useElement } from '$/shared/utils';
 import clsx from 'clsx';
 import styles from './Collapsible.module.scss';
