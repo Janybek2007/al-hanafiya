@@ -1,6 +1,6 @@
 'use client';
 import { nav_items } from '$/appPages/site/layouts/config';
-import Icon from '$/shared/ui/icon/Icon';
+import { Icon } from '$/shared/ui';
 import { useOutsideClick } from '$/shared/utils';
 import { useSize } from '$/shared/utils/use-size';
 import clsx from 'clsx';

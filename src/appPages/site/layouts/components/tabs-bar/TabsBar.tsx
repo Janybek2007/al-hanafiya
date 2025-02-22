@@ -6,7 +6,7 @@ import { nav_items } from '../../config';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 import { motion } from 'framer-motion';
 export const TabsBar: React.FC = () => {
 	const { width } = useSize();
@@ -23,7 +23,7 @@ export const TabsBar: React.FC = () => {
 						<Link
 							key={nav.label}
 							href={nav.to}
-							className={clsx(styles.link, styles[nav.className||""], {
+							className={clsx(styles.link, styles[nav.className || ''], {
 								[styles.active]: isActive
 							})}
 						>

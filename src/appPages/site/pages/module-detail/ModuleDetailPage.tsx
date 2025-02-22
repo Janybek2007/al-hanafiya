@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { example_modules } from '$/entities/modules';
-import { BackButton } from '$/shared/ui/back-button/BackButton';
+import { BackButton } from '$/shared/ui';
 import ModuleContent from './sections/module-content/ModuleContent';
 import styles from './ModuleDetailPage.module.scss';
 import ModuleComments from './sections/module-comments/ModuleComments';

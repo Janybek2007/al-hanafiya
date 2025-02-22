@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './LessonsPage.module.scss';
 import LessonSection from './sections/lesson-section/LessonSection';
-import Pagination from '$/shared/ui/pagination/Pagination';
+import { Pagination } from '$/shared/ui';
 
 const section_label = 'Баардык сабактар';
 const LessonsPage: React.FC = () => {

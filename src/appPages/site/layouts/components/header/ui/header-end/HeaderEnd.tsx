@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './HeaderEnd.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import Icon from '$/shared/ui/icon/Icon';
+import { Icon } from '$/shared/ui';
 
 const HeaderEnd: React.FC = () => {
 	return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { articles } from '../../constants/articles.constants';
 import styles from './ArticleItem.module.scss';
 import clsx from 'clsx';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatDate } from '$/shared/utils';

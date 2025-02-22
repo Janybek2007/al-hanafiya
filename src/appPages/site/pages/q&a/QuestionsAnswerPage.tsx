@@ -1,12 +1,10 @@
 'use client';
-import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
-import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import { Breadcrumb, SectionTitle, Pagination } from '$/shared/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 import scss from './QuestionsAnswerPage.module.scss';
 import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
 import QuestionsSections from './sections/q&aLists/QuestionsSections';
-import Pagination from '$/shared/ui/pagination/Pagination';
 
 const QuestionsAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);

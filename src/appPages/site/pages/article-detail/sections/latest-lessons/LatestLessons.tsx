@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './LatestLessons.module.scss';
-import SectionTitle from '$/shared/ui/section-title/SectionTitle';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg, SectionTitle } from '$/shared/ui';
 const LatestLessons: React.FC = () => {
 	return (
 		<section className={styles.latest_lessons}>

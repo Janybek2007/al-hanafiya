@@ -1,5 +1,5 @@
 'use client';
-import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
+import { Breadcrumb } from '$/shared/ui';
 import React from 'react';
 import ProfileImages from './sections/profile-images/ProfileImages';
 import ProfileSection from './sections/profile-section/ProfileSection';

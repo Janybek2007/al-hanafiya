@@ -1,10 +1,9 @@
 'use client';
 import React from 'react';
 import styles from './ModuleVideo.module.scss';
-import VideoPlayer from '$/shared/ui/video-player/VideoPlayer';
+import { VideoPlayer, Svg } from '$/shared/ui';
 import { IModuleLesson } from '../../types';
 import { formatDate } from '$/shared/utils';
-import { Svg } from '$/shared/ui/svg/Svg';
 
 interface IProps {
 	lesson: IModuleLesson;

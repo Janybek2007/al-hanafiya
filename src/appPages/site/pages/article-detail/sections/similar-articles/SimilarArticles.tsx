@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './SimilarArticles.module.scss';
-import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import { SectionTitle } from '$/shared/ui';
 import { ArticleItem } from '$/entities/articles';
 import { articles } from '$/entities/articles/constants/articles.constants';
 const SimilarArticles: React.FC = () => {
