@@ -1,5 +1,5 @@
 import { HomePage } from '$/appPages/site';
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
 const page = () => (
 	<Suspense>

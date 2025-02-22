@@ -5,7 +5,7 @@ import { IModuleLesson } from '../../types';
 import Link from 'next/link';
 import clsx from 'clsx';
 import { IoIosCheckmark } from 'react-icons/io';
-import Icon from '$/shared/ui/icon/Icon';
+import { Icon } from '$/shared/ui';
 import { secondsToTime } from '$/shared/utils';
 import { parseAsBoolean, useQueryState } from 'nuqs';
 

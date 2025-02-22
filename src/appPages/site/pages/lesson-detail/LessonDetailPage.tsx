@@ -1,4 +1,4 @@
-import { BackButton } from '$/shared/ui/back-button/BackButton';
+import { BackButton } from '$/shared/ui';
 import React from 'react';
 import LessonHead from './sections/lesson-head/LessonHead';
 import { example_lessons } from '$/entities/lessons';

@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './LessonHead.module.scss';
 import { TLesson } from '$/entities/lessons';
 import Image from 'next/image';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 
 interface IProps {
 	lesson: TLesson;

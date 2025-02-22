@@ -2,7 +2,7 @@
 import { IModuleComment } from '../../types';
 import styles from './CommentItem.module.scss';
 import Image from 'next/image';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 import clsx from 'clsx';
 import { CommentSender } from '../comment-sender/CommentSender';
 import React from 'react'

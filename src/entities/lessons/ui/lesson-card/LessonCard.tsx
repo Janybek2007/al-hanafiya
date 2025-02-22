@@ -2,7 +2,7 @@ import React from 'react';
 import { TLesson } from '$/entities/lessons';
 import styles from './LessonCard.module.scss';
 import Image from 'next/image';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 import Link from 'next/link';
 interface IProps {
 	lesson: TLesson;

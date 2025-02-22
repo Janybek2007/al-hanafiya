@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './ModuleAudio.module.scss';
 import { IModuleLesson } from '../../types';
 import Image from 'next/image';
-import { AudioPlayer } from '$/shared/ui/audio-player/AudioPlayer';
+import { AudioPlayer } from '$/shared/ui';
 import { text$ } from '$/shared/utils';
 
 interface IProps {

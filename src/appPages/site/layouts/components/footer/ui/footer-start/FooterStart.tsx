@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './FooterStart.module.scss';
 import Link from 'next/link';
 import { paths } from '$/shared/routing';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 import { useSize } from '$/shared/utils/use-size';
 
 export const FooterStart: React.FC = () => {

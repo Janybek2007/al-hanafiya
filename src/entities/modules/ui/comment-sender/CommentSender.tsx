@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './CommentSender.module.scss';
-import { Svg } from '$/shared/ui/svg/Svg';
+import { Svg } from '$/shared/ui';
 
 interface IProps {
 	replyId?: string;

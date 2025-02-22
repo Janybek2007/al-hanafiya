@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.scss';
 import clsx from 'clsx';
-import Button from '$/shared/ui/button/Button';
+import { Button } from '$/shared/ui';
 
 export const Hero: React.FC = () => {
 	return (

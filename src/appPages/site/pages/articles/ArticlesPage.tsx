@@ -1,11 +1,8 @@
-import { ArticleItem } from '$/entities/articles';
-import { articles } from '$/entities/articles/constants/articles.constants';
-import Breadcrumb from '$/shared/ui/breadcrumb/Breadcrumb';
-import SectionTitle from '$/shared/ui/section-title/SectionTitle';
+import { ArticleItem, articles } from '$/entities/articles';
+import { Pagination, SectionTitle, Breadcrumb } from '$/shared/ui';
 import React from 'react';
 import scss from './ArticlesPage.module.scss';
 import Filtiration from './sections/filtration/Filtiration';
-import Pagination from '$/shared/ui/pagination/Pagination';
 
 const ArticlesPage: React.FC = () => {
 	return (

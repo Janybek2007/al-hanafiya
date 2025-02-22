@@ -5,8 +5,7 @@ import {
 	ModuleItem,
 	ModuleVideo
 } from '$/entities/modules';
-import Accordion from '$/shared/ui/accordion/Accordion';
-import { AccordionItem } from '$/shared/ui/accordion/accordion.types';
+import { Accordion, AccordionItem } from '$/shared/ui';
 import { text$, useDerived } from '$/shared/utils';
 import styles from './ModuleContent.module.scss';
 import React from 'react';
