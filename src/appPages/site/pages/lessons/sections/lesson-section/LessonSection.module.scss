@@ -35,7 +35,7 @@
 
 			a {
 				gap: 8px;
-				color: #FF6636;
+				color: #ff6636;
 				font-size: var(--header-link-font-size);
 				line-height: 2;
 				font-weight: 400;
@@ -64,22 +64,5 @@
 		--header-font-size: 18px;
 		--header-link-font-size: 12px;
 		--header-icon-size: 18px;
-	}
-}
-
-@media (max-width: 480px) {
-	.lesson_section {
-		--lesson-section-gap: 15px;
-		--header-font-size: 16px;
-		--header-link-font-size: 10px;
-		--header-icon-size: 16px;
-	}
-}
-
-@media (max-width: 360px) {
-	.lesson_section {
-		--lesson-section-gap: 10px;
-		--header-font-size: 14px;
-		--header-icon-size: 14px;
 	}
 }

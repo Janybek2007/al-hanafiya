@@ -181,39 +181,15 @@
 
 @media (max-width: 480px) {
 	.module_l_item {
+		padding: 3px 0;
 		--title-font-size: 16px;
 		--title-line-height: 14px;
 		--desc-font-size: 10px;
 		--desc-line-height: 14px;
-		--check-size: 16px;
-		--check-icon-size: 8px;
-		--row-gap: 5px;
 		--row-margin-bottom: 7px;
 		--top-padding: 8px 12px;
 		--sub-modules-margin-top: 5px;
 		--sub-module-padding: 6px 15px;
-		--sub-title-font-size: 10px;
-		--sub-check-size: 12px;
-		--sub-check-icon-size: 6px;
-	}
-}
-
-@media (max-width: 400px) {
-	.module_l_item {
-		--title-font-size: 14px;
-		--title-line-height: 12px;
-		--desc-font-size: 10px;
-		--desc-line-height: 12px;
-		--check-size: 14px;
-		--check-icon-size: 7px;
-		--row-gap: 4px;
-		--row-margin-bottom: 6px;
-		--top-padding: 7px 11px;
-		--sub-modules-margin-top: 4px;
-		--sub-module-padding: 5px 13px;
-		--sub-title-font-size: 9px;
-		--sub-check-size: 11px;
-		--sub-check-icon-size: 5.5px;
 	}
 }
 
@@ -225,13 +201,12 @@
 		--desc-line-height: 11px;
 		--check-size: 13px;
 		--check-icon-size: 6.5px;
-		--row-gap: 3px;
 		--row-margin-bottom: 5px;
 		--top-padding: 6px 10px;
 		--sub-modules-margin-top: 3px;
 		--sub-module-padding: 4px 11px;
-		--sub-title-font-size: 8px;
-		--sub-check-size: 10px;
+		--sub-title-font-size: 10px;
+		--sub-check-size: 13px;
 		--sub-check-icon-size: 5px;
 	}
 }

@@ -1,24 +1,18 @@
 'use client';
 
-import { useElement } from '$/shared/utils';
 import clsx from 'clsx';
 import styles from './Collapsible.module.scss';
 import React from 'react';
 import { CollapsibleProps } from './collapsible.types';
-
+import { AnimatePresence } from 'framer-motion'
+import {motion}from 'framer-motion'
 const Collapsible: React.FC<CollapsibleProps> = ({
 	disabled,
 	className,
 	children,
 	trigger,
-	transition,
 	value
 }) => {
-	const [contentRef, { offsetHeight: contentHeight }] = useElement({
-		depends: [value]
-	});
-
-	const firstChild = React.Children.toArray(children)[0];
 	return (
 		<div
 			suppressHydrationWarning
@@ -26,23 +20,23 @@ const Collapsible: React.FC<CollapsibleProps> = ({
 		>
 			{trigger && trigger}
 
-			{!disabled && (
-				<>
-					<div
-						style={{
-							height: value && !disabled ? `${contentHeight}px` : `0px`,
-							transition: transition || 'height 0.3s ease'
-						}}
-						className={clsx(styles.collapsible_content, 'collabsible_content')}
-					>
-						{React.isValidElement(firstChild)
-							? React.cloneElement(firstChild, {
-									ref: contentRef
-							  } as React.HTMLAttributes<HTMLElement>)
-							: children}
-					</div>
-				</>
-			)}
+			<AnimatePresence>
+				{!disabled && value && (
+					<>
+						<motion.div
+							initial={{ opacity: 0, height: 0 }}
+							animate={{ opacity: 1, height: 'auto' }}
+							exit={{ opacity: 0, height: 0 }}
+							className={clsx(
+								styles.collapsible_content,
+								'collabsible_content'
+							)}
+						>
+							{children}
+						</motion.div>
+					</>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };

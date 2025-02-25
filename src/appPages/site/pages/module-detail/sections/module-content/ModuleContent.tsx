@@ -26,7 +26,7 @@ const ModuleContent: React.FC<IProps> = ({
 		[lessonId]
 	);
 
-	const accodionItems = useDerived((): AccordionItem[] => {
+	const accordionItems = useDerived((): AccordionItem[] => {
 		return modules.map(val => {
 			return {
 				label: val.title,
@@ -67,7 +67,7 @@ const ModuleContent: React.FC<IProps> = ({
 							icon='ChevronDown'
 							defaultValue={text$.toSlug(module.title)}
 							className={styles.accordion}
-							items={accodionItems}
+							items={accordionItems}
 						/>
 					</div>
 				</div>

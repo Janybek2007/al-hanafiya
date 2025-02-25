@@ -87,3 +87,44 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 		timeAgo
 	};
 }
+
+// "DD.MM.YYYY HH:mm"
+export function formatRelativeTime(dateStr: string): string {
+	const [datePart, timePart] = dateStr.split(' ');
+	const [day, month, year] = datePart.split('.').map(Number);
+	const [hours, minutes] = timePart.split(':').map(Number);
+
+	const targetDate = new Date(year, month - 1, day, hours, minutes);
+
+	const now = new Date();
+
+	const diffMs = now.getTime() - targetDate.getTime();
+	const diffSeconds = Math.floor(diffMs / 1000);
+	const diffMinutes = Math.floor(diffSeconds / 60);
+	const diffHours = Math.floor(diffMinutes / 60);
+	const diffDays = Math.floor(diffHours / 24);
+
+	const formatWithPluralization = (
+		count: number,
+		unitSingular: string,
+		unitPlural: string
+	): string => {
+		if (count === 1) {
+			return `1 ${unitSingular} мурда`;
+		} else if (count >= 2 && count <= 4) {
+			return `${count} ${unitPlural} мурда`;
+		} else {
+			return `${count} ${unitPlural} мурда`;
+		}
+	};
+
+	if (diffDays > 0) {
+		return formatWithPluralization(diffDays, 'күн', 'күн');
+	} else if (diffHours > 0) {
+		return formatWithPluralization(diffHours, 'саат', 'саат');
+	} else if (diffMinutes > 0) {
+		return formatWithPluralization(diffMinutes, 'мүнөт', 'мүнөт');
+	} else {
+		return 'Бир аз мурда'; // Just now (less than a minute)
+	}
+}
