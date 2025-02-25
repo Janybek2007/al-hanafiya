@@ -6,7 +6,8 @@
 	--to-contact-line-height: 44px;
 	--social-links-gap: 30px;
 	--social-link-size: 24px;
-	margin: var(--profilesl-section-margin-top) 0 var(--profilesl-section-margin-bottom) 0;
+	margin: var(--profilesl-section-margin-top) 0
+		var(--profilesl-section-margin-bottom) 0;
 
 	.container {
 		display: flex;
@@ -58,7 +59,7 @@
 		--to-contact-font-size: 20px;
 		--to-contact-line-height: 36px;
 		--social-links-gap: 20px;
-		--social-link-size: 18px;
+		--social-link-size: 24px;
 	}
 }
 
@@ -67,8 +68,6 @@
 		--profilesl-section-margin-top: 20px;
 		--profilesl-section-margin-bottom: 35px;
 		--profilesl-gap: 12px;
-		--to-contact-font-size: 18px;
-		--to-contact-line-height: 32px;
 		--social-links-gap: 16px;
 	}
 }
@@ -89,8 +88,6 @@
 		--profilesl-section-margin-top: 12px;
 		--profilesl-section-margin-bottom: 25px;
 		--profilesl-gap: 8px;
-		--to-contact-font-size: 14px;
-		--to-contact-line-height: 24px;
 		--social-links-gap: 10px;
 	}
 }
@@ -100,8 +97,6 @@
 		--profilesl-section-margin-top: 12px;
 		--profilesl-section-margin-bottom: 20px;
 		--profilesl-gap: 8px;
-		--to-contact-font-size: 14px;
-		--to-contact-line-height: 24px;
 		--social-links-gap: 8px;
 	}
 }
@@ -109,7 +104,6 @@
 @media (max-width: 360px) {
 	.profilesl_section {
 		--profilesl-section-margin-top: 10px;
-		--profilesl-section-margin-bottom: 15px;
 		--profilesl-gap: 6px;
 		--social-links-gap: 6px;
 	}
@@ -118,7 +112,6 @@
 @media (max-width: 340px) {
 	.profilesl_section {
 		--profilesl-section-margin-top: 10px;
-		--profilesl-section-margin-bottom: 10px;
 		--profilesl-gap: 6px;
 		--social-links-gap: 6px;
 	}
@@ -127,7 +120,6 @@
 @media (max-width: 320px) {
 	.profilesl_section {
 		--profilesl-section-margin-top: 8px;
-		--profilesl-section-margin-bottom: 5px;
 		--profilesl-gap: 4px;
 		--social-links-gap: 4px;
 	}

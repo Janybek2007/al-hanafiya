@@ -9,7 +9,7 @@ interface IProps {
 	treeIndex?: number;
 }
 
-export const CommentList: React.FC<IProps> = ({ comments, treeIndex }) => {
+export const CommentList: React.FC<IProps> = ({ treeIndex, comments }) => {
 	return (
 		<div className={clsx(styles.comment_list, styles[`ti-${treeIndex}`])}>
 			{comments.map((cm, i) => (

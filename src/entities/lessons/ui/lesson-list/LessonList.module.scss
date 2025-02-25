@@ -2,6 +2,10 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 23px;
+	&::-webkit-scrollbar {
+		height: 0;
+		width: 0;
+	}
 
 	@media (max-width: 930px) {
 		gap: 10px;

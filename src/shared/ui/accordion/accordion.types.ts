@@ -19,7 +19,7 @@ export interface AccordionItem {
 	content: React.ReactNode;
 }
 
-export interface AccodrionItemProps extends AccordionItem {
+export interface AccordionItemProps extends AccordionItem {
 	isLast: boolean;
 	isActive: boolean;
 	toggleItem(value: string): void;

@@ -7,14 +7,19 @@
 	--active-line-height: 3px;
 	--active-line-background: var(--secondary);
 	--line-height: 3px;
-	--line-background: #EBEDF0;
+	--line-background: #ebedf0;
 	--line-border-radius: 100px;
 	--transition-duration: 0.25s;
-	margin: var(--filter-section-margin-top) 0 var(--filter-section-margin-bottom) 0;
+	margin: var(--filter-section-margin-top) 0 var(--filter-section-margin-bottom)
+		0;
 
 	.container {
 		* {
 			user-select: none;
+		}
+		&::-webkit-scrollbar {
+			height: 0;
+			width: 0;
 		}
 
 		.f_buttons {

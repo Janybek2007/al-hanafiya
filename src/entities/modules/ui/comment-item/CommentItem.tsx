@@ -5,13 +5,15 @@ import Image from 'next/image';
 import { Svg } from '$/shared/ui';
 import clsx from 'clsx';
 import { CommentSender } from '../comment-sender/CommentSender';
-import React from 'react'
+import React from 'react';
+import { useComment } from '$/features/comments';
+import { formatRelativeTime } from '$/shared/utils/formatters/date-formatter'
 interface IProps {
 	cm: IModuleComment;
 }
 
 export const CommentItem: React.FC<IProps> = ({ cm }) => {
-	const [reply, setReply] = React.useState(false);
+	const { setReply, reply } = useComment();
 	return (
 		<div className={styles['cm']}>
 			<div className={styles['content']}>
@@ -34,16 +36,16 @@ export const CommentItem: React.FC<IProps> = ({ cm }) => {
 					<div className={styles['nameAndDate']}>
 						<h5>{cm.user.displayName}</h5>
 						<div className={styles['dot']}></div>
-						<span className={styles['date']}>1 күн мурда</span>
+						<span className={styles['date']}>{formatRelativeTime(cm.sended_at)}</span>
 					</div>
 					<p className={styles.message}>{cm.message}</p>
-					<button onClick={() => setReply(p => !p)}>
+					<button onClick={() => setReply(p => (p == null ? cm.id : null))}>
 						<Svg src='/icon/chats-circle.svg' />
 						<span>REPLY</span>
 					</button>
 				</div>
 			</div>
-			{reply && <CommentSender replyId={cm.id} />}
+			{reply === cm.id && <CommentSender replyId={cm.id} />}
 		</div>
 	);
 };

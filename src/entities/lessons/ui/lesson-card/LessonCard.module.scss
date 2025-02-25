@@ -46,7 +46,7 @@
 			.line {
 				width: 100%;
 				height: var(--card-progress-line-height);
-				background: #EBEDF0;
+				background: #ebedf0;
 				border-radius: 100px;
 			}
 		}
@@ -129,7 +129,5 @@
 		--card-title-font-size: 12px;
 		--card-title-line-height: 16px;
 		--card-progress-margin: 4px 0;
-		--card-icon-size: 14px;
-		--card-row-font-size: 10px;
 	}
 }

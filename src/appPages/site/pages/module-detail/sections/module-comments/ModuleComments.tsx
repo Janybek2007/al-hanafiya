@@ -1,20 +1,22 @@
-import {
-	CommentList,
-	CommentSender,
-	example_comments
-} from '$/entities/modules';
+'use client'
+import { CommentList, CommentSender } from '$/entities/modules';
 import React from 'react';
 import styles from './ModuleComments.module.scss';
+import { CommentProvider } from '$/features/comments';
 interface IProps {
 	moduleId: string;
 }
 
-const ModuleComments: React.FC<IProps> = () => {
+const ModuleComments: React.FC<IProps> = ({ moduleId }) => {
 	return (
-		<div className={styles.module_comments}>
-			<CommentSender />
-			<CommentList comments={example_comments} />
-		</div>
+		<CommentProvider moduleId={moduleId}>
+			{({ comments }) => (
+				<div className={styles.module_comments}>
+					<CommentSender />
+					<CommentList comments={comments} />
+				</div>
+			)}
+		</CommentProvider>
 	);
 };
 

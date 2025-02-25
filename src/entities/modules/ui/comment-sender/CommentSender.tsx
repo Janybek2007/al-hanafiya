@@ -1,12 +1,24 @@
+'use client';
 import React from 'react';
 import styles from './CommentSender.module.scss';
 import { Svg } from '$/shared/ui';
+import { useComment } from '$/features/comments';
 
 interface IProps {
 	replyId?: string;
 }
 
 export const CommentSender: React.FC<IProps> = ({ replyId }) => {
+	const { handleSendComment } = useComment();
+	const [message, setMessage] = React.useState('');
+
+	const handleSend = React.useCallback(() => {
+		if (message.trim()) {
+			handleSendComment(message, replyId);
+			setMessage('');
+		}
+	}, [message, handleSendComment, replyId]);
+
 	return (
 		<div className={styles.comment_sender}>
 			{!replyId && <h4>Комментарийлер</h4>}
@@ -19,9 +31,11 @@ export const CommentSender: React.FC<IProps> = ({ replyId }) => {
 						name='comment-i'
 						id='comment-i'
 						placeholder='Комментарий жибериңиз'
+						value={message}
+						onChange={e => setMessage(e.target.value)}
 					/>
 				</div>
-				<button>Жөнөтүү</button>
+				<button onClick={handleSend}>Жөнөтүү</button>
 			</div>
 		</div>
 	);

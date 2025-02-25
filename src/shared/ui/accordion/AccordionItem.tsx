@@ -2,11 +2,11 @@
 import React from 'react';
 import Collapsible from '../collapsible/Collapsible';
 import styles from './Accordion.module.scss';
-import { AccodrionItemProps } from './accordion.types';
+import { AccordionItemProps } from './accordion.types';
 import clsx from 'clsx';
 import Icon from '../icon/Icon';
 
-const AccordionItem: React.FC<AccodrionItemProps> = ({
+const AccordionItem: React.FC<AccordionItemProps> = ({
 	content,
 	icon,
 	label,
