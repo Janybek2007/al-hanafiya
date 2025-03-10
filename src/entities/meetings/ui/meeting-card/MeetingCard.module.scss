@@ -103,12 +103,12 @@
 		--p-font-size: 16px;
 		--p-line-height: 20px;
 		--ul-gap: 14px;
+		--card-width: 94%;
 	}
 }
 
 @media (max-width: 480px) {
 	.meeting_card {
-		--card-width: 94%;
 		--icon-size: 20px;
 		--ul-gap: 10px;
 	}

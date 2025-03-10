@@ -1,15 +1,22 @@
 .button {
-	padding: 9px 60px;
-	border-radius: 28px;
+	--button-padding: 9px 60px;
+	--button-border-radius: 28px;
+	--button-font-size: 20px;
+	--button-line-height: 30px;
+	--button-box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
+	--button-border-width: 1px;
+
+	padding: var(--button-padding);
+	border-radius: var(--button-border-radius);
 	font-family: var(--philosopher);
-	font-size: 20px;
+	font-size: var(--button-font-size);
 	font-weight: 500;
-	line-height: 30px;
+	line-height: var(--button-line-height);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--button-box-shadow);
 
 	&.solid {
 		&.linearGradient_v1 {
@@ -22,13 +29,62 @@
 
 	&.outline {
 		&.bs-white {
-			border: 1px solid var(--white);
+			border: var(--button-border-width) solid var(--white);
 		}
 		&.bs-gray {
-			border: 1px solid #a2a4a7;
+			border: var(--button-border-width) solid #a2a4a7;
 		}
 		&.bs-black {
-			border: 1px solid #4e4e4e;
+			border: var(--button-border-width) solid #4e4e4e;
 		}
+	}
+}
+
+@media (max-width: 1240px) {
+	.button {
+		--button-padding: 8px 50px;
+		--button-font-size: 18px;
+		--button-line-height: 28px;
+		--button-box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.18);
+	}
+}
+
+@media (max-width: 1024px) {
+	.button {
+		--button-padding: 7px 45px;
+		--button-border-radius: 24px;
+		--button-font-size: 17px;
+		--button-line-height: 26px;
+		--button-box-shadow: 0px 4px 35px 0px rgba(0, 0, 0, 0.16);
+	}
+}
+
+@media (max-width: 768px) {
+	.button {
+		--button-padding: 6px 40px;
+		--button-border-radius: 22px;
+		--button-font-size: 16px;
+		--button-line-height: 24px;
+		--button-box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.15);
+	}
+}
+
+@media (max-width: 480px) {
+	.button {
+		--button-padding: 6px 35px;
+		--button-border-radius: 20px;
+		--button-font-size: 15px;
+		--button-line-height: 22px;
+		--button-box-shadow: 0px 3px 25px 0px rgba(0, 0, 0, 0.14);
+	}
+}
+
+@media (max-width: 360px) {
+	.button {
+		--button-padding: 5px 30px;
+		--button-border-radius: 18px;
+		--button-font-size: 14px;
+		--button-line-height: 20px;
+		--button-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.12);
 	}
 }
