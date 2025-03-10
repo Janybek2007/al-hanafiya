@@ -2,7 +2,10 @@ import React from 'react';
 import styles from './LatestLessons.module.scss';
 import clsx from 'clsx';
 import Image from 'next/image';
-import { Svg, SectionTitle } from '$/shared/ui';
+import { SectionTitle } from '$/shared/ui';
+import { CiVideoOn } from 'react-icons/ci';
+import { AiOutlineAudio } from 'react-icons/ai';
+
 const LatestLessons: React.FC = () => {
 	return (
 		<section className={styles.latest_lessons}>
@@ -22,16 +25,8 @@ const LatestLessons: React.FC = () => {
 									src={'/images/lesson-card.png'}
 									alt='LessonCard Image'
 								/>
-								<button className={clsx('flexCenter', styles['audio_btn'])}>
-									<Svg
-										width={16}
-										height={16}
-										src={
-											i === 1
-												? '/icon/video-outlined.svg'
-												: '/icon/audio-outlined.svg'
-										}
-									/>
+								<button className={clsx('flexCenter', styles['btn'])}>
+									{i == 1 ? <CiVideoOn /> : <AiOutlineAudio />}
 								</button>
 							</figure>
 							<div className={styles['content']}>

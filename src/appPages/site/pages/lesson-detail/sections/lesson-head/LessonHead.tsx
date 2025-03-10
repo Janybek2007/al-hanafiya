@@ -3,7 +3,8 @@ import React from 'react';
 import styles from './LessonHead.module.scss';
 import { TLesson } from '$/entities/lessons';
 import Image from 'next/image';
-import { Svg } from '$/shared/ui';
+import { AiOutlineAudio } from 'react-icons/ai';
+import { CiVideoOn } from 'react-icons/ci';
 
 interface IProps {
 	lesson: TLesson;
@@ -30,7 +31,7 @@ const LessonHead: React.FC<IProps> = ({ lesson }) => {
 					<span className={styles['category']}>{category}</span>
 					<span>{module_count} модуль</span>
 					<span>
-						<Svg className={styles.svg} src={`/icon/${type}-outlined.svg`} />4{' '}
+						{type === "audio" ? <AiOutlineAudio /> : <CiVideoOn />}4
 						{type == 'audio' ? 'аудио' : 'видео'}
 						сабак
 					</span>

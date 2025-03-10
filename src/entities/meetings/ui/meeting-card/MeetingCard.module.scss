@@ -1,55 +1,58 @@
 .meeting_card {
-	border-radius: 12px;
-	width: 100%;
+	--border-radius: 12px;
+	--padding: 9px 9px 24px 9px;
+	--card-content-margin-top: 14px;
+	--card-content-padding: 0 14px;
+	--p-font-size: 20px;
+	--p-line-height: 26px;
+	--ul-margin-top: 12px;
+	--ul-gap: 10px;
+	--li-gap: 7px;
+	--li-span-font-size: 14px;
+	--card-width: 100%;
+	--icon-size: 25px;
 
+	width: var(--card-width);
+	margin: 0 auto;
 	box-shadow: 0px 50px 60px 0px rgba(12, 25, 39, 0.1),
 		0px 16px 20px 0px rgba(12, 25, 39, 0.06),
 		0px 6px 8px 0px rgba(12, 25, 39, 0.05);
 	background: var(--white);
 	border: 1px solid var(--primary);
-	padding: 9px;
+	padding: var(--padding);
+	border-radius: var(--border-radius);
 
-	figure img {
+	.figure img {
+		border-radius: var(--border-radius);
 		width: 100%;
 	}
 
 	.card_content {
-		margin-top: 14px;
-		padding: 0 14px;
+		margin-top: var(--card-content-margin-top);
+		padding: var(--card-content-padding);
 
 		p {
 			color: rgb(37, 44, 50);
-			font-size: 20px;
+			font-size: var(--p-font-size);
 			font-weight: 600;
-			line-height: 26px;
-		}
-
-		.forWomenOnly {
-			display: inline-flex;
-			align-items: center;
-			gap: 5px;
-
-			span {
-				font-size: 14px;
-				font-weight: 600;
-				line-height: 32px;
-			}
+			line-height: var(--p-line-height);
 		}
 
 		ul {
-			margin-top: 12px;
+			margin-top: var(--ul-margin-top);
 			display: flex;
 			flex-direction: column;
-			gap: 10px;
+			gap: var(--ul-gap);
 
 			li {
 				display: flex;
 				align-items: center;
-				gap: 7px;
+				gap: var(--li-gap);
 
-				figure {
-					width: 25px;
-					height: 25px;
+				figure img {
+					width: var(--icon-size);
+					height: var(--icon-size);
+					object-fit: contain;
 				}
 
 				.col {
@@ -59,10 +62,69 @@
 
 				span {
 					color: rgb(37, 44, 50);
-					font-size: 14px;
+					font-size: var(--li-span-font-size);
 					font-weight: 400;
+					line-height: 1;
 				}
 			}
 		}
+	}
+}
+
+@media (max-width: 1240px) {
+	.meeting_card {
+		--padding: 8px 8px 20px 8px;
+		--card-content-margin-top: 12px;
+		--card-content-padding: 0 12px;
+		--p-font-size: 18px;
+		--p-line-height: 24px;
+		--ul-margin-top: 10px;
+		--ul-gap: 10px;
+		--li-span-font-size: 13px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.meeting_card {
+		--padding: 7px 7px 18px 7px;
+		--card-content-margin-top: 10px;
+		--card-content-padding: 0 10px;
+		--p-font-size: 16px;
+		--p-line-height: 22px;
+		--ul-margin-top: 14px;
+	}
+}
+
+@media (max-width: 768px) {
+	.meeting_card {
+		--padding: 6px 6px 16px 6px;
+		--card-content-margin-top: 8px;
+		--card-content-padding: 0 8px;
+		--p-font-size: 16px;
+		--p-line-height: 20px;
+		--ul-gap: 14px;
+	}
+}
+
+@media (max-width: 480px) {
+	.meeting_card {
+		--card-width: 94%;
+		--icon-size: 20px;
+		--ul-gap: 10px;
+	}
+}
+
+@media (max-width: 340px) {
+	.meeting_card {
+		--padding: 5px 5px 14px 5px;
+		--card-content-margin-top: 8px;
+		--card-content-padding: 0 7px;
+		--p-font-size: 12px;
+		--p-line-height: 16px;
+		--ul-margin-top: 10px;
+		--li-gap: 4px;
+		--ul-margin-top: 8px;
+		--icon-size: 18px;
+		--li-span-font-size: 10px;
 	}
 }

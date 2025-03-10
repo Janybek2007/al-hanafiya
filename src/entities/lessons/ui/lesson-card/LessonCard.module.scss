@@ -11,13 +11,14 @@
 	--card-icon-size: 18px;
 	--card-row-font-size: 14px;
 	--card-figure-height: 187px;
+	--card-width: 100%;
 
 	overflow: hidden;
 	border-radius: var(--card-border-radius);
 	border: var(--card-border);
 	box-shadow: var(--card-box-shadow);
 	height: 100%;
-	width: 100%;
+	width: var(--card-width);
 	color: var(--text);
 
 	.content {
@@ -116,18 +117,22 @@
 	@media (max-width: 768px) {
 		--card-figure-height: 140px;
 		--card-padding: 8px;
-		--card-title-font-size: 14px;
-		--card-title-line-height: 18px;
+		--card-title-font-size: 18px;
+		--card-title-line-height: 20px;
 		--card-progress-margin: 6px 0;
-		--card-icon-size: 16px;
-		--card-row-font-size: 12px;
+		--card-icon-size: 18px;
+		--card-row-font-size: 16px;
 	}
 
-	@media (max-width: 480px) {
-		--card-figure-height: 120px;
-		--card-padding: 6px;
-		--card-title-font-size: 12px;
+	@media (max-width: 520px) {
+		--card-width: 300px;
+	}
+
+	@media (max-width: 440px) {
+		--card-width: 240px;
+		--card-title-font-size: 15px;
 		--card-title-line-height: 16px;
-		--card-progress-margin: 4px 0;
+		--card-icon-size: 16px;
+		--card-row-font-size: 14px;
 	}
 }

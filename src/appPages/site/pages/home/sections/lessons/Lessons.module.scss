@@ -56,6 +56,10 @@
 			border: 1px solid rgb(255, 255, 255);
 			border-radius: 100%;
 			padding: 10px;
+			svg {
+				width: 16px;
+				height: 16px;
+			}
 		}
 	}
 	.lesson {
@@ -82,7 +86,7 @@
 			width: 100%;
 			padding: 14px 41px 13px 41px;
 			position: relative;
-			* {
+			*:not(svg) {
 				color: var(--white);
 			}
 			.audio_btn,
@@ -97,9 +101,9 @@
 				figure {
 					border-radius: 100%;
 					background: var(--white);
+					position: relative;
 					width: 32.87px;
 					height: 32.87px;
-					position: relative;
 					&::before {
 						content: '';
 						position: absolute;

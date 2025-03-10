@@ -10,6 +10,7 @@
 	--line-background: #ebedf0;
 	--line-border-radius: 100px;
 	--transition-duration: 0.25s;
+
 	margin: var(--filter-section-margin-top) 0 var(--filter-section-margin-bottom)
 		0;
 
@@ -95,8 +96,6 @@
 		--filter-section-margin-top: 15px;
 		--filter-section-margin-bottom: 20px;
 		--f-buttons-gap: 25px;
-		--button-font-size: 14px;
-		--button-line-height: 16px;
 	}
 }
 
@@ -105,6 +104,9 @@
 		--filter-section-margin-top: 15px;
 		--filter-section-margin-bottom: 20px;
 		--f-buttons-gap: 20px;
+		.container {
+			overflow-x: scroll;
+		}
 	}
 }
 
@@ -112,9 +114,5 @@
 	.filter_section {
 		--filter-section-margin-top: 10px;
 		--filter-section-margin-bottom: 15px;
-
-		.container {
-			overflow-x: scroll;
-		}
 	}
 }

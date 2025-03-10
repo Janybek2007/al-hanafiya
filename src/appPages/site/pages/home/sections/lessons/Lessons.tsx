@@ -1,7 +1,9 @@
 import clsx from 'clsx';
-import Image from 'next/image';
 import HomeSectionProps from '../home-section/HomeSection';
 import styles from './Lessons.module.scss';
+import { Svg } from '$/shared/ui'
+import { AiOutlineAudio } from 'react-icons/ai'
+import { CiVideoOn } from 'react-icons/ci';
 
 export const Lessons = () => {
 	return (
@@ -20,34 +22,19 @@ export const Lessons = () => {
 				<div className={styles['pagination']}>
 					<div>
 						<button className='inlineFlexCenter'>
-							<Image
-								width={16}
-								height={16}
-								src='/icon/prev-pagination.svg'
-								alt='Prev-Pagination Icon'
-							/>
+							<Svg width={16} height={16} src='/icon/prev-pagination.svg' />
 						</button>
 					</div>
 					<div>
 						<button className='inlineFlexCenter'>
-							<Image
-								width={16}
-								height={16}
-								src='/icon/next-pagination.svg'
-								alt='Next-Pagination Icon'
-							/>
+							<Svg width={16} height={16} src='/icon/next-pagination.svg' />
 						</button>
 					</div>
 				</div>
 				<div className={styles['content']}>
 					<button className={styles['audio_btn']}>
 						<figure className='flexCenter'>
-							<Image
-								width={16}
-								height={16}
-								src='/icon/audio-outlined.svg'
-								alt='Audio-Outlined Icon'
-							/>
+							<AiOutlineAudio size={20} />
 						</figure>
 						<span>Аудио</span>
 					</button>
@@ -80,12 +67,7 @@ export const Lessons = () => {
 					<div className={styles['content']}>
 						<button className={styles['video_btn']}>
 							<figure className='flexCenter'>
-								<Image
-									width={16}
-									height={16}
-									src='/icon/video-outlined.svg'
-									alt='Video-Outlined Icon'
-								/>
+								<CiVideoOn size={20} />
 							</figure>
 							<span>Видео</span>
 						</button>
@@ -117,12 +99,7 @@ export const Lessons = () => {
 					<div className={styles['content']}>
 						<button className={styles['video_btn']}>
 							<figure className='flexCenter'>
-								<Image
-									width={16}
-									height={16}
-									src='/icon/video-outlined.svg'
-									alt='Video-Outlined Icon'
-								/>
+								<CiVideoOn size={20} />
 							</figure>
 							<span>Видео</span>
 						</button>

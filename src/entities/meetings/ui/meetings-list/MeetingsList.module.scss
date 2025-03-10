@@ -1,5 +1,30 @@
 .meetings_list {
-	gap: 21px;
+	--gap: 21px;
+	--grid-columns: repeat(3, 1fr);
+
+	gap: var(--gap);
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: var(--grid-columns);
 }
+
+@media (max-width: 1240px) {
+	.meetings_list {
+		--gap: 18px;
+		--grid-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 1024px) {
+	.meetings_list {
+		--gap: 15px;
+		--grid-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.meetings_list {
+		--gap: 12px;
+		--grid-columns: repeat(1, 1fr);
+	}
+}
+
