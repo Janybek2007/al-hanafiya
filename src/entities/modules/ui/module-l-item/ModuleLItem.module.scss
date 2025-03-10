@@ -1,0 +1,212 @@
+.module_l_item {
+	--title-font-size: 24px;
+	--title-line-height: 22px;
+	--desc-font-size: 18px;
+	--desc-line-height: 22px;
+	--check-size: 24px;
+	--check-icon-size: 12px;
+	--row-gap: 10px;
+	--row-margin-bottom: 11px;
+	--top-padding: 17px 23px;
+	--sub-modules-margin-top: 9px;
+	--sub-module-padding: 13px 50px;
+	--border-radius: 12px;
+	--sub-title-font-size: 18px;
+	--sub-check-size: 20px;
+	--sub-check-icon-size: 10px;
+
+	background: #FFFFFF;
+	border: 1px solid #EAEFF5;
+	box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
+	border-radius: var(--border-radius);
+
+	a {
+		color: var(--text);
+		width: max-content;
+		fill: white;
+	}
+
+	.title {
+		overflow: hidden;
+		font-size: var(--title-font-size);
+		font-weight: 500;
+		line-height: var(--title-line-height);
+		text-overflow: ellipsis;
+	}
+
+	.desc,
+	.time {
+		font-size: var(--desc-font-size);
+		font-weight: 500;
+		line-height: var(--desc-line-height);
+	}
+
+	.checked,
+	.unchecked {
+		width: var(--check-size);
+		height: var(--check-size);
+		border-radius: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.unchecked {
+			border: 1px solid #564FFD;
+
+			svg {
+				color: #564FFD;
+				width: var(--check-icon-size);
+				height: var(--check-icon-size);
+				margin-left: 1px;
+			}
+		}
+
+		&.checked {
+			background: #23BD33;
+
+			svg {
+				color: white;
+				width: var(--check-size);
+				height: var(--check-size);
+			}
+		}
+	}
+
+	.row {
+		display: flex;
+		align-items: center;
+		gap: var(--row-gap);
+		margin-bottom: var(--row-margin-bottom);
+	}
+
+	.top {
+		padding: var(--top-padding);
+	}
+
+	.sub_modules {
+		margin-top: var(--sub-modules-margin-top);
+
+		.sub_module {
+			padding: var(--sub-module-padding);
+			background: #F8FBFF;
+			border-top: 1px solid #EAEFF5;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transition: all 0.25s;
+
+			&:hover {
+				background: #e8eef7;
+			}
+
+			.checked,
+			.unchecked {
+				width: var(--sub-check-size);
+				height: var(--sub-check-size);
+
+				&.unchecked svg {
+					width: var(--sub-check-icon-size);
+					height: var(--sub-check-icon-size);
+				}
+			}
+
+			.row {
+				margin: 0;
+			}
+
+			.title {
+				font-size: var(--sub-title-font-size);
+			}
+		}
+	}
+}
+
+@media (max-width: 1300px) {
+	.module_l_item {
+		--title-font-size: 22px;
+		--title-line-height: 20px;
+		--desc-font-size: 16px;
+		--desc-line-height: 20px;
+		--check-size: 22px;
+		--check-icon-size: 11px;
+		--row-gap: 8px;
+		--row-margin-bottom: 10px;
+		--top-padding: 15px 20px;
+		--sub-modules-margin-top: 8px;
+		--sub-module-padding: 12px 40px;
+		--border-radius: 10px;
+		--sub-title-font-size: 16px;
+		--sub-check-size: 18px;
+		--sub-check-icon-size: 9px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.module_l_item {
+		--title-font-size: 20px;
+		--title-line-height: 18px;
+		--desc-font-size: 14px;
+		--desc-line-height: 18px;
+		--check-size: 20px;
+		--check-icon-size: 10px;
+		--row-gap: 7px;
+		--row-margin-bottom: 9px;
+		--top-padding: 12px 18px;
+		--sub-modules-margin-top: 7px;
+		--sub-module-padding: 10px 30px;
+		--sub-title-font-size: 14px;
+		--sub-check-size: 16px;
+		--sub-check-icon-size: 8px;
+	}
+}
+
+@media (max-width: 768px) {
+	.module_l_item {
+		--title-font-size: 18px;
+		--title-line-height: 16px;
+		--desc-font-size: 12px;
+		--desc-line-height: 16px;
+		--check-size: 18px;
+		--check-icon-size: 9px;
+		--row-gap: 6px;
+		--row-margin-bottom: 8px;
+		--top-padding: 10px 15px;
+		--sub-modules-margin-top: 6px;
+		--sub-module-padding: 8px 20px;
+		--sub-title-font-size: 12px;
+		--sub-check-size: 14px;
+		--sub-check-icon-size: 7px;
+	}
+}
+
+@media (max-width: 480px) {
+	.module_l_item {
+		padding: 3px 0;
+		--title-font-size: 16px;
+		--title-line-height: 14px;
+		--desc-font-size: 10px;
+		--desc-line-height: 14px;
+		--row-margin-bottom: 7px;
+		--top-padding: 8px 12px;
+		--sub-modules-margin-top: 5px;
+		--sub-module-padding: 6px 15px;
+	}
+}
+
+@media (max-width: 360px) {
+	.module_l_item {
+		--title-font-size: 13px;
+		--title-line-height: 11px;
+		--desc-font-size: 9px;
+		--desc-line-height: 11px;
+		--check-size: 13px;
+		--check-icon-size: 6.5px;
+		--row-margin-bottom: 5px;
+		--top-padding: 6px 10px;
+		--sub-modules-margin-top: 3px;
+		--sub-module-padding: 4px 11px;
+		--sub-title-font-size: 10px;
+		--sub-check-size: 13px;
+		--sub-check-icon-size: 5px;
+	}
+}

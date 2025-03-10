@@ -1,0 +1,296 @@
+.playerCtn {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	* {
+		user-select: none;
+	}
+}
+
+.end {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.infosCtn {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	font-size: 14px;
+	margin-left: 4px;
+
+	span {
+		margin: 0 4px;
+	}
+
+	@media (max-width: 620px) {
+		font-size: 13px;
+	}
+
+	@media (max-width: 400px) {
+		font-size: 11px;
+	}
+}
+
+.install {
+	border-radius: 28px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	fill: transparent;
+	stroke: black;
+}
+
+.icon {
+	padding: 2px;
+}
+
+.progressBar {
+	width: 100%;
+	height: 4px;
+	background: #00000020;
+	border-radius: 3px;
+	cursor: pointer;
+	position: relative;
+	margin-bottom: 12px;
+}
+
+.progress {
+	width: 0%;
+	height: 100%;
+	background: var(--tertiary);
+	border-radius: 3px;
+	transition: width 0.2s ease-in-out;
+}
+
+.btnCtn {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+
+	@media (max-width: 620px) {
+		gap: 2.5px;
+	}
+
+	@media (max-width: 400px) {
+		gap: 0px;
+	}
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.controlButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: background 0.3s ease;
+}
+
+.controlButton {
+	width: 24px;
+	height: 24px;
+	color: black;
+}
+
+
+.volumeControls {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	@media (max-width: 620px) {
+		gap: 4px;
+	}
+}
+
+.icon {
+	@media (max-width: 620px) {
+		width: 22px;
+		height: 22px;
+	}
+
+	@media (max-width: 440px) {
+		width: 20px;
+		height: 20px;
+		padding: 1px;
+	}
+
+	@media (max-width: 360px) {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+
+.volumeSlider {
+	width: 80px;
+	height: 4px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: none;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+
+	&::-webkit-slider-runnable-track {
+		background: #00000020;
+		border-radius: 2px;
+		height: 4px;
+	}
+
+	&::-moz-range-track {
+		background: #00000020;
+		border-radius: 2px;
+		height: 4px;
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		width: 12px;
+		height: 12px;
+		background: var(--tertiary);
+		border-radius: 50%;
+		cursor: pointer;
+		margin-top: -4px;
+	}
+
+	&::-moz-range-thumb {
+		width: 12px;
+		height: 12px;
+		background: var(--tertiary);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	@media (max-width: 1100px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 10px;
+			height: 10px;
+		}
+	}
+
+	@media (max-width: 1000px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 9px;
+			height: 9px;
+		}
+	}
+
+	@media (max-width: 900px) {
+		& {
+			width: 60px;
+		}
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 8px;
+			height: 8px;
+		}
+	}
+
+	@media (max-width: 800px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 7px;
+			height: 7px;
+		}
+	}
+
+	@media (max-width: 700px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 6px;
+			height: 6px;
+		}
+	}
+
+	@media (max-width: 600px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 5px;
+			height: 5px;
+		}
+	}
+
+	@media (max-width: 500px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 4px;
+			height: 4px;
+		}
+	}
+
+	@media (max-width: 400px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 3px;
+			height: 3px;
+		}
+	}
+
+	@media (max-width: 380px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 3px;
+			height: 3px;
+		}
+	}
+
+	@media (max-width: 360px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 1px;
+			height: 1px;
+		}
+	}
+
+	@media (max-width: 340px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 2px;
+			height: 2px;
+		}
+	}
+
+	@media (max-width: 320px) {
+
+		&::-webkit-slider-thumb,
+		&::-moz-range-thumb {
+			width: 2px;
+			height: 2px;
+		}
+	}
+}

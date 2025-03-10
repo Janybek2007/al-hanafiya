@@ -1,0 +1,23 @@
+.lessons_section {
+	margin-top: 35px;
+
+	&.last {
+		margin-bottom: 60px;
+	}
+
+	@media (max-width: 1024px) {
+		margin-top: 30px;
+
+		&.last {
+			margin-bottom: 50px;
+		}
+	}
+
+	@media (max-width: 730px) {
+		margin-top: 20px;
+
+		&.last {
+			margin-bottom: 40px;
+		}
+	}
+}

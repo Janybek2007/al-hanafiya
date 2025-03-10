@@ -1,0 +1,120 @@
+.filter_section {
+	--filter-section-margin-top: 46px;
+	--filter-section-margin-bottom: 60px;
+	--f-buttons-gap: 60px;
+	--button-font-size: 20px;
+	--button-line-height: 22px;
+	--active-line-height: 3px;
+	--active-line-background: var(--secondary);
+	--line-height: 3px;
+	--line-background: #ebedf0;
+	--line-border-radius: 100px;
+	--transition-duration: 0.25s;
+	margin: var(--filter-section-margin-top) 0 var(--filter-section-margin-bottom)
+		0;
+
+	.container {
+		* {
+			user-select: none;
+		}
+		&::-webkit-scrollbar {
+			height: 0;
+			width: 0;
+		}
+
+		.f_buttons {
+			position: relative;
+			display: flex;
+			align-items: center;
+			gap: var(--f-buttons-gap);
+			width: max-content;
+
+			button {
+				padding: 10px 0;
+				font-size: var(--button-font-size);
+				font-weight: 500;
+				line-height: var(--button-line-height);
+				font-family: var(--philosopher);
+			}
+		}
+
+		.active_line {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			height: var(--active-line-height);
+			background: var(--active-line-background);
+			border-radius: var(--line-border-radius);
+			transition: all var(--transition-duration);
+		}
+
+		.line {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: var(--line-height);
+			background: var(--line-background);
+			border-radius: var(--line-border-radius);
+		}
+	}
+}
+
+@media (max-width: 1240px) {
+	.filter_section {
+		--filter-section-margin-top: 36px;
+		--filter-section-margin-bottom: 50px;
+		--f-buttons-gap: 40px;
+		--button-font-size: 18px;
+		--button-line-height: 20px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.filter_section {
+		--filter-section-margin-top: 36px;
+		--filter-section-margin-bottom: 40px;
+		--f-buttons-gap: 40px;
+		--button-font-size: 18px;
+		--button-line-height: 20px;
+	}
+}
+
+@media (max-width: 740px) {
+	.filter_section {
+		--filter-section-margin-top: 20px;
+		--filter-section-margin-bottom: 30px;
+		--f-buttons-gap: 30px;
+		--button-font-size: 16px;
+		--button-line-height: 18px;
+	}
+}
+
+@media (max-width: 640px) {
+	.filter_section {
+		--filter-section-margin-top: 15px;
+		--filter-section-margin-bottom: 20px;
+		--f-buttons-gap: 25px;
+		--button-font-size: 14px;
+		--button-line-height: 16px;
+	}
+}
+
+@media (max-width: 500px) {
+	.filter_section {
+		--filter-section-margin-top: 15px;
+		--filter-section-margin-bottom: 20px;
+		--f-buttons-gap: 20px;
+	}
+}
+
+@media (max-width: 480px) {
+	.filter_section {
+		--filter-section-margin-top: 10px;
+		--filter-section-margin-bottom: 15px;
+
+		.container {
+			overflow-x: scroll;
+		}
+	}
+}
