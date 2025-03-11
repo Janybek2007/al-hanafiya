@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { articles } from '../../constants/articles.constants';
 import styles from './ArticleItem.module.scss';
