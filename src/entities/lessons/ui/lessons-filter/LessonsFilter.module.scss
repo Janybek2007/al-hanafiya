@@ -114,5 +114,18 @@
 	.filter_section {
 		--filter-section-margin-top: 10px;
 		--filter-section-margin-bottom: 15px;
+		.container {
+			overflow-x: scroll;
+		}
+	}
+}
+
+@media (max-width: 380px) {
+	.filter_section {
+		--button-font-size: 12px;
+		--button-line-height: 16px;
+		.f_buttons {
+			padding: 0 6px;
+		}
 	}
 }

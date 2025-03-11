@@ -1,28 +1,38 @@
 .tabs {
+	--tabs-z-index: 1000;
+
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	z-index: 1000;
+	z-index: var(--tabs-z-index);
 }
 
 .container {
+	--container-padding: 8.5px 0;
+
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
 	background-color: var(--primary);
 	background-image: url('/images/header-background.png');
-	padding: 8.5px 0;
+	padding: var(--container-padding);
 }
 
 .link {
+	--link-font-size: 18px;
+	--link-text-font-size: 12px;
+	--link-icon-size: 28px;
+	--link-padding: 10px;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	color: white;
-	font-size: 18px;
+	font-size: var(--link-font-size);
 	transition: background-color 0.3s ease, transform 0.3s ease;
 	fill: transparent;
+
 	div {
 		display: flex;
 		align-items: center;
@@ -30,7 +40,7 @@
 	}
 
 	&:not(.active) {
-		padding: 10px;
+		padding: var(--link-padding);
 	}
 
 	&.active {
@@ -48,13 +58,33 @@
 	}
 
 	span {
-		font-size: 12px;
+		font-size: var(--link-text-font-size);
 		text-wrap: nowrap;
 		font-family: var(--inter);
 	}
 
 	& svg {
-		width: 28px;
-		height: 28px;
+		width: var(--link-icon-size);
+		height: var(--link-icon-size);
+	}
+}
+
+@media (max-width: 1240px) {
+	.link {
+		--link-font-size: 17px;
+		--link-icon-size: 26px;
+	}
+}
+
+@media (max-width: 440px) {
+	.container {
+		--container-padding: 7px 0;
+	}
+
+	.link {
+		--link-font-size: 15px;
+		--link-text-font-size: 10px;
+		--link-icon-size: 22px;
+		--link-padding: 8px;
 	}
 }

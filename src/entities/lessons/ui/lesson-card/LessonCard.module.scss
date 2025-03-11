@@ -135,4 +135,12 @@
 		--card-icon-size: 16px;
 		--card-row-font-size: 14px;
 	}
+	
+	@media (max-width: 360px) {
+		--card-width: 240px;
+		--card-title-font-size: 12px;
+		--card-title-line-height: 14px;
+		--card-icon-size: 14px;
+		--card-row-font-size: 12px;
+	}
 }

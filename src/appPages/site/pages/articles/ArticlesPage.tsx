@@ -1,13 +1,35 @@
+'use client';
 import { ArticleItem, articles } from '$/entities/articles';
 import { Pagination, SectionTitle, Breadcrumb } from '$/shared/ui';
 import React from 'react';
 import scss from './ArticlesPage.module.scss';
 import Filtiration from './sections/filtration/Filtiration';
+import { useSize } from '$/shared/utils/use-size';
+
+const TheMostWidelyRead = {
+	...articles[0],
+	image_src: '/images/article-card.png',
+	category: 'Викх'
+};
+
+const LastThirdWidelyRead = Array.from({ length: 3 }, (_, idx) => ({
+	title: 'Можно ли мусульманам изучать психологию?',
+	date: '25.01.2025',
+	views: 15,
+	id: `article_l_${idx}`,
+	description:
+		'Последние исследования в области изучения активности в интернете приводят данные, что их аудиторией являются  люди всех возрастов',
+	image_src: '/images/article-list.png',
+	category: 'Викх'
+}));
+
+const totalArticles = [TheMostWidelyRead, ...LastThirdWidelyRead, ...articles];
 
 const ArticlesPage: React.FC = () => {
+	const windowSize = useSize();
 	return (
 		<main>
-			<div className={`container ${scss.container}`}>
+			<div className={` ${scss.container}`}>
 				<Breadcrumb
 					items={[
 						{ label: 'Башкы бет', href: '/' },
@@ -18,49 +40,49 @@ const ArticlesPage: React.FC = () => {
 				<Filtiration />
 				<SectionTitle className={scss.title} title={'Бардык макалалар'} />
 				<section className={scss.article_head}>
-					<ArticleItem
-						className={scss.card_article}
-						variant='2'
-						item={{
-							...articles[0],
-							image_src: '/images/article-card.png',
-							category: 'Викх'
-						}}
-					/>
+					{windowSize.width >= 740 && (
+						<ArticleItem
+							className={scss.card_article}
+							variant='2'
+							item={TheMostWidelyRead}
+						/>
+					)}
 					<div className={scss.articlesList}>
-						{articles.map(article => (
-							<ArticleItem
-								className={scss.card_articleList}
-								type='list'
-								variant='2'
-								key={article.id}
-								item={{
-									title: 'Можно ли мусульманам изучать психологию?',
-									date: '25.01.2025',
-									views: 15,
-									id: 'article_l_1',
-									description:
-										'Последние исследования в области изучения активности в интернете приводят данные, что их аудиторией являются  люди всех возрастов',
-									image_src: '/images/article-list.png',
-									category: 'Викх'
-								}}
-							/>
-						))}
+						{totalArticles
+							.map((item, idx) => (
+								<ArticleItem
+									className={scss.card_articleList}
+									type={windowSize.width <= 1284 ? 'card' : 'list'}
+									variant={windowSize.width <= 1284 ? '1' : '2'}
+									key={`key-${idx}`}
+									item={item}
+								/>
+							))
+							.slice(
+								windowSize.width! <= 740 ? 0 : 1,
+								windowSize.width <= 1100 && windowSize.width >= 740
+									? 3
+									: windowSize.width <= 740
+									? totalArticles.length
+									: 4
+							)}
 					</div>
 				</section>
 
-				<section>
-					<div className={scss['articles']}>
-						{articles.map(art => (
-							<ArticleItem
-								variant='2'
-								type='list'
-								key={art.id}
-								item={{ ...art, category: 'Викх' }}
-							/>
-						))}
-					</div>
-				</section>
+				{windowSize.width >= 740 && (
+					<section>
+						<div className={scss['articles']}>
+							{articles.map(art => (
+								<ArticleItem
+									variant={windowSize.width <= 920 ? '1' : '2'}
+									type={windowSize.width <= 920 ? 'card' : 'list'}
+									key={art.id}
+									item={{ ...art, category: 'Викх' }}
+								/>
+							))}
+						</div>
+					</section>
+				)}
 
 				<SectionTitle className={scss.title} title={'Популярдуу макалалар'} />
 

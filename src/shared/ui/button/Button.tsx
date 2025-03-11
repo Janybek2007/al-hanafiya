@@ -1,9 +1,9 @@
 'use client';
+import { useRouter } from '@bprogress/next';
+import clsx from 'clsx';
 import React from 'react';
 import styles from './Button.module.scss';
 import { ButtonProps } from './button.types';
-import clsx from 'clsx';
-import { useRouter } from 'next-nprogress-bar';
 const Button: React.FC<ButtonProps> = ({
 	children,
 	variant = 'solid',

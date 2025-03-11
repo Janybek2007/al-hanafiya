@@ -4,6 +4,7 @@ import SimilarArticles from './sections/similar-articles/SimilarArticles';
 import LatestLessons from './sections/latest-lessons/LatestLessons';
 import Filtration from '../articles/sections/filtration/Filtiration';
 import { BackButton } from '$/shared/ui';
+
 const ArticleDetailPage: React.FC = () => {
 	return (
 		<main>

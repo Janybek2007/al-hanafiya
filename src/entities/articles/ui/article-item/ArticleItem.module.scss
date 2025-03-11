@@ -32,6 +32,7 @@
 	--v2-row-margin-top: 18px;
 	--t-card-badge-margin-top: 12px;
 	--card-width: 100%;
+	--image-height: 100%;
 
 	border: 1px solid rgb(217, 217, 217);
 	border-radius: var(--card-border-radius);
@@ -39,7 +40,6 @@
 	width: var(--card-width);
 	box-shadow: var(--card-box-shadow);
 	padding: var(--card-padding);
-	height: 100%;
 	margin: 0 auto;
 
 	.card_content {
@@ -92,17 +92,17 @@
 				height: var(--row-icon-size);
 			}
 
+			span {
+				font-size: var(--row-item-font-size);
+				font-weight: 400;
+				line-height: var(--row-item-line-height);
+			}
+
 			.item {
 				display: flex;
 				align-items: center;
 				gap: var(--row-item-gap);
 				fill: var(--h1);
-
-				span {
-					font-size: var(--row-item-font-size);
-					font-weight: 400;
-					line-height: var(--row-item-line-height);
-				}
 			}
 		}
 	}
@@ -112,14 +112,15 @@
 		gap: var(--t-list-gap);
 
 		img {
-			height: 100%;
-			object-fit: contain;
+			height: max-content;
+			border-radius: 8px;
+			object-fit: cover;
 		}
 	}
 
 	&.v-2 {
 		padding: var(--v2-padding);
-
+		
 		.badge-category {
 			font-size: var(--v2-badge-font-size);
 			border-radius: var(--v2-badge-border-radius);
@@ -146,7 +147,9 @@
 
 	&.t-card {
 		img {
+			border-radius: 8px;
 			width: 100%;
+			height: 100%;
 			object-fit: cover;
 		}
 
@@ -255,6 +258,10 @@
 		--v2-row-padding: 8px 0;
 		--v2-row-margin-top: 14px;
 		--t-card-badge-margin-top: 10px;
+	}
+}
+@media (max-width: 680px) {
+	.article_card {
 		--card-width: 94%;
 	}
 }

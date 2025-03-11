@@ -24,6 +24,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 	const { date, description, image_src, title, views, category } = item;
 	return (
 		<div
+			data-article-item='true'
 			className={clsx(
 				styles.article_card,
 				styles[`t-${type}`],
@@ -39,7 +40,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 					alt='Article Image'
 				/>
 			</figure>
-			<div className={styles['card_content']}>
+			<div data-article-content="true" className={styles['card_content']}>
 				<div className={styles['']}>
 					{category && (
 						<div className={styles['badge-category']}>{category}</div>

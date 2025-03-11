@@ -34,7 +34,7 @@ export const CommentProvider: React.FC<ICommentProvider> = ({ children }) => {
 				.padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
 
 			const newComment: IModuleComment = {
-				id: crypto.randomUUID(),
+				id: Date.now().toLocaleString(),
 				user: {
 					displayName: 'Current User',
 					avatar: null

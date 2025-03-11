@@ -16,15 +16,14 @@
 
 @media (max-width: 1024px) {
 	.meetings_list {
-		--gap: 15px;
+		--gap: 10px;
 		--grid-columns: repeat(2, 1fr);
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
 	.meetings_list {
 		--gap: 12px;
 		--grid-columns: repeat(1, 1fr);
 	}
 }
-
