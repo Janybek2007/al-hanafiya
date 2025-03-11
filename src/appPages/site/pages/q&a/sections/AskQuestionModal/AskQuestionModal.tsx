@@ -90,7 +90,7 @@ const AskQuestionModal: React.FC<AskQuestionModalProps> = ({
 
 							<div className={scss.telegram_bot}>
 								<p>
-									Подключитесь к нашему боту в
+									Подключитесь к нашему боту в{' '}
 									<a
 										href='https://t.me/your_bot'
 										target='_blank'

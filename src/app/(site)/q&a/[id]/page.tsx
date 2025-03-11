@@ -1,7 +1,14 @@
-import React from "react";
+import { QADetailPage } from '$/appPages/site'
+import { Metadata } from 'next';
+import { Suspense } from 'react';
 
-const page = () => {
-  return <div></div>;
+export const metadata: Metadata = {
+	title: 'Калыс устазга келген'
 };
+const page = () => (
+	<Suspense>
+		<QADetailPage />
+	</Suspense>
+);
 
 export default page;

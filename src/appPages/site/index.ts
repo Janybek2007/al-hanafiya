@@ -6,4 +6,5 @@ export { default as ProfilePage } from './pages/profile/ProfilePage';
 export { default as LessonDetailPage } from './pages/lesson-detail/LessonDetailPage';
 export { default as LessonsPage } from './pages/lessons/LessonsPage';
 export { default as ModuleDetailPage } from './pages/module-detail/ModuleDetailPage';
-export { default as QuestionsAnswerPage } from './pages/q&a/QuestionsAnswerPage';
+export { default as QAPage } from './pages/q&a/QAPage';
+export { default as QADetailPage } from './pages/q&a-detail/QADetailPage';

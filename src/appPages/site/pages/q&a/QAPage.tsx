@@ -2,11 +2,11 @@
 import { Breadcrumb, SectionTitle, Pagination } from '$/shared/ui';
 import Image from 'next/image';
 import { useState } from 'react';
-import scss from './QuestionsAnswerPage.module.scss';
+import scss from './QAPage.module.scss';
 import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
 import QuestionsSections from './sections/q&aLists/QuestionsSections';
 
-const QuestionsAnswerPage: React.FC = () => {
+const QuestionsAndAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	return (
@@ -66,4 +66,4 @@ const QuestionsAnswerPage: React.FC = () => {
 	);
 };
 
-export default QuestionsAnswerPage;
+export default QuestionsAndAnswerPage;

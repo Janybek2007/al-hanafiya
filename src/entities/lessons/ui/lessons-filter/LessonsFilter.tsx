@@ -27,7 +27,6 @@ export const LessonsFilter: React.FC = () => {
 				});
 			}
 		} else {
-			console.log('Filter not found in anchorsRef:', filter);
 		}
 	}, [filter]);
 

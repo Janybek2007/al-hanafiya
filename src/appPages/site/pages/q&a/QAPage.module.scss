@@ -1,0 +1,210 @@
+.title {
+	--title-margin: 55px;
+	--title-text-align: center;
+
+	text-align: var(--title-text-align);
+	margin: var(--title-margin) auto;
+}
+
+.content {
+	--content-gap: 33px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--content-gap);
+
+	h2 {
+		--h2-font-size: clamp(20px, 3vw, 24px);
+		--h2-line-height: clamp(20px, 3vw, 24px);
+
+		color: rgb(37, 44, 50);
+		font-size: var(--h2-font-size);
+		font-weight: 400;
+		line-height: var(--h2-line-height);
+		letter-spacing: 0%;
+		text-align: center;
+	}
+
+	.ask_box {
+		--ask-box-width: 1173px;
+		--ask-box-height: 181px;
+		--ask-box-bg-color: rgba(239, 248, 248, 0.7);
+		--ask-box-border-radius: 12px;
+		--ask-box-gap: 20px;
+		--gradient: linear-gradient(
+			179.08deg,
+			rgba(0, 131, 121, 0.1) 21.518%,
+			rgba(30, 78, 78, 0.1) 134.688%
+		);
+		--star-one-top: 0px;
+		--star-one-right: 90px;
+		--star-two-bottom: 10px;
+		--star-two-right: 73px;
+		--star-three-top: 40px;
+		--star-three-right: 160px;
+
+		position: relative;
+		background-color: var(--ask-box-bg-color);
+		border-radius: var(--ask-box-border-radius);
+		text-align: center;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		gap: var(--ask-box-gap);
+		width: var(--ask-box-width);
+		height: var(--ask-box-height);
+		box-sizing: border-box;
+		background: var(--gradient);
+
+		.star_one {
+			position: absolute;
+			top: var(--star-one-top);
+			right: var(--star-one-right);
+		}
+
+		.star_three {
+			position: absolute;
+			top: var(--star-three-top);
+			right: var(--star-three-right);
+		}
+
+		.star_two {
+			position: absolute;
+			bottom: var(--star-two-bottom);
+			right: var(--star-two-right);
+		}
+
+		h3 {
+			--h3-font-size: clamp(20px, 3vw, 24px);
+			--h3-line-height: clamp(23px, 3.2vw, 27px);
+
+			color: rgb(37, 44, 50);
+			font-size: var(--h3-font-size);
+			font-weight: 700;
+			line-height: var(--h3-line-height);
+			text-align: left;
+		}
+	}
+
+	.ask_btn {
+		--btn-width: 243px;
+		--btn-height: 46px;
+		--btn-padding: 4px 12px;
+		--btn-border-radius: 28px;
+		--btn-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
+		--btn-gradient: linear-gradient(
+			179.08deg,
+			rgb(0, 131, 121) 14.619%,
+			rgb(30, 78, 78) 144.888%
+		);
+		--btn-font-size: clamp(14px, 2vw, 16px);
+		--btn-line-height: clamp(16px, 2.2vw, 18px);
+
+		width: var(--btn-width);
+		height: var(--btn-height);
+		padding: var(--btn-padding);
+		border-radius: var(--btn-border-radius);
+		box-shadow: var(--btn-shadow);
+		background: var(--btn-gradient);
+		color: rgb(246, 248, 249);
+		font-size: var(--btn-font-size);
+		font-weight: 400;
+		line-height: var(--btn-line-height);
+		letter-spacing: 0%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.content {
+		.ask_box {
+			--ask-box-width: 90%;
+			--star-one-right: 60px;
+			--star-two-right: 50px;
+			--star-three-right: 100px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.title {
+		--title-margin: 40px;
+	}
+
+	.content {
+		--content-gap: 25px;
+
+		.ask_box {
+			--ask-box-width: 85%;
+			--ask-box-height: 150px;
+			--ask-box-gap: 15px;
+			--ask-box-border-radius: 10px;
+			--star-one-right: 40px;
+			--star-two-right: 30px;
+			--star-three-right: 70px;
+			--star-three-top: 30px;
+		}
+
+		.ask_btn {
+			--btn-width: 200px;
+			--btn-height: 40px;
+			--btn-border-radius: 24px;
+			--btn-shadow: 0px 3px 36px 0px rgba(0, 0, 0, 0.15);
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.title {
+		--title-margin: 30px;
+	}
+
+	.content {
+		--content-gap: 20px;
+
+		.ask_box {
+			--ask-box-width: 90%;
+			--ask-box-height: 120px;
+			--ask-box-gap: 10px;
+			--ask-box-border-radius: 8px;
+			--star-one-right: 20px;
+			--star-two-right: 15px;
+			--star-two-bottom: 5px;
+			--star-three-right: 40px;
+			--star-three-top: 20px;
+		}
+
+		.ask_btn {
+			--btn-width: 160px;
+			--btn-height: 36px;
+			--btn-padding: 3px 10px;
+			--btn-border-radius: 20px;
+			--btn-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	.title {
+		--title-margin: 20px;
+	}
+
+	.content {
+		--content-gap: 15px;
+
+		.ask_box {
+			--ask-box-height: 100px;
+			--star-one-right: 15px;
+			--star-two-right: 10px;
+			--star-three-right: 30px;
+			--star-three-top: 15px;
+		}
+
+		.ask_btn {
+			--btn-width: 140px;
+			--btn-height: 32px;
+			--btn-padding: 2px 8px;
+		}
+	}
+}
