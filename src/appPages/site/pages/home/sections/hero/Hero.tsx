@@ -1,9 +1,12 @@
+'use client';
 import React from 'react';
 import styles from './Hero.module.scss';
 import clsx from 'clsx';
 import { Button } from '$/shared/ui';
+import { useSize } from '$/shared/utils/use-size';
 
 export const Hero: React.FC = () => {
+	const size = useSize('#hero-p');
 	return (
 		<section
 			className={styles.hero}
@@ -15,8 +18,8 @@ export const Hero: React.FC = () => {
 					<div className={styles.about_ustaz}>
 						<h1 className={styles.name}>Калыс Заманбеков</h1>
 						<div className={styles.description}>
-							<hr />
-							<p>
+							<hr suppressHydrationWarning style={{ height: size.height }} />
+							<p id='hero-p'>
 								Lorem ipsum dolor sit amet consectetur. Semper sed pharetra nec
 								auctor duis dictumst pretium. Non arcu vitae ac eget. Volutpat
 								at id quisque dictum odio tristique scelerisque ridiculus eros.

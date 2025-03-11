@@ -40,14 +40,5 @@
 	.breadcrumb_container {
 		--breadcrumb-padding-top: 20px;
 		--breadcrumb-span-margin: 0 6px;
-		--breadcrumb-font-size: 12px;
-	}
-}
-
-@media (max-width: 360px) {
-	.breadcrumb_container {
-		--breadcrumb-padding-top: 15px;
-		--breadcrumb-span-margin: 0 4px;
-		--breadcrumb-font-size: 11px;
 	}
 }

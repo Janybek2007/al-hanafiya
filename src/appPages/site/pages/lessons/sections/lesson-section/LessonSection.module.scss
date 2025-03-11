@@ -66,3 +66,12 @@
 		--header-icon-size: 20px;
 	}
 }
+
+@media (max-width: 408px) {
+	.lesson_section {
+		--lesson-section-gap: 20px;
+		--header-font-size: 16px;
+		--header-link-font-size: 12px;
+		--header-icon-size: 14px;
+	}
+}

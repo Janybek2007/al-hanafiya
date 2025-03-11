@@ -1,70 +1,66 @@
+@mixin scroll-hidden {
+	overflow-x: auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
 .filtration {
-  padding: 45px 0;
+	--filtration-padding: clamp(1.5rem, 4vw, 2.8rem) 0;
+	--tag-gap: clamp(0.6rem, 2vw, 1.25rem);
+	--tag-font-size: clamp(0.875rem, 3vw, 1rem);
+	--tag-padding: clamp(0.5rem, 2vw, 0.625rem) clamp(1rem, 3vw, 1.375rem);
+	--progress-margin: clamp(1rem, 3vw, 1.25rem);
 
-  .tags_container {
-    position: relative;
-    max-width: 100%;
+	padding: var(--filtration-padding);
 
-    .tags_wrapper {
-      overflow-x: auto;
-      margin-bottom: 8px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+	.tags_container {
+		max-width: 100%;
+		position: relative;
 
-      &::-webkit-scrollbar {
-        display: none;
-      }
+		.tags_wrapper {
+			@include scroll-hidden;
+			margin-bottom: 0.5rem;
 
-      .tags_scroll {
-        display: flex;
-        gap: 20px;
-        padding: 4px 0;
-        width: max-content;
-      }
-    }
+			.tags_scroll {
+				display: flex;
+				gap: var(--tag-gap);
+				padding: 0.25rem 0;
+				width: max-content;
+			}
+		}
 
-    .tag {
-      padding: 10px 22px;
-      border-radius: 10px;
-      font-size: 16px;
-      font-weight: 500;
-      box-sizing: border-box;
-      border: 1px solid rgb(78, 78, 78);
-      border-radius: 8px;
+		.tag {
+			padding: var(--tag-padding);
+			font-size: var(--tag-font-size);
+			border: 1px solid rgb(78 78 78 / 0.8);
+			border-radius: 0.5em;
+			background: #fff;
+			transition: all 0.2s ease;
 
-      background: #ffffff;
-      color: #333;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
+			&:hover {
+				background: #f5f5f5;
+			}
+			&.active {
+				background: #008f76;
+				color: white;
+				border-color: #008f76;
+			}
+		}
+	}
 
-      &:hover {
-        background: #f5f5f5;
-      }
+	.progress_line {
+		height: 0.125rem;
+		margin-top: var(--progress-margin);
+		background: #e5e5e5;
 
-      &.active {
-        background: #008f76;
-        color: white;
-        border-color: #008f76;
-      }
-    }
-  }
-
-  .progress_line {
-    height: 3px;
-    background: #e5e5e5;
-    position: relative;
-    border-radius: 1px;
-    margin-top: 20px;
-
-    .progress_inner {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      background: #008f76;
-      border-radius: 1px;
-      transition: width 0.15s ease;
-    }
-  }
+		.progress_inner {
+			height: 100%;
+			background: #008f76;
+			transition: width 0.15s ease;
+		}
+	}
 }

@@ -19,7 +19,7 @@ export const FooterStart: React.FC = () => {
 				<Link href={paths.contacts}>Контактылар</Link>
 			</nav>
 			<hr
-				style={windowSize.width <= 1024 ? { height: size.height } : {}}
+				style={windowSize.width <= 650 ? { height: size.height } : {}}
 				className={styles.divider}
 			/>
 			<div className={styles['social_links']}>

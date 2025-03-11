@@ -60,7 +60,7 @@
 		--footer-end-margin-top: 75px;
 		--footer-end-line-height: 1;
 		--footer-end-border-top: 1px solid var(--white);
-		--foter-end-img-size: 40px
+		--foter-end-img-size: 40px;
 	}
 }
 
@@ -74,14 +74,14 @@
 	.footer_end {
 		--footer-end-margin-top: 50px;
 		--footer-end-font-size: 14px;
-		--foter-end-img-size: 34px
+		--foter-end-img-size: 34px;
 	}
 }
 
 @media (max-width: 400px) {
 	.footer_end {
 		--footer-end-font-size: 12px;
-		--foter-end-img-size: 28px
+		--foter-end-img-size: 28px;
 	}
 }
 
@@ -94,7 +94,6 @@
 
 @media (max-width: 320px) {
 	.footer_end {
-
 		--footer-end-margin-top: 40px;
 	}
 }

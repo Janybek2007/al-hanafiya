@@ -15,8 +15,8 @@
 	--sub-check-size: 20px;
 	--sub-check-icon-size: 10px;
 
-	background: #FFFFFF;
-	border: 1px solid #EAEFF5;
+	background: #ffffff;
+	border: 1px solid #eaeff5;
 	box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
 	border-radius: var(--border-radius);
 
@@ -32,6 +32,7 @@
 		font-weight: 500;
 		line-height: var(--title-line-height);
 		text-overflow: ellipsis;
+		width: 93%;
 	}
 
 	.desc,
@@ -51,10 +52,10 @@
 		justify-content: center;
 
 		&.unchecked {
-			border: 1px solid #564FFD;
+			border: 1px solid #564ffd;
 
 			svg {
-				color: #564FFD;
+				color: #564ffd;
 				width: var(--check-icon-size);
 				height: var(--check-icon-size);
 				margin-left: 1px;
@@ -62,7 +63,7 @@
 		}
 
 		&.checked {
-			background: #23BD33;
+			background: #23bd33;
 
 			svg {
 				color: white;
@@ -88,8 +89,8 @@
 
 		.sub_module {
 			padding: var(--sub-module-padding);
-			background: #F8FBFF;
-			border-top: 1px solid #EAEFF5;
+			background: #f8fbff;
+			border-top: 1px solid #eaeff5;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
@@ -101,8 +102,10 @@
 
 			.checked,
 			.unchecked {
-				width: var(--sub-check-size);
-				height: var(--sub-check-size);
+				min-width: var(--sub-check-size);
+				min-height: var(--sub-check-size);
+				max-width: var(--sub-check-size);
+				max-height: var(--sub-check-size);
 
 				&.unchecked svg {
 					width: var(--sub-check-icon-size);
@@ -116,6 +119,7 @@
 
 			.title {
 				font-size: var(--sub-title-font-size);
+				width: 92%;
 			}
 		}
 	}
@@ -124,7 +128,6 @@
 @media (max-width: 1300px) {
 	.module_l_item {
 		--title-font-size: 22px;
-		--title-line-height: 20px;
 		--desc-font-size: 16px;
 		--desc-line-height: 20px;
 		--check-size: 22px;
@@ -144,7 +147,6 @@
 @media (max-width: 1024px) {
 	.module_l_item {
 		--title-font-size: 20px;
-		--title-line-height: 18px;
 		--desc-font-size: 14px;
 		--desc-line-height: 18px;
 		--check-size: 20px;
@@ -163,7 +165,6 @@
 @media (max-width: 768px) {
 	.module_l_item {
 		--title-font-size: 18px;
-		--title-line-height: 16px;
 		--desc-font-size: 12px;
 		--desc-line-height: 16px;
 		--check-size: 18px;
@@ -195,17 +196,17 @@
 
 @media (max-width: 360px) {
 	.module_l_item {
-		--title-font-size: 13px;
-		--title-line-height: 11px;
-		--desc-font-size: 9px;
-		--desc-line-height: 11px;
-		--check-size: 13px;
+		--title-font-size: 16px;
+		--title-line-height: 1.2;
+		--desc-font-size: 13px;
+		--desc-line-height: 14px;
+		--check-size: 16px;
 		--check-icon-size: 6.5px;
-		--row-margin-bottom: 5px;
-		--top-padding: 6px 10px;
-		--sub-modules-margin-top: 3px;
-		--sub-module-padding: 4px 11px;
-		--sub-title-font-size: 10px;
+		--row-margin-bottom: 10px;
+		--top-padding: 8px;
+		--sub-modules-margin-top: 4px;
+		--sub-module-padding: 6px 8px;
+		--sub-title-font-size: 12px;
 		--sub-check-size: 13px;
 		--sub-check-icon-size: 5px;
 	}

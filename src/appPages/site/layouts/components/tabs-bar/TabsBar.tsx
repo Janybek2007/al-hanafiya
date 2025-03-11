@@ -15,7 +15,7 @@ export const TabsBar: React.FC = () => {
 	if (width > 1024) return <></>;
 
 	return (
-		<div className={styles.tabs}>
+		<div id="tabs-bar" className={styles.tabs}>
 			<div className={`${styles['container']}`}>
 				{nav_items.map(nav => {
 					const isActive = pathname === nav.to;
