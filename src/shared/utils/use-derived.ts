@@ -1,6 +1,6 @@
 'use client';
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export const useDerived = <T>(
 	initialState: T | (() => T),
@@ -17,5 +17,7 @@ export const useDerived = <T>(
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [...dependencies]);
 
-	return state;
+	const memoizedState = useMemo(() => state, [state]);
+
+	return memoizedState;
 };

@@ -1,1 +1,1 @@
-export const hiddenPages = ['/articles/*', '/lessons/d/*', '/lessons/m/*'];
+export const hiddenPages = ['/articles/*', '/lessons/d/*', '/lessons/m/*', '/q&a/*'];

@@ -11,6 +11,7 @@ export const paths = {
 		aqidah: '/lessons/c/aqidah'
 	},
 	['q&a']: '/q&a',
+	['q&aDetail']: (id: number | string) => `/q&a/${id}`,
 	articles: '/articles',
 	contacts: '/contacts',
 	meetings: '/meetings'

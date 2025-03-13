@@ -28,7 +28,6 @@
 
 	.ask_box {
 		--ask-box-width: 1173px;
-		--ask-box-height: 181px;
 		--ask-box-bg-color: rgba(239, 248, 248, 0.7);
 		--ask-box-border-radius: 12px;
 		--ask-box-gap: 20px;
@@ -43,8 +42,10 @@
 		--star-two-right: 73px;
 		--star-three-top: 40px;
 		--star-three-right: 160px;
+		--ask-padding: 40px 0;
 
 		position: relative;
+		padding: var(--ask-padding);
 		background-color: var(--ask-box-bg-color);
 		border-radius: var(--ask-box-border-radius);
 		text-align: center;
@@ -54,7 +55,6 @@
 		justify-content: center;
 		gap: var(--ask-box-gap);
 		width: var(--ask-box-width);
-		height: var(--ask-box-height);
 		box-sizing: border-box;
 		background: var(--gradient);
 
@@ -136,8 +136,7 @@
 		--content-gap: 25px;
 
 		.ask_box {
-			--ask-box-width: 85%;
-			--ask-box-height: 150px;
+			--ask-box-width: 97%;
 			--ask-box-gap: 15px;
 			--ask-box-border-radius: 10px;
 			--star-one-right: 40px;
@@ -164,8 +163,7 @@
 		--content-gap: 20px;
 
 		.ask_box {
-			--ask-box-width: 90%;
-			--ask-box-height: 120px;
+			--ask-box-width: 95%;
 			--ask-box-gap: 10px;
 			--ask-box-border-radius: 8px;
 			--star-one-right: 20px;
@@ -194,7 +192,6 @@
 		--content-gap: 15px;
 
 		.ask_box {
-			--ask-box-height: 100px;
 			--star-one-right: 15px;
 			--star-two-right: 10px;
 			--star-three-right: 30px;

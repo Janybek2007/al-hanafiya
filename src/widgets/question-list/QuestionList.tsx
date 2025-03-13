@@ -1,12 +1,16 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
-import scss from './QuestionsSections.module.scss';
-import { questions } from '../../constants';
+import scss from './QuestionList.module.scss';
 import { BsArrowRight } from 'react-icons/bs';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Image from 'next/image';
+import Link from 'next/link';
+import { paths } from '$/shared/routing';
+import { questions } from '$/shared/constants/questions'
 
-const QuestionsSections = () => {
+const QuestionList: React.FC<{ questions: typeof questions }> = ({
+	questions: _questions = []
+}) => {
 	const [expandedQuestions, setExpandedQuestions] = useState<{
 		[key: number]: boolean;
 	}>({});
@@ -15,21 +19,21 @@ const QuestionsSections = () => {
 	}>({});
 	const textRefs = useRef<{ [key: string]: HTMLParagraphElement | null }>({});
 
-	const toggleExpand = (id: number) => {
+	const toggleExpand = React.useCallback((id: number) => {
 		setExpandedQuestions(prev => ({
 			...prev,
 			[id]: !prev[id]
 		}));
-	};
+	}, []);
 
-	const checkOverflow = (element: HTMLParagraphElement) => {
+	const checkOverflow = React.useCallback((element: HTMLParagraphElement) => {
 		return element.scrollHeight > element.clientHeight;
-	};
+	}, []);
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
 		const checkTextOverflow = () => {
-			questions.forEach(item => {
+			_questions.forEach(item => {
 				const textElement = textRefs.current[item.id];
 				if (textElement) {
 					const hasOverflow = checkOverflow(textElement);
@@ -44,17 +48,20 @@ const QuestionsSections = () => {
 		checkTextOverflow();
 		window.addEventListener('resize', checkTextOverflow);
 		return () => window.removeEventListener('resize', checkTextOverflow);
-	}, []);
+	}, [checkOverflow, _questions]);
 
-	const setRef = (id: number) => (element: HTMLParagraphElement | null) => {
-		if (element) {
-			textRefs.current[id] = element;
-		}
-	};
+	const setRef = React.useCallback(
+		(id: number) => (element: HTMLParagraphElement | null) => {
+			if (element) {
+				textRefs.current[id] = element;
+			}
+		},
+		[]
+	);
 
 	return (
-		<section className={scss.questions_section}>
-			<div className={scss.questions_list}>
+		<section data-qls className={scss.questions_section}>
+			<div data-ql className={scss.questions_list}>
 				{questions.map(item => {
 					const isExpanded = expandedQuestions[item.id];
 					const isOverflowing = overflowingQuestions[item.id];
@@ -101,9 +108,12 @@ const QuestionsSections = () => {
 								</div>
 
 								<div className={scss.question_right}>
-									<button className={scss.view_answer}>
+									<Link
+										href={paths['q&aDetail'](item.id)}
+										className={scss.view_answer}
+									>
 										Жооп көрүү <BsArrowRight className={scss.arrow_right} />
-									</button>
+									</Link>
 								</div>
 							</div>
 						</div>
@@ -114,4 +124,4 @@ const QuestionsSections = () => {
 	);
 };
 
-export default QuestionsSections;
+export default QuestionList;

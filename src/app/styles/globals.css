@@ -16,7 +16,6 @@ body {
 }
 
 
-
 .container {
   width: 100%;
   margin: 0 auto;
@@ -110,7 +109,7 @@ body {
 
 @media (max-width: 800px) {
   .back_section {
-    --back-section-padding: 28px 0 28px 0;
+    --back-section-padding: 20px 0 20px 0;
   }
 }
 
@@ -122,15 +121,13 @@ body {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --container-max-width: 95%;
+  }
+
   .main {
     --main-padding-top: 50px;
     --main-padding-bottom: 30px;
-  }
-}
-
-@media (max-width: 440px) {
-  :root {
-    --container-max-width: 97%;
   }
 }
 

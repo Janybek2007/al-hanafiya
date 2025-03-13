@@ -3,8 +3,9 @@ import { Breadcrumb, SectionTitle, Pagination } from '$/shared/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 import scss from './QAPage.module.scss';
-import AskQuestionModal from './sections/AskQuestionModal/AskQuestionModal';
-import QuestionsSections from './sections/q&aLists/QuestionsSections';
+import AskQuestion from './sections/AskQuestion/AskQuestion';
+import QuestionList from '$/widgets/question-list/QuestionList'
+import { questions } from '$/shared/constants/questions'
 
 const QuestionsAndAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,15 +53,14 @@ const QuestionsAndAnswerPage: React.FC = () => {
 						>
 							Суроо берүү
 						</button>
+						<AskQuestion
+							isOpen={isModalOpen}
+							onClose={() => setIsModalOpen(false)}
+						/>
 					</div>
-					<QuestionsSections />
+					<QuestionList questions={questions} />
 					<Pagination totalPages={10} />
 				</div>
-
-				<AskQuestionModal
-					isOpen={isModalOpen}
-					onClose={() => setIsModalOpen(false)}
-				/>
 			</div>
 		</main>
 	);
