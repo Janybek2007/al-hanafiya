@@ -15,7 +15,7 @@ const QuestionsAnsDetail: React.FC = () => {
 						<BackButton />
 					</div>
 				</section>
-				<section>
+				<section className={styles.qa_content}>
 					<div className={'container'}>
 						<QAContent />{' '}
 					</div>

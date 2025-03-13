@@ -243,9 +243,9 @@
 		--row-gap: 25px;
 		--row-margin-top: 14px;
 		--row-padding: 9px 0;
-		--row-icon-size: 18px;
+		--row-icon-size: 23px;
 		--row-item-gap: 7px;
-		--row-item-font-size: 11px;
+		--row-item-font-size: 14px;
 		--row-item-line-height: 16px;
 		--t-list-gap: 7px;
 		--v2-padding: 3px;
@@ -260,6 +260,7 @@
 		--t-card-badge-margin-top: 10px;
 	}
 }
+
 @media (max-width: 680px) {
 	.article_card {
 		--card-width: 94%;
@@ -283,9 +284,9 @@
 		--row-gap: 20px;
 		--row-margin-top: 12px;
 		--row-padding: 8px 0;
-		--row-icon-size: 16px;
+		--row-icon-size: 19px;
 		--row-item-gap: 6px;
-		--row-item-font-size: 10px;
+		--row-item-font-size: 15px;
 		--row-item-line-height: 14px;
 		--t-list-gap: 6px;
 		--v2-padding: 2px;
@@ -316,9 +317,9 @@
 		--row-gap: 15px;
 		--row-margin-top: 10px;
 		--row-padding: 7px 0;
-		--row-icon-size: 14px;
+		--row-icon-size: 16px;
 		--row-item-gap: 5px;
-		--row-item-font-size: 9px;
+		--row-item-font-size: 11px;
 		--row-item-line-height: 12px;
 		--t-list-gap: 5px;
 		--v2-badge-font-size: 10px;

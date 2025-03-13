@@ -6,7 +6,8 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Image from 'next/image';
 import Link from 'next/link';
 import { paths } from '$/shared/routing';
-import { questions } from '$/shared/constants/questions'
+import { questions } from '$/shared/constants/questions';
+import clsx from 'clsx';
 
 const QuestionList: React.FC<{ questions: typeof questions }> = ({
 	questions: _questions = []
@@ -73,37 +74,58 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 									<Image
 										src={'/images/Q&Apage/message.svg'}
 										alt='Message img'
-										width={50}
-										height={50}
+										width={28}
+										height={28}
 										priority
 										quality={70}
+										className={scss.message_img}
 									/>
-									<div className={scss.text_content}>
-										<p
-											ref={setRef(item.id)}
-											className={`${scss.question_text} ${
-												isExpanded ? scss.expanded : ''
-											}`}
-										>
-											{item.question}
-										</p>
-										{isOverflowing && (
-											<button
-												className={scss.expand_btn}
-												onClick={() => toggleExpand(item.id)}
-											>
-												{isExpanded ? (
-													<>
-														Жашыруу <IoIosArrowUp className={scss.arrow_icon} />
-													</>
-												) : (
-													<>
-														Толугу менен окуу{' '}
-														<IoIosArrowDown className={scss.arrow_icon} />
-													</>
+									<div className={scss.column}>
+										<div className={scss.content}>
+											<div className={scss.text_content}>
+												<p
+													ref={setRef(item.id)}
+													className={`${scss.question_text} ${
+														isExpanded ? scss.expanded : ''
+													}`}
+												>
+													{item.question}
+												</p>
+												{isOverflowing && (
+													<button
+														className={scss.expand_btn}
+														onClick={() => toggleExpand(item.id)}
+													>
+														{isExpanded ? (
+															<>
+																Жашыруу{' '}
+																<IoIosArrowUp className={scss.arrow_icon} />
+															</>
+														) : (
+															<>
+																Толугу менен окуу{' '}
+																<IoIosArrowDown className={scss.arrow_icon} />
+															</>
+														)}
+													</button>
 												)}
-											</button>
-										)}
+											</div>
+										</div>
+										<hr />
+										<div className={clsx(scss.row, 'flexCenter')}>
+											<div className={scss.info_item}>
+												<figure>
+													<Image
+														width={28}
+														height={28}
+														src={'/icon/view.svg'}
+														alt='View Icon'
+													/>
+												</figure>
+												<span>{15}</span>
+											</div>
+											<span>25.01.2025</span>
+										</div>
 									</div>
 								</div>
 
@@ -112,7 +134,13 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 										href={paths['q&aDetail'](item.id)}
 										className={scss.view_answer}
 									>
-										Жооп көрүү <BsArrowRight className={scss.arrow_right} />
+										<Image
+											src='/icon/arrow-left.svg'
+											alt='Arrow Left Icon'
+											width={20}
+											height={20}
+											className={scss.arrow_right}
+										/>
 									</Link>
 								</div>
 							</div>

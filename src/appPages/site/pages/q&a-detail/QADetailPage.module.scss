@@ -1,7 +1,17 @@
 .container {
-	margin-bottom: 280px;
+	--container-mt: 280px;
+	margin-bottom: var(--container-mt);
 	[data-ql] {
 		margin: 0 auto !important;
 	}
+	@media (max-width: 768px) {
+		--container-mt: 200px;
+	}
+	@media (max-width: 568px) {
+		--container-mt: 120px;
+	}
 }
 
+.qa_content {
+	margin-bottom: 40px;
+}
