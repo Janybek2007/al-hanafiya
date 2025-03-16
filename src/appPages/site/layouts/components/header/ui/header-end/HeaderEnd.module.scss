@@ -1,93 +1,93 @@
 .header_end {
-  --header-gap: 19px;
-  --search-button-display: none;
-  --search-button-fill: transparent;
-  --search-button-stroke: white;
-  --glasses-btn-radius: 24.18px;
-  --glasses-btn-bg: var(--white);
-  --glasses-btn-width: 60px;
-  --glasses-btn-height: 44px;
-  --search-input-border: 1px solid var(--white);
-  --search-input-border-radius: 28px;
-  --search-input-width: 329px;
-  --search-input-bg: var(--white);
-  --search-input-color: rgb(112, 112, 112);
-  --search-input-font-family: var(--philosopher);
-  --search-input-font-size: 16px;
-  --search-input-font-weight: 400;
-  --search-input-line-height: 20px;
-  --search-input-padding: 10px 26px;
-  display: flex;
-  align-items: center;
-  gap: var(--header-gap);
+	--header-gap: 19px;
+	--search-button-display: none;
+	--search-button-fill: transparent;
+	--search-button-stroke: white;
+	--glasses-btn-radius: 24.18px;
+	--glasses-btn-bg: var(--white);
+	--glasses-btn-width: 60px;
+	--glasses-btn-height: 38px;
+	--search-input-border: 1px solid var(--white);
+	--search-input-border-radius: 28px;
+	--search-input-width: 329px;
+	--search-input-bg: var(--white);
+	--search-input-color: rgb(112, 112, 112);
+	--search-input-font-family: var(--philosopher);
+	--search-input-font-size: 15px;
+	--search-input-font-weight: 400;
+	--search-input-line-height: 20px;
+	--search-input-padding: 7px 24px;
+	display: flex;
+	align-items: center;
+	gap: var(--header-gap);
 
-  .search_button {
-    display: var(--search-button-display);
-    fill: var(--search-button-fill);
-    stroke: var(--search-button-stroke);
+	.search_button {
+		display: var(--search-button-display);
+		fill: var(--search-button-fill);
+		stroke: var(--search-button-stroke);
 
-    @media (max-width: 450px) {
-      display: block;
-    }
-  }
+		@media (max-width: 450px) {
+			display: block;
+		}
+	}
 
-  @media (max-width: 800px) {
-    gap: 14px;
-  }
+	@media (max-width: 800px) {
+		gap: 14px;
+	}
 
-  .glasses_btn {
-    border-radius: var(--glasses-btn-radius);
-    background: var(--glasses-btn-bg);
-    width: var(--glasses-btn-width);
-    height: var(--glasses-btn-height);
+	.glasses_btn {
+		border-radius: var(--glasses-btn-radius);
+		background: var(--glasses-btn-bg);
+		width: var(--glasses-btn-width);
+		height: var(--glasses-btn-height);
 
-    @media (max-width: 1280px) {
-      width: 60px;
-      height: 40px;
-    }
+		@media (max-width: 1280px) {
+			width: 60px;
+			height: 40px;
+		}
 
-    @media (max-width: 800px) {
-      width: 55px;
-      height: 35px;
-    }
+		@media (max-width: 800px) {
+			width: 55px;
+			height: 35px;
+		}
 
-    @media (max-width: 450px) {
-      display: none;
-    }
-  }
+		@media (max-width: 450px) {
+			display: none;
+		}
+	}
 
-  .search_input {
-    border: var(--search-input-border);
-    border-radius: var(--search-input-border-radius);
-    width: var(--search-input-width);
-    background: var(--search-input-bg);
-    color: var(--search-input-color);
-    font-family: var(--search-input-font-family);
-    font-size: var(--search-input-font-size);
-    font-weight: var(--search-input-font-weight);
-    line-height: var(--search-input-line-height);
-    padding: var(--search-input-padding);
+	.search_input {
+		border: var(--search-input-border);
+		border-radius: var(--search-input-border-radius);
+		width: var(--search-input-width);
+		background: var(--search-input-bg);
+		color: var(--search-input-color);
+		font-family: var(--search-input-font-family);
+		font-size: var(--search-input-font-size);
+		font-weight: var(--search-input-font-weight);
+		line-height: var(--search-input-line-height);
+		padding: var(--search-input-padding);
 
-    @media (max-width: 1400px) {
-      width: 280px;
-    }
+		@media (max-width: 1400px) {
+			width: 280px;
+		}
 
-    @media (max-width: 1280px) {
-      width: 230px;
-    }
+		@media (max-width: 1280px) {
+			width: 230px;
+		}
 
-    @media (max-width: 800px) {
-      font-size: 15px;
-      padding: 7px 18px;
-      width: 200px;
-    }
+		@media (max-width: 800px) {
+			font-size: 15px;
+			padding: 7px 18px;
+			width: 200px;
+		}
 
-    @media (max-width: 450px) {
-      display: none;
-    }
+		@media (max-width: 450px) {
+			display: none;
+		}
 
-    &::-webkit-search-cancel-button {
-      display: none;
-    }
-  }
+		&::-webkit-search-cancel-button {
+			display: none;
+		}
+	}
 }

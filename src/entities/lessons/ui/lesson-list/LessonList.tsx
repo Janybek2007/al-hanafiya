@@ -1,8 +1,9 @@
+'use client';
 import React from 'react';
 import styles from './LessonList.module.scss';
-import { LessonCard, TLesson } from '$/entities/lessons';
+import { LessonCard, LessonItem } from '$/entities/lessons';
 interface IProps {
-	lessons: TLesson[];
+	lessons: LessonItem[];
 }
 
 export const LessonList: React.FC<IProps> = ({ lessons }) => {

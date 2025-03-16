@@ -1,0 +1,71 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #f5f5f5;
+	padding: 20px;
+	font-family: 'Arial', sans-serif;
+	text-align: center;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	flex-direction: column;
+}
+
+.logoIcon {
+	background-color: #4caf50;
+	color: white;
+	font-size: 24px;
+	font-weight: bold;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	clip-path: path(
+		'M 5 0 L 45 0 L 50 5 L 50 45 L 45 50 L 5 50 L 0 45 L 0 5 L 5 0 Z M 20 25 L 10 25 L 10 20 L 15 20 L 15 10 L 20 10 L 20 20 L 25 20 L 25 25 L 30 25 L 30 30 L 25 30 L 25 40 L 20 40 L 20 30 L 15 30 L 15 25 Z'
+	);
+	margin-bottom: 10px;
+}
+
+.logoText {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+}
+
+.greetingArabic {
+	font-size: 20px;
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.welcomeText {
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 30px;
+}
+
+.separator {
+	width: 80%;
+	height: 1px;
+	background: #ccc;
+	margin: 20px 0;
+}
+
+.footerText {
+	font-size: 14px;
+	color: #666;
+
+	p {
+		margin: 5px 0;
+	}
+}

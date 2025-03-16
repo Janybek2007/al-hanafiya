@@ -2,9 +2,8 @@ import React from 'react';
 import styles from './QADetailPage.module.scss';
 import { BackButton, SectionTitle } from '$/shared/ui';
 import { QuestionList } from '$/widgets/question-list';
-import { questions } from '$/shared/constants/questions';
 import clsx from 'clsx';
-import QAContent from './sections/q&a-content/QAContent'
+import QAContent from './sections/q&a-content/QAContent';
 
 const QuestionsAnsDetail: React.FC = () => {
 	return (
@@ -23,7 +22,7 @@ const QuestionsAnsDetail: React.FC = () => {
 				<section>
 					<div className={clsx('container', styles.container)}>
 						<SectionTitle title='Окшош суроолор' />
-						<QuestionList questions={questions} />
+						{/* <QuestionList questions={questions} /> */}
 					</div>
 				</section>
 			</div>

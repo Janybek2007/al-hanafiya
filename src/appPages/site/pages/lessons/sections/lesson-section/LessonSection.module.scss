@@ -40,8 +40,13 @@
 				line-height: 2;
 				font-weight: 400;
 				letter-spacing: -1%;
+				border-bottom: 1px solid transparent;
+				&:hover {
+					border-color: #ff6636;
+				}
 
 				svg {
+					fill: #ff6636;
 					width: var(--header-icon-size);
 					height: var(--header-icon-size);
 				}

@@ -6,54 +6,48 @@ import { IoClose } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 import { useDerived } from '$/shared/utils';
 import { Button } from '$/shared/ui';
-import Link from 'next/link'
-import { paths } from '$/shared/routing'
+import Link from 'next/link';
+import { paths } from '$/shared/routing';
+import {
+	QuestionItem,
+	useNewQuestionMutation,
+	useQuestionSimilarCheckQuery
+} from '$/entities/questions';
 
 interface AskQuestionProps {
 	isOpen: boolean;
 	onClose: () => void;
 }
 
-interface Question {
-	title: string;
-	description: string;
-	id: string;
-}
-
-const questions: Question[] = [
-	{
-		title: 'Как правильно совершать намаз?',
-		description: 'Намаз следует совершать пять раз в день...',
-		id: 'q&a-1'
-	},
-	{
-		title: 'Как правильно совершать намаз?',
-		description: 'Намаз следует совершать пять раз в день...',
-		id: 'q&a-2'
-	}
-];
-
 const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 	const [questionTerm, setQuestionTerm] = useState('');
 	const [isDropdownAbove, setIsDropdownAbove] = useState(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const dropdownRef = useRef<HTMLDivElement>(null);
+	const { data } = useQuestionSimilarCheckQuery({ text: questionTerm });
+	const [newQuestion] = useNewQuestionMutation();
 
-	const filteredQuestions = useDerived<Question[]>(() => {
-		return questions.filter(
-			v =>
-				v.title.toLowerCase().includes(questionTerm.toLowerCase()) ||
-				v.description.toLowerCase().includes(questionTerm.toLowerCase())
+	const filteredQuestions = useDerived<QuestionItem[]>(() => {
+		if (!data?.similar_questions) return [] as QuestionItem[];
+		return data.similar_questions.filter(v =>
+			v.content.toLowerCase().includes(questionTerm.toLowerCase())
 		);
-	}, [questionTerm]);
+	}, [questionTerm, data]);
 
-	const handleSubmit = React.useCallback(
-		(e: React.FormEvent) => {
-			e.preventDefault();
-			onClose();
-		},
-		[onClose]
-	);
+	const newQuestionClick = React.useCallback(async () => {
+		if (questionTerm.trim() == '') {
+			alert('Поле вопроса не должно быть пустым');
+			return;
+		}
+
+		const response = await newQuestion({
+			data: { content: questionTerm }
+		}).unwrap();
+		console.log(response);
+		if ('similar_questions' in response) {
+		} else {
+		}
+	}, [newQuestion, questionTerm]);
 
 	useEffect(() => {
 		if (isOpen && inputRef.current) {
@@ -124,7 +118,7 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 					</div>
 				</div>
 
-				<form className={scss.question_section} onSubmit={handleSubmit}>
+				<div className={scss.question_section}>
 					<div className={scss.form_group}>
 						<input
 							ref={inputRef}
@@ -153,11 +147,10 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 										href={paths['q&aDetail'](q.id)}
 										key={q.id}
 										className={scss.suggestion_item}
-										onClick={() => setQuestionTerm(q.title)}
 									>
 										<div className={scss.info}>
-											<strong>{q.title}</strong>
-											<p>{q.description.slice(0, 50)}...</p>
+											{/* <strong>{q.title}</strong> */}
+											<p>{q.content.slice(0, 50)}...</p>
 										</div>
 										<Image
 											src='/icon/arrow-left.svg'
@@ -172,10 +165,14 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 						)}
 					</div>
 
-					<Button type='submit' className={scss.submit_btn}>
+					<Button
+						onClick={newQuestionClick}
+						type='submit'
+						className={scss.submit_btn}
+					>
 						Суроо жөнөтүү
 					</Button>
-				</form>
+				</div>
 			</div>
 		)
 	);

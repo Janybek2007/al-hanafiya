@@ -1,15 +1,22 @@
 'use client';
-import { Breadcrumb, SectionTitle, Pagination } from '$/shared/ui';
+import {
+	Breadcrumb,
+	SectionTitle,
+	Pagination,
+	Button,
+	Loading,
+	EmptyState
+} from '$/shared/ui';
 import Image from 'next/image';
 import { useState } from 'react';
 import scss from './QAPage.module.scss';
 import AskQuestion from './sections/AskQuestion/AskQuestion';
-import QuestionList from '$/widgets/question-list/QuestionList'
-import { questions } from '$/shared/constants/questions'
+import QuestionList from '$/widgets/question-list/QuestionList';
+import { useGuestionsQuery } from '$/entities/questions';
 
 const QuestionsAndAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-
+	const { data, isLoading, error } = useGuestionsQuery({});
 	return (
 		<main>
 			<div className='container'>
@@ -47,18 +54,37 @@ const QuestionsAndAnswerPage: React.FC = () => {
 						/>
 
 						<h3>Сизде суроо барбы?</h3>
-						<button
-							className={scss.ask_btn}
-							onClick={() => setIsModalOpen(true)}
-						>
-							Суроо берүү
-						</button>
+
+						<div className={scss.submit_btn_parent}>
+							<Button
+								className={scss.ask_btn}
+								onClick={() => setIsModalOpen(true)}
+							>
+								Суроо берүү
+							</Button>
+						</div>
 						<AskQuestion
 							isOpen={isModalOpen}
 							onClose={() => setIsModalOpen(false)}
 						/>
 					</div>
-					<QuestionList questions={questions} />
+					{isLoading ? (
+						<Loading />
+					) : error ? (
+						<EmptyState
+							icon='AlertTriangle'
+							title='Произошла ошибка'
+							description='Что-то пошло не так при загрузке данных. Пожалуйста, попробуйте ещё раз.'
+						/>
+					) : !data || data?.results.length === 0 ? (
+						<EmptyState
+							icon='FileQuestion'
+							title='Данные не найдены'
+							description='Не удалось найти подходящие данные. Попробуйте изменить критерии поиска.'
+						/>
+					) : (
+						<QuestionList data={data} />
+					)}
 					<Pagination totalPages={10} />
 				</div>
 			</div>

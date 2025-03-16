@@ -17,6 +17,11 @@
 	align-items: center;
 
 	box-shadow: var(--button-box-shadow);
+	transition: all 0.25s;
+	
+	&:hover {
+		transform: translateY(-1px);
+	}
 
 	&.solid {
 		&.linearGradient_v1 {

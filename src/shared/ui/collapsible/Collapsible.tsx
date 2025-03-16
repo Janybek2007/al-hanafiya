@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import styles from './Collapsible.module.scss';
 import React from 'react';
 import { CollapsibleProps } from './collapsible.types';
-import { AnimatePresence } from 'framer-motion'
-import {motion}from 'framer-motion'
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 const Collapsible: React.FC<CollapsibleProps> = ({
 	disabled,
 	className,

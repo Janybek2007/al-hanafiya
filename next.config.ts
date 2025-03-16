@@ -12,7 +12,10 @@ const nextConfig = withPWA({
 		// @ts-expect-error
 		appIsrStatus: false
 	},
-	output: "standalone"
+	output: 'standalone',
+	images: {
+		domains: ['37.252.23.134']
+	}
 } satisfies NextConfig);
 
 export default nextConfig;

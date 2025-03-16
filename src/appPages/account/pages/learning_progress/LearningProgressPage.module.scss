@@ -1,0 +1,98 @@
+.container {
+	margin: 20px;
+	padding: 20px;
+	background: #f9f9f9;
+	border-radius: 12px;
+	height: max-content;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+	font-size: 28px;
+	font-weight: bold;
+	color: #2d3748;
+	margin-bottom: 24px;
+	text-align: center;
+}
+
+.progressSummary {
+	margin-bottom: 30px;
+}
+
+.categories {
+	display: grid;
+	gap: 10px;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.subtitle {
+	font-size: 20px;
+	font-weight: 600;
+	color: #2d3748;
+	margin-bottom: 10px;
+}
+
+.summaryText {
+	font-size: 15px;
+	color: #4a5568;
+	margin: 5px 0 0;
+}
+
+.categoryProgress {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.categoryItem {
+	border: 1px solid #e2e8f0;
+	border-radius: 10px;
+	padding: 15px;
+	background: white;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.categoryItem:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.categoryHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.categoryName {
+	font-size: 17px;
+	font-weight: 500;
+	color: #2d3748;
+}
+
+.categoryProgressText {
+	font-size: 14px;
+	color: #4a5568;
+}
+
+.progressBar {
+	width: 100%;
+	height: 12px;
+	background: #e2e8f0;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.progressFill {
+	height: 100%;
+	background: #38a169;
+	border-radius: 6px;
+	transition: width 0.4s ease;
+}
+
+.error {
+	text-align: center;
+	font-size: 16px;
+	color: #e53e3e;
+}

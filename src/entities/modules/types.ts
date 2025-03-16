@@ -1,3 +1,6 @@
+import { DataWithPagination } from '$/shared/types';
+import { BaseArg } from '$/shared/types/api.types';
+
 export interface IModuleLesson {
 	id: string;
 	title: string;
@@ -27,8 +30,27 @@ export interface IModuleComment {
 		avatar: string | null;
 		displayName: string;
 	};
-	reply_to?: string
+	reply_to?: string;
 	sended_at: string;
-	message: string
+	message: string;
 	comments?: IModuleComment[];
 }
+
+export interface ModuleItem {
+	id: number;
+	name: string;
+	topic: number;
+	slug: string;
+}
+
+export interface ModulesArg extends BaseArg {
+	topic: number;
+}
+
+export interface ModulesBySlugArg {
+	slug: string;
+	sort_comments?: 'newest' | 'popular';
+}
+
+export type ModulesResponse = DataWithPagination<ModuleItem>;
+export type ModulesBySlugResponse = ModuleItem;

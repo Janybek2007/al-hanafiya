@@ -1,0 +1,1 @@
+export { onFetch } from './base';

@@ -30,6 +30,7 @@
 				content: '';
 				position: absolute;
 				inset: 0;
+				z-index: -1;
 				padding: 2px;
 				background: linear-gradient(179.08deg, var(--primary-gradient));
 				mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);

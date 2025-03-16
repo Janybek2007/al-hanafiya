@@ -1,17 +1,14 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
 import scss from './QuestionList.module.scss';
-import { BsArrowRight } from 'react-icons/bs';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import Image from 'next/image';
 import Link from 'next/link';
 import { paths } from '$/shared/routing';
-import { questions } from '$/shared/constants/questions';
 import clsx from 'clsx';
+import { QuestionsResponse } from '$/entities/questions';
 
-const QuestionList: React.FC<{ questions: typeof questions }> = ({
-	questions: _questions = []
-}) => {
+const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 	const [expandedQuestions, setExpandedQuestions] = useState<{
 		[key: number]: boolean;
 	}>({});
@@ -34,7 +31,7 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
 		const checkTextOverflow = () => {
-			_questions.forEach(item => {
+			data.results.forEach(item => {
 				const textElement = textRefs.current[item.id];
 				if (textElement) {
 					const hasOverflow = checkOverflow(textElement);
@@ -49,7 +46,7 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 		checkTextOverflow();
 		window.addEventListener('resize', checkTextOverflow);
 		return () => window.removeEventListener('resize', checkTextOverflow);
-	}, [checkOverflow, _questions]);
+	}, [checkOverflow, data]);
 
 	const setRef = React.useCallback(
 		(id: number) => (element: HTMLParagraphElement | null) => {
@@ -63,7 +60,7 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 	return (
 		<section data-qls className={scss.questions_section}>
 			<div data-ql className={scss.questions_list}>
-				{questions.map(item => {
+				{data.results.map(item => {
 					const isExpanded = expandedQuestions[item.id];
 					const isOverflowing = overflowingQuestions[item.id];
 
@@ -89,7 +86,7 @@ const QuestionList: React.FC<{ questions: typeof questions }> = ({
 														isExpanded ? scss.expanded : ''
 													}`}
 												>
-													{item.question}
+													{item.content}
 												</p>
 												{isOverflowing && (
 													<button
