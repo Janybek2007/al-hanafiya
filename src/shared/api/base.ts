@@ -10,7 +10,9 @@ export async function onFetch<T = any>(url: string, options?: RequestInit) {
 		const response = await fetch(`${API_URL}/api${url}`, {
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `Token ${token?.value}`
+				...(url.includes('google_auth')
+					? {}
+					: { Authorization: `Token ${token?.value}` })
 			},
 			method: options?.method,
 			body: options?.body,

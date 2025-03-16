@@ -25,11 +25,10 @@ const authOptions: AuthOptions = {
 					'/auth/accounts/google_auth/',
 					{
 						method: 'POST',
-						body: JSON.stringify({ token: id_token }),
-						headers: { 'Content-Type': 'application/json' }
+						body: JSON.stringify({ token: id_token })
 					}
 				);
-				if (data.user && data.token) {
+				if (data.token) {
 					_cookies.set('token', data.token);
 				}
 			}

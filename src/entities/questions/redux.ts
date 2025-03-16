@@ -25,7 +25,7 @@ const questionsApi = api.injectEndpoints({
 		newQuestion: build.mutation<NewQuestionResponse, NewQuestionArg>({
 			query: arg => ({
 				url: '/questions/',
-				metho: 'POST',
+				method: 'POST',
 				body: arg.data
 			})
 		}),

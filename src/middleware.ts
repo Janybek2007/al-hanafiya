@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { onFetch } from './shared/api';
 
-const privatePages = ['/account*']
+const privatePages = ['/account*'];
 
 export default async function middleware(req: NextRequest) {
 	const { pathname } = req.nextUrl;

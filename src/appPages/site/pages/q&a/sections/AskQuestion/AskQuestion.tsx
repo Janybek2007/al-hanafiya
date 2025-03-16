@@ -167,7 +167,6 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 
 					<Button
 						onClick={newQuestionClick}
-						type='submit'
 						className={scss.submit_btn}
 					>
 						Суроо жөнөтүү
