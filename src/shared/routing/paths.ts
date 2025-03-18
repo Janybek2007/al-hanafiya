@@ -5,10 +5,10 @@ export const paths = {
 	teacherProfile: `/profile`,
 	lessons: {
 		index: '/lessons',
-		by_books: '/lessons/c/by_books',
-		latest_lessons: '/lessons/c/latest_lessons',
-		fiqh: '/lessons/c/fiqh',
-		aqidah: '/lessons/c/aqidah'
+		by_category: (slug: string) => `/lessons/c/${slug}`,
+		with_module: (mSlug: string, lSlug: string) =>
+			`/lessons/m/${mSlug}?slug=${lSlug}`,
+		with_topic: (slug: string) => `/lessons/t/${slug}`
 	},
 	['q&a']: '/q&a',
 	['q&aDetail']: (id: number | string) => `/q&a/${id}`,

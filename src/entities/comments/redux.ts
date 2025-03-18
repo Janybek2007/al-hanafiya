@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { api } from '$/shared/redux/api';
 import {
 	AddCommentArg,
@@ -13,14 +13,18 @@ const commentsApi = api.injectEndpoints({
 		addComment: b.mutation<CommentItem, AddCommentArg>({
 			query: arg => ({
 				url: `/lessons/${arg.slug}/add_comment/`,
+				method: 'POST',
 				body: arg.data
-			})
+			}),
+			invalidatesTags: ['lesson_by_slug']
 		}),
 		likeComment: b.mutation<LikeCommentResponse, LikeCommentArg>({
 			query: arg => ({
-				url: `/lessons/${arg.slug}/add_comment/`,
+				url: `/lessons/${arg.slug}/like_comment/`,
+				method: 'POST',
 				body: arg.data
-			})
+			}),
+			invalidatesTags: ['lesson_by_slug']
 		})
 	})
 });

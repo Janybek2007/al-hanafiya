@@ -25,13 +25,14 @@ export interface LikeCommentResponse {
 }
 
 export interface CommentItem {
+	id: number
 	content: string;
 	username: string;
 	avatar: string;
 	like_count: string;
 	has_user_liked: string;
 	created_at: string;
-	replies: string;
+	replies: CommentItem[];
 	parent: number;
 	user_id: string;
 }

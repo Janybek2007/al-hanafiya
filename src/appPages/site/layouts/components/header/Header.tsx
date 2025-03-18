@@ -1,10 +1,10 @@
 'use client';
+import { useHiddenPages } from '$/shared/utils/hooks/use-hidden-pages';
+import clsx from 'clsx';
 import React from 'react';
 import styles from './Header.module.scss';
-import clsx from 'clsx';
-import HeaderNav from './ui/header-nav/HeaderNav';
 import HeaderEnd from './ui/header-end/HeaderEnd';
-import { useHiddenPages } from '$/shared/utils/use-hidden-pages'
+import HeaderNav from './ui/header-nav/HeaderNav';
 export const Header: React.FC = () => {
 	const isHidden = useHiddenPages();
 	return (

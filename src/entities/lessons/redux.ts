@@ -1,5 +1,6 @@
 'use client';
 import { api } from '$/shared/redux/api';
+import { SlugArg } from '$/shared/types/api.types';
 import { createSearchParams } from '$/shared/utils';
 import {
 	LessonArg,
@@ -18,21 +19,24 @@ const lessonsApi = api.injectEndpoints({
 				url: `/lessons/?${createSearchParams(arg)}`
 			})
 		}),
-		lessonBySlug: query<LessonItem, { slug: string }>({
+		lessonBySlug: query<LessonItem, SlugArg>({
 			query: ({ slug }) => ({
 				url: `/lessons/${slug}/`
-			})
+			}),
+			providesTags: ['lesson_by_slug']
 		}),
-		progress: query<ProgressResponse, { slug: string }>({
+		progress: query<ProgressResponse, SlugArg>({
 			query: ({ slug }) => ({
 				url: `/lessons/${slug}/get_progress/`
-			})
+			}),
+			providesTags: ['lesson_by_slug']
 		}),
 		saveProgress: mutation<SaveProgressResponse, SaveProgressArg>({
 			query: arg => ({
 				url: `/lessons/${arg.slug}/save_progress/`,
 				body: arg.data
-			})
+			}),
+			invalidatesTags: ['lesson_by_slug']
 		})
 	})
 });

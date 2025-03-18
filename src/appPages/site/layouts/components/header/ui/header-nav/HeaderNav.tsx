@@ -1,8 +1,8 @@
 'use client';
-import { nav_items } from '$/appPages/site/layouts/config';
+import { nav_items } from '$/appPages/site/layouts/constants';
 import { Icon } from '$/shared/ui';
 import { useOutsideClick } from '$/shared/utils';
-import { useSize } from '$/shared/utils/use-size';
+import { useSize } from '$/shared/utils/hooks/use-size';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';

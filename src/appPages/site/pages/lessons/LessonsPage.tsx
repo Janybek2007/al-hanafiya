@@ -1,44 +1,49 @@
-import { example_lessons, LessonList, LessonsFilter } from '$/entities/lessons';
+'use client';
+import { LessonsFilter } from '$/entities/lessons';
 import { paths } from '$/shared/routing';
-import clsx from 'clsx';
 import React from 'react';
 import styles from './LessonsPage.module.scss';
-import LessonSection from './sections/lesson-section/LessonSection';
-import { Pagination } from '$/shared/ui';
+import CategorySection from './sections/category-section/CategorySection';
+import { EmptyState, Loading, Pagination } from '$/shared/ui';
+import { useCategoriesQuery } from '$/entities/categories';
+import { TopicList } from '$/entities/topics';
 
-const section_label = 'Баардык сабактар';
+const section_label = 'Все уроки';
 const LessonsPage: React.FC = () => {
+	const { data: categories, isLoading, error } = useCategoriesQuery({});
+
 	return (
 		<main>
 			<LessonsFilter />
-			<LessonSection
-				className={styles.lessons_section}
-				title={'Акыркы сабактар'}
-				link={{ href: paths.lessons.latest_lessons, label: section_label }}
-			>
-				<LessonList lessons={example_lessons} />
-			</LessonSection>
-			<LessonSection
-				className={styles.lessons_section}
-				title={'Китептер боюнча'}
-				link={{ href: paths.lessons.by_books, label: section_label }}
-			>
-				<LessonList lessons={example_lessons} />
-			</LessonSection>
-			<LessonSection
-				className={styles.lessons_section}
-				title={'Фикх'}
-				link={{ href: paths.lessons.fiqh, label: section_label }}
-			>
-				<LessonList lessons={example_lessons} />
-			</LessonSection>
-			<LessonSection
-				className={clsx(styles.lessons_section, styles.last)}
-				title={'Акыйда'}
-				link={{ href: paths.lessons.aqidah, label: section_label }}
-			>
-				<LessonList lessons={example_lessons} />
-			</LessonSection>
+			{isLoading ? (
+				<Loading />
+			) : error ? (
+				<EmptyState
+					icon='AlertTriangle'
+					title='Произошла ошибка'
+					description='Произошла ошибка при загрузке данных. Пожалуйста, попробуйте еще раз.'
+				/>
+			) : categories?.count === 0 ? (
+				<EmptyState
+					icon='File'
+					title='Уроки не найдены'
+					description='На данный момент уроков нет. Попробуйте позже.'
+				/>
+			) : (
+				categories?.results.map(c => (
+					<CategorySection
+						key={c.slug}
+						className={styles.lessons_section}
+						title={c.name}
+						link={{
+							href: paths.lessons.by_category(c.slug),
+							label: section_label
+						}}
+					>
+						<TopicList category={c} />
+					</CategorySection>
+				))
+			)}
 			<Pagination totalPages={10} />
 		</main>
 	);

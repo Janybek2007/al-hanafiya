@@ -1,10 +1,10 @@
 'use client';
+import { useHiddenPages } from '$/shared/utils/hooks/use-hidden-pages';
+import { useSize } from '$/shared/utils/hooks/use-size';
 import React, { Suspense } from 'react';
 import styles from './Footer.module.scss';
-import { FooterStart } from './ui/footer-start/FooterStart';
 import { FooterEnd } from './ui/footer-end/FooterEnd';
-import { useSize } from '$/shared/utils/use-size';
-import { useHiddenPages } from '$/shared/utils/use-hidden-pages';
+import { FooterStart } from './ui/footer-start/FooterStart';
 export const Footer: React.FC = () => {
 	const size = useSize('#tabs-bar');
 	const windowSize = useSize();

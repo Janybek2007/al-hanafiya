@@ -1,9 +1,9 @@
 'use client';
+import { Button } from '$/shared/ui';
+import { useSize } from '$/shared/utils/hooks/use-size';
+import clsx from 'clsx';
 import React from 'react';
 import styles from './Hero.module.scss';
-import clsx from 'clsx';
-import { Button } from '$/shared/ui';
-import { useSize } from '$/shared/utils/use-size';
 
 export const Hero: React.FC = () => {
 	const size = useSize('#hero-p');

@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
 import { AppProgressProvider } from '@bprogress/next';
-import { useHiddenPages } from '../utils/use-hidden-pages';
+import React from 'react';
+import { useHiddenPages } from '../utils/hooks/use-hidden-pages';
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({
 	children

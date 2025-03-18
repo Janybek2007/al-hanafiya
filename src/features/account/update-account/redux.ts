@@ -11,7 +11,7 @@ const accountsMeApi = api.injectEndpoints({
 				method: 'PUT',
 				body: arg
 			}),
-			invalidatesTags: ['account_me']
+			invalidatesTags: ['account']
 		}),
 		updateAvatar: builder.mutation<{ avatar: string }, File>({
 			query: file => {
@@ -23,7 +23,7 @@ const accountsMeApi = api.injectEndpoints({
 					body: formData
 				};
 			},
-			invalidatesTags: ['account_me']
+			invalidatesTags: ['account']
 		})
 	})
 });

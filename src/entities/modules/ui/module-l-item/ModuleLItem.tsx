@@ -1,23 +1,31 @@
+'use client';
 import React from 'react';
-import { IModule } from '../../types';
+import { ModuleItem } from '../../types';
 import styles from './ModuleLItem.module.scss';
 import { secondsToTime } from '$/shared/utils';
 import { IoIosCheckmark } from 'react-icons/io';
 import { IoPlayOutline } from 'react-icons/io5';
 import Link from 'next/link';
+import { useLessonsQuery } from '$/entities/lessons/redux';
+import { paths } from '$/shared/routing';
+
 interface IProps {
-	module: IModule;
+	module: ModuleItem;
 }
 
 export const ModuleLItem: React.FC<IProps> = ({ module: m }) => {
+	const { data } = useLessonsQuery({ module: m.id });
 	return (
 		<div className={styles.module_l_item}>
 			<div className={styles['top']}>
 				<Link
-					href={`/lessons/m/${m.lId}-${m.id}-${m.lessons[0].id}`}
+					href={paths.lessons.with_module(
+						m.slug,
+						String(data?.results[0].slug)
+					)}
 					className={styles['row']}
 				>
-					{m.id == 'm0' ? (
+					{m.id == 1 ? (
 						<div className={styles.checked}>
 							<IoIosCheckmark />
 						</div>
@@ -26,31 +34,32 @@ export const ModuleLItem: React.FC<IProps> = ({ module: m }) => {
 							<IoPlayOutline />
 						</div>
 					)}
-					<h4 className={styles.title}>{m.title}</h4>
+					<h4 className={styles.title}>{m.name}</h4>
 				</Link>
-				<p className={styles.desc}>{m.description}</p>
+				{/* <p className={styles.desc}>{m.description}</p> */}
 			</div>
-			<div className={styles['sub_modules']}>
-				{m.lessons.map(sm => (
-					<div className={styles.sub_module} key={sm.id}>
-						<Link
-							href={`/lessons/m/${m.lId}-${m.id}-${sm.id}`}
-							className={styles['row']}
-						>
-							{sm.id == 'm1' ? (
-								<div className={styles.checked}>
-									<IoIosCheckmark />
-								</div>
-							) : (
-								<div className={styles.unchecked}>
-									<IoPlayOutline />
-								</div>
-							)}
-							<h4 className={styles.title}>{sm.title}</h4>
-						</Link>
-						<span className={styles.time}>{secondsToTime(sm.time)}</span>
-					</div>
-				))}
+			<div className={styles['lessons']}>
+				{data &&
+					data.results.map(l => (
+						<div className={styles.lesson} key={l.id}>
+							<Link
+								href={paths.lessons.with_module(m.slug, l.slug)}
+								className={styles['row']}
+							>
+								{l.id == 1 ? (
+									<div className={styles.checked}>
+										<IoIosCheckmark />
+									</div>
+								) : (
+									<div className={styles.unchecked}>
+										<IoPlayOutline />
+									</div>
+								)}
+								<h4 className={styles.title}>{l.id}</h4>
+							</Link>
+							<span className={styles.time}>{secondsToTime(4000)}</span>
+						</div>
+					))}
 			</div>
 		</div>
 	);

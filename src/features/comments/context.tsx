@@ -1,91 +1,61 @@
 'use client';
-import { example_comments, IModuleComment } from '$/entities/modules';
+import { CommentItem, useAddCommentMutation } from '$/entities/comments';
+import { useLessonBySlugQuery } from '$/entities/lessons/redux';
 import * as React from 'react';
 
 interface ICommentContext {
-	comments: IModuleComment[];
-	handleSendComment: (newMessage: string, replyId?: string) => void;
-	reply: string | null;
-	setReply: React.Dispatch<React.SetStateAction<string | null>>;
+	comments: CommentItem[];
+	handleSendComment: (newMessage: string, replyId?: number) => Promise<void>;
+	reply: number | null;
+	setReply: React.Dispatch<React.SetStateAction<number | null>>;
+	lessonSlug: string | null;
 }
 const CommentContext = React.createContext<ICommentContext | undefined>(
 	undefined
 );
 
 interface ICommentProvider {
-	moduleId: string;
-	children: (arg: { comments: IModuleComment[] }) => React.ReactNode;
+	lessonSlug: string | null;
+	children: (arg: {
+		comments: CommentItem[];
+		loading: boolean;
+	}) => React.ReactNode;
 }
 
-export const CommentProvider: React.FC<ICommentProvider> = ({ children }) => {
-	const [comments, setComments] = React.useState(example_comments);
-	const [reply, setReply] = React.useState<string | null>(null);
-
+export const CommentProvider: React.FC<ICommentProvider> = ({
+	children,
+	lessonSlug
+}) => {
+	const { data, isLoading } = useLessonBySlugQuery({
+		slug: String(lessonSlug)
+	});
+	const [reply, setReply] = React.useState<number | null>(null);
+	const [sendComment] = useAddCommentMutation();
 	const handleSendComment = React.useCallback(
-		(newMessage: string, replyId?: string) => {
-			const date = new Date();
-			const formattedDate = `${date.getDate().toString().padStart(2, '0')}.${(
-				date.getMonth() + 1
-			)
-				.toString()
-				.padStart(2, '0')}.${date.getFullYear()} ${date
-				.getHours()
-				.toString()
-				.padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-
-			const newComment: IModuleComment = {
-				id: Date.now().toLocaleString(),
-				user: {
-					displayName: 'Current User',
-					avatar: null
-				},
-				sended_at: formattedDate,
-				message: newMessage,
-				reply_to: replyId || undefined
-			};
-
-			if (!replyId) {
-				setComments(prevComments => [...prevComments, newComment]);
-			} else {
-				const addReplyToComment = (
-					commentsArray: IModuleComment[]
-				): IModuleComment[] => {
-					return commentsArray.map(comment => {
-						if (comment.id === replyId) {
-							return {
-								...comment,
-								comments: comment.comments
-									? [...comment.comments, newComment]
-									: [newComment]
-							};
-						}
-						if (comment.comments) {
-							return {
-								...comment,
-								comments: addReplyToComment(comment.comments)
-							};
-						}
-						return comment;
-					});
-				};
-
-				setReply(null);
-				setComments(prevComments => addReplyToComment(prevComments));
+		async (newMessage: string, replyId?: number) => {
+			if (!lessonSlug) {
+				alert('Урок не указан');
+				return;
 			}
+			await sendComment({
+				data: { content: newMessage, parent: replyId },
+				slug: lessonSlug
+			}).unwrap();
 		},
-		[]
+		[sendComment, lessonSlug]
 	);
 
 	const values: ICommentContext = {
-		comments,
+		comments: data?.comments || [],
 		handleSendComment,
 		reply,
-		setReply
+		setReply,
+		lessonSlug
 	};
 
 	return (
 		<CommentContext.Provider value={values}>
-			{children({ comments })}
+			{children({ comments: data?.comments || [], loading: isLoading })}
 		</CommentContext.Provider>
 	);
 };

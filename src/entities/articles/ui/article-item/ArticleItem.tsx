@@ -3,10 +3,11 @@ import React from 'react';
 import { articles } from '../../constants/articles.constants';
 import styles from './ArticleItem.module.scss';
 import clsx from 'clsx';
-import { Svg } from '$/shared/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatDate, text$ } from '$/shared/utils';
+import { Icons } from '$/shared/components'
+
 type ArticleItemProps = {
 	type?: 'list' | 'card';
 	variant?: '1' | '2';
@@ -41,7 +42,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 					alt='Article Image'
 				/>
 			</figure>
-			<div data-article-content="true" className={styles['card_content']}>
+			<div data-article-content='true' className={styles['card_content']}>
 				<div className={styles['']}>
 					{category && (
 						<div className={styles['badge-category']}>{category}</div>
@@ -55,20 +56,13 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 				<div className={styles.row}>
 					<div className={styles.row_}>
 						<div className={styles.item}>
-							<Svg
-								className='flexCenter child'
-								width={28}
-								height={28}
-								src={'/icon/history-outlined.svg'}
-							/>
+							<Icons.HistoryOutlined width={28} height={28} />
 							<span>{formatDate(date).timeAgo}</span>
 						</div>
 						<div className={styles.item}>
-							<Svg
-								className='flexCenter child'
+							<Icons.View
 								width={28}
 								height={28}
-								src={'/icon/view.svg'}
 							/>
 							<span>{views}</span>
 						</div>

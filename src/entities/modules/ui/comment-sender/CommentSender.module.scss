@@ -2,7 +2,7 @@
 	--heading-font-size: 24px;
 	--heading-line-height: 32px;
 	--heading-margin-bottom: 12px;
-	--sender-margin-top: 10px;
+	--sender-margin: 10px;
 	--sender-gap: 10px;
 	--button-height: 48px;
 	--button-font-size: 16px;
@@ -31,16 +31,21 @@
 		display: flex;
 		align-items: center;
 		gap: var(--sender-gap);
-		margin-top: var(--sender-margin-top);
+		margin: var(--sender-margin) 0;
 		position: relative;
 
 		button {
 			border-radius: 4px;
 			padding: var(--button-padding);
-			background: #FF6636;
+			background: #ff6636;
 			color: white;
 			height: var(--button-height);
 			font-size: var(--button-font-size);
+			transition: all 0.25s;
+			&:hover {
+				transform: translateY(-1px);
+				opacity: 0.8;
+			}
 		}
 
 		.input-field {
@@ -141,7 +146,7 @@
 	.comment_sender {
 		--heading-line-height: 22px;
 		--heading-margin-bottom: 8px;
-		--sender-margin-top: 8px;
+		--sender-margin: 8px;
 		--sender-gap: 4px;
 		--button-font-size: 10px;
 		--input-padding: 6px 10px;

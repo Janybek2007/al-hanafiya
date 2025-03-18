@@ -42,7 +42,7 @@ export const AccountsProvider: React.FC<React.PropsWithChildren> = ({
 
 	React.useEffect(() => {
 		refetch();
-	}, [refetch, pathname, pageType]);
+	}, [refetch, pageType]);
 
 	const values: IAccounsContext = {
 		accounts_me: {

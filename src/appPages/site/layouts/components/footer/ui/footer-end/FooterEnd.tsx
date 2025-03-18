@@ -1,9 +1,9 @@
 'use client';
+import { useSize } from '$/shared/utils/hooks/use-size';
 import clsx from 'clsx';
 import Image from 'next/image';
 import React from 'react';
 import styles from './FooterEnd.module.scss';
-import { useSize } from '$/shared/utils/use-size';
 
 export const FooterEnd: React.FC = () => {
 	const size = useSize();

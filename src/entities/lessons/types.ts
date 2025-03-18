@@ -1,5 +1,6 @@
 import { DataWithPagination } from '$/shared/types';
 import { BaseArg } from '$/shared/types/api.types'
+import { CommentItem } from '../comments'
 
 export enum ELessonFilters {
 	ALL = 'ALL',
@@ -25,8 +26,8 @@ export interface LessonItem {
 	order: number;
 	created_at: string;
 	updated_at: string;
-	slug: boolean;
-	comments: [];
+	slug: string;
+	comments: CommentItem[];
 }
 
 export type LessonResponse = DataWithPagination<LessonItem>;

@@ -31,13 +31,15 @@ export const api = createApi({
 	refetchOnReconnect: true,
 	refetchOnFocus: false,
 	tagTypes: [
-		'account_me',
 		'account',
 		'account_view_history',
 		'account_view_history',
 		'account_settings',
 		'account_notifications',
-		'account_learining_progress'
+		'account_learining_progress',
+		'questions',
+		'question_detail',
+		'lesson_by_slug'
 	],
 	endpoints: () => ({})
 });

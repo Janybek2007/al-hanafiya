@@ -11,8 +11,9 @@ export const LoginWithGoogle: React.FC = () => {
 		try {
 			await signIn('google');
 			navigate('/account/me');
-		} catch (error) {}
-	}, []);
+		} finally {
+		}
+	}, [navigate]);
 	return (
 		<button className={styles.googleLoginButton} onClick={handleLogin}>
 			<span className={styles.icon}>

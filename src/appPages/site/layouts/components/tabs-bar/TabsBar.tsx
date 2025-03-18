@@ -1,13 +1,13 @@
 'use client';
-import { useSize } from '$/shared/utils/use-size';
-import React from 'react';
-import styles from './TabsBar.module.scss';
-import { nav_items } from '../../config';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { useSize } from '$/shared/utils/hooks/use-size';
 import clsx from 'clsx';
-import { Svg } from '$/shared/ui';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
+import { nav_items } from '../../constants';
+import styles from './TabsBar.module.scss';
+
 export const TabsBar: React.FC = () => {
 	const { width } = useSize();
 	const pathname = usePathname();
@@ -15,7 +15,7 @@ export const TabsBar: React.FC = () => {
 	if (width > 1024) return <></>;
 
 	return (
-		<div id="tabs-bar" className={styles.tabs}>
+		<div id='tabs-bar' className={styles.tabs}>
 			<div className={`${styles['container']}`}>
 				{nav_items.map(nav => {
 					const isActive = pathname === nav.to;
@@ -27,7 +27,7 @@ export const TabsBar: React.FC = () => {
 								[styles.active]: isActive
 							})}
 						>
-							<Svg src={nav.icon} />
+							<nav.icon />
 							{isActive && (
 								<motion.span
 									animate={{ opacity: 1, scale: 1 }}

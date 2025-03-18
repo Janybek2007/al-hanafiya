@@ -20,14 +20,16 @@ const questionsApi = api.injectEndpoints({
 		guestions: build.query<QuestionsResponse, QuestionsArg>({
 			query: () => ({
 				url: '/questions/'
-			})
+			}),
+			providesTags: ['questions']
 		}),
 		newQuestion: build.mutation<NewQuestionResponse, NewQuestionArg>({
 			query: arg => ({
 				url: '/questions/',
 				method: 'POST',
 				body: arg.data
-			})
+			}),
+			invalidatesTags: ['questions']
 		}),
 		answeredQuestions: build.query<
 			AnsweredQuestionsResponse,

@@ -1,23 +1,26 @@
 'use client';
 import React from 'react';
 import styles from './CommentSender.module.scss';
-import { Svg } from '$/shared/ui';
 import { useComment } from '$/features/comments';
+import { Icons } from '$/shared/components'
 
 interface IProps {
-	replyId?: string;
+	replyId?: number;
 }
 
 export const CommentSender: React.FC<IProps> = ({ replyId }) => {
-	const { handleSendComment } = useComment();
+	const { handleSendComment, setReply } = useComment();
 	const [message, setMessage] = React.useState('');
 
-	const handleSend = React.useCallback(() => {
+	const handleSend = React.useCallback(async () => {
 		if (message.trim()) {
-			handleSendComment(message, replyId);
+			await handleSendComment(message, replyId);
 			setMessage('');
+			setReply(null);
+		} else {
+			alert('Пожалуйста, введите действительное сообщение');
 		}
-	}, [message, handleSendComment, replyId]);
+	}, [message, setReply, handleSendComment, replyId]);
 
 	return (
 		<div className={styles.comment_sender}>
@@ -25,7 +28,7 @@ export const CommentSender: React.FC<IProps> = ({ replyId }) => {
 			<div className={styles['sender']}>
 				<div className={styles['input-field']}>
 					<label htmlFor='comment-i'>
-						<Svg src='/icon/chats-circle.svg' />
+						<Icons.ChatsCircle/>
 					</label>
 					<textarea
 						name='comment-i'

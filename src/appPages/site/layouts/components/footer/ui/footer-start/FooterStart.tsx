@@ -1,10 +1,10 @@
 'use client';
+import { Icons } from '$/shared/components';
+import { paths } from '$/shared/routing';
+import { useSize } from '$/shared/utils/hooks/use-size';
+import Link from 'next/link';
 import React from 'react';
 import styles from './FooterStart.module.scss';
-import Link from 'next/link';
-import { paths } from '$/shared/routing';
-import { Svg } from '$/shared/ui';
-import { useSize } from '$/shared/utils/use-size';
 
 export const FooterStart: React.FC = () => {
 	const size = useSize('#footer_start');
@@ -24,16 +24,16 @@ export const FooterStart: React.FC = () => {
 			/>
 			<div className={styles['social_links']}>
 				<a href='#'>
-					<Svg src='/icon/social_links/facebook.svg' />
+					<Icons.Facebook />
 				</a>
 				<a href='#'>
-					<Svg src='/icon/social_links/instagram.svg' />
+					<Icons.Instagram />
 				</a>
 				<a href='#'>
-					<Svg src='/icon/social_links/whatsapp.svg' />
+					<Icons.WhatsApp />
 				</a>
 				<a href='#'>
-					<Svg src='/icon/social_links/telegram.svg' />
+					<Icons.Telegram />
 				</a>
 			</div>
 		</div>

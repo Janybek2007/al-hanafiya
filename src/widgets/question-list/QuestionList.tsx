@@ -121,7 +121,7 @@ const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 												</figure>
 												<span>{15}</span>
 											</div>
-											<span>25.01.2025</span>
+											<span>{new Date(item.created_at).toUTCString()}</span>
 										</div>
 									</div>
 								</div>

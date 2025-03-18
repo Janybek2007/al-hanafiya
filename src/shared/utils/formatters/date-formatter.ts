@@ -30,29 +30,32 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 	let inputDate: Date;
 
 	if (typeof dateInput === 'string') {
-		const dateTimeParts = dateInput.split(' ');
-		[day, month, year] = dateTimeParts[0].split('.').map(Number);
-		if (dateTimeParts[1]) {
-			[hours, minutes] = dateTimeParts[1].split(':').map(Number);
+		if (dateInput.includes('T')) {
+			inputDate = new Date(dateInput);
+			if (isNaN(inputDate.getTime())) {
+				throw new Error('Invalid ISO date string format');
+			}
+		} else {
+			const dateTimeParts = dateInput.split(' ');
+			[day, month, year] = dateTimeParts[0].split('.').map(Number);
+			if (dateTimeParts[1]) {
+				[hours, minutes] = dateTimeParts[1].split(':').map(Number);
+			}
+			inputDate = new Date(year, month - 1, day, hours, minutes);
 		}
-		inputDate = new Date(year, month - 1, day, hours, minutes);
 	} else if (dateInput instanceof Date) {
 		inputDate = dateInput;
-		day = inputDate.getDate();
-		month = inputDate.getMonth() + 1;
-		year = inputDate.getFullYear();
-		hours = inputDate.getHours();
-		minutes = inputDate.getMinutes();
 	} else if (typeof dateInput === 'number') {
 		inputDate = new Date(dateInput);
-		day = inputDate.getDate();
-		month = inputDate.getMonth() + 1;
-		year = inputDate.getFullYear();
-		hours = inputDate.getHours();
-		minutes = inputDate.getMinutes();
 	} else {
 		throw new Error('Invalid date format');
 	}
+
+	day = inputDate.getDate();
+	month = inputDate.getMonth() + 1;
+	year = inputDate.getFullYear();
+	hours = inputDate.getHours();
+	minutes = inputDate.getMinutes();
 
 	const timeString = `${String(hours).padStart(2, '0')}:${String(
 		minutes
