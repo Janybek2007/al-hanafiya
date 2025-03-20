@@ -6,3 +6,7 @@ export interface BaseArg {
 export interface SlugArg {
 	slug: string
 }
+
+export interface IdArg {
+	id: number | string;
+}

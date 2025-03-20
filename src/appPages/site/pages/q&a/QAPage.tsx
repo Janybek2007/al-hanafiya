@@ -17,6 +17,7 @@ import { useGuestionsQuery } from '$/entities/questions';
 const QuestionsAndAnswerPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { data, isLoading, error } = useGuestionsQuery({});
+
 	return (
 		<main>
 			<div className='container'>
@@ -83,7 +84,7 @@ const QuestionsAndAnswerPage: React.FC = () => {
 							description='Не удалось найти подходящие данные. Попробуйте изменить критерии поиска.'
 						/>
 					) : (
-						<QuestionList data={data} />
+						<QuestionList list={data.results} />
 					)}
 					<Pagination totalPages={10} />
 				</div>

@@ -17,7 +17,9 @@ export default function RootLayout({
 				/>
 			</head>
 			<body>
-				<RootProvider>{children}</RootProvider>
+				<div className='wrapper'>
+					<RootProvider>{children}</RootProvider>
+				</div>
 			</body>
 		</html>
 	);

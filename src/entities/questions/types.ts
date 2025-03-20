@@ -1,4 +1,4 @@
-import { DataWithPagination } from '$/shared/types'
+import { DataWithPagination } from '$/shared/types';
 import { BaseArg } from '$/shared/types/api.types';
 
 export interface QuestionItem {
@@ -25,13 +25,13 @@ export type GuestionSimilarCheckResponse = {
 	similar_questions: QuestionItem[];
 };
 
-export interface QuestionBySlugResponse {
+export interface QuestionByIdResponse {
 	id: number;
 	content: string;
 	telegram: string;
 	is_answered: boolean;
 	crated_at: string;
-	answer: {
+	answer?: {
 		id: number;
 		content: string;
 		created_at: string;

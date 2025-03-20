@@ -1,6 +1,5 @@
 'use client';
-import { useHiddenPages } from '$/shared/utils/hooks/use-hidden-pages';
-import { useSize } from '$/shared/utils/hooks/use-size';
+import { useHiddenPages, useSize } from '$/shared/utils';
 import React, { Suspense } from 'react';
 import styles from './Footer.module.scss';
 import { FooterEnd } from './ui/footer-end/FooterEnd';

@@ -6,32 +6,30 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { paths } from '$/shared/routing';
 import clsx from 'clsx';
-import { QuestionsResponse } from '$/entities/questions';
+import { QuestionItem } from '$/entities/questions';
+import { formatDate } from '$/shared/utils';
 
-const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
+const QuestionList: React.FC<{ list: QuestionItem[] }> = ({ list }) => {
 	const [expandedQuestions, setExpandedQuestions] = useState<{
 		[key: number]: boolean;
 	}>({});
 	const [overflowingQuestions, setOverflowingQuestions] = useState<{
 		[key: number]: boolean;
 	}>({});
-	const textRefs = useRef<{ [key: string]: HTMLParagraphElement | null }>({});
+	const textRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
 	const toggleExpand = React.useCallback((id: number) => {
-		setExpandedQuestions(prev => ({
-			...prev,
-			[id]: !prev[id]
-		}));
+		setExpandedQuestions(prev => ({ ...prev, [id]: !prev[id] }));
 	}, []);
 
-	const checkOverflow = React.useCallback((element: HTMLParagraphElement) => {
+	const checkOverflow = React.useCallback((element: HTMLElement) => {
 		return element.scrollHeight > element.clientHeight;
 	}, []);
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
 		const checkTextOverflow = () => {
-			data.results.forEach(item => {
+			list.forEach(item => {
 				const textElement = textRefs.current[item.id];
 				if (textElement) {
 					const hasOverflow = checkOverflow(textElement);
@@ -46,21 +44,12 @@ const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 		checkTextOverflow();
 		window.addEventListener('resize', checkTextOverflow);
 		return () => window.removeEventListener('resize', checkTextOverflow);
-	}, [checkOverflow, data]);
-
-	const setRef = React.useCallback(
-		(id: number) => (element: HTMLParagraphElement | null) => {
-			if (element) {
-				textRefs.current[id] = element;
-			}
-		},
-		[]
-	);
+	}, [checkOverflow, list]);
 
 	return (
 		<section data-qls className={scss.questions_section}>
 			<div data-ql className={scss.questions_list}>
-				{data.results.map(item => {
+				{list.map(item => {
 					const isExpanded = expandedQuestions[item.id];
 					const isOverflowing = overflowingQuestions[item.id];
 
@@ -80,14 +69,17 @@ const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 									<div className={scss.column}>
 										<div className={scss.content}>
 											<div className={scss.text_content}>
-												<p
-													ref={setRef(item.id)}
+												<Link
+													href={paths['q&aDetail'](item.id)}
+													ref={el => {
+														textRefs.current[item.id] = el;
+													}}
 													className={`${scss.question_text} ${
 														isExpanded ? scss.expanded : ''
 													}`}
 												>
 													{item.content}
-												</p>
+												</Link>
 												{isOverflowing && (
 													<button
 														className={scss.expand_btn}
@@ -121,7 +113,12 @@ const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 												</figure>
 												<span>{15}</span>
 											</div>
-											<span>{new Date(item.created_at).toUTCString()}</span>
+											<div className={`flexCenter ${scss.last}`}>
+												{item.is_answered
+													? 'Жооп берилди'
+													: 'Жооп берилген жок'}{' '}
+												<span>{formatDate(item.created_at).DDMMYYYY}</span>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -129,7 +126,9 @@ const QuestionList: React.FC<{ data: QuestionsResponse }> = ({ data }) => {
 								<div className={scss.question_right}>
 									<Link
 										href={paths['q&aDetail'](item.id)}
-										className={scss.view_answer}
+										className={clsx(scss.view_answer, {
+											[scss.answered]: item.is_answered
+										})}
 									>
 										<Image
 											src='/icon/arrow-left.svg'

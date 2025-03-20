@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '$/shared/ui';
-import { useSize } from '$/shared/utils/hooks/use-size';
+import { useSize } from '$/shared/utils';
 import clsx from 'clsx';
 import React from 'react';
 import styles from './Hero.module.scss';

@@ -5,20 +5,20 @@ import { Provider } from 'react-redux';
 import { SWProvider } from './SWProvider';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { ProgressProvider } from './ProgressProvider';
+import { NotificationsProvider } from './Notifications';
 
 export const RootProvider: React.FC<React.PropsWithChildren> = ({
 	children
 }) => {
 	return (
-		<div className='wrapper'>
-			<Provider store={store}>
-				<NuqsAdapter>
-					<ProgressProvider>
-						<SWProvider />
-						{children}
-					</ProgressProvider>
-				</NuqsAdapter>
-			</Provider>
-		</div>
+		<Provider store={store}>
+			<NuqsAdapter>
+				<ProgressProvider>
+					<SWProvider>
+						<NotificationsProvider>{children}</NotificationsProvider>
+					</SWProvider>
+				</ProgressProvider>
+			</NuqsAdapter>
+		</Provider>
 	);
 };

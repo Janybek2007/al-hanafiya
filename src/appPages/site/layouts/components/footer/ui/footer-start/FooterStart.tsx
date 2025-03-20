@@ -1,7 +1,7 @@
 'use client';
 import { Icons } from '$/shared/components';
 import { paths } from '$/shared/routing';
-import { useSize } from '$/shared/utils/hooks/use-size';
+import { useSize } from '$/shared/utils';
 import Link from 'next/link';
 import React from 'react';
 import styles from './FooterStart.module.scss';

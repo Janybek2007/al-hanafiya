@@ -26,6 +26,18 @@ body {
 
 .loaderAnimation {
 	animation: loadA 0.8s linear infinite;
+	&.mr {
+		margin-right: 8px;
+	}
+	&.ml {
+		margin-left: 8px;
+	}
+	&.black {
+		stroke: black;
+	}
+	&.white {
+		stroke: white;
+	}
 }
 
 @keyframes loadA {

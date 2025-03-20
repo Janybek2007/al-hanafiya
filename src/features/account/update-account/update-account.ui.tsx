@@ -112,7 +112,7 @@ export const UpdateAccount: React.FC = () => {
 			<button disabled={!canSubmit} className={styles.saveButton}>
 				{isLoading && (
 					<Icon
-						className={`loaderAnimation ${styles.loaderIcon}`}
+						className={`loaderAnimation white`}
 						name='Loader'
 					/>
 				)}

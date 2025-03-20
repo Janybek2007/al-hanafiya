@@ -1,5 +1,5 @@
 'use client';
-import { useSize } from '$/shared/utils/hooks/use-size';
+import { useSize } from '$/shared/utils';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Link from 'next/link';

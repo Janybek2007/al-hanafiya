@@ -1,5 +1,5 @@
 'use client';
-import { useHiddenPages } from '$/shared/utils/hooks/use-hidden-pages';
+import { useHiddenPages } from '$/shared/utils';
 import clsx from 'clsx';
 import React from 'react';
 import styles from './Header.module.scss';

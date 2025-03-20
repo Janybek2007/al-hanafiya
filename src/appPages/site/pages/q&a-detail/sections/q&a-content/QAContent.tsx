@@ -1,9 +1,15 @@
 import React from 'react';
 import s from './QAContent.module.scss';
 import Image from 'next/image';
-import { TEXTS } from './constants';
 import clsx from 'clsx';
-const QAContent: React.FC = () => {
+import { QuestionByIdResponse } from '$/entities/questions';
+import { EmptyState } from '$/shared/ui';
+
+interface IProps {
+	question: QuestionByIdResponse;
+}
+
+const QAContent: React.FC<IProps> = ({ question }) => {
 	return (
 		<div className={s.qa_content}>
 			<div className={s['share']}>
@@ -21,16 +27,24 @@ const QAContent: React.FC = () => {
 				<h4>Суроо: </h4>
 				<div
 					className={s.c}
-					dangerouslySetInnerHTML={{ __html: TEXTS.question }}
+					dangerouslySetInnerHTML={{ __html: question.content }}
 				/>
 			</div>
-			<div className={clsx(s['answer'], s.content)}>
-				<h4>Жооп: </h4>
-				<div
-					className={s.c}
-					dangerouslySetInnerHTML={{ __html: TEXTS.answer }}
+			{question.answer ? (
+				<div className={clsx(s['answer'], s.content)}>
+					<h4>Жооп: </h4>
+					<div
+						className={s.c}
+						dangerouslySetInnerHTML={{ __html: question.answer?.content }}
+					/>
+				</div>
+			) : (
+				<EmptyState
+					icon={'FileQuestion'}
+					title='Жооп жок'
+					description='Бул суроого азырынча жооп бериле элек.'
 				/>
-			</div>
+			)}
 			<div className={clsx(s.row, 'flexCenter')}>
 				<div className={s.info_item}>
 					<figure>

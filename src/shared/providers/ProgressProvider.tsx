@@ -2,7 +2,7 @@
 
 import { AppProgressProvider } from '@bprogress/next';
 import React from 'react';
-import { useHiddenPages } from '../utils/hooks/use-hidden-pages';
+import { useHiddenPages } from '../utils'
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({
 	children

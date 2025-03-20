@@ -1,7 +1,7 @@
 'use client';
 import { ArticleItem, articles } from '$/entities/articles';
 import { Breadcrumb, Pagination, SectionTitle } from '$/shared/ui';
-import { useSize } from '$/shared/utils/hooks/use-size';
+import { useSize } from '$/shared/utils';
 import React from 'react';
 import scss from './ArticlesPage.module.scss';
 import Filtiration from './sections/filtration/Filtiration';

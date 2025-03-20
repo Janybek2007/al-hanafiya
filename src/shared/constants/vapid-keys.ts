@@ -1,0 +1,3 @@
+export const VAPID_PUBLIC_KEY =
+	'BK5ZrLr25_Tn3JFSRogZ-B-6OXA5dtOv49X8rUYnXGBZtzvGCpANkyHZXkKLDgZwp1ipKAJnokpEkuhkZkWE4rg';
+export const VAPID_PRIVATE_KEY = process.env.NEXT_PUBLIC_VAPID_PRIVATE_KEY;

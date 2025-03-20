@@ -1,17 +1,17 @@
 import { api } from '$/shared/redux/api';
-import { SlugArg } from '$/shared/types/api.types';
+import { IdArg } from '$/shared/types/api.types';
 import { createSearchParams } from '$/shared/utils';
 import {
 	AnsweredQuestionsArg,
 	AnsweredQuestionsResponse,
-	QuestionsArg,
-	QuestionsResponse,
 	GuestionSimilarCheckArg,
 	GuestionSimilarCheckResponse,
 	NewQuestionArg,
 	NewQuestionResponse,
-	QuestionBySlugResponse,
-	QuestionItem
+	QuestionByIdResponse,
+	QuestionItem,
+	QuestionsArg,
+	QuestionsResponse
 } from '.';
 
 const questionsApi = api.injectEndpoints({
@@ -47,14 +47,14 @@ const questionsApi = api.injectEndpoints({
 				url: `/questions/similar_check/?${createSearchParams(arg)}`
 			})
 		}),
-		questionBySlug: build.query<QuestionBySlugResponse, SlugArg>({
+		questionById: build.query<QuestionByIdResponse, IdArg>({
 			query: arg => ({
-				url: `/questions/${arg.slug}/`
+				url: `/questions/${arg.id}/`
 			})
 		}),
-		questionBySlugSimilar: build.query<QuestionItem[], SlugArg>({
+		questionByIdSimilar: build.query<QuestionItem[], IdArg>({
 			query: arg => ({
-				url: `/questions/${arg.slug}/similar/`
+				url: `/questions/${arg.id}/similar/`
 			})
 		})
 	})
@@ -64,7 +64,7 @@ export const {
 	useAnsweredQuestionsQuery,
 	useGuestionsQuery,
 	useNewQuestionMutation,
-	useQuestionBySlugQuery,
-	useQuestionBySlugSimilarQuery,
-	useQuestionSimilarCheckQuery
+	useQuestionSimilarCheckQuery,
+	useQuestionByIdQuery,
+	useQuestionByIdSimilarQuery
 } = questionsApi;

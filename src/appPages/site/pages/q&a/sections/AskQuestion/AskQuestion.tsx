@@ -5,7 +5,7 @@ import scss from './AskQuestion.module.scss';
 import { IoClose } from 'react-icons/io5';
 import { motion } from 'framer-motion';
 import { useDerived } from '$/shared/utils';
-import { Button } from '$/shared/ui';
+import { Button, Icon } from '$/shared/ui';
 import Link from 'next/link';
 import { paths } from '$/shared/routing';
 import {
@@ -25,7 +25,8 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 	const inputRef = useRef<HTMLInputElement>(null);
 	const dropdownRef = useRef<HTMLDivElement>(null);
 	const { data } = useQuestionSimilarCheckQuery({ text: questionTerm });
-	const [newQuestion] = useNewQuestionMutation();
+
+	const [newQuestion, { isLoading: pending }] = useNewQuestionMutation();
 
 	const filteredQuestions = useDerived<QuestionItem[]>(() => {
 		if (!data?.similar_questions) return [] as QuestionItem[];
@@ -166,10 +167,14 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 					</div>
 
 					<Button
+						disabled={pending}
 						onClick={newQuestionClick}
 						className={scss.submit_btn}
 					>
-						Суроо жөнөтүү
+						{pending && (
+							<Icon className={`loaderAnimation mr white`} name='Loader' />
+						)}
+						{pending ? 'Жөнөтүлүүдө...' : 'Суроо жөнөтүү'}
 					</Button>
 				</div>
 			</div>
