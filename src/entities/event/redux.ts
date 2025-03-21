@@ -24,4 +24,4 @@ const eventsApi = api.injectEndpoints({
 	})
 });
 
-export const {} = eventsApi;
+export const {useEventsQuery , useEventsByIdQuery , useEventsUpcomingQuery} = eventsApi;

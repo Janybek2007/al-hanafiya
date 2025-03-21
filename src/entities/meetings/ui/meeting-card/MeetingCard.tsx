@@ -1,15 +1,21 @@
 import React from 'react';
-import { meetings } from '../../constansts/meetings.constants';
 import styles from './MeetingCard.module.scss';
 import Image from 'next/image';
-type MeetingCardProps = (typeof meetings)[number];
+import { EventItem } from '$/entities/event/types'; 
+
+interface MeetingCardProps extends Omit<EventItem, 'location' | 'event_date'> {
+	location: { name: string; address: string }; 
+	date: string; 
+	forWomenOnly?: boolean; 
+	image_src?: string; 
+}
 
 export const MeetingCard: React.FC<MeetingCardProps> = ({
 	location,
 	date,
 	description,
-	forWomenOnly,
-	image_src
+	forWomenOnly = false, 
+	image_src = '/images/placeholder.jpg' 
 }) => {
 	return (
 		<div className={styles.meeting_card}>
