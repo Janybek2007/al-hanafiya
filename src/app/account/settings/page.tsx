@@ -1,9 +1,3 @@
-import React from 'react'
+import { SettingsPage } from '$/appPages/account';
 
-const page = () => {
-  return (
-	 <div>settings</div>
-  )
-}
-
-export default page
+export default SettingsPage;

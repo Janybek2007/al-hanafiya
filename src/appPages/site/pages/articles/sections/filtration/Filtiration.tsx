@@ -10,26 +10,23 @@ const tags = [
 	{ id: 5, label: 'Намаз' },
 	{ id: 6, label: 'Рамазан' },
 	{ id: 7, label: 'Үй-бүлө' },
-	{ id: 8, label: 'Талак' },
-
-	{ id: 9, label: 'Дуа' },
-	{ id: 10, label: 'Намаз' },
-	{ id: 11, label: 'Рамазан' },
-	{ id: 12, label: 'Үй-бүлө' },
-	{ id: 13, label: 'Талак' },
-	{ id: 14, label: 'Намаз' },
-	{ id: 15, label: 'Рамазан' },
-	{ id: 16, label: 'Үй-бүлө' },
-	{ id: 17, label: 'Талак' },
-
-	{ id: 18, label: 'Дуа' },
-	{ id: 20, label: 'Намаз' },
-	{ id: 110, label: 'Рамазан' },
-	{ id: 120, label: 'Үй-бүлө' },
-	{ id: 130, label: 'Талак' }
+	{ id: 8, label: 'Талак' }
 ];
 
-const Filtration: React.FC = () => {
+interface IProps {
+	tags: {
+		label: string;
+		value: string;
+	};
+	setTags: React.Dispatch<
+		React.SetStateAction<{
+			label: string;
+			value: string;
+		}>
+	>;
+}
+
+const Filtration: React.FC<IProps> = () => {
 	const [activeTag, setActiveTag] = useState('Все');
 	const [scrollPosition, setScrollPosition] = useState(0);
 	const scrollRef = useRef<HTMLDivElement>(null);

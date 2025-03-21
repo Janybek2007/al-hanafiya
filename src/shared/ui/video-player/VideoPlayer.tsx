@@ -14,7 +14,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 	className,
 	onReady
 }) => {
-	const options = useDerived(
+	const [options] = useDerived(
 		{
 			controls: _?.controls || true,
 			autoplay: _?.autoplay || false,

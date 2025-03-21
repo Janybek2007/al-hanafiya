@@ -2,15 +2,19 @@ export const menuItems = [
 	{ icon: 'User', label: 'Профиль', href: '/account/me' },
 	{
 		icon: 'History',
-		label: 'История просмотров',
+		label: 'Көрүү таржымалы',
 		href: '/account/viewing_history'
 	},
-	{ icon: 'FileQuestion', label: 'Мои вопросы', href: '/account/my_questions' },
-	{ icon: 'Bell', label: 'Уведомления', href: '/account/notifications' },
+	{
+		icon: 'FileQuestion',
+		label: 'Менин суроолорум',
+		href: '/account/my_questions'
+	},
+	{ icon: 'Bell', label: 'Билдирүүлөр', href: '/account/notifications' },
 	{
 		icon: 'BookOpenText',
-		label: 'Прогресс обучения',
+		label: 'Окуу прогресси',
 		href: '/account/learning_progress'
 	},
-	{ icon: 'Settings', label: 'Настройки', href: '/account/settings' }
+	{ icon: 'Settings', label: 'Жөндөөлөр', href: '/account/settings' }
 ];

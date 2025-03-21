@@ -1,3 +1,5 @@
+import { DataWithPagination } from '$/shared/types'
+
 export interface SearchItem {
 	id: number;
 	type: string;
@@ -18,3 +20,6 @@ export interface SearchItem {
 		category: number;
 	}>;
 }
+
+export type SearchResponse = DataWithPagination<SearchItem>;
+export type SearchSuggestionsResponse = DataWithPagination<SearchItem>;

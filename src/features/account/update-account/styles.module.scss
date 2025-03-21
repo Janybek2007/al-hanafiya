@@ -84,7 +84,7 @@
 }
 
 .saveButton {
-	background: #28a745;
+	background: var(--tertiary);
 	color: #fff;
 	padding: 10px 20px;
 	border-radius: 4px;
@@ -95,15 +95,15 @@
 	justify-content: center;
 	gap: 8px;
 	transition: all 0.25s;
+	will-change: transform;
+	&:hover {
+		transform: translateY(-1px);
+	}
 }
 
 .saveButton:disabled {
 	opacity: 0.8;
 	pointer-events: none;
-}
-
-.saveButton:hover {
-	background: #218838;
 }
 
 .tgInfo {

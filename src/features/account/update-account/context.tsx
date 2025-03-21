@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { UpdateAccountDto, UpdateAccountDtoSchema } from './contract';
-import { useUpdateAccountMutation, useUpdateAvatarMutation } from './redux';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { AccountMe } from '$/entities/account';
-import { useForm } from '$/shared/utils';
+import { UpdateAccountDto, UpdateAccountDtoSchema } from './contract'
+import { useUpdateAccountMutation, useUpdateAvatarMutation } from './redux'
 
 interface IUpdateAccountContext {
 	onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
 	register: ReturnType<typeof useForm<UpdateAccountDto>>['register'];
-	errors: ReturnType<typeof useForm<UpdateAccountDto>>['errors'];
+	errors: ReturnType<typeof useForm<UpdateAccountDto>>['formState']['errors'];
 	canSubmit: boolean;
 	isLoading: boolean;
 	values: UpdateAccountDto;
@@ -23,7 +24,7 @@ interface IUpdateAccountProvider extends React.PropsWithChildren {
 	defaultValues: UpdateAccountDto;
 }
 
-function getDefaultValues(defaultValues: UpdateAccountDto) {
+function getDefaultValues(defaultValues: UpdateAccountDto): UpdateAccountDto {
 	return {
 		username: defaultValues.username,
 		email: defaultValues.email,
@@ -41,12 +42,17 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 	defaultValues
 }) => {
 	const defValues = getDefaultValues(defaultValues);
-
-	const { values, errors, register } = useForm({
+	const {
+		register,
+		handleSubmit,
+		watch,
+		formState: { errors }
+	} = useForm<UpdateAccountDto>({
 		defaultValues: defValues,
-		schema: UpdateAccountDtoSchema
+		resolver: zodResolver(UpdateAccountDtoSchema)
 	});
 
+	const values = watch();
 	const [loading, setLoading] = React.useState(false);
 	const [file, setFile] = React.useState<File | null>(null);
 	const [mutate] = useUpdateAccountMutation();
@@ -59,13 +65,11 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 	}, [values, defValues, file]);
 
 	const onSubmit = React.useCallback(
-		async (e?: React.BaseSyntheticEvent) => {
-			e?.preventDefault();
+		async (data: UpdateAccountDto) => {
 			setLoading(true);
-
 			try {
 				if (hasChanged) {
-					await mutate(values).unwrap();
+					await mutate(data).unwrap();
 					alert('Account updated successfully!');
 				}
 				if (file) {
@@ -76,7 +80,7 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 				setLoading(false);
 			}
 		},
-		[values, mutate, updateAvatarMutate, file, hasChanged]
+		[mutate, updateAvatarMutate, file, hasChanged]
 	);
 
 	const selectFile = React.useCallback(
@@ -88,7 +92,7 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 	);
 
 	const contextValue: IUpdateAccountContext = {
-		onSubmit,
+		onSubmit: handleSubmit(onSubmit),
 		register,
 		errors,
 		canSubmit: hasChanged && !loading,
@@ -107,12 +111,10 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 
 export const useUpdateAccount = (): IUpdateAccountContext => {
 	const context = React.useContext(UpdateAccountContext);
-
 	if (!context) {
 		throw new Error(
 			'useUpdateAccount must be used within an UpdateAccountProvider'
 		);
 	}
-
 	return context;
 };

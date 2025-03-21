@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import * as React from 'react';
-import { AccountEndpoints, AccountMe } from './types';
+import { AccountEndpoints, AccountMe, TAccountEndpoints } from './types';
 import { useAccountsByEndpointQuery } from './redux';
 import { usePathname } from 'next/navigation';
 
@@ -17,6 +17,7 @@ interface IAccounsContext {
 		error: unknown;
 	};
 }
+
 const AccountsContext = React.createContext<IAccounsContext | undefined>(
 	undefined
 );
@@ -33,15 +34,16 @@ export const AccountsProvider: React.FC<React.PropsWithChildren> = ({
 	const pathname = usePathname();
 
 	const pageType = React.useMemo(() => {
-		return pathname.split('/').pop() as AccountEndpoints;
+		return pathname.split('/').pop() as TAccountEndpoints;
 	}, [pathname]);
 
-	const { data, isLoading, error, refetch } = useAccountsByEndpointQuery({
-		endpoint: pageType
-	});
+	const { data, isLoading, error, refetch } = useAccountsByEndpointQuery(
+		{ endpoint: pageType },
+		{ skip: !AccountEndpoints.includes(pageType) }
+	);
 
 	React.useEffect(() => {
-		refetch();
+		if (AccountEndpoints.includes(pageType)) refetch();
 	}, [refetch, pageType]);
 
 	const values: IAccounsContext = {

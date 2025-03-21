@@ -13,14 +13,14 @@
 	--title-margin-bottom: 6px;
 	--description-font-size: 20px;
 	--description-line-height: 24px;
-	--row-gap: 41px;
+	--row-gap: 21px;
 	--row-margin-top: 20.15px;
 	--row-padding: 14px 0;
 	--row-icon-size: 26px;
 	--row-item-gap: 10px;
 	--row-item-font-size: 14px;
 	--row-item-line-height: 21px;
-	--t-list-gap: 10px;
+	--t-list-gap: 	10px;
 	--v2-padding: 4px;
 	--v2-badge-font-size: 16px;
 	--v2-badge-border-radius: 6px;
@@ -70,6 +70,13 @@
 			font-size: var(--description-font-size);
 			font-weight: 400;
 			line-height: var(--description-line-height);
+			.next {
+				color: rgb(52, 52, 179);
+				cursor: pointer;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 
 		.row_ {
@@ -106,14 +113,29 @@
 			}
 		}
 	}
+	&.t-card {
+		img {
+			height: 100%;
+			border-radius: 8px;
+			object-fit: cover;
+		}
+	}
 
 	&.t-list {
 		display: flex;
 		gap: var(--t-list-gap);
+		max-height: 223px;
 
 		img {
-			height: max-content;
+			height: 100%;
 			border-radius: 8px;
+			object-fit: cover;
+		}
+	}
+
+	&.v-1 {
+		img {
+			max-height: 223px;
 			object-fit: cover;
 		}
 	}
@@ -191,7 +213,6 @@
 		--title-font-size: 20px;
 		--description-font-size: 18px;
 		--description-line-height: 22px;
-		--row-gap: 35px;
 		--row-margin-top: 18px;
 		--row-padding: 12px 0;
 		--v2-title-font-size: 24px;
@@ -211,7 +232,6 @@
 		--title-margin-bottom: 5px;
 		--description-font-size: 16px;
 		--description-line-height: 20px;
-		--row-gap: 30px;
 		--row-margin-top: 16px;
 		--row-padding: 10px 0;
 		--row-icon-size: 20px;
@@ -240,7 +260,6 @@
 		--title-margin-bottom: 4px;
 		--description-font-size: 14px;
 		--description-line-height: 18px;
-		--row-gap: 25px;
 		--row-margin-top: 14px;
 		--row-padding: 9px 0;
 		--row-icon-size: 23px;
@@ -281,7 +300,6 @@
 		--title-margin-bottom: 3px;
 		--description-font-size: 13px;
 		--description-line-height: 16px;
-		--row-gap: 20px;
 		--row-margin-top: 12px;
 		--row-padding: 8px 0;
 		--row-icon-size: 19px;

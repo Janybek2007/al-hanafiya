@@ -31,6 +31,10 @@ export interface PushSubscription {
 	device: string;
 }
 
+export type DeepPartial<T> = {
+	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
 export interface NotificationSettings {
 	push_enabled: boolean;
 	email_enabled: boolean;

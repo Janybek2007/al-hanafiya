@@ -1,12 +1,19 @@
 import React from 'react';
 import styles from './ArticleContent.module.scss';
 import Image from 'next/image';
+import { Icons } from '$/shared/components';
+import { ArticleItemDetail } from '$/entities/articles/types';
+import { formatDate } from '$/shared/utils';
 
-const ArticleContent: React.FC = () => {
+interface IProps {
+	detail: ArticleItemDetail;
+}
+
+const ArticleContent: React.FC<IProps> = ({ detail }) => {
 	return (
 		<section className={styles.article_detail_section}>
 			<div className={`${styles['container']} container`}>
-				<h2 className={styles.title}>Имам Ибн аль-Хумам: его жизнь и труды</h2>
+				<h2 className={styles.title}>{detail.title}</h2>
 				<div className={styles['info']}>
 					<div className={styles.info_item}>
 						<figure>
@@ -20,15 +27,8 @@ const ArticleContent: React.FC = () => {
 						<span>{15}</span>
 					</div>
 					<div className={styles.info_item}>
-						<figure>
-							<Image
-								width={28}
-								height={28}
-								src={'/icon/history-outlined.svg'}
-								alt='HistoryOutlined Icon'
-							/>
-						</figure>
-						<span>{12} мин</span>
+						<figure>{<Icons.HistoryOutlined />}</figure>
+						<span>{formatDate(detail.updated_at).timeAgo}</span>
 					</div>
 					<div className={styles.info_item}>
 						<figure>
@@ -39,7 +39,7 @@ const ArticleContent: React.FC = () => {
 								alt='CalendarBroken Icon'
 							/>
 						</figure>
-						<span>{12} мин</span>
+						<span>{formatDate(detail.updated_at).DDMMYYYY}</span>
 					</div>
 				</div>
 				<div className={styles['content']}>
@@ -48,19 +48,20 @@ const ArticleContent: React.FC = () => {
 							<Image
 								width={570}
 								height={321}
-								src={'/images/article-detail.png'}
+								// '/images/article-detail.png'
+								src={detail.image_url}
 								alt='ArticleDetail Image'
 							/>
 						</figure>
 						<div
 							className={styles.p}
-							dangerouslySetInnerHTML={{ __html: content }}
+							dangerouslySetInnerHTML={{ __html: detail.short_description }}
 						/>
 					</div>
 				</div>
 				<div
 					className={styles.p}
-					dangerouslySetInnerHTML={{ __html: content }}
+					dangerouslySetInnerHTML={{ __html: detail.content }}
 				/>
 				<div className={styles['end']}>
 					<div className={styles['contact']}>

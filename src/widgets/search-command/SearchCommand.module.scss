@@ -1,4 +1,11 @@
 .search_command {
+	--modal-max-width: 500px;
+	--modal-padding: 20px;
+	--modal-border-radius: 8px;
+	--input-padding: 10px;
+	--input-font-size: 16px;
+	--button-padding: 8px 16px;
+	--button-font-size: 14px;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -11,30 +18,90 @@
 	z-index: 1000;
 
 	.modal_content {
-		background: white;
-		padding: 20px;
-		border-radius: 8px;
+		background: var(--white);
+		padding: var(--modal-padding);
+		border-radius: var(--modal-border-radius);
 		width: 100%;
-		max-width: 500px;
+		max-width: var(--modal-max-width);
+		position: relative;
+		&::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			padding: 2px;
+			background: var(--bg-linear-gradient);
+			border-radius: var(--modal-border-radius);
+			mask: linear-gradient(white 0 0) content-box, linear-gradient(white 0 0);
+			mask-composite: exclude;
+			-webkit-mask: linear-gradient(white 0 0) content-box,
+				linear-gradient(white 0 0);
+			-webkit-mask-composite: xor;
+		}
 	}
 
 	.modal_input {
 		width: 100%;
-		padding: 10px;
+		padding: var(--input-padding);
 		margin-bottom: 10px;
-		border: 1px solid #ccc;
+		border: 1px solid var(--primary);
 		border-radius: 4px;
+		font-family: var(--inter);
+		font-size: var(--input-font-size);
+		color: var(--text);
+		&::placeholder {
+			color: rgba(37, 44, 50, 0.5);
+		}
 	}
 
 	.close_button {
-		padding: 8px 16px;
-		background: #f0f0f0;
+		padding: var(--button-padding);
+		background: var(--bg);
 		border: none;
 		border-radius: 4px;
 		cursor: pointer;
-
+		font-family: var(--philosopher);
+		font-size: var(--button-font-size);
+		color: var(--text);
 		&:hover {
-			background: #e0e0e0;
+			background: var(--bg-linear-gradient-hover);
+			color: var(--white);
 		}
+	}
+}
+
+@media (max-width: 768px) {
+	.search_command {
+		--modal-max-width: 400px;
+		--modal-padding: 15px;
+		--modal-border-radius: 6px;
+		--input-padding: 8px;
+		--input-font-size: 14px;
+		--button-padding: 6px 12px;
+		--button-font-size: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.search_command {
+		--modal-max-width: 90%;
+		--modal-padding: 12px;
+		--modal-border-radius: 4px;
+		--input-padding: 6px;
+		--input-font-size: 13px;
+		--button-padding: 5px 10px;
+		--button-font-size: 11px;
+	}
+}
+
+@media (max-width: 360px) {
+	.search_command {
+		--modal-max-width: 90%;
+		--modal-padding: 10px;
+		--modal-border-radius: 4px;
+		--input-padding: 5px;
+		--input-font-size: 12px;
+		--button-padding: 4px 8px;
+		--button-font-size: 10px;
 	}
 }

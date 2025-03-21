@@ -21,7 +21,7 @@ const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
 		[lessonSlug, lessons]
 	);
 
-	const accordionItems = useDerived((): AccordionItem[] => {
+	const [accordionItems] = useDerived((): AccordionItem[] => {
 		return modules.map(val => {
 			return {
 				label: val.name,

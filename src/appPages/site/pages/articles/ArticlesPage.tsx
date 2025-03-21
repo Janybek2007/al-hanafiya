@@ -1,6 +1,10 @@
 'use client';
-import { ArticleItem, articles } from '$/entities/articles';
-import { Breadcrumb, Pagination, SectionTitle } from '$/shared/ui';
+import {
+	ArticleItem,
+	articles,
+	useGetArticlesByLatestQuery
+} from '$/entities/articles';
+import { Breadcrumb, Loading, Pagination, SectionTitle } from '$/shared/ui';
 import { useSize } from '$/shared/utils';
 import React from 'react';
 import scss from './ArticlesPage.module.scss';
@@ -26,7 +30,15 @@ const LastThirdWidelyRead = Array.from({ length: 3 }, (_, idx) => ({
 const totalArticles = [TheMostWidelyRead, ...LastThirdWidelyRead, ...articles];
 
 const ArticlesPage: React.FC = () => {
+	const [tags, setTags] = React.useState({ label: 'Все', value: 'all' });
+	const { data, isLoading, error } = useGetArticlesByLatestQuery({});
 	const windowSize = useSize();
+
+	if (isLoading) return <Loading />;
+	if (error || !data) {
+		return <div>Ошибка загрузки истории просмотров: {error?.toString()}</div>;
+	}
+
 	return (
 		<main>
 			<div className={` ${scss.container}`}>
@@ -37,18 +49,18 @@ const ArticlesPage: React.FC = () => {
 					]}
 				/>
 
-				<Filtiration />
+				<Filtiration tags={tags} setTags={setTags} />
 				<SectionTitle className={scss.title} title={'Бардык макалалар'} />
 				<section className={scss.article_head}>
 					{windowSize.width >= 740 && (
 						<ArticleItem
 							className={scss.card_article}
 							variant='2'
-							item={TheMostWidelyRead}
+							item={data[0]}
 						/>
 					)}
 					<div className={scss.articlesList}>
-						{totalArticles
+						{data
 							.map((item, idx) => (
 								<ArticleItem
 									className={scss.card_articleList}
@@ -63,7 +75,7 @@ const ArticlesPage: React.FC = () => {
 								windowSize.width <= 1100 && windowSize.width >= 740
 									? 3
 									: windowSize.width <= 740
-									? totalArticles.length
+									? data.length
 									: 4
 							)}
 					</div>
@@ -72,14 +84,22 @@ const ArticlesPage: React.FC = () => {
 				{windowSize.width >= 740 && (
 					<section>
 						<div className={scss['articles']}>
-							{articles.map(art => (
-								<ArticleItem
-									variant={windowSize.width <= 920 ? '1' : '2'}
-									type={windowSize.width <= 920 ? 'card' : 'list'}
-									key={art.id}
-									item={{ ...art, category: 'Викх' }}
-								/>
-							))}
+							{data
+								.map(art => (
+									<ArticleItem
+										variant={windowSize.width <= 920 ? '1' : '2'}
+										type={windowSize.width <= 920 ? 'card' : 'list'}
+										key={art.id}
+										item={art}
+									/>
+								))
+								.slice(
+									windowSize.width <= 1100 && windowSize.width >= 740
+										? 3
+										: windowSize.width <= 740
+										? data.length
+										: 4
+								)}
 						</div>
 					</section>
 				)}
@@ -88,13 +108,8 @@ const ArticlesPage: React.FC = () => {
 
 				<section>
 					<div className={scss['popularArticle']}>
-						{articles.map(art => (
-							<ArticleItem
-								variant='1'
-								type='card'
-								key={art.id}
-								item={{ ...art, category: 'Викх' }}
-							/>
+						{data.map(art => (
+							<ArticleItem variant='1' type='card' key={art.id} item={art} />
 						))}
 					</div>
 				</section>

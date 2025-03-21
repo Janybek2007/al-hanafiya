@@ -1,11 +1,14 @@
 import { DataWithPagination } from '$/shared/types';
 
-export type AccountEndpoints =
-	| 'me'
-	| 'my_questions'
-	| 'viewing_history'
-	| 'notifications'
-	| 'learning_progress';
+export const AccountEndpoints = [
+	'me',
+	'my_questions',
+	'viewing_history',
+	'notifications',
+	'learning_progress'
+] as const;
+
+export type TAccountEndpoints = (typeof AccountEndpoints)[number];
 
 export interface AccountMe {
 	id: number;

@@ -17,23 +17,6 @@ export const UpdateAccount: React.FC = () => {
 		avatar
 	} = useUpdateAccount();
 
-	const registerInput = React.useCallback(
-		(field: string) => {
-			const registration = register(field);
-
-			return {
-				value:
-					registration.value === null
-						? ''
-						: Array.isArray(registration.value)
-						? registration.value.join(',')
-						: registration.value.toString(),
-				onChange: registration.onChange
-			};
-		},
-		[register]
-	);
-
 	return (
 		<form onSubmit={onSubmit}>
 			<div className={styles.top}>
@@ -74,10 +57,10 @@ export const UpdateAccount: React.FC = () => {
 					].map(v => (
 						<div key={v.field} className={styles.formGroup}>
 							<label>{v.label}</label>
-							<input type='text' {...registerInput(v.field)} />
+							<input type='text' {...register(v.field as 'username')} />
 							{errors[v.field as 'username'] && (
 								<span className={styles.error}>
-									{errors[v.field as 'username']}
+									{errors[v.field as 'username']?.message}
 								</span>
 							)}
 						</div>
@@ -92,7 +75,7 @@ export const UpdateAccount: React.FC = () => {
 				].map(v => (
 					<div key={v.field} className={styles.formGroup}>
 						<label>{v.label}</label>
-						<input type={v.type} {...registerInput(v.field)} />
+						<input type={v.type} {...register(v.field as 'username')} />
 					</div>
 				))}
 				<div className={styles.tgInfo}>
@@ -111,10 +94,7 @@ export const UpdateAccount: React.FC = () => {
 			</div>
 			<button disabled={!canSubmit} className={styles.saveButton}>
 				{isLoading && (
-					<Icon
-						className={`loaderAnimation white`}
-						name='Loader'
-					/>
+					<Icon className={`loaderAnimation white`} name='Loader' />
 				)}
 				Сохранить
 			</button>

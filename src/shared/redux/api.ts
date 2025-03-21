@@ -39,7 +39,8 @@ export const api = createApi({
 		'account_learining_progress',
 		'questions',
 		'question_detail',
-		'lesson_by_slug'
+		'lesson_by_slug',
+		'notifications'
 	],
 	endpoints: () => ({})
 });

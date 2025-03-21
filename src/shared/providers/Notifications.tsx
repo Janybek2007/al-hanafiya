@@ -30,6 +30,9 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 		'isSubscribed',
 		false
 	);
+
+	const [isPushEnabled] = useLocalstorageState<boolean>('push_enabled', false);
+
 	const [registerPushSubscription] = useRegisterPushSubscriptionMutation();
 	const { data: notificationsData } = useNotificationsQuery();
 	const { registration } = useSW();
@@ -52,7 +55,6 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	const initializePush = React.useCallback(async () => {
 		if (!isPushSupported || !registration || !VAPID_PUBLIC_KEY) return;
-
 		try {
 			const permission = await Notification.requestPermission();
 			if (permission !== 'granted') return;
@@ -75,7 +77,7 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 				device: window.innerWidth > 768 ? 'Desktop' : 'Mobile'
 			};
 
-			await registerPushSubscription(subscriptionData).unwrap();
+			registerPushSubscription(subscriptionData);
 			setIsSubscribed(true);
 			console.log('Push-подписка зарегистрирована');
 		} catch (error) {
@@ -92,26 +94,38 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 
 	const notify = React.useCallback(
 		async (title: string, message: string) => {
-			if (!isPushSupported || !registration) {
+			if (!isPushSupported || !registration || !isPushEnabled) {
 				console.log(
-					'Push не поддерживается или SW не зарегистрирован, использую alert:',
+					'Push not supported or SW not registered, using alert:',
 					title,
 					message
 				);
-				alert(`${title}: ${message}`);
 				return;
 			}
 
-			registration.showNotification(title, {
-				body: message,
-				icon: '/favicon-192x192.png'
-			});
+			if (Notification.permission !== 'granted') {
+				const permission = await Notification.requestPermission();
+				if (permission !== 'granted') {
+					console.log('Notification permission denied');
+					return;
+				}
+			}
+
+			try {
+				await registration.showNotification(title, {
+					body: message,
+					icon: '/favicon-192x192.png'
+				});
+			} catch (error) {
+				console.error('Notification error:', error);
+				alert(`${title}: ${message}`);
+			}
 		},
-		[isPushSupported, registration]
+		[isPushSupported, registration, isPushEnabled]
 	);
 
 	useEffect(() => {
-		if (!registration) return;
+		if (!registration || !isPushEnabled) return;
 
 		const handleSubscriptionChange = async (event: MessageEvent) => {
 			if (event.data.type === 'SUBSCRIPTION_CHANGE') {
@@ -123,10 +137,21 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 							auth: event.data.subscription.toJSON().keys?.auth || ''
 						}
 					},
-					browser: navigator.userAgent.includes('Chrome') ? 'Chrome' : 'Other',
+					browser: (() => {
+						const ua = navigator.userAgent;
+						if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
+						if (ua.includes('Firefox')) return 'Firefox';
+						if (ua.includes('Safari') && !ua.includes('Chrome'))
+							return 'Safari';
+						if (ua.includes('Edg')) return 'Edge';
+						if (ua.includes('Opera') || ua.includes('OPR')) return 'Opera';
+						if (ua.includes('MSIE') || ua.includes('Trident'))
+							return 'Internet Explorer';
+						return 'Other';
+					})(),
 					device: window.innerWidth > 768 ? 'Desktop' : 'Mobile'
 				};
-				await registerPushSubscription(subscriptionData).unwrap();
+				registerPushSubscription(subscriptionData);
 				setIsSubscribed(true);
 			}
 		};
@@ -142,7 +167,13 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 				'message',
 				handleSubscriptionChange
 			);
-	}, [registration, initializePush, registerPushSubscription, setIsSubscribed]);
+	}, [
+		registration,
+		initializePush,
+		registerPushSubscription,
+		setIsSubscribed,
+		isPushEnabled
+	]);
 
 	const contextValue: NotificationsContextType = {
 		notifications,

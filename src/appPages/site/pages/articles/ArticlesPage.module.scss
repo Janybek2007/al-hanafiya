@@ -69,6 +69,7 @@
 	--articles-list-grid-columns: repeat(1, 1fr);
 	--articles-list-gap: 20px;
 	--articles-list-item-width: auto;
+	--article-content-mt: 5px;
 
 	display: var(--articles-list-display);
 	grid-template-columns: var(--articles-list-grid-columns);
@@ -76,10 +77,14 @@
 
 	[data-article-item] {
 		width: var(--articles-list-item-width);
+		gap: 0;
+		[data-article-content] {
+			margin-top: var(--article-content-mt) !important;
+		}
 	}
 }
 
-.card_articleList {
+.card_article {
 	--card-article-list-gap: 20px;
 	--card-article-list-max-height: max-content;
 	--card-article-list-figure-border-radius: 8px;
@@ -94,7 +99,8 @@
 		border-radius: var(--card-article-list-figure-border-radius);
 	}
 
-	[class*='card_content'] {
+	[data-article-content] {
+		margin-top: 10px !important;
 		[class*='description'] {
 			font-size: var(--card-article-list-description-font-size) !important;
 		}
@@ -126,13 +132,10 @@
 
 	[data-article-item] {
 		width: var(--articles-item-width);
-
-		[data-article-content] {
-			margin: 0;
-		}
+		gap: 0;
 	}
 
-	[class*='card_content'] {
+	[data-article-content] {
 		padding-top: var(--articles-content-padding-top);
 		max-width: var(--articles-content-max-width);
 		display: flex;
@@ -171,7 +174,6 @@
 	}
 }
 
-/* Media Queries */
 @media (max-width: 1740px) {
 	.container {
 		--container-max-width: 95%;
@@ -181,6 +183,11 @@
 @media (max-width: 1450px) {
 	.title {
 		--title-padding-top: 0;
+	}
+	.articlesList {
+		[data-article-content] {
+			padding: 0 6px !important;
+		}
 	}
 
 	.card_article {
@@ -201,7 +208,7 @@
 	.articles {
 		[class*='description'],
 		[class*='title'] {
-			font-size: 20px !important; /* Matches existing value, no variable change needed */
+			font-size: 20px !important;
 		}
 	}
 }
@@ -213,6 +220,7 @@
 	}
 
 	.articlesList {
+		--article-content-mt: 10px;
 		@media (min-width: 1100px) {
 			--articles-list-grid-columns: repeat(2, 1fr);
 			--articles-list-gap: 10px;
@@ -262,11 +270,6 @@
 			--articles-grid-columns: repeat(2, 1fr);
 			--articles-gap: 10px;
 		}
-
-		[data-article-content] {
-			margin: 0 !important;
-			padding-top: 0 !important;
-		}
 	}
 }
 
@@ -312,13 +315,11 @@
 	}
 
 	.articlesList {
-		--articles-list-grid-columns: repeat(2, 1fr);
 		--articles-list-gap: 6px;
 		--articles-list-item-width: 100%;
 	}
 
 	.articles {
-		--articles-grid-columns: repeat(2, 1fr);
 		--articles-gap: 6px;
 		--articles-item-width: 100%;
 	}

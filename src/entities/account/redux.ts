@@ -1,12 +1,12 @@
 'use client';
 import { api } from '$/shared/redux/api';
-import { AccountEndpoints } from './types';
+import { TAccountEndpoints } from './types';
 
 const accountsApi = api.injectEndpoints({
 	overrideExisting: true,
 	endpoints: builder => ({
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		accountsByEndpoint: builder.query<any, { endpoint: AccountEndpoints }>({
+		accountsByEndpoint: builder.query<any, { endpoint: TAccountEndpoints }>({
 			query: ({ endpoint }) => {
 				let url = '/auth/accounts/me';
 				if (

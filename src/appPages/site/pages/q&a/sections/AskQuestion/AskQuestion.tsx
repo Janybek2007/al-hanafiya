@@ -28,7 +28,7 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 
 	const [newQuestion, { isLoading: pending }] = useNewQuestionMutation();
 
-	const filteredQuestions = useDerived<QuestionItem[]>(() => {
+	const [filteredQuestions] = useDerived<QuestionItem[]>(() => {
 		if (!data?.similar_questions) return [] as QuestionItem[];
 		return data.similar_questions.filter(v =>
 			v.content.toLowerCase().includes(questionTerm.toLowerCase())

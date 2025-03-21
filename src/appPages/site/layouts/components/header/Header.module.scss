@@ -1,24 +1,24 @@
 .header {
-  background-color: var(--primary);
-  background-image: url("/images/header-background.png");
+	background-color: var(--primary);
+	background-image: url('/images/header-background.png');
 
   a {
-    color: var(--white);
-  }
+		color: var(--white);
+	}
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 23.5px 0;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 23.5px 0;
 
-    @media (max-width: 1024px) {
-      max-width: 95%;
-      padding: 14px 0;
-    }
+		@media (max-width: 1024px) {
+			max-width: 95%;
+			padding: 14px 0;
+		}
 
-    @media (max-width: 500px) {
-      padding: 14px 0;
-    }
-  }
+		@media (max-width: 500px) {
+			padding: 14px 0;
+		}
+	}
 }

@@ -29,26 +29,32 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 		minutes: number = 0;
 	let inputDate: Date;
 
-	if (typeof dateInput === 'string') {
-		if (dateInput.includes('T')) {
+	try {
+		if (typeof dateInput === 'string') {
+			if (dateInput.includes('T')) {
+				inputDate = new Date(dateInput);
+			} else {
+				const dateTimeParts = dateInput.split(' ');
+				[day, month, year] = dateTimeParts[0].split('.').map(Number);
+				if (dateTimeParts[1]) {
+					[hours, minutes] = dateTimeParts[1].split(':').map(Number);
+				}
+				inputDate = new Date(year, month - 1, day, hours, minutes);
+			}
+		} else if (dateInput instanceof Date) {
+			inputDate = dateInput;
+		} else if (typeof dateInput === 'number') {
 			inputDate = new Date(dateInput);
-			if (isNaN(inputDate.getTime())) {
-				throw new Error('Invalid ISO date string format');
-			}
 		} else {
-			const dateTimeParts = dateInput.split(' ');
-			[day, month, year] = dateTimeParts[0].split('.').map(Number);
-			if (dateTimeParts[1]) {
-				[hours, minutes] = dateTimeParts[1].split(':').map(Number);
-			}
-			inputDate = new Date(year, month - 1, day, hours, minutes);
+			throw new Error('Invalid date format');
 		}
-	} else if (dateInput instanceof Date) {
-		inputDate = dateInput;
-	} else if (typeof dateInput === 'number') {
-		inputDate = new Date(dateInput);
-	} else {
-		throw new Error('Invalid date format');
+
+		if (isNaN(inputDate.getTime())) {
+			throw new Error('Invalid date after parsing');
+		}
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	} catch (error) {
+		inputDate = new Date();
 	}
 
 	day = inputDate.getDate();

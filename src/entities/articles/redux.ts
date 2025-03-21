@@ -1,5 +1,6 @@
 'use client';
 import { api } from '$/shared/redux/api';
+import { DataWithPagination } from '$/shared/types'
 import { BaseArg } from '$/shared/types/api.types'
 import { createSearchParams } from '$/shared/utils'
 import { ArticleItem, ArticleItemDetail } from './types';
@@ -7,7 +8,7 @@ import { ArticleItem, ArticleItemDetail } from './types';
 const articlesApi = api.injectEndpoints({
 	overrideExisting: true,
 	endpoints: build => ({
-		getArticles: build.query<ArticleItem[], BaseArg>({
+		getArticles: build.query<DataWithPagination<ArticleItem[]>, BaseArg>({
 			query: arg => ({
 				url: `/articles/?${createSearchParams(arg)}`
 			})
@@ -26,7 +27,7 @@ const articlesApi = api.injectEndpoints({
 			})
 		}),
 		getArticlesByLatest: build.query<ArticleItem[], BaseArg>({
-			query: (arg) => ({
+			query: arg => ({
 				url: `/articles/latest/?${createSearchParams(arg)}`
 			})
 		}),

@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const HeaderEnd: React.FC = () => {
 	const [term, setTerm] = React.useState<string | null>(null);
+
 	return (
 		<>
 			<AnimatePresence initial={false}>

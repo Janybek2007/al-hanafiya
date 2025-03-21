@@ -1,11 +1,10 @@
 'use client';
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 
 export const useDerived = <T>(
 	initialState: T | (() => T),
-	dependencies: any[] = []
-): T => {
+	dependencies: React.DependencyList = []
+): [T, Dispatch<SetStateAction<T>>] => {
 	const [state, setState] = useState<T>(initialState);
 
 	useEffect(() => {
@@ -17,5 +16,5 @@ export const useDerived = <T>(
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [...dependencies]);
 
-	return state;
+	return [state, setState];
 };

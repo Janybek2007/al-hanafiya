@@ -1,10 +1,11 @@
 import { api } from '$/shared/redux/api';
-import { IdArg } from '$/shared/types/api.types'
+import { IdArg } from '$/shared/types/api.types';
 import {
 	NotificationsResponse,
 	PushSubscription,
 	NotificationSettings,
-	NotificationItem
+	NotificationItem,
+	DeepPartial
 } from './types';
 
 const notificationsApi = api.injectEndpoints({
@@ -14,7 +15,8 @@ const notificationsApi = api.injectEndpoints({
 			query: () => ({
 				url: '/notifications/',
 				method: 'GET'
-			})
+			}),
+			providesTags: ['notifications']
 		}),
 
 		notificationsId: builder.query<NotificationItem, IdArg>({
@@ -28,14 +30,16 @@ const notificationsApi = api.injectEndpoints({
 			query: id => ({
 				url: `/notifications/${id}/mark_as_read/`,
 				method: 'POST'
-			})
+			}),
+			invalidatesTags: ['notifications']
 		}),
 
 		markAllNotificationsAsRead: builder.mutation<{ status: string }, void>({
 			query: () => ({
 				url: '/notifications/mark_all_as_read/',
 				method: 'POST'
-			})
+			}),
+			invalidatesTags: ['notifications']
 		}),
 
 		registerPushSubscription: builder.mutation<
@@ -53,18 +57,20 @@ const notificationsApi = api.injectEndpoints({
 			query: () => ({
 				url: '/notifications/settings/',
 				method: 'GET'
-			})
+			}),
+			providesTags: ['notifications']
 		}),
 
 		updateNotificationSettings: builder.mutation<
 			NotificationSettings,
-			NotificationSettings
+			DeepPartial<NotificationSettings>
 		>({
 			query: body => ({
 				url: '/notifications/settings/',
 				method: 'PUT',
 				body
-			})
+			}),
+			invalidatesTags: ['notifications']
 		})
 	})
 });
