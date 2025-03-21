@@ -29,7 +29,10 @@ const articlesApi = api.injectEndpoints({
 			query: (arg) => ({
 				url: `/articles/latest/?${createSearchParams(arg)}`
 			})
+			
+
 		}),
+
 		getArticlesBySlug: build.query<ArticleItemDetail, { slug: string }>({
 			query: ({ slug }) => ({
 				url: `/articles/${slug}`
