@@ -37,7 +37,7 @@ export type MyQuestion = DataWithPagination<{
 	answer: { id: number; content: string; created_at: string };
 }>;
 
-export type Notifications = DataWithPagination<{
+export type Notifications = {
 	id: number;
 	title: string;
 	message: string;
@@ -45,7 +45,7 @@ export type Notifications = DataWithPagination<{
 	is_read: boolean;
 	created_at: string;
 	url: string;
-}>;
+};
 
 export interface CategoryProgress {
 	category_id: number;

@@ -70,7 +70,7 @@ const QuestionList: React.FC<{ list: QuestionItem[] }> = ({ list }) => {
 										<div className={scss.content}>
 											<div className={scss.text_content}>
 												<Link
-													href={paths['q&aDetail'](item.id)}
+													href={paths.questionsDetail(item.id)}
 													ref={el => {
 														textRefs.current[item.id] = el;
 													}}
@@ -125,7 +125,7 @@ const QuestionList: React.FC<{ list: QuestionItem[] }> = ({ list }) => {
 
 								<div className={scss.question_right}>
 									<Link
-										href={paths['q&aDetail'](item.id)}
+										href={paths.questionsDetail(item.id)}
 										className={clsx(scss.view_answer, {
 											[scss.answered]: item.is_answered
 										})}

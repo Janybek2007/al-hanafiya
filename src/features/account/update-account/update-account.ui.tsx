@@ -31,7 +31,7 @@ export const UpdateAccount: React.FC = () => {
 										? ApiMedia(avatar)
 										: URL.createObjectURL(avatar)
 								}
-								alt='User Profile Avatar'
+								alt='Колдонуучунун профилинин сүрөтү'
 							/>
 						</figure>
 					) : (
@@ -52,8 +52,8 @@ export const UpdateAccount: React.FC = () => {
 				</div>
 				<div className={styles['formGroups']}>
 					{[
-						{ label: 'Имя', field: 'first_name' },
-						{ label: 'Фамилия', field: 'last_name' }
+						{ label: 'Аты', field: 'first_name' },
+						{ label: 'Фамилиясы', field: 'last_name' }
 					].map(v => (
 						<div key={v.field} className={styles.formGroup}>
 							<label>{v.label}</label>
@@ -75,19 +75,26 @@ export const UpdateAccount: React.FC = () => {
 				].map(v => (
 					<div key={v.field} className={styles.formGroup}>
 						<label>{v.label}</label>
-						<input type={v.type} {...register(v.field as 'username')} />
+						<input
+							type={v.type}
+							{...register(v.field as 'username', {
+								...(v.field === 'profile.telegram'
+									? { setValueAs: (value: string) => value.replace('@', '') }
+									: {})
+							})}
+						/>
 					</div>
 				))}
 				<div className={styles.tgInfo}>
 					{values.profile?.telegram && values.profile.telegram.trim() !== '' ? (
 						<>
 							<Icon className={styles.icon} name='Check' /> Telegram-бот
-							активирован
+							активдештирилди
 						</>
 					) : (
 						<>
-							<Icon className={styles.icon} name='X' /> Telegram-бот не
-							активирован
+							<Icon className={styles.icon} name='X' /> Telegram-бот
+							активдештирилген жок
 						</>
 					)}
 				</div>
@@ -96,7 +103,7 @@ export const UpdateAccount: React.FC = () => {
 				{isLoading && (
 					<Icon className={`loaderAnimation white`} name='Loader' />
 				)}
-				Сохранить
+				Сактоо
 			</button>
 		</form>
 	);

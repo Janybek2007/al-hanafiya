@@ -1,19 +1,19 @@
-import { ChatsCircle } from './icons/ChatsCircle'
+import { Articles } from './icons/Articles';
+import { Book } from './icons/Book';
+import { ChatsCircle } from './icons/ChatsCircle';
 import { Facebook } from './icons/Facebook';
+import { HistoryOutlined } from './icons/HistoryOutlined';
+import { Home } from './icons/Home';
 import { Instagram } from './icons/Instagram';
-import { Install } from './icons/Install'
-import { Telegram } from './icons/Telegram'
-import { WhatsApp } from './icons/WhatsApp'
-import { Prev } from './icons/Prev'
-import { Next } from './icons/Next'
-import { HistoryOutlined } from './icons/HistoryOutlined'
-import { Book } from './icons/Book'
-import { View } from './icons/View'
-import { Home } from './icons/Home'
-import { User } from './icons/User'
-import { Lessons } from './icons/Lessons'
-import { QA } from './icons/q&a'
-import { Articles } from './icons/Articles'
+import { Install } from './icons/Install';
+import { Lessons } from './icons/Lessons';
+import { Next } from './icons/Next';
+import { Prev } from './icons/Prev';
+import { Questions } from './icons/Questions';
+import { Telegram } from './icons/Telegram';
+import { User } from './icons/User';
+import { View } from './icons/View';
+import { WhatsApp } from './icons/WhatsApp';
 
 export const Icons = {
 	Facebook,
@@ -30,6 +30,6 @@ export const Icons = {
 	Home,
 	User,
 	Lessons,
-	QA,
+	Questions,
 	Articles
 };

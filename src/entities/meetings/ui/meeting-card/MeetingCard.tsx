@@ -1,21 +1,22 @@
 import React from 'react';
 import styles from './MeetingCard.module.scss';
 import Image from 'next/image';
-import { EventItem } from '$/entities/event/types'; 
+import { EventItem } from '$/entities/event/types';
+import { formatDate } from '$/shared/utils';
 
 interface MeetingCardProps extends Omit<EventItem, 'location' | 'event_date'> {
-	location: { name: string; address: string }; 
-	date: string; 
-	forWomenOnly?: boolean; 
-	image_src?: string; 
+	location: { name: string; address: string };
+	date: string;
+	forWomenOnly?: boolean;
+	image_src?: string;
 }
 
 export const MeetingCard: React.FC<MeetingCardProps> = ({
 	location,
 	date,
 	description,
-	forWomenOnly = false, 
-	image_src = '/images/placeholder.jpg' 
+	forWomenOnly = false,
+	image_src = '/images/placeholder.webp'
 }) => {
 	return (
 		<div className={styles.meeting_card}>
@@ -23,7 +24,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 				<Image width={402} height={247} src={image_src} alt='Meeting Image' />
 			</figure>
 			<div className={styles['card_content']}>
-				<p>{description}</p>
+				<p dangerouslySetInnerHTML={{ __html: description }} />
 				<ul>
 					{forWomenOnly && (
 						<li>
@@ -48,7 +49,7 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 									alt=''
 								/>
 							</figure>
-							<span>{date}</span>
+							<span>{formatDate(date).DDMMYYYY_HHMM}</span>
 						</li>
 					)}
 					{location.address && (

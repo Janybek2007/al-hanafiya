@@ -1,10 +1,10 @@
-.qa_content {
-	--qa-border-radius: 12px;
-	--qa-padding: 43px 69px;
-	--qa-bg-color: #f8fffe;
-	--qa-border: 1px solid #f8fffe;
-	--qa-box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
-	--qa-margin-bottom: 81px;
+.question_content {
+	--question-border-radius: 12px;
+	--question-padding: 43px 69px;
+	--question-bg-color: #f8fffe;
+	--question-border: 1px solid #f8fffe;
+	--question-box-shadow: 0 1px 2px #00000030, 0 1px 2px 1px #00000015;
+	--question-margin-bottom: 81px;
 	--share-top: 15px;
 	--share-right: 32px;
 	--share-btn-border: 1px solid #80808055;
@@ -30,13 +30,13 @@
 	--ustaz-line-height: 24px;
 	--view-img-size: 28px;
 
-	border-radius: var(--qa-border-radius);
-	padding: var(--qa-padding);
-	background-color: var(--qa-bg-color);
-	border: var(--qa-border);
-	box-shadow: var(--qa-box-shadow);
+	border-radius: var(--question-border-radius);
+	padding: var(--question-padding);
+	background-color: var(--question-bg-color);
+	border: var(--question-border);
+	box-shadow: var(--question-box-shadow);
 	position: relative;
-	margin-bottom: var(--qa-margin-bottom);
+	margin-bottom: var(--question-margin-bottom);
 
 	.share {
 		position: absolute;
@@ -112,9 +112,9 @@
 /* Responsive Adjustments */
 @media (max-width: 1240px) {
 	.qa_content {
-		--qa-padding: 35px 55px;
-		--qa-border-radius: 10px;
-		--qa-margin-bottom: 70px;
+		--question-padding: 35px 55px;
+		--question-border-radius: 10px;
+		--question-margin-bottom: 70px;
 		--share-top: 12px;
 		--share-right: 25px;
 		--share-btn-padding: 7px 10px;
@@ -128,9 +128,9 @@
 
 @media (max-width: 1024px) {
 	.qa_content {
-		--qa-padding: 30px 45px;
-		--qa-border-radius: 8px;
-		--qa-margin-bottom: 60px;
+		--question-padding: 30px 45px;
+		--question-border-radius: 8px;
+		--question-margin-bottom: 60px;
 		--share-top: 10px;
 		--share-right: 20px;
 		--share-btn-padding: 6px 9px;
@@ -144,9 +144,9 @@
 
 @media (max-width: 768px) {
 	.qa_content {
-		--qa-padding: 25px 35px;
-		--qa-border-radius: 6px;
-		--qa-margin-bottom: 50px;
+		--question-padding: 25px 35px;
+		--question-border-radius: 6px;
+		--question-margin-bottom: 50px;
 		--share-top: 8px;
 		--share-right: 15px;
 		--share-btn-padding: 5px 8px;
@@ -166,8 +166,8 @@
 
 @media (max-width: 500px) {
 	.qa_content {
-		--qa-padding: 20px 25px;
-		--qa-margin-bottom: 40px;
+		--question-padding: 20px 25px;
+		--question-margin-bottom: 40px;
 		--share-right: 12px;
 		--share-btn-padding: 4px 7px;
 		--content-gap: 8px;
@@ -177,9 +177,9 @@
 
 @media (max-width: 480px) {
 	.qa_content {
-		--qa-padding: 15px 20px;
-		--qa-border-radius: 4px;
-		--qa-margin-bottom: 35px;
+		--question-padding: 15px 20px;
+		--question-border-radius: 4px;
+		--question-margin-bottom: 35px;
 		--share-top: 6px;
 		--share-right: 10px;
 		--share-btn-radius: 20px;
@@ -195,8 +195,8 @@
 
 @media (max-width: 400px) {
 	.qa_content {
-		--qa-padding: 12px 16px;
-		--qa-margin-bottom: 30px;
+		--question-padding: 12px 16px;
+		--question-margin-bottom: 30px;
 		--share-top: 5px;
 		--share-right: 8px;
 		--share-btn-padding: 3px 6px;
@@ -212,8 +212,8 @@
 
 @media (max-width: 380px) {
 	.qa_content {
-		--qa-padding: 12px 14px;
-		--qa-margin-bottom: 25px;
+		--question-padding: 12px 14px;
+		--question-margin-bottom: 25px;
 		--share-btn-radius: 18px;
 		--content-gap: 6px;
 		--view-img-size: 20px;

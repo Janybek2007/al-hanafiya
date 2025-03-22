@@ -1,15 +1,14 @@
 'use client';
-import React from 'react';
-import styles from './q&a.module.scss';
-import clsx from 'clsx';
-import { Button } from '$/shared/ui';
 import { useAnsweredQuestionsQuery } from '$/entities/questions';
+import { Button } from '$/shared/ui';
+import clsx from 'clsx';
+import styles from './Questions.module.scss';
 
-export const QuestionAndAnwser = () => {
+export const Questions = () => {
 	const {} = useAnsweredQuestionsQuery({});
 
 	return (
-		<section className={styles['qa']}>
+		<section className={styles['questions']}>
 			<div className={clsx('container', styles.container)}>
 				<h2 className={styles.title}>Суроо-Жооп</h2>
 				<div className={styles['content']}>

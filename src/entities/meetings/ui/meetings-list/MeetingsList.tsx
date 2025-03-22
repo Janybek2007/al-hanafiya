@@ -3,12 +3,18 @@ import React from 'react';
 import styles from './MeetingsList.module.scss';
 import { MeetingCard } from '../meeting-card/MeetingCard';
 import { useEventsQuery } from '$/entities/event';
+import { Loading } from '$/shared/ui'
 
 export const MeetingsList = () => {
-	const { data: event } = useEventsQuery({});
+	const { data: event, isLoading, error } = useEventsQuery({});
 
 	const events = event?.results || [];
 
+	if (isLoading) return <Loading />;
+
+	if (error || !event || !Array.isArray(events)) {
+		return <div>Ошибка загрузки прогресса обучения: {error?.toString()}</div>;
+	}
 	return (
 		<div className={styles.meetings_list}>
 			{events.map(meeting => {

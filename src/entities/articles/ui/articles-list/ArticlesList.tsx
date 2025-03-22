@@ -1,8 +1,12 @@
 import React from 'react';
 import { ArticleItem } from '../article-item/ArticleItem';
 import styles from './ArticlesList.module.scss';
-import { articles } from '../../constants/articles.constants';
-export const ArticlesList: React.FC = () => {
+import { ArticleItem as TArticleItem } from '../../types';
+
+interface IProps {
+	articles: TArticleItem[];
+}
+export const ArticlesList: React.FC<IProps> = ({ articles }) => {
 	return (
 		<div className={styles.articles_list}>
 			{articles.map(art => (

@@ -1,6 +1,6 @@
 import { AccountsProvider } from '$/entities/account';
 import React from 'react';
-import { Sidebar } from './components/sidebar/Sidebar';
+import { Sidebar } from './components';
 import styles from './AccountsLayout.module.scss';
 
 const AccountsLayout: React.FC<React.PropsWithChildren> = async ({

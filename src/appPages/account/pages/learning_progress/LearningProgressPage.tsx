@@ -3,6 +3,7 @@ import React from 'react';
 import { LearningProgress, useAccounts } from '$/entities/account';
 import { Loading } from '$/shared/ui';
 import styles from './LearningProgressPage.module.scss';
+import { AccountHeader } from '../../layouts/components';
 
 const LearningProgressPage: React.FC = () => {
 	const { data, isLoading, error } = useAccounts().page;
@@ -20,25 +21,28 @@ const LearningProgressPage: React.FC = () => {
 	) {
 		return (
 			<div className={styles.error}>
-				Ошибка загрузки прогресса обучения: {error?.toString()}
+				Окуу прогрессин жүктөөдө ката: {error?.toString()}
 			</div>
 		);
 	}
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>Прогресс обучения</h1>
+			<AccountHeader
+				title='Окуу прогресси'
+				subtitle='Сиздин сурооңузга жооп алгандан кийин, жеке кабинетиңизде жана көрсөтүлгөн Telegram аркылуу билдирүү аласыз.'
+			/>
 			<div className={styles.progressSummary}>
 				<h2 className={styles.subtitle}>
-					Общий прогресс: {learningProgress.progress_percentage}%
+					Жалпы прогресс: {learningProgress.progress_percentage}%
 				</h2>
 				<p className={styles.summaryText}>
-					Пройдено уроков: {learningProgress.completed_lessons} из{' '}
+					Аяктаган сабактар: {learningProgress.completed_lessons} /{' '}
 					{learningProgress.total_lessons}
 				</p>
 			</div>
 			<div className={styles.categoryProgress}>
-				<h2 className={styles.subtitle}>Прогресс по категориям</h2>
+				<h2 className={styles.subtitle}>Категориялар боюнча прогресс</h2>
 				<div className={styles.categories}>
 					{learningProgress.by_category.map(category => (
 						<div key={category.category_id} className={styles.categoryItem}>
@@ -47,7 +51,7 @@ const LearningProgressPage: React.FC = () => {
 									{category.category_name}
 								</span>
 								<span className={styles.categoryProgressText}>
-									{category.completed_lessons} из {category.total_lessons} (
+									{category.completed_lessons} / {category.total_lessons} (
 									{category.progress_percentage}%)
 								</span>
 							</div>

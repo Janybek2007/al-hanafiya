@@ -25,7 +25,7 @@ export const ModuleLItem: React.FC<IProps> = ({ module: m }) => {
 					)}
 					className={styles['row']}
 				>
-					{m.id == 1 ? (
+					{false ? (
 						<div className={styles.checked}>
 							<IoIosCheckmark />
 						</div>
@@ -46,7 +46,7 @@ export const ModuleLItem: React.FC<IProps> = ({ module: m }) => {
 								href={paths.lessons.with_module(m.slug, l.slug)}
 								className={styles['row']}
 							>
-								{l.id == 1 ? (
+								{false ? (
 									<div className={styles.checked}>
 										<IoIosCheckmark />
 									</div>

@@ -1,18 +1,18 @@
 'use client';
-import React from 'react';
-import styles from './QADetailPage.module.scss';
-import { BackButton, EmptyState, Loading, SectionTitle } from '$/shared/ui';
-import { QuestionList } from '$/widgets/question-list';
-import clsx from 'clsx';
-import QAContent from './sections/q&a-content/QAContent';
-import { useParams } from 'next/navigation';
 import {
 	useQuestionByIdQuery,
 	useQuestionByIdSimilarQuery
 } from '$/entities/questions';
 import { paths } from '$/shared/routing';
+import { BackButton, EmptyState, Loading, SectionTitle } from '$/shared/ui';
+import { QuestionList } from '$/widgets/question-list';
+import clsx from 'clsx';
+import { useParams } from 'next/navigation';
+import React from 'react';
+import styles from './QuestionDetailPage.module.scss';
+import QuestionContent from './sections/question-content/QuestionContent'
 
-const QADetailPage: React.FC = () => {
+const QuestionDetailPage: React.FC = () => {
 	const { id } = useParams();
 	const {
 		data: question,
@@ -39,7 +39,7 @@ const QADetailPage: React.FC = () => {
 				title='Список вопросов пуст'
 				description='Вы еще не задали ни одного вопроса. Задайте вопрос во время урока,
 					чтобы увидеть его здесь!'
-				link={{ href: paths['q&a'], label: 'Задать вопрос' }}
+				link={{ href: paths['questions'], label: 'Задать вопрос' }}
 			/>
 		);
 	}
@@ -54,7 +54,7 @@ const QADetailPage: React.FC = () => {
 				</section>
 				<section className={styles.qa_content}>
 					<div className={'container'}>
-						<QAContent question={question} />
+						<QuestionContent question={question} />
 					</div>
 				</section>
 				<section>
@@ -82,4 +82,4 @@ const QADetailPage: React.FC = () => {
 	);
 };
 
-export default QADetailPage;
+export default QuestionDetailPage;

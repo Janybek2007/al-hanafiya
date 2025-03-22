@@ -92,7 +92,7 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 			2,
 			'0'
 		)}/${year}`,
-		DDMMYYYY_HHMM: `${day} ${months[month - 1]} ${year} ${timeString}`,
+		DDMMYYYY_HHMM: `${day} ${months[month - 1]} ${year} ж. саат ${timeString}`,
 		timeAgo
 	};
 }
@@ -134,6 +134,6 @@ export function formatRelativeTime(dateStr: string): string {
 	} else if (diffMinutes > 0) {
 		return formatWithPluralization(diffMinutes, 'мүнөт', 'мүнөт');
 	} else {
-		return 'Бир аз мурда'; // Just now (less than a minute)
+		return 'Бир аз мурда';
 	}
 }

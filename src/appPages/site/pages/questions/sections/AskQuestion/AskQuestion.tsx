@@ -37,16 +37,15 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 
 	const newQuestionClick = React.useCallback(async () => {
 		if (questionTerm.trim() == '') {
-			alert('Поле вопроса не должно быть пустым');
+			alert('Суроо талаасы бош болбошу керек');
 			return;
 		}
 
 		const response = await newQuestion({
 			data: { content: questionTerm }
 		}).unwrap();
-		console.log(response);
 		if ('similar_questions' in response) {
-		} else {
+			alert('Билдирүү ийгиликтүү жөнөтүлдү');
 		}
 	}, [newQuestion, questionTerm]);
 
@@ -89,13 +88,13 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 					<div className={scss.modal_header}>
 						<Image
 							src='/images/Q&Apage/question_img.svg'
-							alt='Question icon'
+							alt='Суроо белгиси'
 							width={68}
 							height={70}
 						/>
 					</div>
 					<div className={scss.text_instruction}>
-						<h3>Кантип суроо беруу керек:</h3>
+						<h3>Кантип суроо берүү керек:</h3>
 						<div className={scss.steps_container}>
 							<div className={scss.line}>
 								<div className={scss.dot}></div>
@@ -107,13 +106,15 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 								<div className={scss.dot}></div>
 							</div>
 							<ul>
-								<li>Напишите свой вопрос в поле ниже</li>
+								<li>Сурооңузду төмөндөгү талаага жазыңыз</li>
 								<li>
-									Подключитесь к нашему боту в Telegram нажав команду{' '}
-									{'"/start"'} ниже
+									Telegram ботубузга туташуу үчүн төмөндөгү {'"/start"'}
+									командасын басыңыз
 								</li>
-								<li>Укажите свой Telegram username или номер телефона</li>
-								<li>Нажмите кнопку отправить и ждите ответ в Telegram</li>
+								<li>
+									Telegram колдонуучу атыңызды же телефонуңузду көрсөтүңүз
+								</li>
+								<li>Жөнөтүү баскычын басып, жоопту Telegramдан күтүңүз</li>
 							</ul>
 						</div>
 					</div>
@@ -141,21 +142,21 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 								}`}
 							>
 								<h4 className={scss.suggestion_title}>
-									Похожие вопросы, на которые уже есть ответ:
+									Жообу бар окшош суроолор:
 								</h4>
 								{filteredQuestions.map(q => (
 									<Link
-										href={paths['q&aDetail'](q.id)}
+										href={paths.questionsDetail(q.id)}
 										key={q.id}
+										target='_blank'
 										className={scss.suggestion_item}
 									>
 										<div className={scss.info}>
-											{/* <strong>{q.title}</strong> */}
 											<p>{q.content.slice(0, 50)}...</p>
 										</div>
 										<Image
 											src='/icon/arrow-left.svg'
-											alt='Arrow Left Icon'
+											alt='Жебе солго'
 											width={20}
 											height={20}
 											className={scss.arrow_icon}

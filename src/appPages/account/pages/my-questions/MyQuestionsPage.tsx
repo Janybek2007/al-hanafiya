@@ -1,90 +1,133 @@
 'use client';
 import { MyQuestion, useAccounts } from '$/entities/account';
 import { paths } from '$/shared/routing';
-import { EmptyState, Loading } from '$/shared/ui';
-import React from 'react';
+import { Accordion, EmptyState, Loading } from '$/shared/ui';
+import React, { useState } from 'react';
 import styles from './MyQuestionsPage.module.scss';
+import { formatDate } from '$/shared/utils';
+import { AccountHeader } from '../../layouts/components';
 
 const MyQuestionsPage: React.FC = () => {
 	const { data, isLoading, error } = useAccounts().page;
+	const [filter, setFilter] = useState<'all' | 'answered' | 'pending'>('all');
 
 	const my_questions = React.useMemo(() => data as MyQuestion, [data]);
+
+	const filteredQuestions = React.useMemo(() => {
+		if (!my_questions?.results) return [];
+		if (filter === 'all') return my_questions.results;
+		return my_questions.results.filter(q =>
+			filter === 'answered' ? q.is_answered : !q.is_answered
+		);
+	}, [my_questions, filter]);
 
 	if (isLoading) return <Loading />;
 
 	if (error) {
 		return (
 			<div className={styles.error}>
-				Ошибка загрузки вопросов: {error.toString()}
+				Суроолорду жүктөөдө ката кетти: {error.toString()}
 			</div>
 		);
 	}
 
-	if (
-		!my_questions ||
-		!Array.isArray(my_questions.results) ||
-		my_questions?.count === 0
-	) {
+	if (!my_questions || !Array.isArray(my_questions.results)) {
 		return (
 			<EmptyState
 				icon='FileQuestion'
-				title='Список вопросов пуст'
-				description='Вы еще не задали ни одного вопроса. Задайте вопрос во время урока,
-					чтобы увидеть его здесь!'
-				link={{ href: paths['q&a'], label: 'Задать вопрос' }}
+				title='Суроолор тизмеси бош'
+				description='Сиз азырынча эч кандай суроо берген жоксуз. Сабак учурунда суроо бериңиз, аны бул жерден көрүү үчүн!'
+				link={{ href: paths['questions'], label: 'Суроо берүү' }}
 			/>
 		);
 	}
 
+	const accordionItems = filteredQuestions.map(question => ({
+		label: question.content,
+		value: question.id.toString(),
+		trailingContent: (
+			<span
+				className={styles.status}
+				data-status={question.is_answered ? 'answered' : 'pending'}
+			>
+				{question.is_answered ? 'Жооп берилди' : 'Жооп күтүүдө'}
+			</span>
+		),
+		content: (
+			<div className={styles.itemDetails}>
+				<p className={styles.detailItem}>
+					<strong>Сиздин сурооңуз:</strong>
+					<span>{question.content}</span>
+				</p>
+				<p className={styles.detailItem}>
+					<strong>Жооп:</strong>
+					{question.is_answered && question.answer ? (
+						<span className={styles.answer}>{question.answer.content}</span>
+					) : (
+						<span>Жооп жок</span>
+					)}
+				</p>
+				<p className={styles.detailItem}>
+					<strong>Жооп берилген күн:</strong>
+					<span>
+						{question.is_answered && question.answer
+							? formatDate(question.answer.created_at).DDMMYYYY_HHMM
+							: '—'}
+					</span>
+				</p>
+			</div>
+		)
+	}));
+
 	return (
-		<div className={styles.container}>
-			<h1 className={styles.title}>Мои вопросы</h1>
-			<div className={styles.questionsList}>
-				{my_questions.results.map(question => (
-					<div key={question.id} className={styles.questionItem}>
-						<div className={styles.itemHeader}>
-							<span className={styles.questionText}>{question.content}</span>
-							<span
-								className={styles.status}
-								data-status={question.is_answered ? 'answered' : 'pending'}
-							>
-								{question.is_answered ? 'Отвечен' : 'Ожидает ответа'}
-							</span>
-						</div>
-						<div className={styles.itemDetails}>
-							<p>
-								<strong>Дата вопроса:</strong>{' '}
-								{new Date(question.created_at).toLocaleDateString('ru-RU', {
-									day: '2-digit',
-									month: '2-digit',
-									year: 'numeric',
-									hour: '2-digit',
-									minute: '2-digit'
-								})}
-							</p>
-							{question.is_answered && question.answer && (
-								<>
-									<p>
-										<strong>Ответ:</strong> {question.answer.content}
-									</p>
-									<p>
-										<strong>Дата ответа:</strong>{' '}
-										{new Date(question.answer.created_at).toLocaleDateString(
-											'ru-RU',
-											{
-												day: '2-digit',
-												month: '2-digit',
-												year: 'numeric',
-												hour: '2-digit',
-												minute: '2-digit'
-											}
-										)}
-									</p>
-								</>
-							)}
-						</div>
-					</div>
-				))}
+		<div className={styles.wrapper}>
+			<div className={styles.container}>
+				<AccountHeader
+					title='Менин суроолорум'
+					subtitle='Сурооңузга жооп алгандан кийин, сиз жеке кабинетиңизде жана көрсөтүлгөн Telegram аркылуу билдирме аласыз.'
+				/>
+				<div className={styles.filters}>
+					<button
+						className={`${styles.filterBtn} ${
+							filter === 'all' ? styles.active : ''
+						}`}
+						onClick={() => setFilter('all')}
+					>
+						Баары ({my_questions.results.length})
+					</button>
+					<button
+						className={`${styles.filterBtn} ${
+							filter === 'answered' ? styles.active : ''
+						}`}
+						onClick={() => setFilter('answered')}
+					>
+						Жооп берилген (
+						{my_questions.results.filter(q => q.is_answered).length})
+					</button>
+					<button
+						className={`${styles.filterBtn} ${
+							filter === 'pending' ? styles.active : ''
+						}`}
+						onClick={() => setFilter('pending')}
+					>
+						Жооп күтүүдө (
+						{my_questions.results.filter(q => !q.is_answered).length})
+					</button>
+				</div>
+
+				{filteredQuestions.length === 0 ? (
+					<EmptyState
+						icon='FileQuestion'
+						title='Суроолор табылган жок'
+						description='Тандалган чыпкага туура келген суроолор жок'
+					/>
+				) : (
+					<Accordion
+						type='single'
+						items={accordionItems}
+						className={styles.questionsList}
+					/>
+				)}
 			</div>
 		</div>
 	);

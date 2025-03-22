@@ -1,9 +1,16 @@
 'use client';
-import { ArticlesList } from '$/entities/articles';
+import { ArticlesList, useGetArticlesByLatestQuery } from '$/entities/articles';
+import { Loading } from '$/shared/ui';
 import HomeSectionProps from '../home-section/HomeSection';
 
 export const Articles = () => {
-	// const {} = useGetArticlesByLatestQuery();
+	const { data: articles, isLoading, error } = useGetArticlesByLatestQuery({});
+
+	if (isLoading) return <Loading />;
+
+	if (error || !articles || !Array.isArray(articles)) {
+		return <div>Ошибка загрузки прогресса обучения: {error?.toString()}</div>;
+	}
 	return (
 		<HomeSectionProps
 			button={{
@@ -13,7 +20,7 @@ export const Articles = () => {
 			}}
 			title='Макалалар'
 		>
-			<ArticlesList />
+			<ArticlesList articles={articles} />
 		</HomeSectionProps>
 	);
 };

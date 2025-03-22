@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const QA: React.FC = () => {
+export const Questions: React.FC = () => {
 	return (
 		<svg
 			width='33'

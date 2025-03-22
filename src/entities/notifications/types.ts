@@ -1,5 +1,3 @@
-import { DataWithPagination } from '$/shared/types';
-
 export type NotificationType =
 	| 'question_answer'
 	| 'comment_reply'
@@ -17,7 +15,7 @@ export interface NotificationItem {
 	url: string;
 }
 
-export type NotificationsResponse = DataWithPagination<NotificationItem>;
+export type NotificationsResponse = NotificationItem[];
 
 export interface PushSubscription {
 	subscription_info: {

@@ -1,4 +1,4 @@
-import { Icons } from '$/shared/components'
+import { Icons } from '$/shared/components';
 import { paths } from '$/shared/routing';
 
 export const nav_items = [
@@ -20,8 +20,8 @@ export const nav_items = [
 	},
 	{
 		label: 'Суроо-жооп',
-		to: paths['q&a'],
-		icon: Icons.QA
+		to: paths['questions'],
+		icon: Icons.Questions
 	},
 	{
 		className: 'l',

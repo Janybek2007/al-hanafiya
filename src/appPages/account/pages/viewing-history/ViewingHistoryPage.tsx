@@ -4,6 +4,7 @@ import { paths } from '$/shared/routing';
 import { EmptyState, Loading } from '$/shared/ui';
 import React from 'react';
 import styles from './ViewingHistoryPage.module.scss';
+import { formatDate } from '$/shared/utils'
 
 const ViewingHistoryPage: React.FC = () => {
 	const { data, isLoading, error } = useAccounts().page;
@@ -15,7 +16,7 @@ const ViewingHistoryPage: React.FC = () => {
 	if (error) {
 		return (
 			<div className={styles.error}>
-				Ошибка загрузки истории просмотров: {error.toString()}
+				Көрүү тарыхын жүктөөдө ката кетти: {error.toString()}
 			</div>
 		);
 	}
@@ -28,30 +29,23 @@ const ViewingHistoryPage: React.FC = () => {
 		return (
 			<EmptyState
 				icon='History'
-				title='История просмотров пуста'
-				description='Вы еще не начали просмотр уроков. Начните прямо сейчас, чтобы увидеть
-					вашу историю!'
-				link={{ href: paths.lessons.index, label: 'Перейти к урокам' }}
+				title='Көрүү тарыхы бош'
+				description='Сиз азырынча сабактарды көрө элексиз. Азыр баштаңыз, көрүү тарыхыңызды көрүү үчүн!'
+				link={{ href: paths.lessons.index, label: 'Сабактарга өтүү' }}
 			/>
 		);
 	}
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>История просмотров</h1>
+			<h1 className={styles.title}>Көрүү тарыхы</h1>
 			<div className={styles.historyList}>
 				{viewing_history.map(entry => (
 					<div key={entry.lesson_id} className={styles.historyItem}>
 						<div className={styles.itemHeader}>
 							<span className={styles.lessonSlug}>{entry.lesson_slug}</span>
 							<span className={styles.timestamp}>
-								{new Date(entry.timestamp).toLocaleDateString('ru-RU', {
-									day: '2-digit',
-									month: '2-digit',
-									year: 'numeric',
-									hour: '2-digit',
-									minute: '2-digit'
-								})}
+								{formatDate(entry.timestamp).DDMMYYYY_HHMM}
 							</span>
 						</div>
 						<div className={styles.itemDetails}>
@@ -62,11 +56,10 @@ const ViewingHistoryPage: React.FC = () => {
 								<strong>Тема:</strong> {entry.topic_name}
 							</p>
 							<p>
-								<strong>Последний просмотр:</strong> {entry.last_viewed}
+								<strong>Акыркы көрүү:</strong> {entry.last_viewed}
 							</p>
 							<p>
-								<strong>Длительность просмотра:</strong>{' '}
-								{entry.duration_watched}
+								<strong>Көрүү узактыгы:</strong> {entry.duration_watched}
 							</p>
 						</div>
 					</div>

@@ -52,6 +52,12 @@ const notificationsApi = api.injectEndpoints({
 				body
 			})
 		}),
+		deletePushSubscription: builder.mutation<void, IdArg>({
+			query: arg => ({
+				url: `/notifications/push-subscriptions/${arg.id}/`,
+				method: 'DELETE'
+			})
+		}),
 
 		notificationSettings: builder.query<NotificationSettings, void>({
 			query: () => ({
@@ -81,5 +87,6 @@ export const {
 	useMarkAllNotificationsAsReadMutation,
 	useRegisterPushSubscriptionMutation,
 	useNotificationSettingsQuery,
-	useUpdateNotificationSettingsMutation
+	useUpdateNotificationSettingsMutation,
+	useDeletePushSubscriptionMutation
 } = notificationsApi;

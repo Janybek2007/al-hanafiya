@@ -8,7 +8,7 @@ import { ApiMedia } from '$/shared/constants/url.constants';
 import clsx from 'clsx';
 import { menuItems } from './const';
 
-export const Sidebar: React.FC = () => {
+const Sidebar: React.FC = () => {
 	const { accounts_me } = useAccounts();
 	const telegram = accounts_me.data?.profile.telegram.trim()
 		? accounts_me.data?.profile.telegram
@@ -37,7 +37,7 @@ export const Sidebar: React.FC = () => {
 				</div>
 				<div className={styles.profileInfo}>
 					<h3 className={styles.name}>{accounts_me.data?.username}</h3>
-					<p className={styles.handle}>{telegram}</p>
+					<p className={styles.handle}>@{telegram}</p>
 					<div className={styles.progress}>
 						<span>Окуу прогресси: 0%</span>
 						<div className={styles.progressBar}>

@@ -257,7 +257,7 @@
 		}
 
 		.suggestion_item {
-			--item-font-size: clamp(14px, 1.8vw, 16px);
+			--item-font-size: clamp(16px, 2vw, 18px);
 			--item-color: rgb(37, 44, 50);
 			--arrow-color: #666;
 			--icon-size: 20px;
@@ -267,6 +267,7 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+			padding: 6px 1px;
 			.info {
 				display: flex;
 				flex-direction: column;

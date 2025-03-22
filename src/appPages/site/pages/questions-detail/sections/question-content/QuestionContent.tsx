@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './QAContent.module.scss';
+import s from './QuestionContent.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { QuestionByIdResponse } from '$/entities/questions';
@@ -9,9 +9,9 @@ interface IProps {
 	question: QuestionByIdResponse;
 }
 
-const QAContent: React.FC<IProps> = ({ question }) => {
+const QuestionContent: React.FC<IProps> = ({ question }) => {
 	return (
-		<div className={s.qa_content}>
+		<div className={s.question_content}>
 			<div className={s['share']}>
 				<button className='inlineFlexCenter'>
 					<Image
@@ -63,4 +63,4 @@ const QAContent: React.FC<IProps> = ({ question }) => {
 	);
 };
 
-export default QAContent;
+export default QuestionContent;

@@ -13,30 +13,25 @@ interface NotificationsContextType {
 	notifications: NotificationItem[];
 	notify: (title: string, message: string) => void;
 	isPushSupported: boolean;
-	isSubscribed: boolean;
+	subscriptionData: object | null;
 }
 
-const NotificationsContext = createContext<NotificationsContextType>({
-	notifications: [],
-	notify: () => {},
-	isPushSupported: false,
-	isSubscribed: false
-});
+const NotificationsContext = createContext<
+	NotificationsContextType | undefined
+>(undefined);
 
 export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 	children
 }) => {
-	const [isSubscribed, setIsSubscribed] = useLocalstorageState<boolean>(
-		'isSubscribed',
-		false
-	);
-
+	const [subscriptionData, setSubscriptionData] = useLocalstorageState<
+		object | null
+	>('pushSubscriptionData', null);
 	const [isPushEnabled] = useLocalstorageState<boolean>('push_enabled', false);
 
 	const [registerPushSubscription] = useRegisterPushSubscriptionMutation();
 	const { data: notificationsData } = useNotificationsQuery();
 	const { registration } = useSW();
-	const notifications = notificationsData?.results || [];
+	const notifications = notificationsData || [];
 	const isPushSupported =
 		'serviceWorker' in navigator && 'PushManager' in window;
 
@@ -54,7 +49,14 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 	}, []);
 
 	const initializePush = React.useCallback(async () => {
-		if (!isPushSupported || !registration || !VAPID_PUBLIC_KEY) return;
+		if (
+			!isPushSupported ||
+			!registration ||
+			!VAPID_PUBLIC_KEY ||
+			subscriptionData
+		)
+			return;
+
 		try {
 			const permission = await Notification.requestPermission();
 			if (permission !== 'granted') return;
@@ -65,7 +67,7 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 				applicationServerKey
 			});
 
-			const subscriptionData = {
+			const newSubscriptionData = {
 				subscription_info: {
 					endpoint: subscription.endpoint,
 					keys: {
@@ -77,38 +79,31 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 				device: window.innerWidth > 768 ? 'Desktop' : 'Mobile'
 			};
 
-			registerPushSubscription(subscriptionData);
-			setIsSubscribed(true);
+			await registerPushSubscription(newSubscriptionData);
+			setSubscriptionData(newSubscriptionData);
 			console.log('Push-подписка зарегистрирована');
 		} catch (error) {
 			console.error('Ошибка инициализации push:', error);
-			setIsSubscribed(false);
 		}
 	}, [
 		isPushSupported,
 		registration,
-		registerPushSubscription,
+		subscriptionData,
 		urlBase64ToUint8Array,
-		setIsSubscribed
+		registerPushSubscription,
+		setSubscriptionData
 	]);
 
 	const notify = React.useCallback(
 		async (title: string, message: string) => {
 			if (!isPushSupported || !registration || !isPushEnabled) {
-				console.log(
-					'Push not supported or SW not registered, using alert:',
-					title,
-					message
-				);
+				console.log('Push not supported or SW not registered:', title, message);
 				return;
 			}
 
 			if (Notification.permission !== 'granted') {
-				const permission = await Notification.requestPermission();
-				if (permission !== 'granted') {
-					console.log('Notification permission denied');
-					return;
-				}
+				console.log('Notification permission denied');
+				return;
 			}
 
 			try {
@@ -127,59 +122,18 @@ export const NotificationsProvider: React.FC<{ children: React.ReactNode }> = ({
 	useEffect(() => {
 		if (!registration || !isPushEnabled) return;
 
-		const handleSubscriptionChange = async (event: MessageEvent) => {
-			if (event.data.type === 'SUBSCRIPTION_CHANGE') {
-				const subscriptionData = {
-					subscription_info: {
-						endpoint: event.data.subscription.endpoint,
-						keys: {
-							p256dh: event.data.subscription.toJSON().keys?.p256dh || '',
-							auth: event.data.subscription.toJSON().keys?.auth || ''
-						}
-					},
-					browser: (() => {
-						const ua = navigator.userAgent;
-						if (ua.includes('Chrome') && !ua.includes('Edg')) return 'Chrome';
-						if (ua.includes('Firefox')) return 'Firefox';
-						if (ua.includes('Safari') && !ua.includes('Chrome'))
-							return 'Safari';
-						if (ua.includes('Edg')) return 'Edge';
-						if (ua.includes('Opera') || ua.includes('OPR')) return 'Opera';
-						if (ua.includes('MSIE') || ua.includes('Trident'))
-							return 'Internet Explorer';
-						return 'Other';
-					})(),
-					device: window.innerWidth > 768 ? 'Desktop' : 'Mobile'
-				};
-				registerPushSubscription(subscriptionData);
-				setIsSubscribed(true);
-			}
-		};
+		if (subscriptionData) {
+			return;
+		}
 
-		navigator.serviceWorker.addEventListener(
-			'message',
-			handleSubscriptionChange
-		);
 		initializePush();
-
-		return () =>
-			navigator.serviceWorker.removeEventListener(
-				'message',
-				handleSubscriptionChange
-			);
-	}, [
-		registration,
-		initializePush,
-		registerPushSubscription,
-		setIsSubscribed,
-		isPushEnabled
-	]);
+	}, [registration, initializePush, isPushEnabled, subscriptionData]);
 
 	const contextValue: NotificationsContextType = {
 		notifications,
 		notify,
 		isPushSupported,
-		isSubscribed
+		subscriptionData
 	};
 
 	return (

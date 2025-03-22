@@ -27,7 +27,7 @@ export const ArticleItem: React.FC<ArticleItemProps> = ({
 	const { content, created_at, image_url, slug, title } = item;
 	const { push } = useRouter();
 
-	const image_src = image_url.includes('http')
+	const image_src = image_url?.includes('http')
 		? image_url
 		: ApiMedia(image_url);
 

@@ -10,8 +10,8 @@ export const paths = {
 			`/lessons/m/${mSlug}?slug=${lSlug}`,
 		with_topic: (slug: string) => `/lessons/t/${slug}`
 	},
-	['q&a']: '/q&a',
-	['q&aDetail']: (id: number | string) => `/q&a/${id}`,
+	questions: '/questions',
+	questionsDetail: (id: number | string) => `/questions/${id}`,
 	articles: '/articles',
 	contacts: '/contacts',
 	meetings: '/meetings'

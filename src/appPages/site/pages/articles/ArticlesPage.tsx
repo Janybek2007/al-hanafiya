@@ -1,33 +1,10 @@
 'use client';
-import {
-	ArticleItem,
-	articles,
-	useGetArticlesByLatestQuery
-} from '$/entities/articles';
+import { ArticleItem, useGetArticlesByLatestQuery } from '$/entities/articles';
 import { Breadcrumb, Loading, Pagination, SectionTitle } from '$/shared/ui';
 import { useSize } from '$/shared/utils';
 import React from 'react';
 import scss from './ArticlesPage.module.scss';
 import Filtiration from './sections/filtration/Filtiration';
-
-const TheMostWidelyRead = {
-	...articles[0],
-	image_src: '/images/article-card.png',
-	category: 'Викх'
-};
-
-const LastThirdWidelyRead = Array.from({ length: 3 }, (_, idx) => ({
-	title: 'Можно ли мусульманам изучать психологию?',
-	date: '25.01.2025',
-	views: 15,
-	id: `article_l_${idx}`,
-	description:
-		'Последние исследования в области изучения активности в интернете приводят данные, что их аудиторией являются  люди всех возрастов',
-	image_src: '/images/article-list.png',
-	category: 'Викх'
-}));
-
-const totalArticles = [TheMostWidelyRead, ...LastThirdWidelyRead, ...articles];
 
 const ArticlesPage: React.FC = () => {
 	const [tags, setTags] = React.useState({ label: 'Все', value: 'all' });

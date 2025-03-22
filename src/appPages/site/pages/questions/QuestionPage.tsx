@@ -9,15 +9,14 @@ import {
 } from '$/shared/ui';
 import Image from 'next/image';
 import { useState } from 'react';
-import scss from './QAPage.module.scss';
+import scss from './QuestionPage.module.scss';
 import AskQuestion from './sections/AskQuestion/AskQuestion';
 import QuestionList from '$/widgets/question-list/QuestionList';
 import { useGuestionsQuery } from '$/entities/questions';
 
-const QuestionsAndAnswerPage: React.FC = () => {
+const QuestionPage: React.FC = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const { data, isLoading, error } = useGuestionsQuery({});
-
 	return (
 		<main>
 			<div className='container'>
@@ -93,4 +92,4 @@ const QuestionsAndAnswerPage: React.FC = () => {
 	);
 };
 
-export default QuestionsAndAnswerPage;
+export default QuestionPage;

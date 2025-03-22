@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { AccountMe } from '$/entities/account';
-import { UpdateAccountDto, UpdateAccountDtoSchema } from './contract'
-import { useUpdateAccountMutation, useUpdateAvatarMutation } from './redux'
+import { UpdateAccountDto, UpdateAccountDtoSchema } from './contract';
+import { useUpdateAccountMutation, useUpdateAvatarMutation } from './redux';
 
 interface IUpdateAccountContext {
 	onSubmit: (e?: React.BaseSyntheticEvent) => Promise<void>;
@@ -70,11 +70,11 @@ export const UpdateAccountProvider: React.FC<IUpdateAccountProvider> = ({
 			try {
 				if (hasChanged) {
 					await mutate(data).unwrap();
-					alert('Account updated successfully!');
+					alert('Аккаунт ийгиликтүү жаңыртылды!');
 				}
 				if (file) {
 					await updateAvatarMutate(file).unwrap();
-					alert('Avatar updated successfully!');
+					alert('Аватар ийгиликтүү жаңыртылды!');
 				}
 			} finally {
 				setLoading(false);
