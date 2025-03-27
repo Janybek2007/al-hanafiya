@@ -25,7 +25,7 @@ export interface LikeCommentResponse {
 }
 
 export interface CommentItem {
-	id: number
+	id: number;
 	content: string;
 	username: string;
 	avatar: string;
@@ -35,4 +35,5 @@ export interface CommentItem {
 	replies: CommentItem[];
 	parent: number;
 	user_id: string;
+	reply?: { username: string };
 }

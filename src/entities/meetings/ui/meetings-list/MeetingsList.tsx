@@ -13,7 +13,7 @@ export const MeetingsList = () => {
 	if (isLoading) return <Loading />;
 
 	if (error || !event || !Array.isArray(events)) {
-		return <div>Ошибка загрузки прогресса обучения: {error?.toString()}</div>;
+		return <div>Ошибка загрузки встреч: {error?.toString()}</div>;
 	}
 	return (
 		<div className={styles.meetings_list}>

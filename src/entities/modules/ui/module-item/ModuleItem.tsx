@@ -1,38 +1,34 @@
 'use client';
 import React from 'react';
 import styles from './ModuleItem.module.scss';
-import Link from 'next/link';
 import clsx from 'clsx';
 import { IoIosCheckmark } from 'react-icons/io';
 import { Icon } from '$/shared/ui';
 import { secondsToTime } from '$/shared/utils';
-import { parseAsBoolean, useQueryState } from 'nuqs';
+import { useQueryState } from 'nuqs';
 import { LessonItem } from '$/entities/lessons';
-import { paths } from '$/shared/routing';
+import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
+import { setPlaying } from '$/shared/redux/slices/audio-player';
 
 interface IProps {
 	lessons: LessonItem[];
-	activeLesson: LessonItem | undefined;
-	moduleSlug: string;
 }
 
-export const ModuleItem: React.FC<IProps> = ({
-	lessons,
-	activeLesson,
-	moduleSlug
-}) => {
-	const [isPlaying, setIsPlaying] = useQueryState(
-		'playing',
-		parseAsBoolean.withDefault(false)
-	);
+export const ModuleItem: React.FC<IProps> = ({ lessons }) => {
+	const { playing, loading } = useAppSelector(s => ({
+		playing: s.audioPlayer.isPlaying,
+		loading: s.audioPlayer.isLoading
+	}));
+	const dispath = useAppDispatch();
+	const [lessonSlug, setLessonSlug] = useQueryState('slug');
 
 	return (
 		<div className={styles.lessons}>
 			{lessons.map(l => {
-				const isActive = l.id === activeLesson?.id;
+				const isActive = l.slug === lessonSlug;
 				return (
-					<Link
-						href={paths.lessons.with_module(moduleSlug, l.slug)}
+					<div
+						onClick={() => setLessonSlug(l.slug)}
 						className={clsx(styles.lesson, {
 							[styles.active]: isActive
 						})}
@@ -49,16 +45,26 @@ export const ModuleItem: React.FC<IProps> = ({
 							<h4 className={styles.title}>{l.slug}</h4>
 						</div>
 						<div className={styles.row}>
-							<button onClick={() => setIsPlaying(p => !p)}>
+							<button onClick={() => loading && dispath(setPlaying(!playing))}>
 								<Icon
-									className='flexCenter'
+									className={clsx(
+										loading && isActive && `loaderAnimation`,
+										styles.icon,
+										'flexCenter'
+									)}
 									size='sm'
-									name={isActive && isPlaying ? 'Pause' : 'Play'}
+									name={
+										isActive && loading
+											? 'Loader2'
+											: isActive && playing
+											? 'Pause'
+											: 'Play'
+									}
 								/>
 							</button>
 							<span>{secondsToTime(500)}</span>
 						</div>
-					</Link>
+					</div>
 				);
 			})}
 		</div>

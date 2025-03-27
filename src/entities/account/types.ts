@@ -5,7 +5,8 @@ export const AccountEndpoints = [
 	'my_questions',
 	'viewing_history',
 	'notifications',
-	'learning_progress'
+	'learning_progress',
+	'telegram_status'
 ] as const;
 
 export type TAccountEndpoints = (typeof AccountEndpoints)[number];

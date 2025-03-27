@@ -59,14 +59,24 @@ const MyQuestionsPage: React.FC = () => {
 					<strong>Сиздин сурооңуз:</strong>
 					<span>{question.content}</span>
 				</p>
-				<p className={styles.detailItem}>
+				<div className={styles.detailItem}>
 					<strong>Жооп:</strong>
 					{question.is_answered && question.answer ? (
-						<span className={styles.answer}>{question.answer.content}</span>
+						<p
+							className={styles.answer}
+							dangerouslySetInnerHTML={{
+								__html: `${question.answer.content.slice(
+									0,
+									300
+								)}...<a href="${paths.questionsDetail(
+									question.id
+								)}" target="_blank" class="${styles.more}">Толугураак</a>`
+							}}
+						/>
 					) : (
 						<span>Жооп жок</span>
 					)}
-				</p>
+				</div>
 				<p className={styles.detailItem}>
 					<strong>Жооп берилген күн:</strong>
 					<span>

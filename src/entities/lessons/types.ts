@@ -1,6 +1,6 @@
 import { DataWithPagination } from '$/shared/types';
-import { BaseArg } from '$/shared/types/api.types'
-import { CommentItem } from '../comments'
+import { BaseArg } from '$/shared/types/api.types';
+import { CommentItem } from '../comments';
 
 export enum ELessonFilters {
 	ALL = 'ALL',
@@ -15,13 +15,14 @@ export interface LessonArg extends BaseArg {
 	module?: number;
 	media_type?: LessonType;
 	is_intro?: boolean;
-};
+}
 
 export interface LessonItem {
 	id: number;
 	module: number;
 	media_type: LessonType;
 	media_file: string;
+	thumbnail_url: string | null;
 	is_intro: boolean;
 	order: number;
 	created_at: string;

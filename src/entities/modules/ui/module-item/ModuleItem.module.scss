@@ -1,5 +1,7 @@
 .lessons {
 	.lesson {
+		cursor: pointer;
+		width: 100%;
 		padding: 12px 20px;
 		display: flex;
 		align-items: center;
@@ -26,21 +28,25 @@
 		}
 
 		&.active .row {
-			color: #1D2026;
-			fill: #1D2026;
-			stroke: #1D2026;
+			color: #1d2026;
+			fill: #1d2026;
+			stroke: #1d2026;
 		}
 
 		&:not(.active) .row {
-			color: #A1A5B3;
-			fill: #A1A5B3;
-			stroke: #A1A5B3;
+			color: #a1a5b3;
+			fill: #a1a5b3;
+			stroke: #a1a5b3;
 		}
 
 		.row {
 			display: flex;
 			align-items: center;
 			gap: 12px;
+
+			.icon {
+				fill: transparent;
+			}
 
 			@media (max-width: 1280px) {
 				gap: 6px;
@@ -96,7 +102,7 @@
 		}
 
 		&.active {
-			background: linear-gradient(#00837915 0%, #1E4E4E15 100%) !important;
+			background: linear-gradient(#00837915 0%, #1e4e4e15 100%) !important;
 
 			.unchecked {
 				border: none;
@@ -111,26 +117,26 @@
 			position: relative;
 			padding: 10px;
 
-			@media (max-width:1280px) {
+			@media (max-width: 1280px) {
 				padding: 8px;
 			}
 
-			@media (max-width:1080px) {
+			@media (max-width: 1080px) {
 				padding: 6px;
 			}
 
 			&.unchecked {
 				background: white;
-				border: 1px solid #CED1D9;
+				border: 1px solid #ced1d9;
 
 				svg {
 					position: absolute;
-					color: #564FFD;
+					color: #564ffd;
 					width: 12px;
 					height: 12px;
 					margin-left: 1px;
 
-					@media (max-width:1080px) {
+					@media (max-width: 1080px) {
 						width: 10px;
 						height: 10px;
 					}
@@ -138,8 +144,7 @@
 			}
 
 			&.checked {
-				background: linear-gradient(var(--tertiary) 0%,
-						var(--primary) 100%);
+				background: linear-gradient(var(--tertiary) 0%, var(--primary) 100%);
 
 				svg {
 					position: absolute;
@@ -147,7 +152,7 @@
 					width: 20px;
 					height: 20px;
 
-					@media (max-width:1080px) {
+					@media (max-width: 1080px) {
 						width: 16px;
 						height: 16px;
 					}
@@ -156,7 +161,7 @@
 		}
 
 		&.active {
-			background: linear-gradient(#00837905 0%, #1E4E4E05 100%);
+			background: linear-gradient(#00837905 0%, #1e4e4e05 100%);
 		}
 	}
 }

@@ -1,18 +1,22 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
+import {
+	setPlaying,
+	setCurrentTime,
+	setDuration,
+	setVolume,
+	toggleMute,
+	setLoading,
+	setDragging,
+	setAudioSrc
+} from '$/shared/redux/slices/audio-player';
 import styles from './AudioPlayer.module.scss';
 import { secondsToTime } from '$/shared/utils';
 import Icon from '../icon/Icon';
-import { parseAsBoolean, useQueryState } from 'nuqs';
-
-interface Audio {
-	file: string;
-	name: string;
-	duration: number;
-}
 
 interface AudioPlayerProps {
-	audio: Audio;
+	audio: string;
 	onNext?: () => void;
 	onPrev?: () => void;
 	actions?: ('rewind' | 'step-back' | 'step-forward' | 'fast-forward')[];
@@ -26,112 +30,119 @@ export const AudioPlayer = ({
 	actions = ['rewind', 'fast-forward'],
 	onInstall
 }: AudioPlayerProps) => {
-	const [isPlaying, setIsPlaying] = useQueryState(
-		'playing',
-		parseAsBoolean.withDefault(false)
-	);
-	const [currentTime, setCurrentTime] = useState(0);
-	const [duration, setDuration] = useState(0);
-	const [volume, setVolume] = useState(1);
-	const [isMuted, setIsMuted] = useState(false);
+	const dispatch = useAppDispatch();
+	const {
+		isPlaying,
+		currentTime,
+		duration,
+		volume,
+		isMuted,
+		isLoading,
+		isDragging
+	} = useAppSelector(state => state.audioPlayer);
+
 	const audioRef = useRef<HTMLAudioElement>(null);
+	const progressBarRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (audioRef.current) {
-			audioRef.current.src = audio.file;
+			dispatch(setLoading(true));
+			dispatch(setAudioSrc(audio));
+			audioRef.current.src = audio;
 			audioRef.current.load();
 		}
-	}, [audio]);
-
-	useEffect(() => {
-		if (audioRef.current)
-			if (isPlaying) {
-				audioRef.current
-					.play()
-					.catch(err => console.warn('Autoplay failed', err));
-			} else {
-				audioRef.current.pause();
-			}
-	}, [audio, isPlaying]);
+	}, [audio, dispatch]);
 
 	useEffect(() => {
 		if (audioRef.current) {
 			audioRef.current.volume = volume;
-			audioRef.current.muted = volume === 0;
-			setIsMuted(volume === 0);
-		}
-	}, [volume]);
-
-	const handleLoadedMetadata = React.useCallback(() => {
-		if (audioRef.current) {
-			setDuration(audioRef.current.duration);
-		}
-	}, []);
-
-	const handleTimeUpdate = React.useCallback(() => {
-		if (audioRef.current) {
-			setCurrentTime(audioRef.current.currentTime);
-		}
-	}, []);
-
-	const handleEnded = React.useCallback(() => {
-		setIsPlaying(false);
-		if (onNext) onNext();
-	}, [onNext, setIsPlaying]);
-
-	const togglePlay = React.useCallback(() => {
-		if (audioRef.current) {
+			audioRef.current.muted = isMuted;
 			if (isPlaying) {
+				audioRef.current
+					.play()
+					.catch(err => console.warn('Playback failed', err));
+			} else {
 				audioRef.current.pause();
-			} else {
-				audioRef.current.play();
 			}
-			setIsPlaying(!isPlaying);
 		}
-	}, [isPlaying, setIsPlaying]);
+	}, [isPlaying, volume, isMuted]);
 
-	const handleProgressClick = React.useCallback(
-		(e: React.MouseEvent<HTMLDivElement>) => {
-			if (audioRef.current) {
-				const rect = e.currentTarget.getBoundingClientRect();
-				const percent = (e.clientX - rect.left) / rect.width;
-				audioRef.current.currentTime = percent * duration;
-			}
-		},
-		[duration]
-	);
+	const handleLoadedMetadata = () => {
+		if (audioRef.current) dispatch(setDuration(audioRef.current.duration));
+	};
 
-	const handleForward = React.useCallback(() => {
-		if (audioRef.current) audioRef.current.currentTime += 5;
-	}, []);
+	const handleTimeUpdate = () => {
+		if (audioRef.current)
+			dispatch(setCurrentTime(audioRef.current.currentTime));
+	};
 
-	const handleRewind = React.useCallback(() => {
-		if (audioRef.current) audioRef.current.currentTime -= 5;
-	}, []);
+	const handleEnded = () => {
+		dispatch(setPlaying(false));
+		if (onNext) onNext();
+	};
 
-	const handleVolumeChange = React.useCallback(
-		(e: React.ChangeEvent<HTMLInputElement>) => {
-			const newVolume = parseFloat(e.target.value);
-			setVolume(newVolume);
-			if (audioRef.current) {
-				audioRef.current.muted = newVolume === 0;
-			}
-		},
-		[]
-	);
+	const handleCanPlay = () => {
+		dispatch(setLoading(false));
+	};
 
-	const toggleMute = React.useCallback(() => {
+	const togglePlay = () => {
+		dispatch(setPlaying(!isPlaying));
+	};
+
+	const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (audioRef.current) {
-			if (isMuted) {
-				setVolume(1);
-				audioRef.current.muted = false;
-			} else {
-				setVolume(0);
-				audioRef.current.muted = true;
-			}
-			setIsMuted(!isMuted);
+			const rect = e.currentTarget.getBoundingClientRect();
+			const percent = (e.clientX - rect.left) / rect.width;
+			audioRef.current.currentTime = percent * duration;
 		}
-	}, [isMuted]);
+	};
+
+	const handleMouseDown = () => {
+		dispatch(setDragging(true));
+	};
+
+	const handleMouseMove = React.useCallback(
+		(e: MouseEvent) => {
+			if (isDragging && audioRef.current && progressBarRef.current) {
+				const rect = progressBarRef.current.getBoundingClientRect();
+				const percent = Math.min(
+					Math.max((e.clientX - rect.left) / rect.width, 0),
+					1
+				);
+				const newTime = percent * duration;
+				audioRef.current.currentTime = newTime;
+				dispatch(setCurrentTime(newTime));
+			}
+		},
+		[dispatch, duration, isDragging]
+	);
+
+	const handleMouseUp = React.useCallback(() => {
+		dispatch(setDragging(false));
+	}, [dispatch]);
+
+	useEffect(() => {
+		if (isDragging) {
+			window.addEventListener('mousemove', handleMouseMove);
+			window.addEventListener('mouseup', handleMouseUp);
+		}
+		return () => {
+			window.removeEventListener('mousemove', handleMouseMove);
+			window.removeEventListener('mouseup', handleMouseUp);
+		};
+	}, [isDragging, duration, handleMouseMove, handleMouseUp]);
+
+	const handleForward = () => {
+		if (audioRef.current) audioRef.current.currentTime += 5;
+	};
+
+	const handleRewind = () => {
+		if (audioRef.current) audioRef.current.currentTime -= 5;
+	};
+
+	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch(setVolume(parseFloat(e.target.value)));
+	};
 
 	const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
 
@@ -142,10 +153,17 @@ export const AudioPlayer = ({
 				onLoadedMetadata={handleLoadedMetadata}
 				onTimeUpdate={handleTimeUpdate}
 				onEnded={handleEnded}
+				onCanPlay={handleCanPlay}
 			/>
 
-			<div className={styles.progressBar} onClick={handleProgressClick}>
-				<div className={styles.progress} style={{ width: `${progress}%` }} />
+			<div
+				className={styles.progressBar}
+				ref={progressBarRef}
+				onClick={handleProgressClick}
+			>
+				<div className={styles.progress} style={{ width: `${progress}%` }}>
+					<div className={styles.thumb} onMouseDown={handleMouseDown} />
+				</div>
 			</div>
 
 			<div className={styles.controls}>
@@ -162,8 +180,17 @@ export const AudioPlayer = ({
 						</button>
 					)}
 
-					<button className={styles.controlButton} onClick={togglePlay}>
-						{isPlaying ? (
+					<button
+						className={styles.controlButton}
+						onClick={!isLoading ? togglePlay : undefined}
+					>
+						{isLoading ? (
+							<Icon
+								className={`loaderAnimation ${styles.icon}`}
+								name='Loader2'
+								c_size={22}
+							/>
+						) : isPlaying ? (
 							<Icon className={styles.icon} name='Pause' c_size={26} />
 						) : (
 							<Icon className={styles.icon} name='Play' c_size={26} />
@@ -192,7 +219,7 @@ export const AudioPlayer = ({
 					<div className={styles.volumeControls}>
 						<button
 							className={styles.controlButton}
-							onClick={toggleMute}
+							onClick={() => dispatch(toggleMute())}
 							aria-label={isMuted ? 'Unmute' : 'Mute'}
 						>
 							{isMuted ? (

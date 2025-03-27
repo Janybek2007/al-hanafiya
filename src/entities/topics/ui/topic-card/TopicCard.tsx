@@ -26,7 +26,7 @@ export const TopicCard: React.FC<IProps> = ({ topic }) => {
 			</figure>
 			<div className={styles['content']}>
 				<div className={styles.top}>
-					<h4>{name}</h4>
+					<h4>Тема: {name}</h4>
 					{/* <div className={styles.progress}>
 						<hr
 							className={styles.progress_line}

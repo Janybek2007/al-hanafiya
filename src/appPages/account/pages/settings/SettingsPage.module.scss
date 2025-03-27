@@ -1,5 +1,9 @@
 .wrapper {
+	margin: 0 20px;
 	padding: 20px;
+	border-radius: 12px;
+	background: #f9f9f9;
+	height: max-content;
 
 	.settings {
 		width: 100%;
@@ -74,7 +78,7 @@
 	.saveButton {
 		margin-top: 10px;
 		background: var(--tertiary);
-		color: #fff;
+		color: var(--white);
 		padding: 10px 20px;
 		border-radius: 4px;
 		font-size: 16px;

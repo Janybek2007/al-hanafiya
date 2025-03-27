@@ -55,14 +55,10 @@ const ArticleContent: React.FC<IProps> = ({ detail }) => {
 						</figure>
 						<div
 							className={styles.p}
-							dangerouslySetInnerHTML={{ __html: detail.short_description }}
+							dangerouslySetInnerHTML={{ __html: detail.content }}
 						/>
 					</div>
 				</div>
-				<div
-					className={styles.p}
-					dangerouslySetInnerHTML={{ __html: detail.content }}
-				/>
 				<div className={styles['end']}>
 					<div className={styles['contact']}>
 						<h5>Байланышуу :</h5>
@@ -107,23 +103,5 @@ const ArticleContent: React.FC<IProps> = ({ detail }) => {
 		</section>
 	);
 };
-
-const content = `
- <p>Иенем Аллаха Милостивого, Милосердного</p>
-  <p>Ас-саляму 'алейкум ва рахматуллахи ва баракатух!</p>
-  <p>
-    Если размер общественного бассейна превышает <strong>20.9 м²</strong>, то это считается
-    большим количеством воды и она не становится нечистой по причине того, что в
-    нёй плавают немусульмане.
-  </p>
-  <p>
-    Если бассейн меньше <strong>20.9 м²</strong>, то, если перед плаванием немусульманин
-    искупался, вода будет чистой, так как на нём нет нечистот. Если же перед
-    плаванием он не искупался, и есть уверенность, что до плавания на нём были
-    нечистоты, то вода может считаться нечистой.
-  </p>
-  <p>Иенем Аллаха Милостивого, Милосердного</p>
-  <p>Ас-саляму 'алейкум ва рахматуллахи ва баракатух!</p>
-`;
 
 export default ArticleContent;

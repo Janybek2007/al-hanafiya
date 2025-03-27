@@ -15,7 +15,7 @@ const HeaderEnd: React.FC = () => {
 	return (
 		<>
 			<AnimatePresence initial={false}>
-				{!!term && <SearchCommand term={term} setTerm={setTerm} />}
+				{term !== null && <SearchCommand term={term} setTerm={setTerm} />}
 			</AnimatePresence>
 			<div className={styles.header_end}>
 				<button onClick={() => setTerm('')} className={styles.search_button}>

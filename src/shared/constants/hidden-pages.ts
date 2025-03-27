@@ -1,6 +1,7 @@
 export const hiddenPages = [
 	'/articles/*',
 	'/lessons/t/*',
-	'/lessons/m/*',
+	'/lessons/c/*',
+	'/lessons/*',
 	'/questions/*'
 ];

@@ -19,6 +19,7 @@ const TopicDetailPage: React.FC<{ topicSlug: string }> = ({ topicSlug }) => {
 		isLoading: modulesLoading,
 		error: modulesError
 	} = useModulesQuery({ topic: topic?.id });
+
 	return (
 		<main className={styles.main}>
 			<section className={'back_section'}>
@@ -38,7 +39,7 @@ const TopicDetailPage: React.FC<{ topicSlug: string }> = ({ topicSlug }) => {
 							description='Произошла ошибка при загрузке темы. Попробуйте ещё раз.'
 						/>
 					) : (
-						topic && <TopicHead topic={topic} module_count={modules?.count} />
+						topic && <TopicHead first_module_id={modules?.results[0].id} topic={topic} module_count={modules?.count} />
 					)}
 
 					{modulesLoading ? (

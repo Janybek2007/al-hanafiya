@@ -14,6 +14,11 @@ body {
 	}
 }
 
+.bprogress {
+	position: fixed;
+	top: 0;
+}
+
 .loaderState {
 	width: 100%;
 	height: 100%;
@@ -26,6 +31,7 @@ body {
 
 .loaderAnimation {
 	animation: loadA 0.8s linear infinite;
+	will-change: transform;
 	&.mr {
 		margin-right: 8px;
 	}

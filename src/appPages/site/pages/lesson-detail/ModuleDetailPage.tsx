@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { useModuleBySlugQuery, useModulesQuery } from '$/entities/modules';
 import { BackButton, EmptyState, Loading } from '$/shared/ui';
 import ModuleContent from './sections/module-content/ModuleContent';
-import styles from './ModuleDetailPage.module.scss';
 import ModuleComments from './sections/module-comments/ModuleComments';
 import { useQueryState } from 'nuqs';
 
@@ -28,7 +27,7 @@ const ModuleDetailPage: React.FC<IProps> = props => {
 	return (
 		<main>
 			<section className={'back_section'}>
-				<div className={clsx('container', styles.container)}>
+				<div className={clsx('container')}>
 					<BackButton />
 				</div>
 			</section>
@@ -42,7 +41,7 @@ const ModuleDetailPage: React.FC<IProps> = props => {
 					description='Произошла ошибка при загрузке данных. Попробуйте ещё раз.'
 				/>
 			) : module && modules ? (
-				<div className={clsx('container', styles.container)}>
+				<div className={clsx('container')}>
 					<ModuleContent
 						modules={modules.results}
 						lessonSlug={lessonSlug}

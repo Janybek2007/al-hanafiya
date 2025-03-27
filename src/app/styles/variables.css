@@ -3,16 +3,12 @@
 	--inter: 'Inter', sans-serif;
 
 	--primary-gradient: var(--tertiary), var(--primary);
-	--bg-linear-gradient: linear-gradient(
-		179.08deg,
-		var(--tertiary) 10.265%,
-		var(--primary) 130.731%
-	);
-	--bg-linear-gradient-hover: linear-gradient(
-		179.08deg,
-		var(--tertiary) 10.265%,
-		var(--primary) 180.731%
-	);
+	--bg-linear-gradient: linear-gradient(179.08deg,
+			var(--tertiary) 10.265%,
+			var(--primary) 130.731%);
+	--bg-linear-gradient-hover: linear-gradient(179.08deg,
+			var(--tertiary) 10.265%,
+			var(--primary) 180.731%);
 
 	--error: #e84f6d;
 	--h1: #252c32;

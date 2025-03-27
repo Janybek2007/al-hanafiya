@@ -34,8 +34,8 @@
 
 		.row {
 			display: flex;
-			align-items: center;
-			gap: clamp(1.5rem, 0.071rem + 2.86vw, 2.75rem);
+			align-items: flex-start;
+			gap: clamp(1rem, 0.031rem + 2.2vw, 2rem);
 			margin-bottom: clamp(0.938rem, 0.08rem + 1.71vw, 1.688rem);
 			img {
 				width: clamp(21.875rem, 6.161rem + 31.43vw, 35.625rem);

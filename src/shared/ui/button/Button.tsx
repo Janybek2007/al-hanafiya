@@ -1,9 +1,10 @@
 'use client';
-import { useRouter } from '@bprogress/next';
 import clsx from 'clsx';
+import Link from 'next/link';
 import React from 'react';
 import styles from './Button.module.scss';
 import { ButtonProps } from './button.types';
+
 const Button: React.FC<ButtonProps> = ({
 	children,
 	variant = 'solid',
@@ -12,9 +13,10 @@ const Button: React.FC<ButtonProps> = ({
 	linearGradient = 'v1',
 	...props
 }) => {
-	const route = useRouter();
+	const Component = props.as === 'a' ? Link : 'button';
+
 	return (
-		<button
+		<Component
 			className={clsx(
 				styles.button,
 				styles[variant],
@@ -23,13 +25,13 @@ const Button: React.FC<ButtonProps> = ({
 				className
 			)}
 			{...props}
-			onClick={e => {
+			href={props.as === 'a' ? props.to || '' : '#'}
+			onClick={(e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
 				if (props.onClick) props.onClick(e);
-				if (props.to) route.push(props.to);
 			}}
 		>
 			{children}
-		</button>
+		</Component>
 	);
 };
 

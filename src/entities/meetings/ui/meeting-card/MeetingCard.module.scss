@@ -32,10 +32,14 @@
 		padding: var(--card-content-padding);
 
 		p {
-			color: rgb(37, 44, 50);
 			font-size: var(--p-font-size);
 			font-weight: 550;
 			line-height: var(--p-line-height);
+			a {
+				cursor: pointer;
+				color: rgb(63, 63, 197);
+				font-size: 14px;
+			}
 		}
 
 		ul {

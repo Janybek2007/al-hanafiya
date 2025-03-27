@@ -43,7 +43,8 @@
 			gap: var(--row-gap);
 			margin-bottom: var(--row-margin-bottom);
 
-			span {
+			span,
+			a {
 				display: flex;
 				align-items: center;
 				justify-content: center;

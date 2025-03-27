@@ -4,6 +4,7 @@ import { useUpdateAccount } from './context';
 import { Icon } from '$/shared/ui';
 import { ApiMedia } from '$/shared/constants/url.constants';
 import Image from 'next/image';
+import { useAccountsByEndpointQuery } from '$/entities/account';
 
 export const UpdateAccount: React.FC = () => {
 	const {
@@ -16,7 +17,12 @@ export const UpdateAccount: React.FC = () => {
 		selectFile,
 		avatar
 	} = useUpdateAccount();
+	const { data, isLoading: tgLoading } = useAccountsByEndpointQuery({
+		endpoint: 'telegram_status'
+	});
+	console.log(data)
 
+	const tg = data as { telegram: string; is_activated: boolean };
 	return (
 		<form onSubmit={onSubmit}>
 			<div className={styles.top}>
@@ -85,19 +91,21 @@ export const UpdateAccount: React.FC = () => {
 						/>
 					</div>
 				))}
-				<div className={styles.tgInfo}>
-					{values.profile?.telegram && values.profile.telegram.trim() !== '' ? (
-						<>
-							<Icon className={styles.icon} name='Check' /> Telegram-бот
-							активдештирилди
-						</>
-					) : (
-						<>
-							<Icon className={styles.icon} name='X' /> Telegram-бот
-							активдештирилген жок
-						</>
-					)}
-				</div>
+				{!tgLoading && tg && (
+					<div className={styles.tgInfo}>
+						{tg.is_activated && tg.telegram.trim() !== '' ? (
+							<>
+								<Icon className={styles.icon} name='Check' /> Telegram-бот
+								активдештирилди
+							</>
+						) : (
+							<>
+								<Icon className={styles.icon} name='X' /> Telegram-бот
+								активдештирилген жок
+							</>
+						)}
+					</div>
+				)}
 			</div>
 			<button disabled={!canSubmit} className={styles.saveButton}>
 				{isLoading && (

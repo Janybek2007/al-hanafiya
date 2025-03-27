@@ -9,7 +9,7 @@ export const Articles = () => {
 	if (isLoading) return <Loading />;
 
 	if (error || !articles || !Array.isArray(articles)) {
-		return <div>Ошибка загрузки прогресса обучения: {error?.toString()}</div>;
+		return <div>Ошибка загрузки статей: {error?.toString()}</div>;
 	}
 	return (
 		<HomeSectionProps

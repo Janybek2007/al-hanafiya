@@ -12,7 +12,6 @@ export interface ArticleItemDetail {
 	id: number;
 	title: string;
 	content: string;
-	short_description: string;
 	image: string;
 	image_url: string;
 	created_at: string;

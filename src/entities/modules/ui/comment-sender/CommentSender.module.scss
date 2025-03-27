@@ -18,6 +18,10 @@
 		font-family: var(--inter);
 	}
 
+	&.reply {
+		margin-left: clamp(30px, 3.125vw + 10px, 44px);
+	}
+
 	h4 {
 		font-size: var(--heading-font-size);
 		font-weight: 600;

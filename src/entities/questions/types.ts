@@ -40,7 +40,7 @@ export interface QuestionByIdResponse {
 
 export type QuestionsResponse = DataWithPagination<QuestionItem>;
 
-export type AnsweredQuestionsResponse = QuestionItem[];
+export type AnsweredQuestionsResponse = DataWithPagination<QuestionItem>;
 
 export interface NewQuestionArg {
 	data: { content: string };

@@ -44,10 +44,12 @@ const AskQuestion: React.FC<AskQuestionProps> = ({ isOpen, onClose }) => {
 		const response = await newQuestion({
 			data: { content: questionTerm }
 		}).unwrap();
-		if ('similar_questions' in response) {
+		if (response) {
 			alert('Билдирүү ийгиликтүү жөнөтүлдү');
+			setQuestionTerm('');
+			onClose();
 		}
-	}, [newQuestion, questionTerm]);
+	}, [newQuestion, questionTerm, onClose]);
 
 	useEffect(() => {
 		if (isOpen && inputRef.current) {

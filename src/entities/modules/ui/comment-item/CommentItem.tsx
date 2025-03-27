@@ -3,7 +3,7 @@ import styles from './CommentItem.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { CommentSender } from '../comment-sender/CommentSender';
-import React from 'react';
+import React, { useState } from 'react';
 import { useComment } from '$/features/comments';
 import { formatDate } from '$/shared/utils';
 import {
@@ -14,33 +14,50 @@ import { ApiMedia } from '$/shared/constants/url.constants';
 import { Icons } from '$/shared/components';
 import { Icon } from '$/shared/ui';
 import { motion, AnimatePresence } from 'framer-motion';
+import { parseAsString, useQueryState } from 'nuqs';
 
 interface IProps {
-	cm: IComment;
+	cm: Omit<IComment, 'replies'>;
 }
 
 export const CommentItem: React.FC<IProps> = ({ cm }) => {
 	const { setReply, reply, lessonSlug } = useComment();
 	const [mutate] = useLikeCommentMutation();
-	const [isAnimating, setIsAnimating] = React.useState(false);
+	const [isAnimating, setIsAnimating] = useState(false);
+	const [_reply, _setReply] = useQueryState('reply', parseAsString);
 
 	const handleLike = React.useCallback(async () => {
-		if (!lessonSlug) {
-			return;
-		}
+		if (!lessonSlug) return;
 		setIsAnimating(true);
 		await mutate({ data: { comment_id: cm.id }, slug: lessonSlug }).unwrap();
 		setTimeout(() => setIsAnimating(false), 1000);
 	}, [mutate, cm, lessonSlug]);
 
+	React.useEffect(() => {
+		if (_reply) {
+			document
+				.getElementById(_reply)
+				?.scrollIntoView({ behavior: 'smooth', });
+			setTimeout(() => {
+				_setReply(null);
+			}, 2000);
+		}
+	}, [_reply, _setReply]);
+
 	return (
-		<div className={styles['cm']}>
+		<div
+			id={`${cm.username}-${cm.id}`}
+			className={clsx(
+				styles['cm'],
+				_reply === `${cm.username}-${cm.id}` && styles.active
+			)}
+		>
 			<div className={styles['content']}>
 				<figure>
 					{cm.avatar ? (
 						<Image
-							width={200}
-							height={200}
+							width={32}
+							height={32}
 							quality={100}
 							loading='lazy'
 							src={ApiMedia(cm.avatar)}
@@ -67,7 +84,17 @@ export const CommentItem: React.FC<IProps> = ({ cm }) => {
 						</span>
 					</div>
 
-					<p className={styles.message}>{cm.content}</p>
+					<p className={styles.message}>
+						{cm.reply && (
+							<span
+								onClick={() => _setReply(`${cm.reply?.username}-${cm.parent}`)}
+								className={styles.reply}
+							>
+								@{cm.reply?.username}
+							</span>
+						)}{' '}
+						{cm.content}
+					</p>
 					<div className={styles['actions']}>
 						<button onClick={() => setReply(p => (p == null ? cm.id : null))}>
 							<Icons.ChatsCircle />

@@ -24,7 +24,9 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 				<Image width={402} height={247} src={image_src} alt='Meeting Image' />
 			</figure>
 			<div className={styles['card_content']}>
-				<p dangerouslySetInnerHTML={{ __html: description }} />
+				<p
+					dangerouslySetInnerHTML={{ __html: `${description.slice(0, 100)}...<a target="_blank">Толугураак</a>` }}
+				/>
 				<ul>
 					{forWomenOnly && (
 						<li>

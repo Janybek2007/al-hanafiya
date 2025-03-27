@@ -23,12 +23,12 @@ export const CommentSender: React.FC<IProps> = ({ replyId }) => {
 	}, [message, setReply, handleSendComment, replyId]);
 
 	return (
-		<div className={styles.comment_sender}>
+		<div className={`${styles.comment_sender} ${replyId && styles.reply}`}>
 			{!replyId && <h4>Комментарийлер</h4>}
 			<div className={styles['sender']}>
 				<div className={styles['input-field']}>
 					<label htmlFor='comment-i'>
-						<Icons.ChatsCircle/>
+						<Icons.ChatsCircle />
 					</label>
 					<textarea
 						name='comment-i'

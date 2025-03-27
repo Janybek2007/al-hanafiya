@@ -2,17 +2,18 @@
 
 import { AppProgressProvider } from '@bprogress/next';
 import React from 'react';
-import { useHiddenPages } from '../utils'
+import { useHiddenPages } from '../utils';
 
 export const ProgressProvider: React.FC<React.PropsWithChildren> = ({
 	children
 }) => {
 	const isHidden = useHiddenPages();
+
 	return (
 		<AppProgressProvider
 			memo={true}
-			height='4px'
-			color={isHidden ? 'rgb(0, 131, 121)' : 'rgb(255,255,255)'}
+			height='5px'
+			color={isHidden ? 'rgb(0, 131, 121)' : 'rgb(255, 255, 255)'}
 			options={{ showSpinner: false }}
 			shallowRouting
 		>

@@ -10,9 +10,12 @@ const accountsApi = api.injectEndpoints({
 			query: ({ endpoint }) => {
 				let url = '/auth/accounts/me';
 				if (
-					endpoint === 'learning_progress' ||
-					endpoint === 'viewing_history' ||
-					endpoint === 'me'
+					[
+						'me',
+						'learning_progress',
+						'viewing_history',
+						'telegram_status'
+					].includes(endpoint)
 				) {
 					url = `/auth/accounts/${endpoint}`;
 				} else if (endpoint == 'my_questions') {

@@ -38,7 +38,7 @@
 			font-size: var(--tag-font-size);
 			border: 1px solid rgb(78 78 78 / 0.8);
 			border-radius: 0.5em;
-			background: #fff;
+			background: var(--white);
 			transition: all 0.2s ease;
 
 			&:hover {

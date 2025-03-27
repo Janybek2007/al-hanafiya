@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
 					<h3 className={styles.name}>{accounts_me.data?.username}</h3>
 					<p className={styles.handle}>@{telegram}</p>
 					<div className={styles.progress}>
-						<span>Окуу прогресси: 0%</span>
+						<span>Окуу прогресси: {0}%</span>
 						<div className={styles.progressBar}>
 							<div className={styles.progressFill} style={{ width: '0%' }} />
 						</div>

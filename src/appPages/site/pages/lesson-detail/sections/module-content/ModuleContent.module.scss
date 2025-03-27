@@ -31,7 +31,7 @@
 		min-width: 489px;
 		max-width: 489px;
 		max-height: 724px;
-		background: linear-gradient(#00837910 0%, #1E4E4E10 100%);
+		background: var(--white);
 		overflow-y: scroll;
 
 		@media (max-width: 1280px) {

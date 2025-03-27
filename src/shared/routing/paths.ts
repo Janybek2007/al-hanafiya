@@ -13,6 +13,7 @@ export const paths = {
 	questions: '/questions',
 	questionsDetail: (id: number | string) => `/questions/${id}`,
 	articles: '/articles',
+	articleDetail: (slug: string) => `/articles/${slug}`,
 	contacts: '/contacts',
 	meetings: '/meetings'
 

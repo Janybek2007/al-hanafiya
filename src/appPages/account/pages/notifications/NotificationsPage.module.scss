@@ -1,5 +1,8 @@
 .wrapper {
+	margin: 0 20px;
 	padding: 20px;
+	border-radius: 12px;
+	background: #f9f9f9;
 	height: max-content;
 }
 
@@ -21,7 +24,7 @@
 	padding: 10px 20px;
 	border: none;
 	border-radius: 20px;
-	background: #fff;
+	background: var(--white);
 	color: #4a5568;
 	font-weight: 500;
 	cursor: pointer;
@@ -44,10 +47,12 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+	max-height: 700px;
+	overflow-y: scroll;
 }
 
 .notificationItem {
-	background: #fff;
+	background: var(--white);
 	border: 1px solid #e2e8f0;
 	border-radius: 8px;
 	padding: 15px;

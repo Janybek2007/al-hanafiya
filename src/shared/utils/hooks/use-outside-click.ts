@@ -1,15 +1,15 @@
 'use client';
 import React from 'react';
 
-export function useOutsideClick(
+export function useOutsideClick<T extends HTMLElement>(
 	callback: VoidFunction,
-	_ref?: React.RefObject<HTMLElement | null>
+	_ref?: React.RefObject<T | null>
 ) {
-	const $ref = React.useRef<HTMLElement>(null);
+	const $ref = React.useRef<T>(null);
 	const ref = _ref !== undefined ? _ref : $ref;
 	React.useEffect(() => {
 		function handleClick(event: MouseEvent) {
-			if (ref.current && !ref.current.contains(event.target as Node)) {
+			if (ref.current && !(ref.current as T).contains(event.target as Node)) {
 				callback();
 			}
 		}

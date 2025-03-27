@@ -1,5 +1,8 @@
 .wrapper {
+	margin: 0 20px;
 	padding: 20px;
+	border-radius: 12px;
+	background: #f9f9f9;
 	height: max-content;
 }
 
@@ -11,7 +14,6 @@
 	border-radius: 12px;
 }
 
-
 .filters {
 	display: flex;
 	gap: 12px;
@@ -22,7 +24,7 @@
 	padding: 10px 20px;
 	border: none;
 	border-radius: 20px;
-	background: #fff;
+	background: var(--white);
 	color: #4a5568;
 	font-weight: 500;
 	cursor: pointer;
@@ -36,7 +38,7 @@
 	}
 
 	&.active {
-		background: var(--secondary, #2b6cb0);
+		background: var(--secondary);
 		color: white;
 		box-shadow: 0 2px 8px rgba(43, 108, 176, 0.2);
 	}
@@ -106,6 +108,11 @@
 		padding: 10px;
 		border-radius: 8px;
 		display: inline-block;
+		a {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 }
 

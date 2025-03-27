@@ -5,6 +5,7 @@ import { VideoPlayer } from '$/shared/ui';
 import { formatDate } from '$/shared/utils';
 import { LessonItem } from '$/entities/lessons';
 import { Icons } from '$/shared/components';
+import { CommentItem } from '$/entities/comments';
 
 interface IProps {
 	lesson: LessonItem;
@@ -12,6 +13,18 @@ interface IProps {
 }
 
 export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
+	const flattenComments = React.useCallback(
+		(comments: CommentItem[]): CommentItem[] => {
+			return comments.flatMap(comment => [
+				comment,
+				...(comment.replies ? flattenComments(comment.replies) : [])
+			]);
+		},
+		[]
+	);
+
+	const totalComments = flattenComments(lesson?.comments || []).length;
+
 	return (
 		<div className={styles['module-video']}>
 			<figure>
@@ -31,7 +44,7 @@ export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
 					<div className={styles['row']}>
 						<span>{formatDate(lesson.created_at).DDMMYYYY}</span>
 						<span>
-							Комментарии: <strong>{lesson.comments.length}</strong>
+							Комментарии: <strong>{totalComments}</strong>
 						</span>
 					</div>
 				</div>

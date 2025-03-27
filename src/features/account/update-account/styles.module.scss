@@ -38,7 +38,7 @@
 	background: #28a745;
 	border: none;
 	border-radius: 50%;
-	color: #fff;
+	color: var(--white);
 	font-size: 18px;
 	display: flex;
 	align-items: center;
@@ -85,7 +85,7 @@
 
 .saveButton {
 	background: var(--tertiary);
-	color: #fff;
+	color: var(--white);
 	padding: 10px 20px;
 	border-radius: 4px;
 	font-size: 16px;

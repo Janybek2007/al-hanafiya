@@ -33,8 +33,7 @@
 }
 
 .card_article {
-	--card-article-min-width: 528px;
-	--card-article-max-width: 528px;
+	--card-article-width: 528px;
 	--card-article-description-font-size: 20px;
 	--card-article-title-font-weight: 500;
 	--card-article-title-font-size: 28px;
@@ -42,8 +41,8 @@
 	--card-article-img-min-height: 480px;
 	--card-article-img-border-radius: 10px;
 
-	min-width: var(--card-article-min-width);
-	max-width: var(--card-article-max-width);
+	max-width: var(--card-article-width);
+	min-width: var(--card-article-width);
 
 	[class*='card_content'] {
 		[class*='description'] {
@@ -67,9 +66,10 @@
 .articlesList {
 	--articles-list-display: grid;
 	--articles-list-grid-columns: repeat(1, 1fr);
-	--articles-list-gap: 20px;
+	--articles-list-gap: 5px;
 	--articles-list-item-width: auto;
 	--article-content-mt: 5px;
+	--article-figure-max-width: 300px;
 
 	display: var(--articles-list-display);
 	grid-template-columns: var(--articles-list-grid-columns);
@@ -78,6 +78,9 @@
 	[data-article-item] {
 		width: var(--articles-list-item-width);
 		gap: 0;
+		figure {
+			max-width: var(--article-figure-max-width);
+		}
 		[data-article-content] {
 			margin-top: var(--article-content-mt) !important;
 		}
@@ -191,8 +194,7 @@
 	}
 
 	.card_article {
-		--card-article-min-width: 468px;
-		--card-article-max-width: 468px;
+		--card-article-width: 468px;
 		--card-article-description-font-size: 18px;
 		--card-article-title-font-size: 25px;
 		--card-article-img-max-height: 388px;
@@ -215,12 +217,12 @@
 
 @media (max-width: 1290px) {
 	.card_article {
-		--card-article-min-width: 438px;
-		--card-article-max-width: 438px;
+		--card-article-width: 438px;
 	}
 
 	.articlesList {
 		--article-content-mt: 10px;
+		--article-figure-max-width: 100%;
 		@media (min-width: 1100px) {
 			--articles-list-grid-columns: repeat(2, 1fr);
 			--articles-list-gap: 10px;
@@ -246,8 +248,7 @@
 
 @media (max-width: 1100px) {
 	.card_article {
-		--card-article-min-width: 538px;
-		--card-article-max-width: 538px;
+		--card-article-width: 538px;
 	}
 }
 
@@ -259,8 +260,7 @@
 
 @media (max-width: 980px) {
 	.card_article {
-		--card-article-min-width: 50%;
-		--card-article-max-width: 50%;
+		--card-article-width: 50%;
 	}
 }
 
@@ -310,13 +310,13 @@
 	}
 
 	.card_article {
-		--card-article-min-width: 95%;
-		--card-article-max-width: 95%;
+		--card-article-width: 95%;
 	}
 
 	.articlesList {
 		--articles-list-gap: 6px;
 		--articles-list-item-width: 100%;
+		--articles-list-grid-columns: repeat(2, 1fr);
 	}
 
 	.articles {

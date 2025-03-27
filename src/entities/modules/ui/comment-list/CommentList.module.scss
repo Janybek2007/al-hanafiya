@@ -30,12 +30,11 @@
 	&::before {
 		content: '';
 		position: absolute;
-		left: 18px;
-		top: calc(32px / 2);
-		height: 100%;
+		left: 16px;
+		top: 40px;
+		height: calc(100% - 48px);
 		width: 1px;
 		background-color: #00000030;
-		z-index: -1;
 	}
 
 	&.last::before {
@@ -46,46 +45,14 @@
 		position: relative;
 
 		&::before {
-			left: -19px;
+			left: 16px;
 			height: 100%;
-		}
-
-		&::after {
-			content: '';
-			position: absolute;
-			left: -18px;
-			top: calc(32px / 2);
-			width: 19px;
-			height: 1px;
-			background-color: #00000030;
-			z-index: -1;
+			top: 40px;
+			height: calc(100% - 48px);
 		}
 	}
 
 	.ti &.last::before {
-		height: calc(100% - 32px);
-	}
-
-	@media (max-width: 580px) {
-		&::before {
-			left: 14px;
-			top: 28px;
-		}
-
-		.ti & {
-			&::before {
-				left: -11px;
-			}
-
-			&::after {
-				left: -11px;
-				width: 11px;
-				top: 28px;
-			}
-
-			&.last::before {
-				height: calc(100% - 28px);
-			}
-		}
+		height: 100%;
 	}
 }

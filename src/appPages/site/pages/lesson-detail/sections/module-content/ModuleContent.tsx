@@ -27,11 +27,7 @@ const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
 				label: val.name,
 				value: text$.toSlug(val.name),
 				content: (
-					<ModuleItem
-						lessons={lessons?.results ? lessons.results : []}
-						moduleSlug={val.slug}
-						activeLesson={activeLesson}
-					/>
+					<ModuleItem lessons={lessons?.results ? lessons.results : []} />
 				)
 			};
 		});
@@ -44,7 +40,7 @@ const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
 					<ModuleVideo lesson={activeLesson} onDownload={() => {}} />
 				)}
 				{activeLesson.media_type == 'audio' && (
-					<ModuleAudio lesson={activeLesson} onDownload={() => {}} />
+					<ModuleAudio lesson={activeLesson} />
 				)}
 				<div className={styles['right']}>
 					<div className={styles.progress}>

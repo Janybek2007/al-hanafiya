@@ -13,7 +13,7 @@ const ArticlesPage: React.FC = () => {
 
 	if (isLoading) return <Loading />;
 	if (error || !data) {
-		return <div>Ошибка загрузки истории просмотров: {error?.toString()}</div>;
+		return <div>Ошибка загрузки статей: {error?.toString()}</div>;
 	}
 
 	return (
@@ -29,7 +29,7 @@ const ArticlesPage: React.FC = () => {
 				<Filtiration tags={tags} setTags={setTags} />
 				<SectionTitle className={scss.title} title={'Бардык макалалар'} />
 				<section className={scss.article_head}>
-					{windowSize.width >= 740 && (
+					{windowSize.width >= 741 && (
 						<ArticleItem
 							className={scss.card_article}
 							variant='2'
@@ -48,17 +48,17 @@ const ArticlesPage: React.FC = () => {
 								/>
 							))
 							.slice(
-								windowSize.width! <= 740 ? 0 : 1,
-								windowSize.width <= 1100 && windowSize.width >= 740
+								windowSize.width! <= 741 ? 0 : 1,
+								windowSize.width <= 1100 && windowSize.width >= 741
 									? 3
-									: windowSize.width <= 740
+									: windowSize.width <= 741
 									? data.length
 									: 4
 							)}
 					</div>
 				</section>
 
-				{windowSize.width >= 740 && (
+				{windowSize.width >= 741 && (
 					<section>
 						<div className={scss['articles']}>
 							{data
@@ -71,9 +71,9 @@ const ArticlesPage: React.FC = () => {
 									/>
 								))
 								.slice(
-									windowSize.width <= 1100 && windowSize.width >= 740
+									windowSize.width <= 1100 && windowSize.width >= 741
 										? 3
-										: windowSize.width <= 740
+										: windowSize.width <= 741
 										? data.length
 										: 4
 								)}

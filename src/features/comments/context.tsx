@@ -1,6 +1,7 @@
 'use client';
 import { CommentItem, useAddCommentMutation } from '$/entities/comments';
 import { useLessonBySlugQuery } from '$/entities/lessons/redux';
+import { useSearchParams } from 'next/navigation';
 import * as React from 'react';
 
 interface ICommentContext {
@@ -9,6 +10,7 @@ interface ICommentContext {
 	reply: number | null;
 	setReply: React.Dispatch<React.SetStateAction<number | null>>;
 	lessonSlug: string | null;
+	commentRefs: React.RefObject<Map<number, HTMLLIElement | null>>;
 }
 const CommentContext = React.createContext<ICommentContext | undefined>(
 	undefined
@@ -29,6 +31,12 @@ export const CommentProvider: React.FC<ICommentProvider> = ({
 	const { data, isLoading } = useLessonBySlugQuery({
 		slug: String(lessonSlug)
 	});
+	const sp = useSearchParams();
+	const slideComment = Number(sp.get('comment'));
+	const commentRefs = React.useRef<Map<number, HTMLLIElement | null>>(
+		new Map()
+	);
+
 	const [reply, setReply] = React.useState<number | null>(null);
 	const [sendComment] = useAddCommentMutation();
 	const handleSendComment = React.useCallback(
@@ -45,12 +53,22 @@ export const CommentProvider: React.FC<ICommentProvider> = ({
 		[sendComment, lessonSlug]
 	);
 
+	React.useEffect(() => {
+		if (slideComment && data?.comments && !isLoading) {
+			const commentRef = commentRefs.current.get(slideComment);
+			if (commentRef) {
+				commentRef.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+		}
+	}, [slideComment, data?.comments, isLoading]);
+
 	const values: ICommentContext = {
 		comments: data?.comments || [],
 		handleSendComment,
 		reply,
 		setReply,
-		lessonSlug
+		lessonSlug,
+		commentRefs
 	};
 
 	return (
