@@ -1,4 +1,3 @@
-// SearchCommand.tsx
 import React, { useState } from 'react';
 import styles from './SearchCommand.module.scss';
 import { createPortal } from 'react-dom';
@@ -32,42 +31,44 @@ export const SearchCommand: React.FC<IProps> = ({ term, setTerm }) => {
 				className={styles.panel}
 				ref={ref}
 			>
-				<div className={styles.searchBar}>
-					<input
-						type='text'
-						value={term || ''}
-						onChange={e => setTerm(e.target.value)}
-						placeholder='Издөө...'
-						className={styles.input}
-						autoFocus
-					/>
-					{term && (
-						<button onClick={() => setTerm(null)} className={styles.clear}>
-							<Icon name='X' />
-						</button>
-					)}
-				</div>
+				<div className={styles['control']}>
+					<div className={styles.searchBar}>
+						<input
+							type='text'
+							value={term || ''}
+							onChange={e => setTerm(e.target.value)}
+							placeholder='Издөө...'
+							className={styles.input}
+							autoFocus
+						/>
+						{term && (
+							<button onClick={() => setTerm(null)} className={styles.clear}>
+								<Icon name='X' />
+							</button>
+						)}
+					</div>
 
-				<div className={styles.filters}>
-					{SearchType.map(type => (
-						<button
-							key={type}
-							onClick={() => setSelectedType(type)}
-							className={`${styles.filter} ${
-								selectedType === type ? styles.active : ''
-							}`}
-						>
-							{type === 'all'
-								? 'Баары'
-								: type === 'questions'
-								? 'Суроолор'
-								: type === 'articles'
-								? 'Макалалар'
-								: type === 'lessons'
-								? 'Сабактар'
-								: 'Иш-чаралар'}
-						</button>
-					))}
+					<div className={styles.filters}>
+						{SearchType.map(type => (
+							<button
+								key={type}
+								onClick={() => setSelectedType(type)}
+								className={`${styles.filter} ${
+									selectedType === type ? styles.active : ''
+								}`}
+							>
+								{type === 'all'
+									? 'Баары'
+									: type === 'questions'
+									? 'Суроолор'
+									: type === 'articles'
+									? 'Макалалар'
+									: type === 'lessons'
+									? 'Сабактар'
+									: 'Иш-чаралар'}
+							</button>
+						))}
+					</div>
 				</div>
 
 				<div className={styles.results}>
@@ -86,19 +87,23 @@ export const SearchCommand: React.FC<IProps> = ({ term, setTerm }) => {
 								rel='noopener noreferrer'
 								className={styles.item}
 							>
-								{item.title && (
-									<div className={styles.title}>
-										{item.title || 'Аталышы жок'}
-									</div>
+								{item.title && (selectedType || item.type) !== 'lessons' && (
+									<div className={styles.title}>{item.title}</div>
 								)}
-								<div
-									className={`${
-										selectedType === 'questions' ? styles.title : styles.content
-									}`}
-									dangerouslySetInnerHTML={{
-										__html: item.highlight || item.content || ''
-									}}
-								/>
+								{
+									<div
+										className={`${
+											['questions', 'lessons'].includes(
+												selectedType || item.type
+											)
+												? styles.title
+												: styles.content
+										}`}
+										dangerouslySetInnerHTML={{
+											__html: item.highlight || item.content || ''
+										}}
+									/>
+								}
 								{item.additional_info && (
 									<div className={styles.meta}>
 										{selectedType === 'questions' && (
@@ -112,6 +117,17 @@ export const SearchCommand: React.FC<IProps> = ({ term, setTerm }) => {
 											<span className={styles.date}>
 												{item.additional_info.event_date}
 											</span>
+										)}
+										{item.type === 'lessons' && (
+											<>
+												<span className={styles.card}>
+													{item.additional_info.category}
+												</span>
+												<span className={styles['dot']}></span>
+												<span className={styles.card}>
+													{item.additional_info.topic}
+												</span>
+											</>
 										)}
 									</div>
 								)}

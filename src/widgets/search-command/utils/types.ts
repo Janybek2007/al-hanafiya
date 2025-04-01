@@ -25,7 +25,7 @@ export interface SearchItem {
 		event_date: string;
 		location: string;
 		topic: number;
-		category: number;
+		category: string;
 	}>;
 }
 
