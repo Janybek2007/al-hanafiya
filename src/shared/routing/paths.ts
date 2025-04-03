@@ -3,9 +3,9 @@
 export const paths = {
 	home: '/',
 	teacherProfile: `/profile`,
+	_lessons: '/lessons',
 	lessons: {
-		index: '/lessons',
-		by_category: (slug: string) => `/lessons/c/${slug}`,
+		by_category: (slug: string) => `/lessons/c?category=${slug}`,
 		with_module: (mSlug: string, lSlug: string) =>
 			`/lessons/m/${mSlug}?slug=${lSlug}`,
 		with_topic: (slug: string) => `/lessons/t/${slug}`

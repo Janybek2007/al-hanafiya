@@ -7,8 +7,6 @@ import { Home } from './icons/Home';
 import { Instagram } from './icons/Instagram';
 import { Install } from './icons/Install';
 import { Lessons } from './icons/Lessons';
-import { Next } from './icons/Next';
-import { Prev } from './icons/Prev';
 import { Questions } from './icons/Questions';
 import { Telegram } from './icons/Telegram';
 import { User } from './icons/User';
@@ -23,8 +21,6 @@ export const Icons = {
 	Install,
 	ChatsCircle,
 	Book,
-	Prev,
-	Next,
 	HistoryOutlined,
 	View,
 	Home,

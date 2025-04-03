@@ -2,7 +2,7 @@ import React from 'react';
 import { HomeSectionProps } from './home-section.types';
 import clsx from 'clsx';
 import styles from './HomeSection.module.scss';
-import {SectionTitle,Button} from '$/shared/ui';
+import { SectionTitle, Button } from '$/shared/ui';
 
 const HomeSection: React.FC<HomeSectionProps> = ({
 	children,

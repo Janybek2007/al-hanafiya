@@ -5,7 +5,7 @@ export interface ButtonProps extends React.PropsWithChildren {
 	disabled?: boolean;
 	onClick?(e: React.MouseEvent): void;
 	linearGradient?: 'v1' | 'v2';
-	to?: string;
-	as?: "button" | "a"
-	type?: "submit" | "button" | "reset" 
+	href?: string;
+	as?: 'button' | 'a';
+	type?: 'submit' | 'button' | 'reset';
 }

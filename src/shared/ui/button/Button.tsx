@@ -11,10 +11,12 @@ const Button: React.FC<ButtonProps> = ({
 	className,
 	borderColor = 'white',
 	linearGradient = 'v1',
+	href,
+	as,
 	...props
 }) => {
-	const Component = props.as === 'a' ? Link : 'button';
-
+	const Component = as === 'a' ? Link : 'button';
+	const _href = as === 'a' ? href || "#" : '#';
 	return (
 		<Component
 			className={clsx(
@@ -25,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
 				className
 			)}
 			{...props}
-			href={props.as === 'a' ? props.to || '' : '#'}
+			href={_href}
 			onClick={(e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
 				if (props.onClick) props.onClick(e);
 			}}

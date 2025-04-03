@@ -8,3 +8,4 @@ export { default as ProfilePage } from './pages/profile/ProfilePage';
 export { default as QuestionDetailPage } from './pages/questions-detail/QuestionDetailPage';
 export { default as QuestionPage } from './pages/questions/QuestionPage';
 export { default as TopicDetailPage } from './pages/topic-detail/TopicDetailPage';
+export { default as LessonsCategory } from './pages/lessons-category/LessonsCategory'

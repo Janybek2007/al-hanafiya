@@ -31,7 +31,7 @@ const ViewingHistoryPage: React.FC = () => {
 				icon='History'
 				title='Көрүү тарыхы бош'
 				description='Сиз азырынча сабактарды көрө элексиз. Азыр баштаңыз, көрүү тарыхыңызды көрүү үчүн!'
-				link={{ href: paths.lessons.index, label: 'Сабактарга өтүү' }}
+				link={{ href: paths._lessons, label: 'Сабактарга өтүү' }}
 			/>
 		);
 	}

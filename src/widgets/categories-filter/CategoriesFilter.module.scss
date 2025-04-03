@@ -1,0 +1,138 @@
+.categoriesFilter {
+	--f-buttons-gap: 60px;
+	--button-font-size: 20px;
+	--button-line-height: 22px;
+	--active-line-height: 3px;
+	--active-line-background: var(--secondary, #f29c38);
+	--line-height: 3px;
+	--line-background: #ebedf0;
+	--line-border-radius: 100px;
+	--transition-duration: 0.25s;
+
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 100%;
+	overflow-x: auto;
+	gap: 25px;
+
+	&::-webkit-scrollbar {
+		height: 0;
+		width: 0;
+	}
+
+	.f_buttons {
+		position: relative;
+		display: flex;
+		align-items: center;
+		gap: var(--f-buttons-gap);
+		width: max-content;
+	}
+
+	.category {
+		background: none;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		font-size: var(--button-font-size);
+		font-weight: 500;
+		line-height: var(--button-line-height);
+		font-family: var(--philosopher, sans-serif);
+		padding: 10px 0;
+		color: #333;
+		transition: all var(--transition-duration);
+	}
+
+	.category:hover {
+		color: #000;
+	}
+
+	.active {
+		color: #000;
+		font-weight: 600;
+		position: relative;
+	}
+
+	.active::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: var(--active-line-height);
+		background: var(--active-line-background);
+		border-radius: var(--line-border-radius);
+		transition: all var(--transition-duration);
+	}
+
+	.line {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: var(--line-height);
+		background: var(--line-background);
+		border-radius: var(--line-border-radius);
+	}
+}
+
+/* Адаптивность */
+@media (max-width: 1240px) {
+	.categoriesFilter {
+		--f-buttons-gap: 40px;
+		--button-font-size: 18px;
+		--button-line-height: 20px;
+	}
+}
+
+@media (max-width: 1024px) {
+	.categoriesFilter {
+		--f-buttons-gap: 40px;
+		--button-font-size: 18px;
+		--button-line-height: 20px;
+	}
+}
+
+@media (max-width: 740px) {
+	.categoriesFilter {
+		--f-buttons-gap: 30px;
+		--button-font-size: 16px;
+		--button-line-height: 18px;
+	}
+}
+
+@media (max-width: 640px) {
+	.categoriesFilter {
+		--f-buttons-gap: 25px;
+	}
+}
+
+@media (max-width: 500px) {
+	.categoriesFilter {
+		--f-buttons-gap: 20px;
+
+		.f_buttons {
+			overflow-x: auto;
+			white-space: nowrap;
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.categoriesFilter {
+		.f_buttons {
+			overflow-x: auto;
+		}
+	}
+}
+
+@media (max-width: 380px) {
+	.categoriesFilter {
+		--button-font-size: 12px;
+		--button-line-height: 16px;
+
+		.f_buttons {
+			padding: 0 6px;
+		}
+	}
+}

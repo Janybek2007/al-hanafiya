@@ -1,16 +1,22 @@
 import clsx from 'clsx';
-import HomeSectionProps from '../home-section/HomeSection';
+import HomeSection from '../home-section/HomeSection';
 import styles from './Lessons.module.scss';
 import { AiOutlineAudio } from 'react-icons/ai';
 import { CiVideoOn } from 'react-icons/ci';
-import { Icons } from '$/shared/components';
+import { paths } from '$/shared/routing';
+import { Icon } from '$/shared/ui';
 
 export const Lessons = () => {
 	return (
-		<HomeSectionProps
+		<HomeSection
 			title='Сабактар'
 			className={styles.lessons_content}
-			button={{ children: 'Баардык сабактар', linearGradient: 'v2' }}
+			button={{
+				children: 'Баардык сабактар',
+				linearGradient: 'v2',
+				as: 'a',
+				href: paths._lessons
+			}}
 		>
 			<div
 				style={{
@@ -23,12 +29,12 @@ export const Lessons = () => {
 				<div className={styles['pagination']}>
 					<div>
 						<button className='inlineFlexCenter'>
-							<Icons.Prev width={16} height={16} />
+							<Icon name='ChevronLeft' />
 						</button>
 					</div>
 					<div>
 						<button className='inlineFlexCenter'>
-							<Icons.Next width={16} height={16} />
+							<Icon name='ChevronRight' />
 						</button>
 					</div>
 				</div>
@@ -125,6 +131,6 @@ export const Lessons = () => {
 					</div>
 				</div>
 			</div>
-		</HomeSectionProps>
+		</HomeSection>
 	);
 };

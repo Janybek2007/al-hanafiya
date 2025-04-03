@@ -6,6 +6,7 @@
 	--button-box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.2);
 	--button-border-width: 1px;
 
+	will-change: transform;
 	padding: var(--button-padding);
 	border-radius: var(--button-border-radius);
 	font-family: var(--philosopher);

@@ -37,7 +37,7 @@ export const Questions = () => {
 						.slice(0, 4)}
 				</div>
 				<Button
-					to={paths.questions}
+					href={paths.questions}
 					as='a'
 					className={styles.more}
 					linearGradient='v2'

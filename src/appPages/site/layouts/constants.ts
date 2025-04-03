@@ -15,7 +15,7 @@ export const nav_items = [
 	{
 		className: 'pl',
 		label: 'Сабактар',
-		to: paths.lessons.index,
+		to: paths._lessons,
 		icon: Icons.Lessons
 	},
 	{

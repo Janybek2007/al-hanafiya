@@ -4,6 +4,7 @@ import { useSize } from '$/shared/utils';
 import clsx from 'clsx';
 import React from 'react';
 import styles from './Hero.module.scss';
+import { paths } from '$/shared/routing'
 
 export const Hero: React.FC = () => {
 	const size = useSize('#hero-p');
@@ -27,8 +28,12 @@ export const Hero: React.FC = () => {
 						</div>
 					</div>
 					<div className={styles['actions']}>
-						<Button variant='solid'>Кенерирээк</Button>
-						<Button variant='outline'>Суроо берүү</Button>
+						<Button as='a' href={paths.teacherProfile} variant='solid'>
+							Кенерирээк
+						</Button>
+						<Button as='a' href={paths.questions} variant='outline'>
+							Суроо берүү
+						</Button>
 					</div>
 				</div>
 			</div>
