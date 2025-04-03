@@ -55,7 +55,7 @@ export const ModuleLItem: React.FC<IProps> = ({ module: m }) => {
 										<IoPlayOutline />
 									</div>
 								)}
-								<h4 className={styles.title}>{l.slug}</h4>
+								<h4 className={styles.title}>Урок {l.order + 1}</h4>
 							</Link>
 							<span className={styles.time}>{secondsToTime(4000)}</span>
 						</div>

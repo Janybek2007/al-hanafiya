@@ -1,19 +1,19 @@
 'use client';
-import React, { useRef, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
 import {
-	setPlaying,
+	setSrc,
 	setCurrentTime,
-	setDuration,
-	setVolume,
-	toggleMute,
-	setLoading,
 	setDragging,
-	setAudioSrc
-} from '$/shared/redux/slices/audio-player';
-import styles from './AudioPlayer.module.scss';
+	setDuration,
+	setLoading,
+	setPlaying,
+	setVolume,
+	toggleMute
+} from '$/shared/redux/slices/player';
 import { secondsToTime } from '$/shared/utils';
+import React, { useEffect, useRef } from 'react';
 import Icon from '../icon/Icon';
+import styles from './AudioPlayer.module.scss';
 
 interface AudioPlayerProps {
 	audio: string;
@@ -39,7 +39,7 @@ export const AudioPlayer = ({
 		isMuted,
 		isLoading,
 		isDragging
-	} = useAppSelector(state => state.audioPlayer);
+	} = useAppSelector(state => state.player);
 
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const progressBarRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ export const AudioPlayer = ({
 	useEffect(() => {
 		if (audioRef.current) {
 			dispatch(setLoading(true));
-			dispatch(setAudioSrc(audio));
+			dispatch(setSrc(audio));
 			audioRef.current.src = audio;
 			audioRef.current.load();
 		}

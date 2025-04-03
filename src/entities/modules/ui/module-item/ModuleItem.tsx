@@ -1,14 +1,14 @@
 'use client';
-import React from 'react';
-import styles from './ModuleItem.module.scss';
-import clsx from 'clsx';
-import { IoIosCheckmark } from 'react-icons/io';
-import { Icon } from '$/shared/ui';
-import { secondsToTime } from '$/shared/utils';
-import { useQueryState } from 'nuqs';
 import { LessonItem } from '$/entities/lessons';
 import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
-import { setPlaying } from '$/shared/redux/slices/audio-player';
+import { setPlaying } from '$/shared/redux/slices/player';
+import { Icon } from '$/shared/ui';
+import { secondsToTime } from '$/shared/utils';
+import clsx from 'clsx';
+import { parseAsString, useQueryState } from 'nuqs';
+import React from 'react';
+import { IoIosCheckmark } from 'react-icons/io';
+import styles from './ModuleItem.module.scss';
 
 interface IProps {
 	lessons: LessonItem[];
@@ -20,7 +20,10 @@ export const ModuleItem: React.FC<IProps> = ({ lessons }) => {
 		loading: s.audioPlayer.isLoading
 	}));
 	const dispath = useAppDispatch();
-	const [lessonSlug, setLessonSlug] = useQueryState('slug');
+	const [lessonSlug, setLessonSlug] = useQueryState(
+		'slug',
+		parseAsString.withDefault(lessons?.[0]?.slug)
+	);
 
 	return (
 		<div className={styles.lessons}>
@@ -42,7 +45,7 @@ export const ModuleItem: React.FC<IProps> = ({ lessons }) => {
 							) : (
 								<div className={styles.unchecked} />
 							)}
-							<h4 className={styles.title}>{l.slug}</h4>
+							<h4 className={styles.title}>Урок {l.order + 1}</h4>
 						</div>
 						<div className={styles.row}>
 							<button onClick={() => loading && dispath(setPlaying(!playing))}>

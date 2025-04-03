@@ -37,10 +37,17 @@ const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
 		activeLesson && (
 			<div className={styles.content}>
 				{activeLesson.media_type == 'video' && (
-					<ModuleVideo lesson={activeLesson} onDownload={() => {}} />
+					<ModuleVideo
+						title={`Модуль: ${module.name}, Урок ${activeLesson.order + 1}`}
+						lesson={activeLesson}
+						onDownload={() => {}}
+					/>
 				)}
 				{activeLesson.media_type == 'audio' && (
-					<ModuleAudio lesson={activeLesson} />
+					<ModuleAudio
+						title={`Модуль: ${module.name}, Урок ${activeLesson.order + 1}`}
+						lesson={activeLesson}
+					/>
 				)}
 				<div className={styles['right']}>
 					<div className={styles.progress}>

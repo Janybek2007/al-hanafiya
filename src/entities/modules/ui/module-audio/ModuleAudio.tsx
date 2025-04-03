@@ -7,9 +7,10 @@ import { LessonItem } from '$/entities/lessons';
 
 interface IProps {
 	lesson: LessonItem;
+	title?: string;
 }
 
-export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson }) => {
+export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson, title }) => {
 	const [audioFile] = useState(
 		'https://podcasts.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-001-muslimcentral.com.mp3'
 	);
@@ -17,7 +18,7 @@ export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson }) => {
 	const onDownload = React.useCallback(() => {
 		const link = document.createElement('a');
 		link.href = audioFile;
-		link.target = "_blank"
+		link.target = '_blank';
 
 		const fileName = audioFile.split('/').pop() || 'audio.mp3';
 		link.download = fileName;
@@ -38,7 +39,7 @@ export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson }) => {
 				/>
 			</figure>
 			<div className={styles['content']}>
-				<h4 className={styles.title}>{lesson.slug}</h4>
+				<h4 className={styles.title}>{title}</h4>
 				<AudioPlayer onInstall={onDownload} audio={audioFile} />
 			</div>
 		</div>

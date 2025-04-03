@@ -10,9 +10,14 @@ import { CommentItem } from '$/entities/comments';
 interface IProps {
 	lesson: LessonItem;
 	onDownload(): void;
+	title?: string;
 }
 
-export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
+export const ModuleVideo: React.FC<IProps> = ({
+	lesson,
+	onDownload,
+	title
+}) => {
 	const flattenComments = React.useCallback(
 		(comments: CommentItem[]): CommentItem[] => {
 			return comments.flatMap(comment => [
@@ -31,7 +36,8 @@ export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
 				<VideoPlayer
 					options={{
 						source: {
-							src: lesson.media_file,
+							// src: lesson.media_file,
+							src: 'https://videos.pexels.com/video-files/5783005/5783005-hd_1920_1080_30fps.mp4',
 							type: 'video/mp4',
 							id: lesson.slug
 						}
@@ -40,7 +46,7 @@ export const ModuleVideo: React.FC<IProps> = ({ lesson, onDownload }) => {
 			</figure>
 			<div className={styles['content']}>
 				<div className={styles['col']}>
-					<h4 className={styles.title}>{}</h4>
+					{title && <h4 className={styles.title}>{title}</h4>}
 					<div className={styles['row']}>
 						<span>{formatDate(lesson.created_at).DDMMYYYY}</span>
 						<span>

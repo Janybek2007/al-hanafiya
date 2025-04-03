@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface AudioPlayerState {
+interface PlayerState {
 	isPlaying: boolean;
 	currentTime: number;
 	duration: number;
@@ -8,10 +8,10 @@ interface AudioPlayerState {
 	isMuted: boolean;
 	isLoading: boolean;
 	isDragging: boolean;
-	audioSrc: string;
+	src: string;
 }
 
-const initialState: AudioPlayerState = {
+const initialState: PlayerState = {
 	isPlaying: false,
 	currentTime: 0,
 	duration: 0,
@@ -19,11 +19,11 @@ const initialState: AudioPlayerState = {
 	isMuted: false,
 	isLoading: true,
 	isDragging: false,
-	audioSrc: ''
+	src: ''
 };
 
-const _audioPlayerSlice = createSlice({
-	name: 'audioPlayer',
+const _playerSlice = createSlice({
+	name: 'player',
 	initialState,
 	reducers: {
 		setPlaying: (state, action: PayloadAction<boolean>) => {
@@ -49,8 +49,8 @@ const _audioPlayerSlice = createSlice({
 		setDragging: (state, action: PayloadAction<boolean>) => {
 			state.isDragging = action.payload;
 		},
-		setAudioSrc: (state, action: PayloadAction<string>) => {
-			state.audioSrc = action.payload;
+		setSrc: (state, action: PayloadAction<string>) => {
+			state.src = action.payload;
 		},
 		resetPlayer: () => initialState
 	}
@@ -64,8 +64,8 @@ export const {
 	toggleMute,
 	setLoading,
 	setDragging,
-	setAudioSrc,
+	setSrc,
 	resetPlayer
-} = _audioPlayerSlice.actions;
+} = _playerSlice.actions;
 
-export const audioPlayerSlice = _audioPlayerSlice.reducer;
+export const playerSlice = _playerSlice.reducer;
