@@ -36,8 +36,8 @@ export const ModuleVideo: React.FC<IProps> = ({
 				<VideoPlayer
 					options={{
 						source: {
-							// src: lesson.media_file,
-							src: 'https://videos.pexels.com/video-files/5783005/5783005-hd_1920_1080_30fps.mp4',
+							src: lesson.media_file,
+							// src: 'https://videos.pexels.com/video-files/5783005/5783005-hd_1920_1080_30fps.mp4',
 							type: 'video/mp4',
 							id: lesson.slug
 						}

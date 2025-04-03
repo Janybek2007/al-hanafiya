@@ -3,7 +3,6 @@ import styles from './TopicCard.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { TopicItem } from '../../types';
-import { useModulesQuery } from '$/entities/modules';
 import { Icons } from '$/shared/components';
 
 interface IProps {
@@ -11,8 +10,7 @@ interface IProps {
 }
 
 export const TopicCard: React.FC<IProps> = ({ topic }) => {
-	const { id, name, slug } = topic;
-	const { data: modules } = useModulesQuery({ topic: id });
+	const { name, slug } = topic;
 
 	return (
 		<Link href={`/lessons/t/${slug}`} className={styles.lesson_card}>
@@ -38,7 +36,7 @@ export const TopicCard: React.FC<IProps> = ({ topic }) => {
 				<div className={styles['row']}>
 					<div className='flexCenter'>
 						<Icons.Book />
-						<span>{modules?.count} модуль</span>
+						<span>{1} модуль</span>
 					</div>
 					{/* <span>{progress} %</span> */}
 				</div>

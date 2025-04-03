@@ -16,8 +16,8 @@ interface IProps {
 
 export const ModuleItem: React.FC<IProps> = ({ lessons }) => {
 	const { playing, loading } = useAppSelector(s => ({
-		playing: s.audioPlayer.isPlaying,
-		loading: s.audioPlayer.isLoading
+		playing: s.player.isPlaying,
+		loading: s.player.isLoading
 	}));
 	const dispath = useAppDispatch();
 	const [lessonSlug, setLessonSlug] = useQueryState(

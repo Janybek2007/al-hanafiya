@@ -20,7 +20,6 @@ export const UpdateAccount: React.FC = () => {
 	const { data, isLoading: tgLoading } = useAccountsByEndpointQuery({
 		endpoint: 'telegram_status'
 	});
-	console.log(data)
 
 	const tg = data as { telegram: string; is_activated: boolean };
 	return (
@@ -76,6 +75,7 @@ export const UpdateAccount: React.FC = () => {
 
 			<div className={styles.form}>
 				{[
+					{ label: 'Username', field: 'username', type: 'text' },
 					{ label: 'Email', field: 'email', type: 'email' },
 					{ label: 'Telegram', field: 'profile.telegram', type: 'text' }
 				].map(v => (

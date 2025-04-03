@@ -35,9 +35,7 @@ export const CommentItem: React.FC<IProps> = ({ cm }) => {
 
 	React.useEffect(() => {
 		if (_reply) {
-			document
-				.getElementById(_reply)
-				?.scrollIntoView({ behavior: 'smooth', });
+			document.getElementById(_reply)?.scrollIntoView({ behavior: 'smooth' });
 			setTimeout(() => {
 				_setReply(null);
 			}, 2000);
