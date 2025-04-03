@@ -48,7 +48,7 @@ export const ModuleItem: React.FC<IProps> = ({ lessons }) => {
 							<h4 className={styles.title}>Урок {l.order + 1}</h4>
 						</div>
 						<div className={styles.row}>
-							<button onClick={() => loading && dispath(setPlaying(!playing))}>
+							<button onClick={() => !loading && dispath(setPlaying(!playing))}>
 								<Icon
 									className={clsx(
 										loading && isActive && `loaderAnimation`,

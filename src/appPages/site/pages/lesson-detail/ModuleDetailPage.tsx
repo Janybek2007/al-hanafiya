@@ -5,14 +5,14 @@ import { useModuleBySlugQuery, useModulesQuery } from '$/entities/modules';
 import { BackButton, EmptyState, Loading } from '$/shared/ui';
 import ModuleContent from './sections/module-content/ModuleContent';
 import ModuleComments from './sections/module-comments/ModuleComments';
-import { useQueryState } from 'nuqs';
+import { parseAsString, useQueryState } from 'nuqs';
+import { useLessonsQuery } from '$/entities/lessons/redux';
 
 interface IProps {
 	readonly moduleSlug: string;
 }
 
 const ModuleDetailPage: React.FC<IProps> = props => {
-	const [lessonSlug] = useQueryState('slug');
 	const {
 		data: module,
 		isLoading: moduleLoading,
@@ -23,6 +23,11 @@ const ModuleDetailPage: React.FC<IProps> = props => {
 		isLoading: modulesLoading,
 		error: modulesError
 	} = useModulesQuery({ topic: module?.topic });
+	const { data: lessons } = useLessonsQuery({ module: module?.id });
+	const [lessonSlug] = useQueryState(
+		'slug',
+		parseAsString.withDefault(String(lessons?.results?.[0].slug))
+	);
 
 	return (
 		<main>
@@ -43,6 +48,7 @@ const ModuleDetailPage: React.FC<IProps> = props => {
 			) : module && modules ? (
 				<div className={clsx('container')}>
 					<ModuleContent
+						lessons={lessons?.results}
 						modules={modules.results}
 						lessonSlug={lessonSlug}
 						module={module}
