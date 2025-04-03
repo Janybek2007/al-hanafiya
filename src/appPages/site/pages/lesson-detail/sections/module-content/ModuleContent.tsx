@@ -1,5 +1,5 @@
 'use client';
-import { useLessonsQuery } from '$/entities/lessons/redux';
+import { LessonItem } from '$/entities/lessons';
 import { ModuleAudio, ModuleItem, ModuleVideo } from '$/entities/modules';
 import { type ModuleItem as MItem } from '$/entities/modules/types';
 import { Accordion, AccordionItem } from '$/shared/ui';
@@ -11,13 +11,17 @@ interface IProps {
 	lessonSlug: string | null;
 	module: MItem;
 	modules: MItem[];
+	lessons?: LessonItem[];
 }
 
-const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
-	const { data: lessons } = useLessonsQuery({ module: module.id });
-
+const ModuleContent: React.FC<IProps> = ({
+	module,
+	lessonSlug,
+	modules,
+	lessons
+}) => {
 	const activeLesson = React.useMemo(
-		() => lessons?.results.find(v => v.slug == lessonSlug),
+		() => lessons?.find(v => v.slug == lessonSlug),
 		[lessonSlug, lessons]
 	);
 
@@ -27,7 +31,7 @@ const ModuleContent: React.FC<IProps> = ({ module, lessonSlug, modules }) => {
 				label: val.name,
 				value: text$.toSlug(val.name),
 				content: (
-					<ModuleItem lessons={lessons?.results ? lessons.results : []} />
+					<ModuleItem lessons={lessons || []} />
 				)
 			};
 		});

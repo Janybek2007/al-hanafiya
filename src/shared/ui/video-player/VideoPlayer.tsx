@@ -1,18 +1,18 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import videojs from 'video.js';
 import Player from 'video.js/dist/types/player';
 import 'video.js/dist/video-js.css';
 import 'videojs-youtube';
 import { VideoPlayerProps } from './video-player.types';
-import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
 import clsx from 'clsx';
+import { useAppDispatch, useAppSelector } from '$/shared/redux/hooks';
 import {
 	setPlaying,
 	setCurrentTime,
 	setDuration,
-	setVolume,
-	setLoading
+	setLoading,
+	setSrc
 } from '$/shared/redux/slices/player';
 
 const VideoPlayer: React.FC<VideoPlayerProps> = ({
@@ -21,73 +21,65 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 	onReady
 }) => {
 	const dispatch = useAppDispatch();
-	const playerRef = useRef<Player | null>(null);
-	const videoRef = useRef<HTMLDivElement>(null);
+	const { isPlaying, isLoading, src } = useAppSelector(state => state.player);
 
-	const { isPlaying, volume, isMuted, src } = useAppSelector(
-		state => state.player
+	const videoRef = React.useRef<HTMLDivElement>(null);
+	const playerRef = React.useRef<Player>(null);
+
+	const options = React.useMemo(
+		() => ({
+			controls: _?.controls || true,
+			autoplay: _?.autoplay || false,
+			preload: _?.preload || 'auto',
+			responsive: _?.responsive || true,
+			fluid: _?.fluid || true,
+			source: _?.source
+		}),
+		[_]
 	);
 
-	useEffect(() => {
-		if (
-			!playerRef.current &&
-			videoRef.current &&
-			typeof document !== 'undefined'
-		) {
+	React.useEffect(() => {
+		if (!playerRef.current && videoRef.current) {
 			const videoElement = document.createElement('video-js');
 			videoElement.classList.add('vjs-big-play-centered');
 			videoRef.current.appendChild(videoElement);
 
-			const player = (playerRef.current = videojs(
-				videoElement,
-				{
-					controls: _?.controls ?? true,
-					autoplay: _?.autoplay ?? false,
-					preload: _?.preload ?? 'auto',
-					responsive: _?.responsive ?? true,
-					fluid: _?.fluid ?? true,
-					sources: [{ src, type: 'video/mp4' }]
-				},
-				() => {
-					dispatch(setLoading(false));
-					onReady?.(player);
-				}
-			));
+			const player = (playerRef.current = videojs(videoElement, options, () => {
+				dispatch(setLoading(false));
+				onReady?.(player);
+			}));
 
 			player.on('play', () => dispatch(setPlaying(true)));
 			player.on('pause', () => dispatch(setPlaying(false)));
-			player.on('timeupdate', () =>
-				dispatch(setCurrentTime(player.currentTime()!))
-			);
-			player.on('durationchange', () =>
-				dispatch(setDuration(player.duration()!))
-			);
-			player.on('volumechange', () => dispatch(setVolume(player.volume()!)));
-		}
-	}, [dispatch, onReady, _, src]);
-
-	useEffect(() => {
-		const player = playerRef.current;
-		if (player) {
-			if (isPlaying) {
-				player.play();
-			} else {
-				player.pause();
+			player.on('timeupdate', () => {
+				if (player.currentTime())
+					dispatch(setCurrentTime(player.currentTime()!));
+			});
+			player.on('loadedmetadata', () => {
+				if (player.duration()) dispatch(setDuration(player.duration()!));
+			});
+			player.on('loadeddata', () => dispatch(setLoading(false)));
+		} else if (playerRef.current) {
+			const player = playerRef.current;
+			player.autoplay(options.autoplay);
+			if (options.source !== src) {
+				dispatch(setSrc(String(options.source?.src)));
+				player.src(options.source);
 			}
 		}
-	}, [isPlaying]);
+	}, [options, onReady, dispatch, src]);
 
-	useEffect(() => {
+	React.useEffect(() => {
 		const player = playerRef.current;
-		if (player) {
-			player.volume(volume);
-			player.muted(isMuted);
+		if (player && !isLoading) {
+			if (isPlaying) player.play();
+			else player.pause();
 		}
-	}, [volume, isMuted]);
+	}, [isPlaying, isLoading]);
 
-	useEffect(() => {
+	React.useEffect(() => {
+		const player = playerRef.current;
 		return () => {
-			const player = playerRef.current;
 			if (player && !player.isDisposed()) {
 				player.dispose();
 				playerRef.current = null;

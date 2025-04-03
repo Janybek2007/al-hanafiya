@@ -11,9 +11,7 @@ interface IProps {
 }
 
 export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson, title }) => {
-	const [audioFile] = useState(
-		'https://podcasts.qurancentral.com/mishary-rashid-alafasy/mishary-rashid-alafasy-001-muslimcentral.com.mp3'
-	);
+	const [audioFile] = useState(lesson.media_file);
 
 	const onDownload = React.useCallback(() => {
 		const link = document.createElement('a');
