@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { api } from './api';
-import { playerSlice } from './slices/player'
+import { playerSlice } from './slices/player';
+import { loginModalSlice } from './slices/login-modal';
 
 export const store = configureStore({
 	reducer: {
 		[api.reducerPath]: api.reducer,
-		player: playerSlice
+		player: playerSlice,
+		loginModal: loginModalSlice
 	},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware().concat(api.middleware)

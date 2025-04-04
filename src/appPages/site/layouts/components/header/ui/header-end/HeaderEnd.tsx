@@ -1,5 +1,4 @@
 'use client';
-import { useNotifications } from '$/shared/providers/Notifications';
 import { Icon } from '$/shared/ui';
 import { SearchCommand } from '$/widgets/search-command';
 import clsx from 'clsx';
@@ -7,11 +6,16 @@ import { AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 import styles from './HeaderEnd.module.scss';
+import { useAppDispatch } from '$/shared/redux/hooks';
+import { toggleModal } from '$/shared/redux/slices/login-modal';
+import { useAccountsByEndpointQuery } from '$/entities/account';
+import Link from 'next/link'
 
 const HeaderEnd: React.FC = () => {
-	const { notify } = useNotifications();
 	const [term, setTerm] = React.useState<string | null>(null);
-
+	const dispatch = useAppDispatch();
+	const { data: user, isLoading } = useAccountsByEndpointQuery({ endpoint: 'me' });
+	const Component = user ? Link : "button";
 	return (
 		<>
 			<AnimatePresence initial={false}>
@@ -26,17 +30,22 @@ const HeaderEnd: React.FC = () => {
 					className={styles.search_input}
 					placeholder='Издөө...'
 					onKeyDown={e => {
-						if (e.key == 'Enter') {
-							setTerm((e.target as HTMLInputElement).value);
-						}
+						if (e.key == 'Enter') setTerm((e.target as HTMLInputElement).value);
 					}}
 				/>
-				<button
-					onClick={() => notify('HI', 'This is test notification')}
-					className={clsx('flexCenter', styles.glasses_btn)}
-				>
+				<button className={clsx('flexCenter', styles.glasses_btn)}>
 					<Image width={32} height={32} src='/icon/glaesses.svg' alt='' />
 				</button>
+				<Component
+					href={"/account/me"}
+					onClick={() => !user && dispatch(toggleModal())}
+					className={clsx('flexCenter', styles.login_btn)}
+				>
+					<Icon
+						name={isLoading ? 'Loader' : (user ? 'User' :  'LogIn')}
+						className={isLoading ? 'loaderAnimation' : ''}
+					/>
+				</Component>
 			</div>
 		</>
 	);

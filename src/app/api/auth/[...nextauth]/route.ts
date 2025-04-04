@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { AuthOptions } from 'next-auth';
-import GoogleProvider from 'next-auth/providers/google';
-import NextAuth from 'next-auth';
-import { LoginWithResponse } from '$/features/auth/login/types';
-import { cookies } from 'next/headers';
 import { onFetch } from '$/shared/api';
+import { LoginWithResponse } from '$/widgets/login-modal/types';
+import NextAuth, { AuthOptions } from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import { cookies } from 'next/headers';
 
 const authOptions: AuthOptions = {
 	providers: [
@@ -13,9 +12,6 @@ const authOptions: AuthOptions = {
 			clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET!
 		})
 	],
-	pages: {
-		signIn: '/auth/login'
-	},
 	callbacks: {
 		async jwt({ token, account }) {
 			const id_token = account?.id_token;

@@ -16,7 +16,7 @@ export default async function middleware(req: NextRequest) {
 		);
 
 		if (!isAuthenticated && isPrivatePage) {
-			const loginUrl = new URL('/auth/login', req.url);
+			const loginUrl = new URL('/', req.url);
 			return NextResponse.redirect(loginUrl);
 		}
 
