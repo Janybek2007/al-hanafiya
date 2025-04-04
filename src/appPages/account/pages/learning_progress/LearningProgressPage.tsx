@@ -17,7 +17,7 @@ const LearningProgressPage: React.FC = () => {
 	if (
 		error ||
 		!learningProgress ||
-		!Array.isArray(learningProgress.by_category)
+		!Array.isArray(learningProgress.recently_completed)
 	) {
 		return (
 			<div className={styles.error}>
@@ -41,26 +41,15 @@ const LearningProgressPage: React.FC = () => {
 					{learningProgress.total_lessons}
 				</p>
 			</div>
-			<div className={styles.categoryProgress}>
-				<h2 className={styles.subtitle}>Категориялар боюнча прогресс</h2>
-				<div className={styles.categories}>
-					{learningProgress.by_category.map(category => (
-						<div key={category.category_id} className={styles.categoryItem}>
-							<div className={styles.categoryHeader}>
-								<span className={styles.categoryName}>
-									{category.category_name}
-								</span>
-								<span className={styles.categoryProgressText}>
-									{category.completed_lessons} / {category.total_lessons} (
-									{category.progress_percentage}%)
-								</span>
-							</div>
-							<div className={styles.progressBar}>
-								<div
-									className={styles.progressFill}
-									style={{ width: `${category.progress_percentage}%` }}
-								/>
-							</div>
+			<div className={styles.recentProgress}>
+				<h2 className={styles.subtitle}>Жакында аяктаган сабактар</h2>
+				<div className={styles.recentLessons}>
+					{learningProgress.recently_completed.map(lesson => (
+						<div key={lesson.lesson_id} className={styles.lessonItem}>
+							<span className={styles.lessonTitle}>{lesson.title}</span>
+							<span className={styles.completedDate}>
+								Аяктаган: {new Date(lesson.completed_at).toLocaleDateString()}
+							</span>
 						</div>
 					))}
 				</div>

@@ -13,7 +13,7 @@ const LessonsPage: React.FC = () => {
 	const { data: categories, isLoading, error } = useCategoriesQuery({});
 
 	return (
-		<main>
+		<main className={styles.lessons_page}>
 			<LessonsFilter />
 			{isLoading ? (
 				<Loading />
@@ -40,11 +40,11 @@ const LessonsPage: React.FC = () => {
 							label: section_label
 						}}
 					>
-						<TopicList category={c} />
+						<TopicList slice={3} category={c} />
 					</CategorySection>
 				))
 			)}
-			<Pagination totalPages={10} />
+			{categories?.next && <Pagination totalPages={categories.count} />}
 		</main>
 	);
 };

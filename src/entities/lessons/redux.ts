@@ -28,15 +28,14 @@ const lessonsApi = api.injectEndpoints({
 		progress: query<ProgressResponse, SlugArg>({
 			query: ({ slug }) => ({
 				url: `/lessons/${slug}/get_progress/`
-			}),
-			providesTags: ['lesson_by_slug']
+			})
 		}),
 		saveProgress: mutation<SaveProgressResponse, SaveProgressArg>({
 			query: arg => ({
 				url: `/lessons/${arg.slug}/save_progress/`,
-				body: arg.data
-			}),
-			invalidatesTags: ['lesson_by_slug']
+				body: arg.data,
+				method: "POST"
+			})
 		})
 	})
 });

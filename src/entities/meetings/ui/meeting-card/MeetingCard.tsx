@@ -25,7 +25,12 @@ export const MeetingCard: React.FC<MeetingCardProps> = ({
 			</figure>
 			<div className={styles['card_content']}>
 				<p
-					dangerouslySetInnerHTML={{ __html: `${description.slice(0, 100)}...<a target="_blank">Толугураак</a>` }}
+					dangerouslySetInnerHTML={{
+						__html: `${description.slice(
+							0,
+							100
+						)}...<a target="_blank">Толугураак</a>`
+					}}
 				/>
 				<ul>
 					{forWomenOnly && (

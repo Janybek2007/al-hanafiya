@@ -5,14 +5,22 @@ import clsx from 'clsx';
 import styles from './Questions.module.scss';
 import { paths } from '$/shared/routing';
 import Link from 'next/link';
+import React from 'react';
 
 export const Questions = () => {
 	const { data, isLoading, error } = useAnsweredQuestionsQuery({});
-	const questions = data?.results || [];
-	if (isLoading) return <Loading />;
 
-	if (error || !Array.isArray(questions)) {
-		return <div>Ошибка загрузки вопросов: {error?.toString()}</div>;
+	const sortedQuestions = React.useMemo(() => {
+		if (!data?.results) return [];
+		return [...data.results.slice(0, 4)].sort(
+			(a, b) =>
+				new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+		);
+	}, [data]);
+
+	if (isLoading) return <Loading />;
+	if (error) {
+		return <div>Суроолорду жүктөөдө ката: {error?.toString()}</div>;
 	}
 
 	return (
@@ -20,16 +28,16 @@ export const Questions = () => {
 			<div className={clsx('container', styles.container)}>
 				<h2 className={styles.title}>Суроо-Жооп</h2>
 				<div className={styles['content']}>
-					{questions
+					{sortedQuestions
 						.map(question => (
 							<div key={`qa-${question.id}`} className={styles.qa_item}>
 								<Link href={paths.questionsDetail(question.id)}>
 									<h2>{question.content}</h2>
 								</Link>
 								<p>
-									“Customers will not download an extra app for pharmacies or
-									the e-prescription. In my opinion WhatsApp is the most natural
-									solution here.”
+									“Кардарлар дарыканалар же электрондук рецепт үчүн кошумча
+									тиркеме жүктөбөйт. Менин оюмча, WhatsApp бул жерде эң ыңгайлуу
+									чечим.”
 								</p>
 								<div className={styles.date}>25.05.2025</div>
 							</div>

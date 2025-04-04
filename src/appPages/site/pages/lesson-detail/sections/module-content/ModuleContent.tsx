@@ -24,15 +24,12 @@ const ModuleContent: React.FC<IProps> = ({
 		() => lessons?.find(v => v.slug == lessonSlug),
 		[lessonSlug, lessons]
 	);
-
 	const [accordionItems] = useDerived((): AccordionItem[] => {
 		return modules.map(val => {
 			return {
 				label: val.name,
 				value: text$.toSlug(val.name),
-				content: (
-					<ModuleItem lessons={lessons || []} />
-				)
+				content: <ModuleItem lessons={lessons || []} />
 			};
 		});
 	}, [modules, lessons, lessonSlug]);

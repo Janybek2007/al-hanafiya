@@ -4,7 +4,8 @@ import { paths } from '$/shared/routing';
 import { EmptyState, Loading } from '$/shared/ui';
 import React from 'react';
 import styles from './ViewingHistoryPage.module.scss';
-import { formatDate } from '$/shared/utils'
+import { formatDate } from '$/shared/utils';
+import { AccountHeader } from '../../layouts/components';
 
 const ViewingHistoryPage: React.FC = () => {
 	const { data, isLoading, error } = useAccounts().page;
@@ -38,27 +39,28 @@ const ViewingHistoryPage: React.FC = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>Көрүү тарыхы</h1>
+			<AccountHeader
+				title='Көрүү тарыхы'
+				subtitle='Сиздин көрүү тарыхыңыз бул жерде көрсөтүлөт. Ар бир сабактын маалыматын карап чыгыңыз.'
+			/>
 			<div className={styles.historyList}>
 				{viewing_history.map(entry => (
 					<div key={entry.lesson_id} className={styles.historyItem}>
 						<div className={styles.itemHeader}>
-							<span className={styles.lessonSlug}>{entry.lesson_slug}</span>
-							<span className={styles.timestamp}>
-								{formatDate(entry.timestamp).DDMMYYYY_HHMM}
-							</span>
+							<h4 className={styles.lessonTitle}>{entry.module_name}</h4>
 						</div>
 						<div className={styles.itemDetails}>
-							<p>
-								<strong>Модуль:</strong> {entry.module_name}
+							<p className={styles.detailText}>
+								<strong>Сабак:</strong> {entry.lesson_slug}
 							</p>
-							<p>
+							<p className={styles.detailText}>
 								<strong>Тема:</strong> {entry.topic_name}
 							</p>
-							<p>
-								<strong>Акыркы көрүү:</strong> {entry.last_viewed}
+							<p className={styles.detailText}>
+								<strong>Акыркы көрүү:</strong>{' '}
+								{formatDate(entry.last_viewed).DDMMYYYY_HHMM}
 							</p>
-							<p>
+							<p className={styles.detailText}>
 								<strong>Көрүү узактыгы:</strong> {entry.duration_watched}
 							</p>
 						</div>

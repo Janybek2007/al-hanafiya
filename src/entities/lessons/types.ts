@@ -43,6 +43,6 @@ export interface SaveProgressResponse {
 }
 
 export interface ProgressResponse {
-	timestamp: string;
+	timestamp: number;
 	last_viewed: string;
 }

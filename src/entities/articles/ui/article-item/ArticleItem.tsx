@@ -8,7 +8,7 @@ import { Icons } from '$/shared/components';
 import { type ArticleItem as TArticleItem } from '../../types';
 import { useRouter } from 'next/navigation';
 import { ApiMedia } from '$/shared/constants/url.constants';
-import { paths } from '$/shared/routing'
+import { paths } from '$/shared/routing';
 
 type ArticleItemProps = {
 	type?: 'list' | 'card';

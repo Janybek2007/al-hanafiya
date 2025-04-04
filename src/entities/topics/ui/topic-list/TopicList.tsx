@@ -7,9 +7,10 @@ import { TopicCard } from '../topic-card/TopicCard';
 import { parseAsInteger, useQueryState } from 'nuqs';
 interface IProps {
 	category: CategoryItem;
+	slice?: number
 }
 
-export const TopicList: React.FC<IProps> = ({ category }) => {
+export const TopicList: React.FC<IProps> = ({ category, slice }) => {
 	const [page] = useQueryState('page', parseAsInteger.withDefault(1));
 	const { data: topics } = useTopicsQuery({
 		category: category.id,
@@ -18,7 +19,7 @@ export const TopicList: React.FC<IProps> = ({ category }) => {
 
 	return (
 		<div className={styles.topic_list}>
-			{topics?.results.map(topic => (
+			{topics?.results.slice(0, slice || topics.results.length).map(topic => (
 				<TopicCard key={topic.id} topic={topic} />
 			))}
 		</div>

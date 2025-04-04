@@ -45,7 +45,7 @@ const ModuleDetailPage: React.FC<IProps> = props => {
 					title='Ошибка при загрузке модуля или списка модулей'
 					description='Произошла ошибка при загрузке данных. Попробуйте ещё раз.'
 				/>
-			) : module && modules ? (
+			) : module && modules && lessonSlug ? (
 				<div className={clsx('container')}>
 					<ModuleContent
 						lessons={lessons?.results}

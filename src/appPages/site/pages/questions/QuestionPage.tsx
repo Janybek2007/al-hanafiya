@@ -85,7 +85,7 @@ const QuestionPage: React.FC = () => {
 					) : (
 						<QuestionList list={data.results} />
 					)}
-					<Pagination totalPages={10} />
+					{data?.next && <Pagination totalPages={data.count} />}
 				</div>
 			</div>
 		</main>

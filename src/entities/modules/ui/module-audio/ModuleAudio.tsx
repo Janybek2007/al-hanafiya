@@ -4,6 +4,7 @@ import styles from './ModuleAudio.module.scss';
 import Image from 'next/image';
 import { AudioPlayer } from '$/shared/ui';
 import { LessonItem } from '$/entities/lessons';
+import { LessonProgressProvider } from '$/features/save_progress/context'
 
 interface IProps {
 	lesson: LessonItem;
@@ -27,20 +28,22 @@ export const ModuleAudio: React.FC<IProps> = React.memo(({ lesson, title }) => {
 	}, [audioFile]);
 
 	return (
-		<div className={styles['module-audio']}>
-			<figure>
-				<Image
-					width={1015}
-					height={724}
-					src={lesson.thumbnail_url || '/images/placeholder.webp'}
-					alt={lesson.slug}
-				/>
-			</figure>
-			<div className={styles['content']}>
-				<h4 className={styles.title}>{title}</h4>
-				<AudioPlayer onInstall={onDownload} audio={audioFile} />
+		<LessonProgressProvider slug={lesson.slug}>
+			<div className={styles['module-audio']}>
+				<figure>
+					<Image
+						width={1015}
+						height={724}
+						src={lesson.thumbnail_url || '/images/placeholder.webp'}
+						alt={lesson.slug}
+					/>
+				</figure>
+				<div className={styles['content']}>
+					<h4 className={styles.title}>{title}</h4>
+					<AudioPlayer onInstall={onDownload} audio={audioFile} />
+				</div>
 			</div>
-		</div>
+		</LessonProgressProvider>
 	);
 });
 

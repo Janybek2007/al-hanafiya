@@ -11,9 +11,10 @@ import {
 	toggleMute
 } from '$/shared/redux/slices/player';
 import { secondsToTime } from '$/shared/utils';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 import Icon from '../icon/Icon';
 import styles from './AudioPlayer.module.scss';
+import { useLessonProgress } from '$/features/save_progress'
 
 interface AudioPlayerProps {
 	audio: string;
@@ -28,7 +29,7 @@ export const AudioPlayer = ({
 	onNext,
 	onPrev,
 	actions = ['rewind', 'fast-forward'],
-	onInstall
+	onInstall,
 }: AudioPlayerProps) => {
 	const dispatch = useAppDispatch();
 	const {
@@ -40,6 +41,7 @@ export const AudioPlayer = ({
 		isLoading,
 		isDragging
 	} = useAppSelector(state => state.player);
+	const { progress: defaultTime } = useLessonProgress();
 
 	const audioRef = useRef<HTMLAudioElement>(null);
 	const progressBarRef = useRef<HTMLDivElement>(null);
@@ -67,41 +69,51 @@ export const AudioPlayer = ({
 		}
 	}, [isPlaying, volume, isMuted]);
 
-	const handleLoadedMetadata = () => {
-		if (audioRef.current) dispatch(setDuration(audioRef.current.duration));
-	};
+	const handleLoadedMetadata = useCallback(() => {
+		if (audioRef.current) {
+			dispatch(setDuration(audioRef.current.duration));
+			if (defaultTime && defaultTime > 0) {
+				audioRef.current.currentTime = defaultTime;
+				dispatch(setCurrentTime(defaultTime));
+			}
+		}
+	}, [dispatch, defaultTime]);
 
-	const handleTimeUpdate = () => {
-		if (audioRef.current)
+	const handleTimeUpdate = useCallback(() => {
+		if (audioRef.current) {
 			dispatch(setCurrentTime(audioRef.current.currentTime));
-	};
+		}
+	}, [dispatch]);
 
-	const handleEnded = () => {
+	const handleEnded = useCallback(() => {
 		dispatch(setPlaying(false));
 		if (onNext) onNext();
-	};
+	}, [dispatch, onNext]);
 
-	const handleCanPlay = () => {
+	const handleCanPlay = useCallback(() => {
 		dispatch(setLoading(false));
-	};
+	}, [dispatch]);
 
-	const togglePlay = () => {
+	const togglePlay = useCallback(() => {
 		dispatch(setPlaying(!isPlaying));
-	};
+	}, [dispatch, isPlaying]);
 
-	const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
-		if (audioRef.current) {
-			const rect = e.currentTarget.getBoundingClientRect();
-			const percent = (e.clientX - rect.left) / rect.width;
-			audioRef.current.currentTime = percent * duration;
-		}
-	};
+	const handleProgressClick = useCallback(
+		(e: React.MouseEvent<HTMLDivElement>) => {
+			if (audioRef.current) {
+				const rect = e.currentTarget.getBoundingClientRect();
+				const percent = (e.clientX - rect.left) / rect.width;
+				audioRef.current.currentTime = percent * duration;
+			}
+		},
+		[duration]
+	);
 
-	const handleMouseDown = () => {
+	const handleMouseDown = useCallback(() => {
 		dispatch(setDragging(true));
-	};
+	}, [dispatch]);
 
-	const handleMouseMove = React.useCallback(
+	const handleMouseMove = useCallback(
 		(e: MouseEvent) => {
 			if (isDragging && audioRef.current && progressBarRef.current) {
 				const rect = progressBarRef.current.getBoundingClientRect();
@@ -117,7 +129,7 @@ export const AudioPlayer = ({
 		[dispatch, duration, isDragging]
 	);
 
-	const handleMouseUp = React.useCallback(() => {
+	const handleMouseUp = useCallback(() => {
 		dispatch(setDragging(false));
 	}, [dispatch]);
 
@@ -130,21 +142,26 @@ export const AudioPlayer = ({
 			window.removeEventListener('mousemove', handleMouseMove);
 			window.removeEventListener('mouseup', handleMouseUp);
 		};
-	}, [isDragging, duration, handleMouseMove, handleMouseUp]);
+	}, [isDragging, handleMouseMove, handleMouseUp]);
 
-	const handleForward = () => {
+	const handleForward = useCallback(() => {
 		if (audioRef.current) audioRef.current.currentTime += 5;
-	};
+	}, []);
 
-	const handleRewind = () => {
+	const handleRewind = useCallback(() => {
 		if (audioRef.current) audioRef.current.currentTime -= 5;
-	};
+	}, []);
 
-	const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		dispatch(setVolume(parseFloat(e.target.value)));
-	};
+	const handleVolumeChange = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => {
+			dispatch(setVolume(parseFloat(e.target.value)));
+		},
+		[dispatch]
+	);
 
-	const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
+	const progress = useMemo(() => {
+		return duration > 0 ? (currentTime / duration) * 100 : 0;
+	}, [currentTime, duration]);
 
 	return (
 		<div className={styles.playerCtn}>

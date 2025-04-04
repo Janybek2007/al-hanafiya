@@ -16,11 +16,12 @@ export const Articles = () => {
 			button={{
 				children: 'Бардык макалалар',
 				linearGradient: 'v2',
-				to: '/articles'
+				href: '/articles',
+				as: "a"
 			}}
 			title='Макалалар'
 		>
-			<ArticlesList articles={articles} />
+			<ArticlesList articles={articles.slice(0, 3)} />
 		</HomeSectionProps>
 	);
 };

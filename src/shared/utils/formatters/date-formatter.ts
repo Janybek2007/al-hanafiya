@@ -18,6 +18,7 @@ type DateFormat = {
 	YYYYMMDD: string;
 	MMDDYYYY: string;
 	DDMMYYYY_HHMM: string;
+	HHMM: string; // Added HHMM format
 	timeAgo: string;
 };
 
@@ -52,8 +53,8 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 		if (isNaN(inputDate.getTime())) {
 			throw new Error('Invalid date after parsing');
 		}
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	} catch (error) {
+	} catch (_) {
+		console.log(_)
 		inputDate = new Date();
 	}
 
@@ -93,6 +94,7 @@ export function formatDate(dateInput: string | Date | number): DateFormat {
 			'0'
 		)}/${year}`,
 		DDMMYYYY_HHMM: `${day} ${months[month - 1]} ${year} ж. саат ${timeString}`,
+		HHMM: timeString, // Added HHMM format
 		timeAgo
 	};
 }
@@ -137,3 +139,4 @@ export function formatRelativeTime(dateStr: string): string {
 		return 'Бир аз мурда';
 	}
 }
+

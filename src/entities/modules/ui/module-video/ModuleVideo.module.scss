@@ -45,6 +45,12 @@
 		padding-top: 11px;
 		border-bottom: 1px solid #4e4e4e;
 
+		.actions {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
 		@media (max-width: 1100px) {
 			padding-bottom: 18px;
 			padding-top: 10px;
@@ -105,13 +111,17 @@
 			}
 		}
 
-		.install {
+		.action {
 			border-radius: 28px;
 			background: var(--white);
 			display: flex;
 			align-items: center;
 			gap: 6px;
 			padding: 4px 17px;
+			&.save {
+				fill: transparent;
+				stroke: #000;	
+			}
 
 			@media (max-width: 1100px) {
 				padding: 4px 15px;
