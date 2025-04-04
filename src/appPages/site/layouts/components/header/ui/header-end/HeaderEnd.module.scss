@@ -41,6 +41,11 @@
 		width: var(--glasses-btn-width);
 		height: var(--glasses-btn-height);
 
+		&.active {
+    background-color: rgba(0, 0, 0, 0.1); // Активдүү экенин көрсөтүү
+    border-radius: 4px;
+  }
+
 		@media (max-width: 1280px) {
 			width: 60px;
 			height: 40px;

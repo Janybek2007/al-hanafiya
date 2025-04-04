@@ -8,7 +8,6 @@ const ProfileImages: React.FC = () => {
 	const [currentIndex, setCurrentIndex] = React.useState(0);
 	const [direction, setDirection] = React.useState(0);
 
-	// Сүрөттөрдүн массивдери
 	const images = React.useMemo(
 		() => [
 			'/images/teacher.png',
@@ -20,7 +19,6 @@ const ProfileImages: React.FC = () => {
 		[]
 	);
 
-	// Анимация варианттары
 	const slideVariants = {
 		enter: (direction: number) => ({
 			x: direction > 0 ? 1200 : -1200,
@@ -41,19 +39,16 @@ const ProfileImages: React.FC = () => {
 		})
 	};
 
-	// Алдыга жылуу
 	const handleNext = () => {
 		setDirection(1);
 		setCurrentIndex(prev => (prev + 1) % images.length);
 	};
 
-	// Артка жылуу
 	const handlePrev = () => {
 		setDirection(-1);
 		setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
 	};
 
-	// Автоматтык алмашуу
 	React.useEffect(() => {
 		const interval = setInterval(() => {
 			handleNext();
