@@ -12,7 +12,7 @@ export const TabsBar: React.FC = () => {
 	const { width } = useSize();
 	const pathname = usePathname();
 
-	if (width > 1024) return <></>;
+	if (width === 0 || width > 1024) return <></>;
 
 	return (
 		<div id='tabs-bar' className={styles.tabs}>
