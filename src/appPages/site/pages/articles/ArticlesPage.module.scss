@@ -1,0 +1,90 @@
+.title {
+	margin: 0;
+	padding-top: 53px;
+	h1 {
+		font-size: 36px;
+	}
+}
+
+.article_head {
+	margin: 33px 0;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.card_article {
+	min-width: 621px;
+	max-width: 621px;
+	[class*='card_content'] {
+		[class*='description'] {
+			font-size: 20px !important;
+		}
+		[class*='title'] {
+			font-weight: 500;
+			font-size: 28px !important;
+		}
+	}
+	figure img {
+		max-height: 480px;
+		min-height: 480px;
+		object-fit: cover;
+		border-radius: 10px;
+	}
+}
+
+.articlesList {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.card_articleList {
+	gap: 20px;
+	width: 1029px;
+	max-height: max-content;
+	figure img {
+		max-height: max-content;
+		border-radius: 8px;
+	}
+	[class*='card_content'] {
+		[class*='description'] {
+			font-size: 16px !important;
+		}
+		[class*='title'] {
+			font-size: 26px !important;
+			line-height: 1.09 !important;
+		}
+	}
+}
+
+.articles {
+	margin: 100px 0;
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	[class*='card_content'] {
+		padding-top: 5px;
+		max-width: 60%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		[class*='description'],
+		[class*='title'] {
+			font-size: 20px !important;
+		}
+		[class*='title'] {
+			font-weight: bold;
+		}
+		[class*='row'] {
+			padding: 5px !important;
+		}
+	}
+}
+
+.popularArticle {
+	margin-top: 34px;
+	display: flex;
+	align-items: center;
+	gap: 42px;
+}

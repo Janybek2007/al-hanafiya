@@ -1,0 +1,13 @@
+.header {
+  background-color: var(--accent);
+  background-image: url("/images/header-background.png");
+  a {
+    color: var(--white);
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23.5px 0;
+  }
+}

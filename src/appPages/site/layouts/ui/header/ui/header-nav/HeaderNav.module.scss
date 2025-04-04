@@ -1,0 +1,29 @@
+.header_nav {
+	display: flex;
+	align-items: center;
+	gap: 66px;
+
+	@media (max-width: 1400px) {
+		gap: 40px;
+	}
+
+	@media (max-width: 1200px) {
+		gap: 30px;
+	}
+
+	.link {
+		padding: 12px 8px;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 100%;
+
+		@media (max-width: 1200px) {
+			font-size: 18px;
+		}
+
+		&.active {
+			text-decoration: underline;
+			color: #f24822;
+		}
+	}
+}

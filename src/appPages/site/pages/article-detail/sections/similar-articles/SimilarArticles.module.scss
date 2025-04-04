@@ -1,0 +1,15 @@
+.similar_articles {
+	margin: 48px 0 78px 0;
+	.container {
+		.section_title h1 {
+			font-size: 32px;
+		}
+		.articles {
+			margin-top: 34px;
+			display: flex;
+			flex-direction: column;
+			gap: 21px;
+			max-width: 85%;
+		}
+	}
+}

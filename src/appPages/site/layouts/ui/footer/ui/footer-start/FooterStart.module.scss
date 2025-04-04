@@ -1,0 +1,29 @@
+.footer_start {
+	display: flex;
+	align-items: center;
+	max-width: 1052px;
+	margin: 0 auto;
+	flex-direction: column;
+	.divider {
+		width: 100%;
+		background-color: var(--white);
+		height: 1px;
+		margin: 50px 0;
+	}
+	.social_links {
+		display: flex;
+		align-items: center;
+		gap: 65px;
+	}
+	.nav {
+		display: flex;
+		align-items: center;
+		gap: 79px;
+		a {
+			font-size: 20px;
+			font-weight: 500;
+			line-height: 21px;
+			letter-spacing: -2%;
+		}
+	}
+}

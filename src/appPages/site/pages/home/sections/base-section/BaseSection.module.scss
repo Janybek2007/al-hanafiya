@@ -1,0 +1,31 @@
+.base_section {
+	margin-bottom: 100px;
+	@media (max-width: 1250px) {
+		margin-bottom: 70px;
+	}
+	.container {
+		button {
+			margin: 0 auto;
+			width: max-content;
+			color: rgb(246, 248, 249);
+		}
+		.title {
+			background: linear-gradient(179.08deg, var(--accent-gradient));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			font-family: Oswald;
+			font-size: 48px;
+			font-weight: 500;
+			line-height: 71px;
+			letter-spacing: 0%;
+			text-align: left;
+			margin: 0 auto;
+			width: max-content;
+		}
+		.content {
+			margin-top: 57px;
+			margin-bottom: 66px;
+		}
+	}
+}
